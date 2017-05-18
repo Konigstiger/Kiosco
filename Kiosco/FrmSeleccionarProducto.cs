@@ -41,11 +41,10 @@ namespace Kiosco
 
         private void SetControles()
         {
-            this.KeyPreview = true;
-            txtIdProducto.Visible = false;
             SetGrid(dgv);
-
         }
+
+
         private static void SetGrid(DataGridView dgv)
         {
             //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
@@ -126,23 +125,8 @@ namespace Kiosco
 
         public void LimpiarControles()
         {
-            txtCodigoBarras.Clear();
-            txtDescripcion.Clear();
-            txtNotas.Clear();
-            nudPrecio.Value = 0;
-            nudPrecioCosto.Value = 0;
-            nudStockMaximo.Value = 0;
-            nudStockMinimo.Value = 0;
-            chkSoloAdultos.Checked = false;
-            txtNotas.Clear();
-
-            //Para estos controles, se puede poner un valor default.
-            //No obstante, es util para el operador, si va a cargar productos similares.
-            //cboRubro
-            //cboUnidad
+            ucProductoEdit1.Clear();
         }
-
-
 
 
         private void CerrarVentana()
@@ -150,6 +134,7 @@ namespace Kiosco
             this.Close();
             this.Dispose();
         }
+
 
         private void dgv_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -159,18 +144,65 @@ namespace Kiosco
             messageBoxCs.AppendFormat("{0} = {1}", "RowIndex", e.RowIndex);
             messageBoxCs.AppendLine();
 
-            txtNotas.Text = messageBoxCs.ToString();
+            ucProductoEdit1.Notas = messageBoxCs.ToString();
 
             //obtener el numero de row, y con eso, obtener los demas datos.
 
             var idProducto = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value);
-            txtNotas.Text = idProducto.ToString();
+            ucProductoEdit1.Notas = idProducto.ToString();
 
             //Comunicar las ventanas entre si...
             CallerForm.IdProducto = idProducto;
 
             CerrarVentana();
 
+        }
+
+        private void tsbSearch_Click(object sender, EventArgs e)
+        {
+            ToggleSearch();
+        }
+
+        private void ToggleSearch()
+        {
+            tsbSearchTextBox.Visible = !tsbSearchTextBox.Visible;
+            tsbSearchPerform.Visible = !tsbSearchPerform.Visible;
+            tsbSearchClearAndPerform.Visible = !tsbSearchClearAndPerform.Visible;
+            tsbSearchTextBox.Focus();
+        }
+
+        private void ucProductoEdit1_StockChanged(object sender, UserControl.ValueChangedEventArgs e)
+        {
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = e.NewValue;
+        }
+
+        private void tsbSearchPerform_Click(object sender, EventArgs e)
+        {
+            ExecuteSearch();
+        }
+
+        private void tsbSearchClearAndPerform_Click(object sender, EventArgs e)
+        {
+            tsbSearchTextBox.Clear();
+            tsbSearchTextBox.Focus();
+            ExecuteSearch();
+        }
+
+        public void ExecuteSearch()
+        {
+            CargarGrilla(tsbSearchTextBox.Text);
+        }
+
+        private void tsbSearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private bool _ingresandoCodigo = false;
+
+        private void tsbSearchTextBox_Leave(object sender, EventArgs e)
+        {
+            _ingresandoCodigo = true;
         }
     }
 }

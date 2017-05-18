@@ -8,7 +8,7 @@ using Model;
 
 namespace Kiosco
 {
-    public partial class FrmProducto : Form, IAbmGeneral 
+    public partial class FrmProducto : Form, IAbmGeneral
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
@@ -55,9 +55,8 @@ namespace Kiosco
 
             dgv.RowsDefaultCellStyle.BackColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
         }
+
 
         public void CargarControles()
         {
@@ -113,29 +112,13 @@ namespace Kiosco
             origenDatos = searchText.Equals("") ?
                 ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
                 ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
-            //// ok ////
-            //var bindingList = new BindingList<ProductoView>(origenDatos);
-            //var source = new BindingSource(bindingList, null);
-            //dgv.DataSource = source;
-            //// end ok ////
+
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
-            //veremos si algun dia hago andar esto....
-            //dgv.Sort(c[(int)GridColumn.Descripcion], ListSortDirection.Ascending);
-
-            //-------------------
-
-            //dgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing;
-            //dgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            //or even better .DisableResizing. 
-            //Most time consumption enum is DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
-
-
         }
 
 
