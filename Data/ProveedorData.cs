@@ -40,7 +40,7 @@ namespace Data
         }
 
 
-        public static Proveedor GetByPrimaryKey(long id)
+        public static Proveedor GetByPrimaryKey(int id)
         {
             var c = new Proveedor();
             var conn = new SqlConnection(GeneralData.CadenaConexion);

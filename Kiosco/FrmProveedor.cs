@@ -67,7 +67,7 @@ namespace Kiosco
             m.PersonaContacto = txtPersonaContacto.Text.Trim();
             m.HorarioAtencion = txtHorarioAtencion.Text.Trim();
             m.DiasDeVisita = txtDiasDeVisita.Text.Trim();
-            m.IdRubro = (int) cboRubro.SelectedValue;
+            m.IdRubro = (int)cboRubro.SelectedValue;
 
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
@@ -99,7 +99,7 @@ namespace Kiosco
                 m.PersonaContacto = txtPersonaContacto.Text.Trim();
                 m.HorarioAtencion = txtHorarioAtencion.Text.Trim();
                 m.DiasDeVisita = txtDiasDeVisita.Text.Trim();
-                m.IdRubro = (int) cboRubro.SelectedValue;
+                m.IdRubro = (int)cboRubro.SelectedValue;
 
                 m.IdProveedor = ProveedorControlador.Update(m);
             }
@@ -301,27 +301,21 @@ namespace Kiosco
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var id = Convert.ToInt32(txtIdProveedor.Text.Trim());
+            int v;
+            var id = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
 
-                var c = ProveedorControlador.GetByPrimaryKey(id);
+            var c = ProveedorControlador.GetByPrimaryKey(id);
 
-                txtRazonSocial.Text = c.RazonSocial;
-                txtDireccion.Text = c.Direccion;
-                txtTelefono.Text = c.Telefono;
-                txtEmail.Text = c.Email;
-                txtPersonaContacto.Text = c.PersonaContacto;
-                txtHorarioAtencion.Text = c.HorarioAtencion;
-                txtDiasDeVisita.Text = c.DiasDeVisita;
-                txtNotas.Text = c.Notas;
+            txtRazonSocial.Text = c.RazonSocial;
+            txtDireccion.Text = c.Direccion;
+            txtTelefono.Text = c.Telefono;
+            txtEmail.Text = c.Email;
+            txtPersonaContacto.Text = c.PersonaContacto;
+            txtHorarioAtencion.Text = c.HorarioAtencion;
+            txtDiasDeVisita.Text = c.DiasDeVisita;
+            txtNotas.Text = c.Notas;
 
-                cboRubro.SelectedValue = c.IdRubro;
-            }
-            catch 
-            {
-                //TODO: No engullir excepcion
-            }
+            cboRubro.SelectedValue = c.IdRubro;
 
         }
     }

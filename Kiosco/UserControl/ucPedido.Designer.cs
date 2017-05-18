@@ -272,10 +272,10 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnGuardar.Location = new System.Drawing.Point(820, 102);
+            this.btnGuardar.Location = new System.Drawing.Point(820, 127);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(254, 59);
+            this.btnGuardar.Size = new System.Drawing.Size(254, 34);
             this.btnGuardar.TabIndex = 121;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;

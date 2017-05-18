@@ -15,7 +15,11 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public long IdPedido
         {
-            get { return Convert.ToInt64(txtIdPedido.Text); }
+            get
+            {
+                long v = long.TryParse(txtIdPedido.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
             set {
                 txtIdPedido.Text = value.ToString();
                 //hacer cosas de bind aqui
@@ -32,7 +36,11 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public int IdProveedor
         {
-            get { return Convert.ToInt32(txtIdProveedor.Text); }
+            get
+            {
+                int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
             set { txtIdProveedor.Text = value.ToString(); }
         }
 
@@ -84,9 +92,10 @@ namespace Kiosco.UserControl
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
-            var codigo = Convert.ToInt64(txtIdProveedor.Text.Trim());
 
-            var c = ProveedorControlador.GetByPrimaryKey(codigo);
+            int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
+
+            var c = ProveedorControlador.GetByPrimaryKey(v);
 
             txtProveedorDescripcion.Text = c.RazonSocial;
             //txtApellido.Text = c.Apellido;

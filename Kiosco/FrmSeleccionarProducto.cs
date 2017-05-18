@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -122,8 +121,6 @@ namespace Kiosco
 
         private void CargarControles()
         {
-            //CargarRubro();
-            //CargarUnidad();
             CargarGrilla(tsbSearchTextBox.Text);
         }
 

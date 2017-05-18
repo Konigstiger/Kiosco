@@ -372,10 +372,9 @@ namespace Kiosco
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
-            //TODO: Validar. Puede usarse un try/catch
-            var codigo = Convert.ToInt64(txtIdProveedor.Text.Trim());
+            int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
 
-            var c = ProveedorControlador.GetByPrimaryKey(codigo);
+            var c = ProveedorControlador.GetByPrimaryKey(v);
 
             txtProveedorDescripcion.Text = c.RazonSocial;
             //txtApellido.Text = c.Apellido;
@@ -383,11 +382,6 @@ namespace Kiosco
             //txtDireccion.Text = c.Direccion;
             //txtTelefono.Text = c.Telefono;
             //txtNotas.Text = c.Notas;
-        }
-
-        private void btnAgregarEnvase_Click(object sender, EventArgs e)
-        {
-
         }
 
 

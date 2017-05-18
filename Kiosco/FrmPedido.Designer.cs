@@ -38,8 +38,8 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.ucPedidoDetalle1 = new Kiosco.ucPedidoDetalle();
             this.ucPedido1 = new Kiosco.UserControl.ucPedido();
+            this.ucPedidoDetalle1 = new Kiosco.ucPedidoDetalle();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +75,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(516, 31);
+            this.tsb.Size = new System.Drawing.Size(311, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -147,6 +147,17 @@
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // ucPedido1
+            // 
+            this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ucPedido1.IdPedido = ((long)(0));
+            this.ucPedido1.IdProveedor = 0;
+            this.ucPedido1.Location = new System.Drawing.Point(3, 1);
+            this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucPedido1.Name = "ucPedido1";
+            this.ucPedido1.Size = new System.Drawing.Size(1087, 180);
+            this.ucPedido1.TabIndex = 91;
+            // 
             // ucPedidoDetalle1
             // 
             this.ucPedidoDetalle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -167,17 +178,6 @@
             131072});
             this.ucPedidoDetalle1.Size = new System.Drawing.Size(1076, 74);
             this.ucPedidoDetalle1.TabIndex = 90;
-            // 
-            // ucPedido1
-            // 
-            this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.ucPedido1.IdPedido = ((long)(0));
-            this.ucPedido1.IdProveedor = 0;
-            this.ucPedido1.Location = new System.Drawing.Point(3, 1);
-            this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucPedido1.Name = "ucPedido1";
-            this.ucPedido1.Size = new System.Drawing.Size(1087, 180);
-            this.ucPedido1.TabIndex = 91;
             // 
             // FrmPedido
             // 

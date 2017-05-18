@@ -30,16 +30,19 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public int IdProveedor
         {
-            get { return Convert.ToInt32(txtIdProveedor.Text); }
+            get
+            {
+                int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
             set { txtIdProveedor.Text = value.ToString(); }
         }
 
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
-            var codigo = Convert.ToInt64(txtIdProveedor.Text.Trim());
-
-            var c = ProveedorControlador.GetByPrimaryKey(codigo);
+            int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
+            var c = ProveedorControlador.GetByPrimaryKey(v);
 
             txtRazonSocial.Text = c.RazonSocial;
             //txtApellido.Text = c.Apellido;
