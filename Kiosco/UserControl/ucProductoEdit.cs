@@ -9,7 +9,7 @@ namespace Kiosco.UserControl
     public partial class ucProductoEdit : System.Windows.Forms.UserControl, ISelectorMarca
     {
         [Category("Action")]
-        [Description("Es lanzado cuando el valor es cambiado")]
+        [Description("Es lanzado cuando el Stock es cambiado")]
         public event StockChangedEventHandler StockChanged;
 
         protected virtual void OnStockChanged(ValueChangedEventArgs e)
@@ -47,11 +47,9 @@ namespace Kiosco.UserControl
             var res = StockControlador.Update(s);
 
 
-
             //TODO: Para actualizar celda de stock, debo EXPONER un evento aqui.
             OnStockChanged(new ValueChangedEventArgs(s.Cantidad));
             //Evento StockActualizado, y devolver al cliente (formulario) la Cantidad final.
-            //dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = s.Cantidad;
         }
 
 

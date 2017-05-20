@@ -8,6 +8,16 @@ namespace Kiosco.UserControl
 {
     public partial class ucPedido : System.Windows.Forms.UserControl, ISelectorProveedor
     {
+        [Category("Action")]
+        [Description("Es lanzado cuando el Proveedor es cambiado")]
+        public event ValueChangedEventHandler ProveedorChanged;
+
+        protected virtual void OnProveedorChanged(ValueChangedEventArgs e)
+        {
+            ProveedorChanged?.Invoke(this, e);
+        }
+
+
         [Description("IdPedido. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -41,7 +51,11 @@ namespace Kiosco.UserControl
                 int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
                 return v;
             }
-            set { txtIdProveedor.Text = value.ToString(); }
+            set
+            {
+                txtIdProveedor.Text = value.ToString();
+                OnProveedorChanged(new ValueChangedEventArgs(value));
+            }
         }
 
 

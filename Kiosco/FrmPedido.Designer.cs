@@ -55,7 +55,7 @@
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1076, 399);
+            this.dgv.Size = new System.Drawing.Size(1076, 440);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -152,18 +152,21 @@
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdPedido = ((long)(0));
             this.ucPedido1.IdProveedor = 0;
-            this.ucPedido1.Location = new System.Drawing.Point(3, 1);
+            this.ucPedido1.Location = new System.Drawing.Point(14, 13);
             this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucPedido1.Name = "ucPedido1";
-            this.ucPedido1.Size = new System.Drawing.Size(1087, 180);
+            this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
             this.ucPedido1.TabIndex = 91;
+            this.ucPedido1.ProveedorChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
             // 
             // ucPedidoDetalle1
             // 
+            this.ucPedidoDetalle1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucPedidoDetalle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ucPedidoDetalle1.Cantidad = 1;
-            this.ucPedidoDetalle1.CodigoBarras = "0";
-            this.ucPedidoDetalle1.Descripcion = "Vino Viñas Riojanas 1000 ml Caja Tinto";
+            this.ucPedidoDetalle1.CodigoBarras = "";
+            this.ucPedidoDetalle1.Descripcion = "";
+            this.ucPedidoDetalle1.IdProducto = ((long)(0));
             this.ucPedidoDetalle1.Importe = new decimal(new int[] {
             0,
             0,

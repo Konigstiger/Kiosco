@@ -252,7 +252,8 @@ namespace Kiosco
             //TODO: Ver de reactivar esto.
             //txtDescripcion.Focus();
 
-            var f = new FrmSeleccionarProducto(ucPedidoDetalle1);
+            //Con este IdProveedor, deberia filtrar por el mismo.
+            var f = new FrmSeleccionarProducto(ucPedidoDetalle1, ucPedido1.IdProveedor);
             f.Show();
         }
 
@@ -295,8 +296,10 @@ namespace Kiosco
             Eliminar();
         }
 
-
-
-
+        private void ucPedido1_ProveedorChanged(object sender, UserControl.ValueChangedEventArgs e)
+        {
+            if (!Util.ConfirmarLimpiarPedido())
+                return;
+        }
     }
 }

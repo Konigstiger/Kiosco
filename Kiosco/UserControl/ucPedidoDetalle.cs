@@ -33,7 +33,7 @@ namespace Kiosco
         [Bindable(true)]
         public int Cantidad
         {
-            get {return Convert.ToInt32(nudCantidad.Value);}
+            get {return (int)nudCantidad.Value;}
             set {nudCantidad.Value = value;}
         }
 
@@ -99,16 +99,27 @@ namespace Kiosco
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
-            var id = Convert.ToInt64(txtIdProducto.Text.Trim());
+            int v = int.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
+            var id = v;
+
             var p = ProductoControlador.GetByPrimaryKey(id);
 
             txtCodigoBarras.Text = p.CodigoBarras; // esto desencadena evento.
         }
 
+
         public long IdProducto
         {
-            get { return Convert.ToInt64(txtIdProducto.Text); }
+            get
+            {
+                long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
             set { txtIdProducto.Text = value.ToString(); }
         }
+
+
+
+
     }
 }

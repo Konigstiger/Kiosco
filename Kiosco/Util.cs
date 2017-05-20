@@ -20,6 +20,15 @@ namespace Kiosco
             return confirmResult == DialogResult.Yes;
         }
 
+        public static bool ConfirmarLimpiarPedido()
+        {
+            var confirmResult = MessageBox.Show("Proveedor Cambiado. Se eliminarán los productos ingresados. ¿Está seguro?",
+                                     "Confirmar Eliminar",
+                                     MessageBoxButtons.YesNo);
+
+            return confirmResult == DialogResult.Yes;
+        }
+
 
         public static void SetColumnsReadOnly(DataGridView dgv)
         {

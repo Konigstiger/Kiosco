@@ -35,6 +35,7 @@ namespace Kiosco
         public FrmSeleccionarProducto(ISelectorProducto callerForm, int idProveedor)
         {
             CallerForm = callerForm;
+            //Con este IdProveedor, deberia filtrar por el mismo.
             InitializeComponent();
         }
 

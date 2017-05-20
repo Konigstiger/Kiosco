@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EstadoPedidoData.cs" />
+    <Compile Include="PedidoDetalleData.cs" />
     <Compile Include="ProductoProveedorData.cs" />
     <Compile Include="PedidoData.cs" />
     <Compile Include="PedidoRepository.cs" />
