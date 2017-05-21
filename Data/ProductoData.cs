@@ -455,6 +455,7 @@ namespace Data
             var p7 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
             var p8 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
             var p9 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
+            var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas};
 
             cmd.Parameters.Add(p0);
             cmd.Parameters.Add(p1);
@@ -466,6 +467,7 @@ namespace Data
             cmd.Parameters.Add(p7);
             cmd.Parameters.Add(p8);
             cmd.Parameters.Add(p9);
+            cmd.Parameters.Add(p10);
 
             try {
                 conn.Open();

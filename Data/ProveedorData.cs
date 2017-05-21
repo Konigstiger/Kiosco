@@ -141,6 +141,7 @@ namespace Data
             cmd.Parameters.Add(p5);
             cmd.Parameters.Add(p6);
             cmd.Parameters.Add(p7);
+            cmd.Parameters.Add(p8);
 
             try {
                 conn.Open();
