@@ -11,138 +11,117 @@ namespace Data
         public static List<Producto> GetAll()
         {
             var list = new List<Producto>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Producto_GetAll", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Producto_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new Producto {
+                                IdProducto = (long)rdr["IdProducto"],
+                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                PrecioVenta = rdr["PrecioVenta"] != DBNull.Value ? (decimal)rdr["PrecioVenta"] : 0,
+                                PrecioCostoPromedio = rdr["PrecioCostoPromedio"] != DBNull.Value ? (decimal)rdr["PrecioCostoPromedio"] : 0,
+                                IdRubro = (int)rdr["IdRubro"],
+                                IdMarca = (int)rdr["IdMarca"],
+                                SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false,
+                                StockMinimo = (int)rdr["StockMinimo"],
+                                StockMaximo = (int)rdr["StockMaximo"],
+                                IdUnidad = (int)rdr["IdUnidad"]
+                            };
 
-                while (rdr.Read()) {
-                    var p = new Producto {
-                        IdProducto = (long)rdr["IdProducto"],
-                        CodigoBarras = (string)rdr["CodigoBarras"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        PrecioVenta = rdr["PrecioVenta"] != DBNull.Value ? (decimal)rdr["PrecioVenta"] : 0,
-                        PrecioCostoPromedio = rdr["PrecioCostoPromedio"] != DBNull.Value ? (decimal)rdr["PrecioCostoPromedio"] : 0,
-                        IdRubro = (int)rdr["IdRubro"],
-                        IdMarca = (int)rdr["IdMarca"],
-                        SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false,
-                        StockMinimo = (int)rdr["StockMinimo"],
-                        StockMaximo = (int)rdr["StockMaximo"],
-                        IdUnidad = (int)rdr["IdUnidad"]
-                    };
-
-                    list.Add(p);
+                            list.Add(p);
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return list;
-
         }
+
 
         public static List<ProductoView> GetAllView()
         {
-            var productoViews = new List<ProductoView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Producto_View_GetAll", conn) { CommandType = CommandType.StoredProcedure };
-
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new ProductoView {
-                        IdProducto = (long)rdr["IdProducto"],
-                        CodigoBarras = (string)rdr["CodigoBarras"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        Marca = (string)rdr["Marca"],
-                        Rubro = (string)rdr["Rubro"],
-                        Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0
-                    };
-
-                    productoViews.Add(p);
+            var list = new List<ProductoView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Producto_View_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new ProductoView {
+                                IdProducto = (long)rdr["IdProducto"],
+                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Marca = (string)rdr["Marca"],
+                                Rubro = (string)rdr["Rubro"],
+                                Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
-            return productoViews;
+            return list;
         }
 
 
         public static ProductoView GetByPrimaryKeyView(long idProducto)
         {
             var c = new ProductoView();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Producto_View_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Producto_View_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdProducto", SqlDbType.Int) { Value = idProducto };
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdProducto", SqlDbType.Int) { Value = idProducto };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    c.IdProducto = (long)rdr["IdProducto"];
-                    c.CodigoBarras = (string)rdr["CodigoBarras"];
-                    c.Descripcion = (string)rdr["Descripcion"];
-                    //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
-                    //TODO: Continuar aqui...
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdProducto = (long)rdr["IdProducto"];
+                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.Descripcion = (string)rdr["Descripcion"];
+                            //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            //TODO: Continuar aqui...
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return c;
         }
+
 
         public static Producto GetByPrimaryKey(long id)
         {
             var c = new Producto();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Producto_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Producto_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdProducto", SqlDbType.Int) { Value = id };
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdProducto", SqlDbType.Int) { Value = id };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    c.IdProducto = (long)rdr["IdProducto"];
-                    c.CodigoBarras = (string)rdr["CodigoBarras"];
-                    c.Descripcion = (string)rdr["Descripcion"];
-                    c.PrecioVenta = (decimal)rdr["PrecioVenta"];
-                    c.PrecioCostoPromedio = (decimal)rdr["PrecioCostoPromedio"];
-                    c.SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false;
-                    c.StockMinimo = (int)rdr["StockMinimo"];
-                    c.StockMaximo = (int)rdr["StockMaximo"];
-                    c.IdRubro = (int)rdr["IdRubro"];
-                    c.IdMarca = (int)rdr["IdMarca"];
-                    c.IdUnidad = (int)rdr["IdUnidad"];
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdProducto = (long)rdr["IdProducto"];
+                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.Descripcion = (string)rdr["Descripcion"];
+                            c.PrecioVenta = (decimal)rdr["PrecioVenta"];
+                            c.PrecioCostoPromedio = (decimal)rdr["PrecioCostoPromedio"];
+                            c.SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false;
+                            c.StockMinimo = (int)rdr["StockMinimo"];
+                            c.StockMaximo = (int)rdr["StockMaximo"];
+                            c.IdRubro = (int)rdr["IdRubro"];
+                            c.IdMarca = (int)rdr["IdMarca"];
+                            c.IdUnidad = (int)rdr["IdUnidad"];
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return c;
         }
 
@@ -150,102 +129,75 @@ namespace Data
 
         public static List<ProductoView> GetAllByDepositoGetByPrimaryKey(long idProducto, int idDeposito)
         {
-            var productoViews = new List<ProductoView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Stock_Producto_ByDeposito_GetByPrimaryKey", conn) {
-                CommandType = CommandType.StoredProcedure
-            };
+            var list = new List<ProductoView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Stock_Producto_ByDeposito_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
-            var p2 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = idDeposito };
+                    var p1 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
+                    var p2 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = idDeposito };
 
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
 
-                while (rdr.Read()) {
-                    var p = new ProductoView {
-                        IdProducto = (long)rdr["IdProducto"],
-                        CodigoBarras = (string)rdr["CodigoBarras"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
-                        Ganancia = (string)rdr["Ganancia"],
-                        Stock = (int)rdr["Stock"],
-                        Marca = (string)rdr["Marca"],
-                        Rubro = (string)rdr["Rubro"]
-                    };
-
-                    productoViews.Add(p);
+                        while (rdr.Read()) {
+                            var p = new ProductoView {
+                                IdProducto = (long)rdr["IdProducto"],
+                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
+                                Ganancia = (string)rdr["Ganancia"],
+                                Stock = (int)rdr["Stock"],
+                                Marca = (string)rdr["Marca"],
+                                Rubro = (string)rdr["Rubro"]
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
-            return productoViews;
+            return list;
         }
 
 
         public static List<ProductoView> GetAllByDeposito(int idDeposito)
         {
             var productoViews = new List<ProductoView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
 
-            //---------------------------------------------------------------------
-            //Para obtener productos con STOCK
-            var cmd = new SqlCommand("Stock_Producto_ByDeposito_GetAll", conn) {
-                CommandType = CommandType.StoredProcedure
-            };
+                using (var cmd = new SqlCommand("Stock_Producto_ByDeposito_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = idDeposito };
+                    var p1 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = idDeposito };
 
-            cmd.Parameters.Add(p1);
-            //---------------------------------------------------------------------
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
 
-                /*
-                    IdProducto = 0,
-                    CodigoBarras = 1,
-                    Descripcion = 2,
-                    Precio = 3,
-                    Ganancia = 4,
-                    Marca = 5,
-                    Stock = 6,
-                    Rubro = 7
-                */
-
-                while (rdr.Read()) {
-                    var p = new ProductoView {
-                        IdProducto = (long)rdr["IdProducto"],
-                        CodigoBarras = (string)rdr["CodigoBarras"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
-                        Ganancia = (string)rdr["Ganancia"],
-                        Marca = (string)rdr["Marca"],
-                        Stock = (int)rdr["Stock"],
-                        Rubro = (string)rdr["Rubro"],
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    };
-
-                    productoViews.Add(p);
+                        while (rdr.Read()) {
+                            var p = new ProductoView {
+                                IdProducto = (long)rdr["IdProducto"],
+                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
+                                Ganancia = (string)rdr["Ganancia"],
+                                Marca = (string)rdr["Marca"],
+                                Stock = (int)rdr["Stock"],
+                                Rubro = (string)rdr["Rubro"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
+                            productoViews.Add(p);
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return productoViews;
         }
+
 
         public static List<ProductoView> GetAllByDeposito_GetByDescripcion(int idDeposito, string descripcion)
         {
@@ -266,16 +218,6 @@ namespace Data
                 conn.Open();
                 rdr = cmd.ExecuteReader();
 
-                /*
-                IdProducto = 0,
-                CodigoBarras = 1,
-                Descripcion = 2,
-                Precio = 3,
-                Ganancia = 4,
-                Marca = 5,
-                Stock = 6,
-                Rubro = 7
-                */
                 while (rdr.Read()) {
                     var p = new ProductoView {
                         IdProducto = (long)rdr["IdProducto"],
@@ -353,17 +295,17 @@ namespace Data
                 rdr = cmd.ExecuteReader();
 
                 /*
-	            IdProducto,
-	            CodigoBarras,
-	            Descripcion,
-	            PrecioVenta,
-	            PrecioCostoPromedio,
-	            IdRubro,
-	            IdMarca,
-	            SoloAdultos,
-	            StockMinimo,
-	            StockMaximo,
-	            IdUnidad
+                IdProducto,
+                CodigoBarras,
+                Descripcion,
+                PrecioVenta,
+                PrecioCostoPromedio,
+                IdRubro,
+                IdMarca,
+                SoloAdultos,
+                StockMinimo,
+                StockMaximo,
+                IdUnidad
                  */
 
                 while (rdr.Read()) {
@@ -455,7 +397,7 @@ namespace Data
             var p7 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
             var p8 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
             var p9 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
-            var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas};
+            var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
             cmd.Parameters.Add(p0);
             cmd.Parameters.Add(p1);

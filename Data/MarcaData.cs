@@ -11,92 +11,73 @@ namespace Data
         public static List<MarcaView> GetAll()
         {
             var list = new List<MarcaView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Marca_GetAll", conn) {CommandType = CommandType.StoredProcedure};
+                    conn.Open();
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new MarcaView
-                    {
-                        IdMarca = (int) rdr["IdMarca"],
-                        Descripcion = (string) rdr["Descripcion"],
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    };
-
-                    list.Add(p);
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new MarcaView {
+                                IdMarca = (int)rdr["IdMarca"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
+                return list;
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-            return list;
         }
 
 
         public static List<MarcaView> SearchByParameters(string descripcion)
         {
             var list = new List<MarcaView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_GetByParameters", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlDataReader rdr = null;
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
 
-            var cmd = new SqlCommand("Marca_GetByParameters", conn) {CommandType = CommandType.StoredProcedure};
+                    cmd.Parameters.Add(p1);
 
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) {Value = descripcion};
-
-            cmd.Parameters.Add(p1);
-
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new MarcaView
-                    {
-                        IdMarca = (int) rdr["IdMarca"],
-                        Descripcion = (string) rdr["Descripcion"],
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    };
-
-                    list.Add(p);
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new MarcaView {
+                                IdMarca = (int)rdr["IdMarca"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return list;
         }
 
 
         public static int Insert(Marca m)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            var cmd = new SqlCommand("Marca_Insert", conn) {CommandType = CommandType.StoredProcedure};
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_Insert", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            //var p0 = new SqlParameter("IdMarca", SqlDbType.Int) {Direction = ParameterDirection.Output};
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) {Value = m.Descripcion};
-            var p2 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas};
+                    //var p0 = new SqlParameter("IdMarca", SqlDbType.Int) {Direction = ParameterDirection.Output};
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
+                    var p2 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
-            //cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
+                    //cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
-            try {
-                conn.Open();
-
-                //cmd.ExecuteNonQuery();
-                m.IdMarca = (int)cmd.ExecuteScalar();
-            }
-            finally {
-                conn.Close();
+                    conn.Open();
+                    m.IdMarca = (int)cmd.ExecuteScalar();
+                }
             }
 
             return m.IdMarca;
@@ -106,26 +87,22 @@ namespace Data
         public static Marca GetByPrimaryKey(int idMarca)
         {
             var c = new Marca();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Marca_GetByPrimaryKey", conn) {CommandType = CommandType.StoredProcedure};
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdMarca", SqlDbType.Int) {Value = idMarca};
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = idMarca };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    c.IdMarca = (int) rdr["IdMarca"];
-                    c.Descripcion = (string) rdr["Descripcion"];
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdMarca = (int)rdr["IdMarca"];
+                            c.Descripcion = (string)rdr["Descripcion"];
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        }
+                    }
                 }
-            }
-            finally {
-                rdr?.Close();
-                conn.Close();
             }
 
             return c;
@@ -135,52 +112,44 @@ namespace Data
         public static MarcaView GetByPrimaryKeyView(int idMarca)
         {
             var c = new MarcaView();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Marca_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = idMarca };
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = idMarca };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    c.IdMarca = (int)rdr["IdMarca"];
-                    c.Descripcion = (string)rdr["Descripcion"];
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdMarca = (int)rdr["IdMarca"];
+                            c.Descripcion = (string)rdr["Descripcion"];
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return c;
         }
 
+
         public static int Update(Marca model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_Update", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Marca_Update", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdMarca", SqlDbType.VarChar) { Value = model.IdMarca };
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
+                    var p2 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
-            var p0 = new SqlParameter("IdMarca", SqlDbType.VarChar) { Value = model.IdMarca };
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
-            var p2 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
-            cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-
-            try {
-                conn.Open();
-                model.IdMarca = (int)cmd.ExecuteScalar();
-
-            }
-            finally {
-                conn.Close();
+                    conn.Open();
+                    model.IdMarca = (int)cmd.ExecuteScalar();
+                }
             }
 
             return model.IdMarca;
@@ -189,24 +158,18 @@ namespace Data
 
         public static bool Delete(Marca model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Marca_Delete", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Marca_Delete", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
 
-            var p0 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
+                    cmd.Parameters.Add(p0);
 
-            cmd.Parameters.Add(p0);
-
-            try {
-                conn.Open();
-                model.IdMarca = (int)cmd.ExecuteScalar();
-                return true;
-            }
-            catch {
-                return false;
-            }
-            finally {
-                conn.Close();
+                    conn.Open();
+                    model.IdMarca = (int)cmd.ExecuteScalar();
+                    return true;
+                }
             }
         }
     }
