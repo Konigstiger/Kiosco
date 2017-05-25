@@ -172,6 +172,48 @@ namespace Kiosco
 
         public void GuardarOInsertar()
         {
+            // Guardar lo que debe guardar es simple, todos los datos del IdProductoDetale elegido.
+            var pd = new PedidoDetalle();
+            pd.IdPedido = ucPedido1.IdPedido;
+            pd.IdPedidoDetalle = ucPedidoDetalle1.IdPedidoDetalle;
+            pd.Cantidad = ucPedidoDetalle1.Cantidad;
+            pd.IdProducto = ucPedidoDetalle1.IdProducto;
+            pd.IdUnidad = ucPedidoDetalle1.IdUnidad;
+            pd.Importe = ucPedidoDetalle1.Importe;
+            pd.Notas = "";//ucPedidoDetalle1.Notas;
+
+            // ya se tiene el objeto PedidoDetalle listo para persistir.
+            if (_modo == ModoFormulario.Edicion) {
+                if (pd.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                pd.IdPedido = PedidoDetalleControlador.Update(pd);
+            }
+            else {
+                if (pd.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                pd.IdPedido = PedidoDetalleControlador.Insert(pd);
+            }
+
+            // pasar o mantener _modo Edicion
+            _modo = ModoFormulario.Edicion;
+
+            ////********************
+            //meter en subrutina
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pd.Cantidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Unidad].Value = ucPedidoDetalle1.Unidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = ucPedidoDetalle1.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Importe].Value = pd.Importe;
+            ////********************
+
+            ////TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+            dgv.Rows[_rowIndex].Selected = true;
+
+
+
+
+            ////**************/////
             //const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
             //var m = new Pedido {

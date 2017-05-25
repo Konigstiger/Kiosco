@@ -97,7 +97,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
 
                     conn.Open();
-                    m.IdPedidoDetalle = (int)cmd.ExecuteScalar();
+                    m.IdPedidoDetalle = (long)cmd.ExecuteScalar();
 
                 }
             }

@@ -75,7 +75,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(311, 31);
+            this.tsb.Size = new System.Drawing.Size(516, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -166,12 +166,14 @@
             this.ucPedidoDetalle1.Cantidad = 1;
             this.ucPedidoDetalle1.CodigoBarras = "";
             this.ucPedidoDetalle1.Descripcion = "";
+            this.ucPedidoDetalle1.IdPedidoDetalle = ((long)(0));
             this.ucPedidoDetalle1.IdProducto = ((long)(0));
+            this.ucPedidoDetalle1.IdUnidad = 0;
             this.ucPedidoDetalle1.Importe = new decimal(new int[] {
+            4000,
             0,
             0,
-            0,
-            0});
+            131072});
             this.ucPedidoDetalle1.Location = new System.Drawing.Point(14, 671);
             this.ucPedidoDetalle1.Name = "ucPedidoDetalle1";
             this.ucPedidoDetalle1.Precio = new decimal(new int[] {

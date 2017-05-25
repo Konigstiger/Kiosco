@@ -23,9 +23,9 @@ namespace Model
         public enum GridColumn
         {
             IdPedidoDetalle = 0,
-            Producto = 1,
-            Cantidad = 2,
-            Unidad = 3,
+            Cantidad = 1,
+            Unidad = 2,
+            Producto = 3,
             Importe = 4,
             Notas = 5
         }
