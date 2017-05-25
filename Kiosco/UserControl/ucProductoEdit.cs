@@ -63,7 +63,7 @@ namespace Kiosco.UserControl
 
         private void nudPrecioCosto_Enter(object sender, EventArgs e)
         {
-            string valor = nudPrecioCosto.Value.ToString();
+            var valor = nudPrecioCosto.Value.ToString();
             nudPrecioCosto.Select(0, valor.Length);
 
         }
@@ -269,6 +269,8 @@ namespace Kiosco.UserControl
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode) return;
+
             var id = Convert.ToInt64(txtIdProducto.Text.Trim());
 
             var c = ProductoControlador.GetByPrimaryKey(id);
@@ -299,6 +301,9 @@ namespace Kiosco.UserControl
 
         private void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode)
+                return;
+
             //TODO: Validar. Puede usarse un try/catch
             var codigo = Convert.ToInt32(txtIdMarca.Text.Trim());
 
@@ -344,6 +349,9 @@ namespace Kiosco.UserControl
 
         private void CargarUnidad()
         {
+            if (DesignMode)
+                return;
+
             cboUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
             var list = UnidadControlador.GetAll();
             cboUnidad.DataSource = list;
@@ -354,6 +362,8 @@ namespace Kiosco.UserControl
 
         private void CargarRubro()
         {
+            if (DesignMode)
+                return;
             cboRubro.DropDownStyle = ComboBoxStyle.DropDownList;
             var list = RubroControlador.GetAll();
             cboRubro.DataSource = list;

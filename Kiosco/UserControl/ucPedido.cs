@@ -62,14 +62,14 @@ namespace Kiosco.UserControl
         public ucPedido()
         {
             InitializeComponent();
-            SetControles();
-            CargarControles();
+
         }
 
 
         public void CargarPedido(long idPedido)
         {
-            //Pedido p = new Pedido(idPedido); //(interesante, pero no)
+            if (DesignMode)
+                return;
 
             var p = PedidoControlador.GetByPrimaryKey(idPedido);
 
@@ -101,6 +101,7 @@ namespace Kiosco.UserControl
 
         private void CargarControles()
         {
+            if (DesignMode) return;
             CargarEstadoPedido();
         }
 
@@ -147,6 +148,9 @@ namespace Kiosco.UserControl
 
         private void CargarEstadoPedido()
         {
+            if (DesignMode)
+                return;
+
             cboEstadoPedido.DropDownStyle = ComboBoxStyle.DropDownList;
             var list = EstadoPedidoControlador.GetAll();
             cboEstadoPedido.DataSource = list;
@@ -156,7 +160,8 @@ namespace Kiosco.UserControl
 
         private void ucPedido_Load(object sender, EventArgs e)
         {
-            //CargarPedido(1);
+            SetControles();
+            CargarControles();
         }
 
         private void txtIdPedido_TextChanged(object sender, EventArgs e)

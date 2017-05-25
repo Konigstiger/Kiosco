@@ -19,12 +19,32 @@ namespace Kiosco
         private void ucPedidoDetalle_Load(object sender, EventArgs e)
         {
             SetControles();
+            CargarControles();
         }
 
         public void SetControles()
         {
             txtIdProducto.Visible = false;
+
         }
+
+        private void CargarControles()
+        {
+            CargarUnidad();
+        }
+
+        private void CargarUnidad()
+        {
+            if (DesignMode)
+                return;
+
+            cboUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = UnidadControlador.GetAll();
+            cboUnidad.DataSource = list;
+            cboUnidad.ValueMember = "IdUnidad";
+            cboUnidad.DisplayMember = "Descripcion";
+        }
+
 
         [Description("Cantidad de Producto."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -105,6 +125,7 @@ namespace Kiosco
             var p = ProductoControlador.GetByPrimaryKey(id);
 
             txtCodigoBarras.Text = p.CodigoBarras; // esto desencadena evento.
+
         }
 
 
@@ -118,8 +139,33 @@ namespace Kiosco
             set { txtIdProducto.Text = value.ToString(); }
         }
 
+        [Description("IdPedidoDetalle. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public long IdPedidoDetalle
+        {
+            //TODO: VER
+            get {
+                long v = long.TryParse(txtIdPedidoDetalle.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+            set { txtIdPedidoDetalle.Text = value.ToString(); }
+        }
 
+        private void txtIdPedidoDetalle_TextChanged(object sender, EventArgs e)
+        {
+            //TODO: VER
+            long v = long.TryParse(txtIdPedidoDetalle.Text.Trim(), out v) ? v : 0;
+            var id = v;
 
+            var p = PedidoDetalleControlador.GetByPrimaryKey(id);
 
+            txtIdProducto.Text = p.IdProducto.ToString();
+            nudCantidad.Value = p.Cantidad;
+            nudImporte.Value = p.Importe;
+
+        }
     }
 }

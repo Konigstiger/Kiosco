@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -13,16 +14,12 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 3;
+        private const int colCount = 6;
 
-        private List<PedidoView> origenDatos = null;
-
-
-        private const int ColCount = 7;
-        private const int MaxLenghtCodeBar = 13;
+        private List<PedidoDetalleView> origenDatos = null;
 
 
-
+        private const int ColCount = 4;
 
 
         public FrmPedido()
@@ -54,19 +51,15 @@ namespace Kiosco
             dgv.AutoGenerateColumns = false;
             dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv.BorderStyle = BorderStyle.None;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-
             dgv.ColumnHeadersHeight = 20;
+
             dgv.MultiSelect = false;
             dgv.AllowUserToAddRows = false;
 
             dgv.RowsDefaultCellStyle.BackColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
         }
 
         public void CargarControles()
@@ -77,36 +70,40 @@ namespace Kiosco
 
         public void CargarGrilla(string searchText)
         {
-            //dgv.Columns.Clear();
+            dgv.Columns.Clear();
 
-            //var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[colCount];
 
-            //for (var i = 0; i < colCount; i++) {
-            //    c[i] = new DataGridViewTextBoxColumn();
-            //}
-
-
-            //c[(int)PedidoGridColumn.IdPedido].Width = 0;
-            //c[(int)PedidoGridColumn.IdPedido].Visible = false; //true;
-            //Util.SetColumn(c[(int)PedidoGridColumn.IdPedido], "IdPedido", "IdPedido", 0);
-            //Util.SetColumn(c[(int)PedidoGridColumn.Descripcion], "Descripcion", "Descripción", 1);
-            //Util.SetColumn(c[(int)PedidoGridColumn.Notas], "Notas", "Notas", 2);
-            //dgv.Columns.AddRange(c);
+            for (var i = 0; i < colCount; i++) {
+                c[i] = new DataGridViewTextBoxColumn();
+            }
 
 
-            //Util.SetColumnsReadOnly(dgv);
+            c[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle].Width = 0;
+            c[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle].Visible = false; //true;
 
-            //origenDatos = searchText.Equals("") ?
-            //    PedidoControlador.GetAll() :
-            //    PedidoControlador.GetAll_GetByDescripcion(searchText);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle], "IdPedidoDetalle", "IdPedidoDetalle", 0);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Cantidad], "Cantidad", "Cantidad", 1);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Unidad], "Unidad", "Unidad", 2);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Producto], "Producto", "Producto", 3);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Importe], "Importe", "Importe", 4);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Notas], "Notas", "Notas", 5);
+            dgv.Columns.AddRange(c);
+
+            Util.SetColumnsReadOnly(dgv);
+
+            //TODO: Corregir esto.
+            origenDatos = searchText.Equals("") ?
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor) :
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor);
 
 
-            //var bindingList = new BindingList<PedidoView>(origenDatos);
-            //var source = new BindingSource(bindingList, null);
-            //dgv.DataSource = source;
+            var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
+            var source = new BindingSource(bindingList, null);
+            dgv.DataSource = source;
 
-            //dgv.AllowUserToResizeRows = false;
-            //dgv.RowHeadersVisible = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
         }
 
 
@@ -119,12 +116,12 @@ namespace Kiosco
                 return;
 
             // esto funciona, pero con el numero de celda, no con ID.
-            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)PedidoGridColumn.IdPedido].Value.ToString());
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle].Value.ToString());
 
             _rowIndex = dgv.SelectedRows[0].Index;
 
             //TODO: REACTIVAR AQUI, pero apuntando al usercontrol.IdPedido
-            //txtIdPedido.Text = id.ToString();
+            ucPedidoDetalle1.IdPedidoDetalle = id;
         }
 
 
@@ -264,25 +261,6 @@ namespace Kiosco
             //txtNotas.Clear();
         }
 
-        //private const int ColCount = 3;
-
-        public enum PedidoGridColumn
-        {
-            IdPedido = 0,
-            Descripcion = 1,
-            Notas = 2
-        }
-
-        private void txtIdPedido_TextChanged(object sender, EventArgs e)
-        {
-            //var id = Convert.ToInt32(txtIdPedido.Text.Trim());
-
-            //var c = PedidoControlador.GetByPrimaryKey(id);
-
-            //txtDescripcion.Text = c.Descripcion;
-            //txtNotas.Text = c.Notas.Trim();         //TODO: check nulls
-        }
-
 
         private void tsbSearchClearAndPerform_Click(object sender, EventArgs e)
         {
@@ -291,15 +269,26 @@ namespace Kiosco
             ExecuteSearch();
         }
 
+
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             Eliminar();
         }
 
+
+
         private void ucPedido1_ProveedorChanged(object sender, UserControl.ValueChangedEventArgs e)
         {
-            if (!Util.ConfirmarLimpiarPedido())
-                return;
+            //if (!Util.ConfirmarLimpiarPedido())
+            //    return;
+
+            // tiene que cargar la grilla, con el IdProveedor nuevo.
+            //var IdProveedor = ucPedido1.IdProveedor;
+
+            //var list = PedidoDetalleControlador.GetByIdPedido(IdProveedor);
+
+            CargarGrilla(tsbSearchTextBox.Text);
+
         }
     }
 }

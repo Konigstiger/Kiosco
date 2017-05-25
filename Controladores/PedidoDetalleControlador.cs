@@ -13,7 +13,7 @@ namespace Controlador
             return PedidoDetalleData.GetAll();
         }
 
-        public static PedidoDetalle GetByPrimaryKey(int idPedidoDetalle)
+        public static PedidoDetalle GetByPrimaryKey(long idPedidoDetalle)
         {
             return PedidoDetalleData.GetByPrimaryKey(idPedidoDetalle);
         }
@@ -51,6 +51,11 @@ namespace Controlador
         public static bool Delete(PedidoDetalle m)
         {
             return PedidoDetalleData.Delete(m);
+        }
+
+        public static List<PedidoDetalleView> GetByIdPedido(int idProveedor)
+        {
+            return PedidoDetalleData.GetByIdPedido(idProveedor);
         }
     }
 }

@@ -123,9 +123,9 @@ namespace Data
                             c.IdPedido = (long)rdr["IdProducto"];
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.Cantidad = (int)rdr["Cantidad"];
-                            c.Importe = (int)rdr["Importe"];
+                            c.Importe = (decimal)rdr["Importe"];
                             c.IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 1;
-                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
                 }
@@ -211,6 +211,36 @@ namespace Data
                     return true;
                 }
             }
+        }
+
+        public static List<PedidoDetalleView> GetByIdPedido(int idPedido)
+        {
+            var list = new List<PedidoDetalleView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("PedidoDetalleView_GetByIdPedido", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("IdPedido", SqlDbType.VarChar) { Value = idPedido };
+
+                    cmd.Parameters.Add(p1);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new PedidoDetalleView();
+                            p.IdPedidoDetalle = (long)rdr["IdPedidoDetalle"];
+                            p.IdProducto = (long)rdr["IdProducto"];
+                            p.Producto = (string)rdr["Producto"];
+                            p.Cantidad = (int)rdr["Cantidad"];
+                            p.Importe = (decimal)rdr["Importe"];
+                            p.Unidad = (string)rdr["Unidad"];
+                            p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
         }
     }
 }
