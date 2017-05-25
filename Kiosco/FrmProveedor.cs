@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Kiosco.UserControl;
 using Model;
 
 namespace Kiosco
@@ -33,16 +34,6 @@ namespace Kiosco
         private void SetControles()
         {
             this.KeyPreview = true;
-            txtIdProveedor.Visible = false;
-            txtDireccion.MaxLength = 255;
-            txtEmail.MaxLength = 50;
-            txtPersonaContacto.MaxLength = 50;
-            txtRazonSocial.MaxLength = 100;
-            txtTelefono.MaxLength = 25;
-            txtHorarioAtencion.MaxLength = 100;
-            txtDiasDeVisita.MaxLength = 100;
-            txtNotas.MaxLength = 255;
-
             SetGrid(dgv);
         }
 
@@ -57,17 +48,19 @@ namespace Kiosco
         {
             const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
-            var m = new Proveedor();
-            m.IdProveedor = -1;
-            m.RazonSocial = txtRazonSocial.Text.Trim();
-            m.Direccion = txtDireccion.Text.Trim();
-            m.Telefono = txtTelefono.Text.Trim();
-            m.Notas = txtNotas.Text.Trim();
-            m.Email = txtEmail.Text.Trim();
-            m.PersonaContacto = txtPersonaContacto.Text.Trim();
-            m.HorarioAtencion = txtHorarioAtencion.Text.Trim();
-            m.DiasDeVisita = txtDiasDeVisita.Text.Trim();
-            m.IdRubro = (int)cboRubro.SelectedValue;
+            var m = new Proveedor
+            {
+                IdProveedor = -1,
+                RazonSocial = ucProveedorEdit1.RazonSocial,
+                Direccion = ucProveedorEdit1.Direccion,
+                Telefono = ucProveedorEdit1.Telefono,
+                Notas = ucProveedorEdit1.Notas,
+                Email = ucProveedorEdit1.Email,
+                PersonaContacto = ucProveedorEdit1.PersonaContacto,
+                HorarioAtencion = ucProveedorEdit1.HorarioAtencion,
+                DiasDeVisita = ucProveedorEdit1.DiasDeVisita,
+                IdRubro = ucProveedorEdit1.IdRubro
+            };
 
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
@@ -90,16 +83,16 @@ namespace Kiosco
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                m.IdProveedor = Convert.ToInt32(txtIdProveedor.Text.Trim());
-                m.RazonSocial = txtRazonSocial.Text.Trim();
-                m.Direccion = txtDireccion.Text.Trim();
-                m.Telefono = txtTelefono.Text.Trim();
-                m.Notas = txtNotas.Text.Trim();
-                m.Email = txtEmail.Text.Trim();
-                m.PersonaContacto = txtPersonaContacto.Text.Trim();
-                m.HorarioAtencion = txtHorarioAtencion.Text.Trim();
-                m.DiasDeVisita = txtDiasDeVisita.Text.Trim();
-                m.IdRubro = (int)cboRubro.SelectedValue;
+                m.IdProveedor = ucProveedorEdit1.IdProveedor;
+                m.RazonSocial = ucProveedorEdit1.RazonSocial;
+                m.Direccion = ucProveedorEdit1.Direccion;
+                m.Telefono = ucProveedorEdit1.Telefono;
+                m.Notas = ucProveedorEdit1.Notas;
+                m.Email = ucProveedorEdit1.Email;
+                m.PersonaContacto = ucProveedorEdit1.PersonaContacto;
+                m.HorarioAtencion = ucProveedorEdit1.HorarioAtencion;
+                m.DiasDeVisita = ucProveedorEdit1.DiasDeVisita;
+                m.IdRubro = ucProveedorEdit1.IdRubro;
 
                 m.IdProveedor = ProveedorControlador.Update(m);
             }
@@ -128,7 +121,7 @@ namespace Kiosco
                 return;
 
             //crear objeto cascara
-            var m = new Proveedor { IdProveedor = Convert.ToInt32(txtIdProveedor.Text.Trim()) };
+            var m = new Proveedor { IdProveedor = ucProveedorEdit1.IdProveedor };
 
             var result = ProveedorControlador.Delete(m);
 
@@ -141,15 +134,7 @@ namespace Kiosco
 
         public void LimpiarControles()
         {
-            txtIdProveedor.Clear();
-            txtRazonSocial.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Clear();
-            txtRazonSocial.Clear();
-            txtHorarioAtencion.Clear();
-            txtPersonaContacto.Clear();
-            txtDiasDeVisita.Clear();
-            txtNotas.Clear();
+            ucProveedorEdit1.Clear();
         }
 
 
@@ -182,19 +167,9 @@ namespace Kiosco
         public void CargarControles()
         {
             CargarGrilla("");
-            CargarRubro();
         }
-
-
-        private void CargarRubro()
-        {
-            cboRubro.DropDownStyle = ComboBoxStyle.DropDownList;
-            var list = RubroControlador.GetAll();
-            cboRubro.DataSource = list;
-            cboRubro.ValueMember = "IdRubro";
-            cboRubro.DisplayMember = "Descripcion";
-        }
-
+        
+        
         public void CargarGrilla(string searchText)
         {
             dgv.Columns.Clear();
@@ -242,7 +217,7 @@ namespace Kiosco
 
             _rowIndex = dgv.SelectedRows[0].Index;
 
-            txtIdProveedor.Text = id.ToString();
+            ucProveedorEdit1.IdProveedor = id;
         }
 
 
@@ -255,7 +230,7 @@ namespace Kiosco
         {
             LimpiarControles();
             _modo = ModoFormulario.Nuevo;
-            txtRazonSocial.Focus();
+            ucProveedorEdit1.Focus();
         }
 
         private void FrmProveedor_KeyDown(object sender, KeyEventArgs e)
@@ -299,24 +274,6 @@ namespace Kiosco
             ToggleSearch();
         }
 
-        private void txtIdProveedor_TextChanged(object sender, EventArgs e)
-        {
-            int v;
-            var id = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
 
-            var c = ProveedorControlador.GetByPrimaryKey(id);
-
-            txtRazonSocial.Text = c.RazonSocial;
-            txtDireccion.Text = c.Direccion;
-            txtTelefono.Text = c.Telefono;
-            txtEmail.Text = c.Email;
-            txtPersonaContacto.Text = c.PersonaContacto;
-            txtHorarioAtencion.Text = c.HorarioAtencion;
-            txtDiasDeVisita.Text = c.DiasDeVisita;
-            txtNotas.Text = c.Notas;
-
-            cboRubro.SelectedValue = c.IdRubro;
-
-        }
     }
 }

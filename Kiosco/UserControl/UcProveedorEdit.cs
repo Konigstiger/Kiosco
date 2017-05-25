@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 
@@ -170,6 +164,8 @@ namespace Kiosco.UserControl
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode) return;
+
             int v;
             var id = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
 
@@ -185,6 +181,8 @@ namespace Kiosco.UserControl
             txtNotas.Text = c.Notas;
 
             cboRubro.SelectedValue = c.IdRubro;
+
+
         }
 
         private void UcProveedorEdit_Load(object sender, EventArgs e)
@@ -201,6 +199,9 @@ namespace Kiosco.UserControl
 
         private void CargarRubro()
         {
+            if (DesignMode)
+                return;
+
             cboRubro.DropDownStyle = ComboBoxStyle.DropDownList;
             var list = RubroControlador.GetAll();
             cboRubro.DataSource = list;
@@ -219,7 +220,7 @@ namespace Kiosco.UserControl
             txtHorarioAtencion.MaxLength = 100;
             txtDiasDeVisita.MaxLength = 100;
             txtNotas.MaxLength = 255;
-            
+
         }
 
         public void LimpiarControles()
@@ -233,6 +234,11 @@ namespace Kiosco.UserControl
             txtPersonaContacto.Clear();
             txtDiasDeVisita.Clear();
             txtNotas.Clear();
+        }
+
+        public void Clear()
+        {
+            LimpiarControles();
         }
     }
 }
