@@ -86,6 +86,12 @@
     <Compile Include="FrmProductoProveedor.Designer.cs">
       <DependentUpon>FrmProductoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSeleccionarProductoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSeleccionarProductoProveedor.Designer.cs">
+      <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\AbmToolBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductoProveedor.resx">
       <DependentUpon>FrmProductoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeleccionarProductoProveedor.resx">
+      <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AbmToolBar.resx">
       <DependentUpon>AbmToolBar.cs</DependentUpon>

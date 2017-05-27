@@ -6,6 +6,7 @@ namespace Model
     {
         //TODO: Completar esta clase, pensada para actuar con una Vista SP
         public long IdProductoProveedor { get; set; }
+        public long IdProducto { get; set; }
         public string Proveedor { get; set; }
         public string Producto { get; set; }
         public decimal PrecioProveedor { get; set; }
@@ -21,10 +22,11 @@ namespace Model
         public enum GridColumn
         {
             IdProductoProveedor = 0,
-            Producto = 1,
-            Proveedor = 2,
-            PrecioProveedor = 3,
-            PrecioVenta = 4
+            IdProducto = 1,
+            Producto = 2,
+            Proveedor = 3,
+            PrecioProveedor = 4,
+            PrecioVenta = 5
         }
 
     }

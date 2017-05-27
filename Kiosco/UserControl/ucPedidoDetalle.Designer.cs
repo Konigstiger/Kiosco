@@ -194,7 +194,7 @@
             // txtIdProducto
             // 
             this.txtIdProducto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProducto.Location = new System.Drawing.Point(63, 0);
+            this.txtIdProducto.Location = new System.Drawing.Point(65, 0);
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(18, 22);
             this.txtIdProducto.TabIndex = 95;

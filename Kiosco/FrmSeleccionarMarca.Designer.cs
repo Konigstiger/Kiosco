@@ -93,7 +93,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(108, 438);
+            this.txtDescripcion.Location = new System.Drawing.Point(102, 614);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(240, 24);
             this.txtDescripcion.TabIndex = 30;
@@ -102,7 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 438);
+            this.label2.Location = new System.Drawing.Point(42, 614);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 18);
             this.label2.TabIndex = 35;
@@ -112,7 +112,7 @@
             // 
             this.txtIdMarca.BackColor = System.Drawing.SystemColors.Info;
             this.txtIdMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdMarca.Location = new System.Drawing.Point(15, 438);
+            this.txtIdMarca.Location = new System.Drawing.Point(9, 614);
             this.txtIdMarca.Name = "txtIdMarca";
             this.txtIdMarca.Size = new System.Drawing.Size(17, 24);
             this.txtIdMarca.TabIndex = 29;
@@ -129,7 +129,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(413, 398);
+            this.dgv.Size = new System.Drawing.Size(413, 574);
             this.dgv.TabIndex = 40;
             this.dgv.TabStop = false;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
@@ -139,7 +139,7 @@
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotas.Location = new System.Drawing.Point(108, 468);
+            this.txtNotas.Location = new System.Drawing.Point(102, 644);
             this.txtNotas.Name = "txtNotas";
             this.txtNotas.Size = new System.Drawing.Size(240, 24);
             this.txtNotas.TabIndex = 45;
@@ -148,7 +148,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 468);
+            this.label1.Location = new System.Drawing.Point(42, 644);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.TabIndex = 46;
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 500);
+            this.ClientSize = new System.Drawing.Size(437, 680);
             this.Controls.Add(this.txtNotas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tsb);

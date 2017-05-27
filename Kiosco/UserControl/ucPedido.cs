@@ -25,8 +25,7 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public long IdPedido
         {
-            get
-            {
+            get {
                 long v = long.TryParse(txtIdPedido.Text.Trim(), out v) ? v : 0;
                 return v;
             }
@@ -46,13 +45,11 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public int IdProveedor
         {
-            get
-            {
+            get {
                 int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
                 return v;
             }
-            set
-            {
+            set {
                 txtIdProveedor.Text = value.ToString();
                 OnProveedorChanged(new ValueChangedEventArgs(value));
             }
@@ -101,12 +98,15 @@ namespace Kiosco.UserControl
 
         private void CargarControles()
         {
-            if (DesignMode) return;
+            if (DesignMode)
+                return;
             CargarEstadoPedido();
         }
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode)
+                return;
 
             int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
 
@@ -166,6 +166,9 @@ namespace Kiosco.UserControl
 
         private void txtIdPedido_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode)
+                return;
+
             CargarPedido(Convert.ToInt64(txtIdPedido.Text.Trim()));
         }
 

@@ -9,7 +9,7 @@ using Model;
 
 namespace Kiosco
 {
-    public partial class FrmPedido : Form
+    public partial class FrmPedido : Form, ISelectorProducto
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
@@ -19,7 +19,7 @@ namespace Kiosco
         private List<PedidoDetalleView> origenDatos = null;
 
 
-        private const int ColCount = 4;
+        private const int ColCount = 6;
 
 
         public FrmPedido()
@@ -34,7 +34,6 @@ namespace Kiosco
             LimpiarControles();
             _modo = ModoFormulario.Edicion;
         }
-
 
 
         public void SetControles()
@@ -120,7 +119,6 @@ namespace Kiosco
 
             _rowIndex = dgv.SelectedRows[0].Index;
 
-            //TODO: REACTIVAR AQUI, pero apuntando al usercontrol.IdPedido
             ucPedidoDetalle1.IdPedidoDetalle = id;
         }
 
@@ -173,99 +171,60 @@ namespace Kiosco
         public void GuardarOInsertar()
         {
             // Guardar lo que debe guardar es simple, todos los datos del IdProductoDetale elegido.
+            var pdv = new PedidoDetalleView
+            {
+                IdPedido = ucPedido1.IdPedido,
+                IdPedidoDetalle = ucPedidoDetalle1.IdPedidoDetalle,
+                Cantidad = ucPedidoDetalle1.Cantidad,
+                IdProducto = ucPedidoDetalle1.IdProducto,
+                IdUnidad = ucPedidoDetalle1.IdUnidad,
+                Importe = ucPedidoDetalle1.Importe,
+                Notas = ""
+            };
+
+            if (pdv.Validate().Equals(false))
+                throw new Exception("Errores en validacion!");
+
+
             var pd = new PedidoDetalle();
-            pd.IdPedido = ucPedido1.IdPedido;
-            pd.IdPedidoDetalle = ucPedidoDetalle1.IdPedidoDetalle;
-            pd.Cantidad = ucPedidoDetalle1.Cantidad;
-            pd.IdProducto = ucPedidoDetalle1.IdProducto;
-            pd.IdUnidad = ucPedidoDetalle1.IdUnidad;
-            pd.Importe = ucPedidoDetalle1.Importe;
-            pd.Notas = "";//ucPedidoDetalle1.Notas;
+            pd.Cantidad = pdv.Cantidad;
+            pd.IdPedidoDetalle = pdv.IdPedidoDetalle;
+            pd.IdProducto = pdv.IdProducto;
+            pd.IdPedido = pdv.IdPedido;
+            pd.IdUnidad = pdv.IdUnidad;
+            pd.Importe = pdv.Importe;
+            pd.Notas = pdv.Notas;
 
             // ya se tiene el objeto PedidoDetalle listo para persistir.
             if (_modo == ModoFormulario.Edicion) {
-                if (pd.Validate().Equals(false))
-                    throw new Exception("Errores en validacion!");
-
-                pd.IdPedido = PedidoDetalleControlador.Update(pd);
+                pdv.IdPedidoDetalle = PedidoDetalleControlador.Update(pd);
             }
             else {
-                if (pd.Validate().Equals(false))
-                    throw new Exception("Errores en validacion!");
+                pdv.IdPedidoDetalle = PedidoDetalleControlador.Insert(pd);
 
-                pd.IdPedido = PedidoDetalleControlador.Insert(pd);
+                // modificar el datasource.
+                origenDatos.Add(pdv);
+
+                var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
+                var source = new BindingSource(bindingList, null);
+                dgv.DataSource = source;
+
+                //Calcular _rowIndex
+                _rowIndex = dgv.Rows.Count - 1;
             }
+            
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pdv.Cantidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Unidad].Value = ucPedidoDetalle1.Unidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = ucPedidoDetalle1.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Importe].Value = pdv.Importe;
 
             // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
-            ////********************
-            //meter en subrutina
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pd.Cantidad;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Unidad].Value = ucPedidoDetalle1.Unidad;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = ucPedidoDetalle1.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Importe].Value = pd.Importe;
-            ////********************
-
             ////TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
-
-
-
-
-            ////**************/////
-            //const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
-
-            //var m = new Pedido {
-            //    IdPedido = -1,
-            //    Descripcion = txtDescripcion.Text.Trim(),
-            //    Notas = txtNotas.Text.Trim()
-            //};
-            ////=====================================================================
-            //if (_modo == ModoFormulario.Nuevo) {
-            //    m.IdPedido = PedidoControlador.Insert(m);
-
-            //    var modelView = PedidoControlador.GetByPrimaryKeyView(m.IdPedido);
-
-            //    //modificar el origen de datos
-            //    origenDatos.Add(modelView);
-
-            //    var bindingList = new BindingList<PedidoView>(origenDatos);
-            //    var source = new BindingSource(bindingList, null);
-            //    dgv.DataSource = source;
-
-            //    //Calcular _rowIndex
-            //    _rowIndex = dgv.Rows.Count - 1;
-
-            //} else {
-            //    //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
-            //    if (m.Validate().Equals(false))
-            //        throw new Exception("Errores en validacion!");
-
-            //    var PedidoNuevo = new Pedido {
-            //        IdPedido = Convert.ToInt32(txtIdPedido.Text.Trim()),
-            //        Descripcion = txtDescripcion.Text.Trim(),
-            //        Notas = txtNotas.Text.Trim()
-            //    };
-
-            //    m.IdPedido = PedidoControlador.Update(PedidoNuevo);
-
-
-            //}
-
-            //// pasar o mantener _modo Edicion
-            //_modo = ModoFormulario.Edicion;
-
-            ////********************
-            ////meter en subrutina
-            //dgv.Rows[_rowIndex].Cells[(int)PedidoGridColumn.Descripcion].Value = m.Descripcion;
-            //dgv.Rows[_rowIndex].Cells[(int)PedidoGridColumn.Notas].Value = m.Notas;
-            ////********************
-
-            ////TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
-            //dgv.Rows[_rowIndex].Selected = true;
         }
+
 
         public void Eliminar()
         {
@@ -288,11 +247,9 @@ namespace Kiosco
         {
             LimpiarControles();
             _modo = ModoFormulario.Nuevo;
-            //TODO: Ver de reactivar esto.
-            //txtDescripcion.Focus();
 
             //Con este IdProveedor, deberia filtrar por el mismo.
-            var f = new FrmSeleccionarProducto(ucPedidoDetalle1, ucPedido1.IdProveedor);
+            var f = new FrmSeleccionarProductoProveedor(ucPedidoDetalle1, ucPedido1.IdProveedor);
             f.Show();
         }
 
@@ -331,6 +288,13 @@ namespace Kiosco
 
             CargarGrilla(tsbSearchTextBox.Text);
 
+        }
+
+
+        public long IdProducto
+        {
+            get { return ucPedidoDetalle1.IdProducto; }
+            set { ucPedidoDetalle1.IdProducto = value; }
         }
     }
 }

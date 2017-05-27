@@ -229,6 +229,7 @@ namespace Kiosco
             txtIdProductoProveedor.Text = id.ToString();
         }
 
+
         private void tsbSearch_Click(object sender, EventArgs e)
         {
             ToggleSearch();

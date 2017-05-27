@@ -104,6 +104,9 @@ namespace Kiosco
 
         private void txtCodigoBarras_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode)
+                return;
+
             var codigo = txtCodigoBarras.Text.Trim();
             var p = ProductoControlador.GetByCodigoBarrasView(codigo);
 
@@ -116,6 +119,9 @@ namespace Kiosco
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
+            if (DesignMode)
+                return;
+
             int v = int.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
             var id = v;
 
@@ -176,7 +182,8 @@ namespace Kiosco
 
         private void txtIdPedidoDetalle_TextChanged(object sender, EventArgs e)
         {
-            //TODO: VER
+            if (DesignMode)
+                return;
             long v = long.TryParse(txtIdPedidoDetalle.Text.Trim(), out v) ? v : 0;
             var id = v;
 
@@ -185,6 +192,9 @@ namespace Kiosco
             txtIdProducto.Text = p.IdProducto.ToString();
             nudCantidad.Value = p.Cantidad;
             nudImporte.Value = p.Importe;
+
+            //seleccionar segun el id, el elemento correspondiente del combo de unidad.
+            cboUnidad.SelectedValue = p.IdUnidad ?? 1;
 
         }
 

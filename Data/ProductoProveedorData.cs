@@ -292,13 +292,27 @@ namespace Data
                 while (rdr.Read()) {
                     var p = new ProductoProveedorView {
                         IdProductoProveedor = (long)rdr["IdProductoProveedor"],
-                        Proveedor = (string)rdr["Proveedor"],
+                        IdProducto = (long)rdr["IdProducto"],
                         Producto = (string)rdr["Producto"],
+                        Proveedor = (string)rdr["Proveedor"],
                         PrecioProveedor = (decimal)rdr["PrecioProveedor"],
+                        //CostoPromedio = (decimal)rdr["CostoPromedio"],
+                        PrecioVenta = (decimal)rdr["PrecioVenta"]
+                        //,
                         //Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    //PrecioVenta = (decimal)rdr["CostoPromedio"]//,
-                    //IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0
-                };
+                        //PrecioVenta = (decimal)rdr["CostoPromedio"]//,
+                        //IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0
+                        /*
+        ProductoProveedor.IdProductoProveedor
+        ,Producto.IdProducto
+        ,Producto.Descripcion AS Producto
+        ,Proveedor.RazonSocial AS Proveedor 
+        ,ProductoProveedor.PrecioProveedor AS PrecioProveedor 
+        --,Producto.PrecioCostoPromedio AS CostoPromedio
+        ,Producto.PrecioVenta AS PrecioVenta
+                         */
+
+                    };
 
                     list.Add(p);
                 }

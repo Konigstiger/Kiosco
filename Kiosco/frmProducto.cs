@@ -62,16 +62,16 @@ namespace Kiosco
         {
             CargarGrilla(tsbSearchTextBox.Text);
             CargarSearchBoxSuggestions();
-
         }
+
 
         private void CargarSearchBoxSuggestions()
         {
             //obtener origen de datos.
-            List<Producto> list = ProductoControlador.GetAll_AutoComplete();
+            var list = ProductoControlador.GetAll_AutoComplete();
 
-            AutoCompleteStringCollection ac = new AutoCompleteStringCollection();
-            foreach (Producto p in list) {
+            var ac = new AutoCompleteStringCollection();
+            foreach (var p in list) {
                 ac.Add(p.Descripcion);
             }
             //tsbSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -260,8 +260,7 @@ namespace Kiosco
 
             //********************
             //meter en subrutina
-            decimal cc = Math.Round((m.PrecioVenta / m.PrecioCostoPromedio - 1) * 100, 2);
-
+            var cc = Math.Round(1 - (m.PrecioCostoPromedio / m.PrecioVenta) * 100, 2);
 
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = m.CodigoBarras;
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Descripcion].Value = m.Descripcion;
