@@ -213,14 +213,14 @@ namespace Data
             }
         }
 
-        public static List<PedidoDetalleView> GetByIdPedido(int idPedido)
+        public static List<PedidoDetalleView> GetByIdPedido(long idPedido)
         {
             var list = new List<PedidoDetalleView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
                 using (var cmd = new SqlCommand("PedidoDetalleView_GetByIdPedido", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("IdPedido", SqlDbType.VarChar) { Value = idPedido };
+                    var p1 = new SqlParameter("IdPedido", SqlDbType.BigInt) { Value = idPedido };
 
                     cmd.Parameters.Add(p1);
 

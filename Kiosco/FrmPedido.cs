@@ -93,8 +93,8 @@ namespace Kiosco
 
             //TODO: Corregir esto.
             origenDatos = searchText.Equals("") ?
-                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor) :
-                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor);
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido) :
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido);
 
 
             var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
