@@ -45,36 +45,33 @@ namespace Data
         }
 
 
-        public static List<PedidoView> SearchByParameters(string descripcion)
+        public static List<PedidoView> GetByParameters(string descripcion)
         {
             var list = new List<PedidoView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
 
-            SqlDataReader rdr = null;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_View_GetByParameters", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Pedido_GetByParameters", conn) { CommandType = CommandType.StoredProcedure };
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
 
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
+                    cmd.Parameters.Add(p1);
 
-            cmd.Parameters.Add(p1);
-
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new PedidoView {
-                        IdPedido = (int)rdr["IdPedido"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    };
-
-                    list.Add(p);
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new PedidoView {
+                                IdPedido = (long)rdr["IdPedido"],
+                                Proveedor = (string)rdr["Proveedor"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Fecha = (DateTime)rdr["Fecha"],
+                                Estado = (string)rdr["Estado"],
+                                Total = (decimal)rdr["Total"]
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
-            }
-            finally {
-                rdr?.Close();
-                conn.Close();
             }
 
             return list;
@@ -126,7 +123,7 @@ namespace Data
                     c.IdPedido = (long)rdr["IdPedido"];
                     c.Descripcion = (string)rdr["Descripcion"];
                     c.IdProveedor = (int)rdr["IdProveedor"];
-                    c.IdEstadoPedido= (int)rdr["IdEstadoPedido"];
+                    c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
                     c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                     c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
                     //c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
@@ -189,17 +186,17 @@ namespace Data
             var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
             var p4 = new SqlParameter("IdEstadoPedido", SqlDbType.Int) { Value = model.IdEstadoPedido };
             //var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = model.FechaEntrega };
-           // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
-            var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total};
+            // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
+            var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
             var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
-            
+
             cmd.Parameters.Add(p0);
             cmd.Parameters.Add(p1);
             cmd.Parameters.Add(p2);
             cmd.Parameters.Add(p3);
             cmd.Parameters.Add(p4);
             //cmd.Parameters.Add(p5);
-           // cmd.Parameters.Add(p6);
+            // cmd.Parameters.Add(p6);
             cmd.Parameters.Add(p7);
             cmd.Parameters.Add(p8);
 

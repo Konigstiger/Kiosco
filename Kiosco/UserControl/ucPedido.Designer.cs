@@ -49,6 +49,7 @@
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnVerPedidoDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -281,10 +282,21 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnVerPedidoDetalle
+            // 
+            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(820, 75);
+            this.btnVerPedidoDetalle.Name = "btnVerPedidoDetalle";
+            this.btnVerPedidoDetalle.Size = new System.Drawing.Size(254, 36);
+            this.btnVerPedidoDetalle.TabIndex = 122;
+            this.btnVerPedidoDetalle.Text = "Detalles de Pedido";
+            this.btnVerPedidoDetalle.UseVisualStyleBackColor = true;
+            this.btnVerPedidoDetalle.Click += new System.EventHandler(this.btnVerPedidoDetalle_Click);
+            // 
             // ucPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnVerPedidoDetalle);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAbmProveedor);
             this.Controls.Add(this.btnSeleccionarProveedor);
@@ -340,5 +352,6 @@
         private System.Windows.Forms.Button btnAbmProveedor;
         private System.Windows.Forms.Button btnSeleccionarProveedor;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnVerPedidoDetalle;
     }
 }

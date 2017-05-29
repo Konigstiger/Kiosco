@@ -73,6 +73,96 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("Fecha."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public DateTime Fecha
+        {
+            get {
+                return dtpFecha.Value;
+            }
+            set {
+                dtpFecha.Value = value;
+            }
+        }
+
+
+        [Description("Fecha."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public DateTime FechaEntrega
+        {
+            get {
+                return dtpFechaEntrega.Value;
+            }
+            set {
+                dtpFechaEntrega.Value = value;
+            }
+        }
+
+
+        [Description("Descripcion."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Descripcion
+        {
+            get {
+                return txtDescripcion.Text.Trim();
+            }
+            set {
+                txtDescripcion.Text = value;
+            }
+        }
+
+
+        [Description("Notas."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Notas
+        {
+            get {
+                return txtNotas.Text.Trim();
+            }
+            set {
+                txtNotas.Text = value;
+            }
+        }
+
+
+        [Description("Proveedor."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Proveedor
+        {
+            get {
+                return txtProveedorDescripcion.Text.Trim();
+            }
+            set {
+                txtProveedorDescripcion.Text = value;
+            }
+        }
+
+
+        [Description("Estado."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Estado => cboEstadoPedido.Text.Trim();
+
+
+
+
         public ucPedido()
         {
             InitializeComponent();
@@ -214,6 +304,20 @@ namespace Kiosco.UserControl
             }
 
 
+        }
+
+        public void Clear()
+        {
+            this.nudImporte.Value = 0;
+            this.Total = 0;
+            this.txtNotas.Text = "";
+            //TODO: Agregar segun sea necesario.
+        }
+
+        private void btnVerPedidoDetalle_Click(object sender, EventArgs e)
+        {
+            var f = new FrmPedidoDetalle(this.IdPedido);
+            f.Show();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Controlador
 
         public static List<PedidoView> SearchByParameters(string nombre)
         {
-            return PedidoData.SearchByParameters(nombre);
+            return PedidoData.GetByParameters(nombre);
 
         }
 
@@ -33,9 +33,9 @@ namespace Controlador
         }
 
 
-        public static List<PedidoView> GetAll_GetByDescripcion(string searchText)
+        public static List<PedidoView> GetAll_GetByParameters(string searchText)
         {
-            return PedidoData.SearchByParameters(searchText);
+            return PedidoData.GetByParameters(searchText);
         }
 
         public static PedidoView GetByPrimaryKeyView(long idPedido)
