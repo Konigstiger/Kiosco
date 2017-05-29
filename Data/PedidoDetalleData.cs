@@ -228,7 +228,7 @@ namespace Data
                 using (var cmd = new SqlCommand("PedidoDetalleView_GetByIdPedido", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("IdPedido", SqlDbType.VarChar) { Value = idPedido };
+                    var p1 = new SqlParameter("IdPedido", SqlDbType.BigInt) { Value = idPedido };
 
                     cmd.Parameters.Add(p1);
 

@@ -139,8 +139,8 @@ namespace Kiosco.UserControl
 
         public void SetControles()
         {
-            //txtIdPedido.Visible = false;
-            //txtIdProveedor.Visible = false;
+            txtIdPedido.Visible = false;
+            txtIdProveedor.Visible = false;
 
             txtProveedorDescripcion.Enabled = false;
 
@@ -185,8 +185,7 @@ namespace Kiosco.UserControl
         {
             if (DesignMode)
                 return;
-
-            CargarPedido(Convert.ToInt64(txtIdPedido.Text.Trim()));
+            CargarPedido(IdPedido);
         }
 
         private void btnAbmProveedor_Click(object sender, EventArgs e)
