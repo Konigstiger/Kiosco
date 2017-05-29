@@ -21,8 +21,8 @@ namespace Kiosco
 
         public void SetControles()
         {
-            //txtIdPedidoDetalle.Visible = false;
-            //txtIdProducto.Visible = false;
+            txtIdPedidoDetalle.Visible = false;
+            txtIdProducto.Visible = false;
 
         }
 

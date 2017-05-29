@@ -85,9 +85,9 @@ namespace Kiosco
 
             //TODO: Pendiente fix para busqueda.
             origenDatos = searchText.Equals("")
-                ? ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor, "")
+                ? ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor, null)
                 : ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor, searchText);
-
+            
             var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
