@@ -83,12 +83,10 @@ namespace Kiosco
 
             Util.SetColumnsReadOnly(dgv);
 
-            var idDeposito = 1; //Deposito en negocio
-
             //TODO: Pendiente fix para busqueda.
             origenDatos = searchText.Equals("")
-                ? ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor)
-                : ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor);
+                ? ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor, "")
+                : ProductoProveedorControlador.GetGrid_GetByIdProveedor(IdProveedor, searchText);
 
             var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -193,6 +191,26 @@ namespace Kiosco
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
             _ingresandoCodigo = true;
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)ProductoProveedorView.GridColumn.IdProducto].Value.ToString());
+          
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucProductoEdit1.IdProducto = id;
         }
     }
 }

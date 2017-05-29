@@ -57,7 +57,9 @@
             this.dgv.Size = new System.Drawing.Size(924, 481);
             this.dgv.TabIndex = 36;
             this.dgv.TabStop = false;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             this.dgv.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseDoubleClick);
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // cms
             // 

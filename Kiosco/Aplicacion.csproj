@@ -116,11 +116,11 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedido.cs">
+    <Compile Include="FrmPedidoDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPedido.Designer.cs">
-      <DependentUpon>FrmPedido.cs</DependentUpon>
+    <Compile Include="FrmPedidoDetalle.Designer.cs">
+      <DependentUpon>FrmPedidoDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOpciones.cs">
       <SubType>Form</SubType>
@@ -270,8 +270,8 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPedido.resx">
-      <DependentUpon>FrmPedido.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPedidoDetalle.resx">
+      <DependentUpon>FrmPedidoDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOpciones.resx">
       <DependentUpon>frmOpciones.cs</DependentUpon>

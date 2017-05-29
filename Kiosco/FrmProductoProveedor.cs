@@ -291,7 +291,7 @@ namespace Kiosco
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProveedor(idProveedor);
+            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProveedor(idProveedor, "");
 
             var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
             var source = new BindingSource(bindingList, null);

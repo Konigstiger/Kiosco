@@ -273,7 +273,7 @@ namespace Data
         }
 
 
-        public static List<ProductoProveedorView> GetGrid_GetByIdProveedor(int idProveedor)
+        public static List<ProductoProveedorView> GetGrid_GetByIdProveedor(int idProveedor, string descripcion)
         {
             var list = new List<ProductoProveedorView>();
             var conn = new SqlConnection(GeneralData.CadenaConexion);
@@ -282,8 +282,10 @@ namespace Data
             var cmd = new SqlCommand("ProductoProveedor_GetAll_GetByIdProveedor", conn) { CommandType = CommandType.StoredProcedure };
 
             var p0 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = idProveedor };
+            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
 
             cmd.Parameters.Add(p0);
+            cmd.Parameters.Add(p1);
 
             try {
                 conn.Open();
@@ -302,16 +304,6 @@ namespace Data
                         //Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                         //PrecioVenta = (decimal)rdr["CostoPromedio"]//,
                         //IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0
-                        /*
-        ProductoProveedor.IdProductoProveedor
-        ,Producto.IdProducto
-        ,Producto.Descripcion AS Producto
-        ,Proveedor.RazonSocial AS Proveedor 
-        ,ProductoProveedor.PrecioProveedor AS PrecioProveedor 
-        --,Producto.PrecioCostoPromedio AS CostoPromedio
-        ,Producto.PrecioVenta AS PrecioVenta
-                         */
-
                     };
 
                     list.Add(p);

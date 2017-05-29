@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
+using Model;
 
 namespace Kiosco
 {
@@ -20,8 +21,8 @@ namespace Kiosco
 
         public void SetControles()
         {
-            txtIdPedidoDetalle.Visible = false;
-            txtIdProducto.Visible = false;
+            //txtIdPedidoDetalle.Visible = false;
+            //txtIdProducto.Visible = false;
 
         }
 
@@ -204,21 +205,35 @@ namespace Kiosco
             //sucede lo mismo si lo que cambia es el precio de coste.
             //mas luego creo que pasara lo mismo si cambia la unidad.
 
-            //calcular importe:
-            var cantidad = Cantidad;
-            var pcu = Precio;
-            var importe = cantidad * pcu;
-            nudImporte.Value = importe;
+            CalcularImporte();
+        }
 
+        private void CalcularImporte()
+        {
+            var cantidad = Cantidad;
+            var k = nudUnidades.Value;
+            var pcu = Precio;
+            var importe = cantidad * k * pcu;
+            nudImporte.Value = importe;
         }
 
         private void nudPrecioCosto_ValueChanged(object sender, EventArgs e)
         {
-            //calcular importe:
-            var cantidad = Cantidad;
-            var pcu = Precio;
-            var importe = cantidad * pcu;
-            nudImporte.Value = importe;
+            CalcularImporte();
+        }
+
+        private void cboUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DesignMode)
+                return;
+            var obj = (UnidadView)cboUnidad.SelectedItem;
+            var k = obj.Unidades;
+            nudUnidades.Value = k;
+        }
+
+        private void nudUnidades_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularImporte();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Kiosco
 {
-    partial class FrmPedido
+    partial class FrmPedidoDetalle
     {
         /// <summary>
         /// Required designer variable.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedido));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidoDetalle));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
@@ -75,7 +75,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(516, 31);
+            this.tsb.Size = new System.Drawing.Size(311, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -157,6 +157,11 @@
             this.ucPedido1.Name = "ucPedido1";
             this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
             this.ucPedido1.TabIndex = 91;
+            this.ucPedido1.Total = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.ucPedido1.ProveedorChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
             // 
             // ucPedidoDetalle1
@@ -184,7 +189,7 @@
             this.ucPedidoDetalle1.Size = new System.Drawing.Size(1076, 74);
             this.ucPedidoDetalle1.TabIndex = 90;
             // 
-            // FrmPedido
+            // FrmPedidoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,9 +201,9 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Name = "FrmPedido";
+            this.Name = "FrmPedidoDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pedidos";
+            this.Text = "Detalle de Pedido";
             this.Load += new System.EventHandler(this.frmPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);

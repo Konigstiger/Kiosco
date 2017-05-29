@@ -206,14 +206,22 @@ namespace Data
 
                     cmd.Parameters.Add(p0);
 
-                    conn.Open();
-                    model.IdPedidoDetalle = (int)cmd.ExecuteScalar();
-                    return true;
+                    try {
+                        conn.Open();
+                        model.IdPedidoDetalle = (long)cmd.ExecuteScalar();
+                        return true;
+                    }
+                    catch {
+                        return false;
+                    }
+                    finally {
+                        conn.Close();
+                    }
                 }
             }
         }
 
-        public static List<PedidoDetalleView> GetByIdPedido(int idPedido)
+        public static List<PedidoDetalleView> GetByIdPedido(long idPedido)
         {
             var list = new List<PedidoDetalleView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
@@ -227,14 +235,16 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new PedidoDetalleView();
-                            p.IdPedidoDetalle = (long)rdr["IdPedidoDetalle"];
-                            p.IdProducto = (long)rdr["IdProducto"];
-                            p.Producto = (string)rdr["Producto"];
-                            p.Cantidad = (int)rdr["Cantidad"];
-                            p.Importe = (decimal)rdr["Importe"];
-                            p.Unidad = (string)rdr["Unidad"];
-                            p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            var p = new PedidoDetalleView
+                            {
+                                IdPedidoDetalle = (long) rdr["IdPedidoDetalle"],
+                                IdProducto = (long) rdr["IdProducto"],
+                                Producto = (string) rdr["Producto"],
+                                Cantidad = (int) rdr["Cantidad"],
+                                Importe = (decimal) rdr["Importe"],
+                                Unidad = (string) rdr["Unidad"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string) rdr["Notas"] : ""
+                            };
                             list.Add(p);
                         }
                     }

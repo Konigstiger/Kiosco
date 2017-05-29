@@ -53,9 +53,9 @@ namespace Controlador
             return PedidoDetalleData.Delete(m);
         }
 
-        public static List<PedidoDetalleView> GetByIdPedido(int idProveedor)
+        public static List<PedidoDetalleView> GetByIdPedido(long idPedido)
         {
-            return PedidoDetalleData.GetByIdPedido(idProveedor);
+            return PedidoDetalleData.GetByIdPedido(idPedido);
         }
     }
 }

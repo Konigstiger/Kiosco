@@ -56,6 +56,23 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("Total."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public decimal Total
+        {
+            get {
+                var v = nudImporte.Value;
+                return v;
+            }
+            set {
+                nudImporte.Value = value;
+            }
+        }
+
+
         public ucPedido()
         {
             InitializeComponent();

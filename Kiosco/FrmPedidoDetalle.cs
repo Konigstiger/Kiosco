@@ -9,7 +9,7 @@ using Model;
 
 namespace Kiosco
 {
-    public partial class FrmPedido : Form, ISelectorProducto
+    public partial class FrmPedidoDetalle : Form, ISelectorProducto
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
@@ -22,10 +22,19 @@ namespace Kiosco
         private const int ColCount = 6;
 
 
-        public FrmPedido()
+        public FrmPedidoDetalle()
         {
             InitializeComponent();
         }
+
+
+        public FrmPedidoDetalle(long idPedido)
+        {
+            InitializeComponent();
+            ucPedido1.IdPedido = idPedido;
+
+        }
+
 
         private void frmPedido_Load(object sender, EventArgs e)
         {
@@ -39,7 +48,6 @@ namespace Kiosco
         public void SetControles()
         {
             SetGrid(dgv);
-            ucPedido1.IdPedido = 1;
         }
 
 
@@ -93,8 +101,8 @@ namespace Kiosco
 
             //TODO: Corregir esto.
             origenDatos = searchText.Equals("") ?
-                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor) :
-                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdProveedor);
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido) :
+                PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido);
 
 
             var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
@@ -103,6 +111,9 @@ namespace Kiosco
 
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
+
+
+            ucPedido1.Total = CalcularTotal();
         }
 
 
@@ -176,16 +187,18 @@ namespace Kiosco
                 IdPedido = ucPedido1.IdPedido,
                 IdPedidoDetalle = ucPedidoDetalle1.IdPedidoDetalle,
                 Cantidad = ucPedidoDetalle1.Cantidad,
+                Producto = ucPedidoDetalle1.Descripcion,
                 IdProducto = ucPedidoDetalle1.IdProducto,
                 IdUnidad = ucPedidoDetalle1.IdUnidad,
                 Importe = ucPedidoDetalle1.Importe,
+                Unidad = ucPedidoDetalle1.Unidad,
                 Notas = ""
             };
 
             if (pdv.Validate().Equals(false))
                 throw new Exception("Errores en validacion!");
 
-
+            //El pedido detalle debe tener su descripcion actualizada. Sino, toma una vieja.
             var pd = new PedidoDetalle();
             pd.Cantidad = pdv.Cantidad;
             pd.IdPedidoDetalle = pdv.IdPedidoDetalle;
@@ -213,9 +226,10 @@ namespace Kiosco
                 _rowIndex = dgv.Rows.Count - 1;
             }
             
+            //TODO: Revisar este metodo y esta seccion. Hay conversiones raras. Es una necesidad esta desprolijidad.
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pdv.Cantidad;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Unidad].Value = ucPedidoDetalle1.Unidad;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = ucPedidoDetalle1.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int) PedidoDetalleView.GridColumn.Unidad].Value = pdv.Unidad; //ucPedidoDetalle1.Unidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = pdv.Producto;
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Importe].Value = pdv.Importe;
 
             // pasar o mantener _modo Edicion
@@ -225,21 +239,34 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Selected = true;
         }
 
+        private decimal CalcularTotal()
+        {
+            decimal sumImporte = 0;
+
+            foreach (DataGridViewRow item in dgv.Rows) {
+                sumImporte += (decimal)item.Cells[(int)PedidoDetalleView.GridColumn.Importe].Value;
+            }
+            return sumImporte;
+        }
+
 
         public void Eliminar()
         {
-            //if (!Util.ConfirmarEliminar())
-            //    return;
+            if (!Util.ConfirmarEliminar())
+                return;
 
-            ////crear objeto cascara
-            //var m = new Pedido { IdPedido = Convert.ToInt32(txtIdPedido.Text.Trim()) };
+            //crear objeto cascara
+            var m = new PedidoDetalle();
 
-            //var result = PedidoControlador.Delete(m);
+            var id = ucPedidoDetalle1.IdPedidoDetalle; //Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle].Value.ToString());
+            m.IdPedidoDetalle = id;
 
-            //// Remover visualmente el registro del producto.
-            //dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+            var result = PedidoDetalleControlador.Delete(m);
 
-            //LimpiarControles();
+            // Remover visualmente el registro del producto.
+            dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+
+            LimpiarControles();
         }
 
 

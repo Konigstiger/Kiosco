@@ -57,7 +57,7 @@ namespace Kiosco
 
         private void btnPedido_Click(object sender, EventArgs e)
         {
-            var f = new FrmPedido();
+            var f = new FrmPedidoDetalle(1);
             f.Show();
         }
 
