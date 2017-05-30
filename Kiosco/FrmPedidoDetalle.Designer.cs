@@ -75,7 +75,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(311, 31);
+            this.tsb.Size = new System.Drawing.Size(327, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -84,8 +84,8 @@
             this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(70, 28);
-            this.tsbNew.Text = "Nuevo";
+            this.tsbNew.Size = new System.Drawing.Size(86, 28);
+            this.tsbNew.Text = "Agregar...";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
             // tsbSave
@@ -149,12 +149,18 @@
             // 
             // ucPedido1
             // 
+            this.ucPedido1.Descripcion = "";
+            this.ucPedido1.Fecha = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
             this.ucPedido1.IdProveedor = 0;
             this.ucPedido1.Location = new System.Drawing.Point(14, 13);
             this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucPedido1.Name = "ucPedido1";
+            this.ucPedido1.Notas = "";
+            this.ucPedido1.Proveedor = "";
             this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
             this.ucPedido1.TabIndex = 91;
             this.ucPedido1.Total = new decimal(new int[] {
@@ -175,7 +181,7 @@
             this.ucPedidoDetalle1.IdProducto = ((long)(0));
             this.ucPedidoDetalle1.IdUnidad = 0;
             this.ucPedidoDetalle1.Importe = new decimal(new int[] {
-            4000,
+            0,
             0,
             0,
             131072});

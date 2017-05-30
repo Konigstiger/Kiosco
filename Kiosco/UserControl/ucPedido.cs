@@ -277,9 +277,9 @@ namespace Kiosco.UserControl
 
         private void txtIdPedido_TextChanged(object sender, EventArgs e)
         {
-            if (DesignMode)
-                return;
-            CargarPedido(IdPedido);
+            //if (DesignMode)
+            //    return;
+            //CargarPedido(IdPedido);
         }
 
         private void btnAbmProveedor_Click(object sender, EventArgs e)
