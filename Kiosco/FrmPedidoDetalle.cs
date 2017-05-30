@@ -104,14 +104,13 @@ namespace Kiosco
                 PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido) :
                 PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido);
 
-
-            var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
+            var bindingList = new MySortableBindingList<PedidoDetalleView>(origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
+
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
-
 
             ucPedido1.Total = CalcularTotal();
         }
@@ -182,8 +181,7 @@ namespace Kiosco
         public void GuardarOInsertar()
         {
             // Guardar lo que debe guardar es simple, todos los datos del IdProductoDetale elegido.
-            var pdv = new PedidoDetalleView
-            {
+            var pdv = new PedidoDetalleView {
                 IdPedido = ucPedido1.IdPedido,
                 IdPedidoDetalle = ucPedidoDetalle1.IdPedidoDetalle,
                 Cantidad = ucPedidoDetalle1.Cantidad,
@@ -211,8 +209,7 @@ namespace Kiosco
             // ya se tiene el objeto PedidoDetalle listo para persistir.
             if (_modo == ModoFormulario.Edicion) {
                 pdv.IdPedidoDetalle = PedidoDetalleControlador.Update(pd);
-            }
-            else {
+            } else {
                 pdv.IdPedidoDetalle = PedidoDetalleControlador.Insert(pd);
 
                 // modificar el datasource.
@@ -225,10 +222,10 @@ namespace Kiosco
                 //Calcular _rowIndex
                 _rowIndex = dgv.Rows.Count - 1;
             }
-            
+
             //TODO: Revisar este metodo y esta seccion. Hay conversiones raras. Es una necesidad esta desprolijidad.
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pdv.Cantidad;
-            dgv.Rows[_rowIndex].Cells[(int) PedidoDetalleView.GridColumn.Unidad].Value = pdv.Unidad; //ucPedidoDetalle1.Unidad;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Unidad].Value = pdv.Unidad; //ucPedidoDetalle1.Unidad;
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Producto].Value = pdv.Producto;
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Importe].Value = pdv.Importe;
 
@@ -239,13 +236,15 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Selected = true;
         }
 
+
         private decimal CalcularTotal()
         {
             decimal sumImporte = 0;
 
-            foreach (DataGridViewRow item in dgv.Rows) {
-                sumImporte += (decimal)item.Cells[(int)PedidoDetalleView.GridColumn.Importe].Value;
+            foreach (var o in origenDatos) {
+                sumImporte += o.Importe;
             }
+
             return sumImporte;
         }
 
@@ -305,16 +304,7 @@ namespace Kiosco
 
         private void ucPedido1_ProveedorChanged(object sender, UserControl.ValueChangedEventArgs e)
         {
-            //if (!Util.ConfirmarLimpiarPedido())
-            //    return;
-
-            // tiene que cargar la grilla, con el IdProveedor nuevo.
-            //var IdProveedor = ucPedido1.IdProveedor;
-
-            //var list = PedidoDetalleControlador.GetByIdPedido(IdProveedor);
-
             CargarGrilla(tsbSearchTextBox.Text);
-
         }
 
 

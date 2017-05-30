@@ -298,12 +298,7 @@ namespace Data
                         Producto = (string)rdr["Producto"],
                         Proveedor = (string)rdr["Proveedor"],
                         PrecioProveedor = (decimal)rdr["PrecioProveedor"],
-                        //CostoPromedio = (decimal)rdr["CostoPromedio"],
                         PrecioVenta = (decimal)rdr["PrecioVenta"]
-                        //,
-                        //Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                        //PrecioVenta = (decimal)rdr["CostoPromedio"]//,
-                        //IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0
                     };
 
                     list.Add(p);

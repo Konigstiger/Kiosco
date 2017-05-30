@@ -22,6 +22,7 @@ namespace Model
 
         public enum GridColumn
         {
+            IdPedido = 0,
             IdPedidoDetalle = 0,
             Cantidad = 1,
             Unidad = 2,
@@ -29,6 +30,7 @@ namespace Model
             Importe = 4,
             Notas = 5
         }
+
 
         public bool Validate()
         {

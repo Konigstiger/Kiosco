@@ -174,6 +174,7 @@ namespace Kiosco
                 Descripcion = ucPedido1.Descripcion,
                 Total = ucPedido1.Total,
                 Fecha = ucPedido1.Fecha,
+                IdEstadoPedido = ucPedido1.IdEstadoPedido,
                 Notas = ucPedido1.Notas
             };
 
@@ -200,11 +201,12 @@ namespace Kiosco
                     throw new Exception("Errores en validacion!");
 
                 var mNuevo = new Pedido {
-                    IdPedido = -1,
+                    IdPedido = ucPedido1.IdPedido,
                     IdProveedor = ucPedido1.IdProveedor,
                     Descripcion = ucPedido1.Descripcion,
                     Total = ucPedido1.Total,
                     Fecha = ucPedido1.Fecha,
+                    IdEstadoPedido = ucPedido1.IdEstadoPedido,
                     Notas = ucPedido1.Notas
                 };
 

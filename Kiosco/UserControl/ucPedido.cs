@@ -161,6 +161,19 @@ namespace Kiosco.UserControl
         public string Estado => cboEstadoPedido.Text.Trim();
 
 
+        [Description("IdEstadoPedido. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdEstadoPedido
+        {
+            get {
+                int v = int.TryParse(cboEstadoPedido.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboEstadoPedido.SelectedValue = value; }
+        }
 
 
         public ucPedido()
@@ -177,18 +190,13 @@ namespace Kiosco.UserControl
 
             var p = PedidoControlador.GetByPrimaryKey(idPedido);
 
-            txtDescripcion.Text = p.Descripcion;
-            //dtpFecha.Value = (DateTime) p.Fecha; //TODO Continuar
-            //dtpFechaEntrega.Value = p.FechaEntrega;
-            CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
+            Descripcion = p.Descripcion;
             CheckDateNullable(p.Fecha, dtpFecha);
-            nudImporte.Value = p.Total;
-            txtIdProveedor.Text = p.IdProveedor.ToString();
-            cboEstadoPedido.SelectedValue = p.IdEstadoPedido;
-
-            txtNotas.Text = p.Notas;
-
-
+            CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
+            Total = p.Total;
+            IdProveedor = p.IdProveedor;
+            IdEstadoPedido = p.IdEstadoPedido;
+            Notas = p.Notas;
         }
 
 
@@ -220,12 +228,8 @@ namespace Kiosco.UserControl
             var c = ProveedorControlador.GetByPrimaryKey(v);
 
             txtProveedorDescripcion.Text = c.RazonSocial;
-            //txtApellido.Text = c.Apellido;
-            //txtNombre.Text = c.Nombre;
-            //txtDireccion.Text = c.Direccion;
-            //txtTelefono.Text = c.Telefono;
-            //txtNotas.Text = c.Notas;
         }
+
 
         public void SetControles()
         {
@@ -308,10 +312,15 @@ namespace Kiosco.UserControl
 
         public void Clear()
         {
-            this.nudImporte.Value = 0;
-            this.Total = 0;
-            this.txtNotas.Text = "";
-            //TODO: Agregar segun sea necesario.
+            IdPedido = 0;
+            txtIdProveedor.Clear();
+            nudImporte.Value = 0;
+            nudImporte.Value = 0;
+            txtNotas.Clear();
+            dtpFecha.Value = DateTime.Today;
+            dtpFechaEntrega.Value = DateTime.Today;
+            dtpHoraEntrega.Value = DateTime.Now;
+            cboEstadoPedido.SelectedValue = 1;
         }
 
         private void btnVerPedidoDetalle_Click(object sender, EventArgs e)
