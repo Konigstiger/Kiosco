@@ -11,32 +11,27 @@ namespace Data
         public static List<PedidoDetalleView> GetAll()
         {
             var list = new List<PedidoDetalleView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("PedidoDetalle_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("PedidoDetalle_GetAll", conn) { CommandType = CommandType.StoredProcedure };
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new PedidoDetalleView {
-                        IdPedidoDetalle = (long)rdr["IdPedidoDetalle"],
-                        IdPedido = (long)rdr["IdProducto"],
-                        IdProducto = (long)rdr["IdProducto"],
-                        Cantidad = (int)rdr["Cantidad"],
-                        Importe = (int)rdr["Importe"],
-                        IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 1,
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                    };
-
-                    list.Add(p);
+                        while (rdr.Read()) {
+                            var p = new PedidoDetalleView {
+                                IdPedidoDetalle = (long)rdr["IdPedidoDetalle"],
+                                IdPedido = (long)rdr["IdProducto"],
+                                IdProducto = (long)rdr["IdProducto"],
+                                Cantidad = (int)rdr["Cantidad"],
+                                Importe = (int)rdr["Importe"],
+                                IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 1,
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
+                            list.Add(p);
+                        }
+                    }
                 }
-            }
-            finally {
-                rdr?.Close();
-                conn.Close();
             }
             return list;
         }
@@ -235,15 +230,14 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new PedidoDetalleView
-                            {
-                                IdPedidoDetalle = (long) rdr["IdPedidoDetalle"],
-                                IdProducto = (long) rdr["IdProducto"],
-                                Producto = (string) rdr["Producto"],
-                                Cantidad = (int) rdr["Cantidad"],
-                                Importe = (decimal) rdr["Importe"],
-                                Unidad = (string) rdr["Unidad"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string) rdr["Notas"] : ""
+                            var p = new PedidoDetalleView {
+                                IdPedidoDetalle = (long)rdr["IdPedidoDetalle"],
+                                IdProducto = (long)rdr["IdProducto"],
+                                Producto = (string)rdr["Producto"],
+                                Cantidad = (int)rdr["Cantidad"],
+                                Importe = (decimal)rdr["Importe"],
+                                Unidad = (string)rdr["Unidad"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
                         }

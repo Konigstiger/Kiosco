@@ -48,7 +48,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnVerPedidoDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +56,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.Location = new System.Drawing.Point(445, 78);
+            this.label5.Location = new System.Drawing.Point(506, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 19);
             this.label5.TabIndex = 112;
@@ -68,7 +67,7 @@
             this.nudImporte.BackColor = System.Drawing.SystemColors.Menu;
             this.nudImporte.DecimalPlaces = 2;
             this.nudImporte.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudImporte.Location = new System.Drawing.Point(492, 75);
+            this.nudImporte.Location = new System.Drawing.Point(553, 75);
             this.nudImporte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudImporte.Maximum = new decimal(new int[] {
             10000000,
@@ -76,7 +75,7 @@
             0,
             0});
             this.nudImporte.Name = "nudImporte";
-            this.nudImporte.Size = new System.Drawing.Size(212, 25);
+            this.nudImporte.Size = new System.Drawing.Size(151, 25);
             this.nudImporte.TabIndex = 111;
             this.nudImporte.TabStop = false;
             // 
@@ -84,19 +83,19 @@
             // 
             this.dtpHoraEntrega.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpHoraEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrega.Location = new System.Drawing.Point(492, 107);
+            this.dtpHoraEntrega.Location = new System.Drawing.Point(553, 107);
             this.dtpHoraEntrega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpHoraEntrega.Name = "dtpHoraEntrega";
             this.dtpHoraEntrega.ShowCheckBox = true;
             this.dtpHoraEntrega.ShowUpDown = true;
-            this.dtpHoraEntrega.Size = new System.Drawing.Size(211, 25);
+            this.dtpHoraEntrega.Size = new System.Drawing.Size(150, 25);
             this.dtpHoraEntrega.TabIndex = 110;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(393, 107);
+            this.label3.Location = new System.Drawing.Point(454, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 19);
             this.label3.TabIndex = 109;
@@ -270,26 +269,16 @@
             this.btnSeleccionarProveedor.UseVisualStyleBackColor = true;
             this.btnSeleccionarProveedor.Click += new System.EventHandler(this.btnSeleccionarProveedor_Click);
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnGuardar.Location = new System.Drawing.Point(820, 127);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(254, 34);
-            this.btnGuardar.TabIndex = 121;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // btnVerPedidoDetalle
             // 
-            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(820, 75);
+            this.btnVerPedidoDetalle.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVerPedidoDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(820, 44);
             this.btnVerPedidoDetalle.Name = "btnVerPedidoDetalle";
             this.btnVerPedidoDetalle.Size = new System.Drawing.Size(254, 36);
             this.btnVerPedidoDetalle.TabIndex = 122;
             this.btnVerPedidoDetalle.Text = "Detalles de Pedido";
-            this.btnVerPedidoDetalle.UseVisualStyleBackColor = true;
+            this.btnVerPedidoDetalle.UseVisualStyleBackColor = false;
             this.btnVerPedidoDetalle.Click += new System.EventHandler(this.btnVerPedidoDetalle_Click);
             // 
             // ucPedido
@@ -297,7 +286,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnVerPedidoDetalle);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAbmProveedor);
             this.Controls.Add(this.btnSeleccionarProveedor);
             this.Controls.Add(this.label8);
@@ -351,7 +339,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAbmProveedor;
         private System.Windows.Forms.Button btnSeleccionarProveedor;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnVerPedidoDetalle;
     }
 }

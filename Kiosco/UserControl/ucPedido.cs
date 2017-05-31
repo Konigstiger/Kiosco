@@ -290,24 +290,6 @@ namespace Kiosco.UserControl
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //persistir la info del pedido.
-
-            var p = new Pedido {
-                IdPedido = this.IdPedido,
-                Descripcion = this.txtDescripcion.Text.Trim(),
-                Fecha = dtpFecha.Value,
-                IdProveedor = this.IdProveedor,
-                IdEstadoPedido = (int)cboEstadoPedido.SelectedValue,
-                Notas = this.txtNotas.Text.Trim(),
-                Total = nudImporte.Value
-            };
-
-            //ya con el modelo listo (meter todos los datos validados)
-            if (p.Validate()) {
-                PedidoControlador.Update(p);
-            }
-
-
         }
 
         public void Clear()
