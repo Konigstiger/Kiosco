@@ -314,6 +314,7 @@ namespace Kiosco.UserControl
         {
             IdPedido = 0;
             txtIdProveedor.Clear();
+            txtDescripcion.Clear();
             nudImporte.Value = 0;
             nudImporte.Value = 0;
             txtNotas.Clear();

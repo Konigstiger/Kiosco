@@ -169,7 +169,7 @@
             // 
             this.nudPrecioCompra.DecimalPlaces = 2;
             this.nudPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudPrecioCompra.Location = new System.Drawing.Point(782, 12);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(782, 18);
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(141, 24);
             this.nudPrecioCompra.TabIndex = 55;

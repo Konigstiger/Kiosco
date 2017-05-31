@@ -13,7 +13,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 5;
+        private const int colCount = 6;
 
         private List<ProductoProveedorView> origenDatos = null;
 
@@ -70,12 +70,16 @@ namespace Kiosco
 
 
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false; //true;
+            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
+
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 1);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 2);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 3);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 4);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
             dgv.Columns.AddRange(c);
 
 
@@ -141,7 +145,7 @@ namespace Kiosco
 
                 origenDatos.Add(modelView);
 
-                var bindingList = new BindingList<ProductoProveedorView>(origenDatos);
+                var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -280,12 +284,16 @@ namespace Kiosco
 
 
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false; //true;
+            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
+
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 1);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 2);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 3);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 4);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
             dgv.Columns.AddRange(c);
 
 

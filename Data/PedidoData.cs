@@ -80,27 +80,32 @@ namespace Data
 
         public static long Insert(Pedido m)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            var cmd = new SqlCommand("Pedido_Insert", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_Insert", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            //var p0 = new SqlParameter("IdPedido", SqlDbType.BigInt) {Direction = ParameterDirection.Output};
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
-            var p2 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    //var p0 = new SqlParameter("IdPedido", SqlDbType.BigInt) {Direction = ParameterDirection.Output};
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
+                    var p2 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
+                    var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = m.Fecha };
+                    var p4 = new SqlParameter("IdEstadoPedido", SqlDbType.Int) { Value = m.IdEstadoPedido };
+                    var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = m.FechaEntrega };
+                    var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = m.HoraEntrega }; // esto deberia ser 1,2,3, mañana tarde noche.
+                    var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
 
-            //cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
+                    //cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
 
-            try {
-                conn.Open();
-
-                //cmd.ExecuteNonQuery();
-                m.IdPedido = (int)cmd.ExecuteScalar();
+                    conn.Open();
+                    m.IdPedido = (long)cmd.ExecuteScalar();
+                }
             }
-            finally {
-                conn.Close();
-            }
-
             return m.IdPedido;
         }
 
@@ -108,35 +113,30 @@ namespace Data
         public static Pedido GetByPrimaryKey(long idPedido)
         {
             var c = new Pedido();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Pedido_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = idPedido };
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = idPedido };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    c.IdPedido = (long)rdr["IdPedido"];
-                    c.Descripcion = (string)rdr["Descripcion"];
-                    c.IdProveedor = (int)rdr["IdProveedor"];
-                    c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
-                    c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
-                    c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
-                    //c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
-                    c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
-
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdPedido = (long)rdr["IdPedido"];
+                            c.Descripcion = (string)rdr["Descripcion"];
+                            c.IdProveedor = (int)rdr["IdProveedor"];
+                            c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
+                            c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
+                            c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
+                            c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
+                            c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        }
+                    }
                 }
-            }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
 
+            }
             return c;
         }
 

@@ -259,7 +259,7 @@ namespace Kiosco
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
+            //TODO: Revisar esto!
             var cc = Math.Round(1 - (m.PrecioCostoPromedio / m.PrecioVenta) * 100, 2);
 
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = m.CodigoBarras;
