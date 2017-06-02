@@ -149,7 +149,7 @@
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 38;
-            this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.StockChangedEventHandler(this.ucProductoEdit1_StockChanged);
+            this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
             // FrmSeleccionarProductoProveedor
             // 

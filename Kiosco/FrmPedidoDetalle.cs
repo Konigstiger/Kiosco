@@ -197,14 +197,16 @@ namespace Kiosco
                 throw new Exception("Errores en validacion!");
 
             //El pedido detalle debe tener su descripcion actualizada. Sino, toma una vieja.
-            var pd = new PedidoDetalle();
-            pd.Cantidad = pdv.Cantidad;
-            pd.IdPedidoDetalle = pdv.IdPedidoDetalle;
-            pd.IdProducto = pdv.IdProducto;
-            pd.IdPedido = pdv.IdPedido;
-            pd.IdUnidad = pdv.IdUnidad;
-            pd.Importe = pdv.Importe;
-            pd.Notas = pdv.Notas;
+            var pd = new PedidoDetalle
+            {
+                Cantidad = pdv.Cantidad,
+                IdPedidoDetalle = pdv.IdPedidoDetalle,
+                IdProducto = pdv.IdProducto,
+                IdPedido = pdv.IdPedido,
+                IdUnidad = pdv.IdUnidad,
+                Importe = pdv.Importe,
+                Notas = pdv.Notas
+            };
 
             // ya se tiene el objeto PedidoDetalle listo para persistir.
             if (_modo == ModoFormulario.Edicion) {
@@ -257,7 +259,7 @@ namespace Kiosco
             //crear objeto cascara
             var m = new PedidoDetalle();
 
-            var id = ucPedidoDetalle1.IdPedidoDetalle; //Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)PedidoDetalleView.GridColumn.IdPedidoDetalle].Value.ToString());
+            var id = ucPedidoDetalle1.IdPedidoDetalle;
             m.IdPedidoDetalle = id;
 
             var result = PedidoDetalleControlador.Delete(m);

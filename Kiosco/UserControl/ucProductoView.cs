@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 
 using Controlador;
@@ -21,8 +20,55 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public long IdProducto
         {
-            get { return Convert.ToInt32(txtIdProducto.Text); }
-            set { txtIdProducto.Text = value.ToString(); }
+            get { return Convert.ToInt64(txtIdProducto.Text); }
+            set
+            {
+                txtIdProducto.Text = value.ToString();
+                OnProductoChanged(new ValueChangedEventArgs(value));
+            }
+        }
+
+
+
+
+        [Description("Descripcion de Producto."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Descripcion => txtDescripcion.Text.Trim();
+
+
+        [Description("PrecioVenta."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public decimal PrecioVenta
+        {
+            get { return nudPrecio.Value; }
+            set { nudPrecio.Value = value; }
+        }
+
+        [Description("PrecioCosto."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public decimal PrecioCosto
+        {
+            get { return nudPrecioCosto.Value; }
+            set { nudPrecioCosto.Value = value; }
+        }
+
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se selecciona otro producto.")]
+        public event ProductoChangedEventHandler ProductoChanged;
+
+        protected virtual void OnProductoChanged(ValueChangedEventArgs e)
+        {
+            ProductoChanged?.Invoke(this, e);
         }
 
 
@@ -46,26 +92,6 @@ namespace Kiosco.UserControl
             nudPrecioCosto.Value = c.PrecioCostoPromedio;
             nudPrecio.Value = c.PrecioVenta;
 
-            /*
-            
-            nudStockMinimo.Value = c.StockMinimo;
-            nudStockMaximo.Value = c.StockMaximo;
-            chkSoloAdultos.Checked = c.SoloAdultos ?? false;
-
-            txtIdMarca.Text = c.IdMarca.ToString();
-            cboRubro.SelectedValue = c.IdRubro;
-            cboUnidad.SelectedValue = c.IdUnidad ?? 1;
-            txtNotas.Text = c.Notas;
-
-            //TODO: Recuperar valor actual de Stock, si existe.
-            var s = new Stock {
-                IdProducto = id,
-                IdDeposito = 1
-            };
-
-            var q = StockControlador.GetByParameters(s);
-            nudStockActual.Value = q.Cantidad;
-            */
         }
 
         private void btnAbmProducto_Click(object sender, EventArgs e)
@@ -84,6 +110,7 @@ namespace Kiosco.UserControl
         {
             nudPrecio.Enabled = false;
             nudPrecioCosto.Enabled = false;
+            txtIdProducto.Visible = false;
         }
 
         private void CargarControles()

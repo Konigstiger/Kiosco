@@ -6,9 +6,9 @@ namespace Kiosco.UserControl
 {
     public class ValueChangedEventArgs : EventArgs
     {
-        public int NewValue { get; set; }
+        public long NewValue { get; set; }
 
-        public ValueChangedEventArgs(int newValue)
+        public ValueChangedEventArgs(long newValue)
         {
             NewValue = newValue;
         }
@@ -28,5 +28,5 @@ namespace Kiosco.UserControl
         }
     }
 
-    public delegate void StockChangedEventHandler(object sender, ValueChangedEventArgs e);
+    public delegate void ProductoChangedEventHandler(object sender, ValueChangedEventArgs e);
 }

@@ -128,7 +128,7 @@
             this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(70, 657);
+            this.btnEstadisticas.Location = new System.Drawing.Point(70, 577);
             this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(355, 58);
@@ -142,7 +142,7 @@
             this.btnOpciones.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOpciones.Image")));
             this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpciones.Location = new System.Drawing.Point(70, 497);
+            this.btnOpciones.Location = new System.Drawing.Point(70, 657);
             this.btnOpciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(355, 58);
@@ -156,7 +156,7 @@
             this.btnProductoProveedor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoProveedor.Image")));
             this.btnProductoProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductoProveedor.Location = new System.Drawing.Point(70, 577);
+            this.btnProductoProveedor.Location = new System.Drawing.Point(70, 497);
             this.btnProductoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProductoProveedor.Name = "btnProductoProveedor";
             this.btnProductoProveedor.Size = new System.Drawing.Size(355, 58);

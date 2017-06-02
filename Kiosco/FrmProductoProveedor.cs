@@ -38,9 +38,14 @@ namespace Kiosco
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
+            BotonNuevo();
+        }
+
+        private void BotonNuevo()
+        {
             LimpiarControles();
             _modo = ModoFormulario.Nuevo;
-            //txtDescripcion.Focus();
+            ucProductoView1.Clear();
         }
 
 
@@ -134,7 +139,8 @@ namespace Kiosco
                 IdProveedor = ucProveedorView1.IdProveedor,
                 IdProducto = ucProductoView1.IdProducto,
                 PrecioProveedor = nudPrecioCompra.Value,
-                IdUnidad = 1
+                IdUnidad = 1,
+                Notas = ""
             };
 
             //=====================================================================
@@ -152,32 +158,38 @@ namespace Kiosco
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var ProductoProveedorNuevo = new ProductoProveedor {
+                var productoProveedorNuevo = new ProductoProveedor {
                     IdProductoProveedor = Convert.ToInt64(txtIdProductoProveedor.Text.Trim()),
                     IdProveedor = ucProveedorView1.IdProveedor,
                     IdProducto = ucProductoView1.IdProducto,
                     PrecioProveedor = nudPrecioCompra.Value,
-                    IdUnidad = 1
+                    IdUnidad = 1,
+                    Notas = ""
                 };
 
-                ProductoProveedorNuevo.IdProductoProveedor = ProductoProveedorControlador.Update(ProductoProveedorNuevo);
-
-                //Usar una View?
-
+                productoProveedorNuevo.IdProductoProveedor = ProductoProveedorControlador.Update(productoProveedorNuevo);
             }
 
-            // pasar o mantener _modo Edicion
+            var mv = new ProductoProveedorView {
+                IdProductoProveedor = m.IdProductoProveedor,
+                Proveedor = ucProveedorView1.Proveedor,
+                Producto = ucProductoView1.Descripcion,
+                IdProducto = ucProductoView1.IdProducto,
+                PrecioProveedor = nudPrecioCompra.Value,
+                PrecioVenta = ucProductoView1.PrecioVenta,
+                IdUnidad = 1,
+                Notas = ""
+            };
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
-            //dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorGridColumn.Producto].Value = m.;
-            //dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorGridColumn.Proveedor].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorView.GridColumn.Producto].Value =  mv.Producto;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorView.GridColumn.Proveedor].Value = mv.Proveedor;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorView.GridColumn.PrecioProveedor].Value = mv.PrecioProveedor;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorView.GridColumn.PrecioVenta].Value = mv.PrecioVenta;
             //********************
 
 
@@ -313,6 +325,29 @@ namespace Kiosco
         private void ucProveedorView1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ucProductoView1_ProductoChanged(object sender, UserControl.ValueChangedEventArgs e)
+        {
+            //cuando se selecciona un nuevo Producto, se sugiere el PCP.
+            nudPrecioCompra.Value = ucProductoView1.PrecioCosto;
+        }
+
+        //Esto merece ser refinado
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData) {
+                case (Keys.Control | Keys.G):
+                    GuardarOInsertar();
+                    break;
+                case (Keys.Control | Keys.N):
+                    BotonNuevo();
+                    break;
+                default:
+                    break;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

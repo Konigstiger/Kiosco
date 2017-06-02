@@ -44,12 +44,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboEstadoPedido = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
+            this.panelEstadoyDetalles = new System.Windows.Forms.Panel();
             this.btnVerPedidoDetalle = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboEstadoPedido = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
+            this.panelEstadoyDetalles.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -161,7 +163,7 @@
             this.txtIdProveedor.Location = new System.Drawing.Point(711, 44);
             this.txtIdProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIdProveedor.Name = "txtIdProveedor";
-            this.txtIdProveedor.Size = new System.Drawing.Size(34, 25);
+            this.txtIdProveedor.Size = new System.Drawing.Size(15, 25);
             this.txtIdProveedor.TabIndex = 103;
             this.txtIdProveedor.Text = "0";
             this.txtIdProveedor.TextChanged += new System.EventHandler(this.txtIdProveedor_TextChanged);
@@ -224,27 +226,6 @@
             this.label7.TabIndex = 114;
             this.label7.Text = "Notas:";
             // 
-            // cboEstadoPedido
-            // 
-            this.cboEstadoPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstadoPedido.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboEstadoPedido.FormattingEnabled = true;
-            this.cboEstadoPedido.Location = new System.Drawing.Point(820, 12);
-            this.cboEstadoPedido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cboEstadoPedido.Name = "cboEstadoPedido";
-            this.cboEstadoPedido.Size = new System.Drawing.Size(254, 25);
-            this.cboEstadoPedido.TabIndex = 117;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label8.Location = new System.Drawing.Point(744, 12);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 19);
-            this.label8.TabIndex = 118;
-            this.label8.Text = "Estado:";
-            // 
             // btnAbmProveedor
             // 
             this.btnAbmProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -269,27 +250,57 @@
             this.btnSeleccionarProveedor.UseVisualStyleBackColor = true;
             this.btnSeleccionarProveedor.Click += new System.EventHandler(this.btnSeleccionarProveedor_Click);
             // 
+            // panelEstadoyDetalles
+            // 
+            this.panelEstadoyDetalles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelEstadoyDetalles.Controls.Add(this.btnVerPedidoDetalle);
+            this.panelEstadoyDetalles.Controls.Add(this.label8);
+            this.panelEstadoyDetalles.Controls.Add(this.cboEstadoPedido);
+            this.panelEstadoyDetalles.Location = new System.Drawing.Point(721, 12);
+            this.panelEstadoyDetalles.Name = "panelEstadoyDetalles";
+            this.panelEstadoyDetalles.Size = new System.Drawing.Size(361, 100);
+            this.panelEstadoyDetalles.TabIndex = 123;
+            // 
             // btnVerPedidoDetalle
             // 
             this.btnVerPedidoDetalle.BackColor = System.Drawing.SystemColors.Control;
             this.btnVerPedidoDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(820, 44);
+            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(78, 49);
             this.btnVerPedidoDetalle.Name = "btnVerPedidoDetalle";
             this.btnVerPedidoDetalle.Size = new System.Drawing.Size(254, 36);
-            this.btnVerPedidoDetalle.TabIndex = 122;
+            this.btnVerPedidoDetalle.TabIndex = 125;
             this.btnVerPedidoDetalle.Text = "Detalles de Pedido";
             this.btnVerPedidoDetalle.UseVisualStyleBackColor = false;
             this.btnVerPedidoDetalle.Click += new System.EventHandler(this.btnVerPedidoDetalle_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label8.Location = new System.Drawing.Point(3, 19);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 19);
+            this.label8.TabIndex = 124;
+            this.label8.Text = "Estado:";
+            // 
+            // cboEstadoPedido
+            // 
+            this.cboEstadoPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoPedido.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboEstadoPedido.FormattingEnabled = true;
+            this.cboEstadoPedido.Location = new System.Drawing.Point(78, 16);
+            this.cboEstadoPedido.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboEstadoPedido.Name = "cboEstadoPedido";
+            this.cboEstadoPedido.Size = new System.Drawing.Size(254, 25);
+            this.cboEstadoPedido.TabIndex = 123;
             // 
             // ucPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnVerPedidoDetalle);
+            this.Controls.Add(this.panelEstadoyDetalles);
             this.Controls.Add(this.btnAbmProveedor);
             this.Controls.Add(this.btnSeleccionarProveedor);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cboEstadoPedido);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNotas);
@@ -309,9 +320,11 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ucPedido";
-            this.Size = new System.Drawing.Size(1085, 174);
+            this.Size = new System.Drawing.Size(1090, 174);
             this.Load += new System.EventHandler(this.ucPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
+            this.panelEstadoyDetalles.ResumeLayout(false);
+            this.panelEstadoyDetalles.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,10 +348,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboEstadoPedido;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAbmProveedor;
         private System.Windows.Forms.Button btnSeleccionarProveedor;
+        private System.Windows.Forms.Panel panelEstadoyDetalles;
         private System.Windows.Forms.Button btnVerPedidoDetalle;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cboEstadoPedido;
     }
 }

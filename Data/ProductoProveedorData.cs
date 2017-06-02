@@ -212,34 +212,29 @@ namespace Data
 
         public static long Update(ProductoProveedor m)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("ProductoProveedor_Update", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("ProductoProveedor_Update", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdProductoProveedor", SqlDbType.BigInt) { Value = m.IdProductoProveedor };
+                    var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
+                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
+                    var p3 = new SqlParameter("PrecioProveedor", SqlDbType.Decimal) { Value = m.PrecioProveedor };
+                    var p4 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
+                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
-            var p0 = new SqlParameter("IdProductoProveedor", SqlDbType.BigInt) { Value = m.IdProductoProveedor };
-            var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
-            var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
-            var p3 = new SqlParameter("PrecioProveedor", SqlDbType.Decimal) { Value = m.PrecioProveedor };
-            var p4 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
-            var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
 
-            cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-            cmd.Parameters.Add(p3);
-            cmd.Parameters.Add(p4);
-            cmd.Parameters.Add(p5);
-
-            try {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-                m.IdProductoProveedor = (long)cmd.ExecuteScalar();
-
+                    if (conn.State != ConnectionState.Open)
+                        conn.Open();
+                    m.IdProductoProveedor = (long)cmd.ExecuteScalar();
+                }
             }
-            finally {
-                conn.Close();
-            }
-
             return m.IdProductoProveedor;
         }
 

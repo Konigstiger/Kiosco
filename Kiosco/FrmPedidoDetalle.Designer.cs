@@ -150,8 +150,8 @@
             // ucPedido1
             // 
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
@@ -161,6 +161,8 @@
             this.ucPedido1.Name = "ucPedido1";
             this.ucPedido1.Notas = "";
             this.ucPedido1.Proveedor = "";
+            this.ucPedido1.ShowDetallePedido = false;
+            this.ucPedido1.ShowEstadoPedido = false;
             this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
             this.ucPedido1.TabIndex = 91;
             this.ucPedido1.Total = new decimal(new int[] {
@@ -184,7 +186,7 @@
             0,
             0,
             0,
-            131072});
+            0});
             this.ucPedidoDetalle1.Location = new System.Drawing.Point(14, 671);
             this.ucPedidoDetalle1.Name = "ucPedidoDetalle1";
             this.ucPedidoDetalle1.Precio = new decimal(new int[] {

@@ -198,6 +198,7 @@
             this.ucProductoView1.Name = "ucProductoView1";
             this.ucProductoView1.Size = new System.Drawing.Size(568, 138);
             this.ucProductoView1.TabIndex = 54;
+            this.ucProductoView1.ProductoChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);
             // 
             // txtIdProductoProveedor
             // 

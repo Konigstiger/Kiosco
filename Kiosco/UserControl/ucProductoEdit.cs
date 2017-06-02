@@ -10,12 +10,22 @@ namespace Kiosco.UserControl
     {
         [Category("Action")]
         [Description("Es lanzado cuando el Stock es cambiado")]
-        public event StockChangedEventHandler StockChanged;
+        public event ProductoChangedEventHandler StockChanged;
 
         protected virtual void OnStockChanged(ValueChangedEventArgs e)
         {
             StockChanged?.Invoke(this, e);
         }
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se selecciona otro producto.")]
+        public event ProductoChangedEventHandler ProductoChanged;
+
+        protected virtual void OnProductoChanged(ValueChangedEventArgs e)
+        {
+            ProductoChanged?.Invoke(this, e);
+        }
+        
 
 
         public ucProductoEdit()
@@ -113,7 +123,11 @@ namespace Kiosco.UserControl
                 long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
                 return v;
             }
-            set { txtIdProducto.Text = value.ToString(); }
+            set
+            {
+                txtIdProducto.Text = value.ToString();
+                OnProductoChanged(new ValueChangedEventArgs(value));
+            }
         }
 
 

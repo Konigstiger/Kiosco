@@ -136,8 +136,8 @@ namespace Kiosco
 
             //obtener el numero de row, y con eso, obtener los demas datos.
 
-            //ucProductoEdit1.id
             var idProducto = Convert.ToInt64(dgv.Rows[e.RowIndex].Cells[1].Value);
+            ucProductoEdit1.IdProducto = idProducto;
 
             //Comunicar las ventanas entre si...
             CallerForm.IdProducto = idProducto;
@@ -207,7 +207,9 @@ namespace Kiosco
 
             // esto funciona, pero con el numero de celda, no con ID.
             var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)ProductoProveedorView.GridColumn.IdProducto].Value.ToString());
-          
+
+            ucProductoEdit1.IdProducto = id;
+
             _rowIndex = dgv.SelectedRows[0].Index;
 
             ucProductoEdit1.IdProducto = id;

@@ -28,7 +28,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSeleccionarProducto));
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -37,6 +37,8 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
             this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -56,13 +58,15 @@
             this.dgv.Location = new System.Drawing.Point(12, 34);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(911, 399);
             this.dgv.TabIndex = 33;
             this.dgv.TabStop = false;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             this.dgv.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseDoubleClick);
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // tsb
             // 
@@ -71,7 +75,9 @@
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
+            this.tsbSearchClearAndPerform,
+            this.toolStripSeparator1,
+            this.tsbCloseOnSelect});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
             this.tsb.Size = new System.Drawing.Size(930, 31);
@@ -117,6 +123,22 @@
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // tsbCloseOnSelect
+            // 
+            this.tsbCloseOnSelect.Checked = true;
+            this.tsbCloseOnSelect.CheckOnClick = true;
+            this.tsbCloseOnSelect.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsbCloseOnSelect.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOnSelect.Image")));
+            this.tsbCloseOnSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseOnSelect.Name = "tsbCloseOnSelect";
+            this.tsbCloseOnSelect.Size = new System.Drawing.Size(142, 28);
+            this.tsbCloseOnSelect.Text = "Cerrar al Seleccionar";
+            // 
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -126,8 +148,8 @@
             this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucProductoEdit1.IdMarca = 0;
             this.ucProductoEdit1.IdProducto = ((long)(0));
-            this.ucProductoEdit1.IdRubro = 1;
-            this.ucProductoEdit1.IdUnidad = 1;
+            this.ucProductoEdit1.IdRubro = 0;
+            this.ucProductoEdit1.IdUnidad = 0;
             this.ucProductoEdit1.Location = new System.Drawing.Point(12, 440);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
@@ -148,7 +170,7 @@
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 35;
-            this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.StockChangedEventHandler(this.ucProductoEdit1_StockChanged);
+            this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
             // FrmSeleccionarProducto
             // 
@@ -180,5 +202,7 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private UserControl.ucProductoEdit ucProductoEdit1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbCloseOnSelect;
     }
 }

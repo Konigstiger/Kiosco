@@ -157,8 +157,11 @@ namespace Kiosco
             //Comunicar las ventanas entre si...
             CallerForm.IdProducto = idProducto;
 
-            CerrarVentana();
 
+            if (tsbCloseOnSelect.Checked)
+            {
+                CerrarVentana();
+            }
         }
 
         private void tsbSearch_Click(object sender, EventArgs e)
@@ -206,6 +209,28 @@ namespace Kiosco
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
             _ingresandoCodigo = true;
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)ProductoView.GridColumn.IdProducto].Value.ToString());
+
+            ucProductoEdit1.IdProducto = id;
+
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucProductoEdit1.IdProducto = id;
         }
     }
 }

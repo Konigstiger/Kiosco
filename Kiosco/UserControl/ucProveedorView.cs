@@ -38,6 +38,13 @@ namespace Kiosco.UserControl
             set { txtIdProveedor.Text = value.ToString(); }
         }
 
+        [Description("Descripcion o Razon Social de Proveedor."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Proveedor => txtRazonSocial.Text.Trim();
+
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
         {

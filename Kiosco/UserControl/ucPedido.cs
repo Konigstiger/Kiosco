@@ -8,6 +8,10 @@ namespace Kiosco.UserControl
 {
     public partial class ucPedido : System.Windows.Forms.UserControl, ISelectorProveedor
     {
+        private bool flagReady = false;
+
+
+
         [Category("Action")]
         [Description("Es lanzado cuando el Proveedor es cambiado")]
         public event ValueChangedEventHandler ProveedorChanged;
@@ -33,7 +37,7 @@ namespace Kiosco.UserControl
                 txtIdPedido.Text = value.ToString();
                 //hacer cosas de bind aqui
                 if (value != 0)
-                    CargarPedido(value);
+                    CargarPedido(value);    //Esta es la unica llamada.
             }
         }
 
@@ -53,6 +57,18 @@ namespace Kiosco.UserControl
                 txtIdProveedor.Text = value.ToString();
                 OnProveedorChanged(new ValueChangedEventArgs(value));
             }
+        }
+
+
+        [Description("ShowDetallePedido."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool ShowDetallePedido
+        {
+            get { return btnVerPedidoDetalle.Visible; }
+            set { btnVerPedidoDetalle.Visible = value; }
         }
 
 
@@ -80,12 +96,8 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public DateTime Fecha
         {
-            get {
-                return dtpFecha.Value;
-            }
-            set {
-                dtpFecha.Value = value;
-            }
+            get { return dtpFecha.Value; }
+            set { dtpFecha.Value = value; }
         }
 
 
@@ -96,12 +108,8 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public DateTime FechaEntrega
         {
-            get {
-                return dtpFechaEntrega.Value;
-            }
-            set {
-                dtpFechaEntrega.Value = value;
-            }
+            get { return dtpFechaEntrega.Value; }
+            set { dtpFechaEntrega.Value = value; }
         }
 
 
@@ -112,12 +120,8 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public string Descripcion
         {
-            get {
-                return txtDescripcion.Text.Trim();
-            }
-            set {
-                txtDescripcion.Text = value;
-            }
+            get { return txtDescripcion.Text.Trim(); }
+            set { txtDescripcion.Text = value; }
         }
 
 
@@ -128,12 +132,8 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public string Notas
         {
-            get {
-                return txtNotas.Text.Trim();
-            }
-            set {
-                txtNotas.Text = value;
-            }
+            get { return txtNotas.Text.Trim(); }
+            set { txtNotas.Text = value; }
         }
 
 
@@ -144,14 +144,21 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public string Proveedor
         {
-            get {
-                return txtProveedorDescripcion.Text.Trim();
-            }
-            set {
-                txtProveedorDescripcion.Text = value;
-            }
+            get { return txtProveedorDescripcion.Text.Trim(); }
+            set { txtProveedorDescripcion.Text = value; }
         }
 
+
+        [Description("ShowEstadoPedido."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool ShowEstadoPedido
+        {
+            get { return panelEstadoyDetalles.Visible; }
+            set { panelEstadoyDetalles.Visible = value; }
+        }
 
         [Description("Estado."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -178,8 +185,10 @@ namespace Kiosco.UserControl
 
         public ucPedido()
         {
-            InitializeComponent();
+            if (DesignMode)
+                return;
 
+            InitializeComponent();
         }
 
 
@@ -213,9 +222,9 @@ namespace Kiosco.UserControl
 
         private void CargarControles()
         {
-            if (DesignMode)
-                return;
-            CargarEstadoPedido();
+            if (!DesignMode) {
+                CargarEstadoPedido();
+            }
         }
 
         private void txtIdProveedor_TextChanged(object sender, EventArgs e)
@@ -259,18 +268,19 @@ namespace Kiosco.UserControl
 
         private void CargarEstadoPedido()
         {
-            if (DesignMode)
-                return;
-
-            cboEstadoPedido.DropDownStyle = ComboBoxStyle.DropDownList;
-            var list = EstadoPedidoControlador.GetAll();
-            cboEstadoPedido.DataSource = list;
-            cboEstadoPedido.ValueMember = "IdEstadoPedido";
-            cboEstadoPedido.DisplayMember = "Descripcion";
+            if (flagReady) {
+                cboEstadoPedido.DropDownStyle = ComboBoxStyle.DropDownList;
+                var list = EstadoPedidoControlador.GetAll();
+                cboEstadoPedido.DataSource = list;
+                cboEstadoPedido.ValueMember = "IdEstadoPedido";
+                cboEstadoPedido.DisplayMember = "Descripcion";
+            }
         }
 
         private void ucPedido_Load(object sender, EventArgs e)
         {
+            flagReady = true;
+            //TODO: Aca deberia cargar o seleccionar.
             SetControles();
             CargarControles();
         }
