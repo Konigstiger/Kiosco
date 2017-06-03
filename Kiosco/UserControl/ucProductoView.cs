@@ -13,6 +13,7 @@ namespace Kiosco.UserControl
             InitializeComponent();
         }
 
+
         [Description("IdProducto. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -111,6 +112,10 @@ namespace Kiosco.UserControl
             nudPrecio.Enabled = false;
             nudPrecioCosto.Enabled = false;
             txtIdProducto.Visible = false;
+
+            //TODO: Reusar en otros controles y formularios este metodo.
+            Util.SetNumericBounds(nudPrecio);
+            Util.SetNumericBounds(nudPrecioCosto);
         }
 
         private void CargarControles()

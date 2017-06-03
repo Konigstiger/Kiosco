@@ -335,7 +335,6 @@ namespace Kiosco.UserControl
         {
             txtCodigoBarras.Clear();
             txtDescripcion.Clear();
-            txtNotas.Clear();
             nudPrecio.Value = 0;
             nudPrecioCosto.Value = 0;
             nudStockMaximo.Value = 0;
@@ -390,10 +389,8 @@ namespace Kiosco.UserControl
             txtIdProducto.Visible = false;
             txtCodigoBarras.MaxLength = 13;
 
-            nudPrecio.Increment = Convert.ToDecimal("0,25");
-            nudPrecioCosto.Increment = Convert.ToDecimal("0,25");
-            nudPrecio.Maximum = 9999;
-            nudPrecioCosto.Maximum = 9999;
+            Util.SetNumericBounds(nudPrecio);
+            Util.SetNumericBounds(nudPrecioCosto);
 
             nudStockMaximo.Increment = 1;
             nudStockMinimo.Increment = 1;

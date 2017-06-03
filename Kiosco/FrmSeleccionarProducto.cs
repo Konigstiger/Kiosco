@@ -232,5 +232,6 @@ namespace Kiosco
 
             ucProductoEdit1.IdProducto = id;
         }
+
     }
 }

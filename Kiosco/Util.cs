@@ -3,11 +3,19 @@ using System.Windows.Forms;
 
 namespace Kiosco
 {
-    public class Util
+    public static class Util
     {
         public static void CenterFormX(Control ctrl, Form form)
         {
             ctrl.Left = (form.ClientSize.Width - ctrl.Width) / 2;
+        }
+
+
+        public static void SetNumericBounds(NumericUpDown nud)
+        {
+            nud.Minimum = 0;
+            nud.Maximum = 9999;
+            nud.Increment = Convert.ToDecimal("0,25");
         }
 
 

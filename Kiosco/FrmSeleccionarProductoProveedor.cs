@@ -142,7 +142,9 @@ namespace Kiosco
             //Comunicar las ventanas entre si...
             CallerForm.IdProducto = idProducto;
 
-            CerrarVentana();
+            if (tsbCloseOnSelect.Checked) {
+                CerrarVentana();
+            }
 
         }
 

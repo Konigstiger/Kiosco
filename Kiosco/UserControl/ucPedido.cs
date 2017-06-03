@@ -101,7 +101,7 @@ namespace Kiosco.UserControl
         }
 
 
-        [Description("Fecha."), Category("Data")]
+        [Description("Fecha de Entrega."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]

@@ -11,37 +11,30 @@ namespace Data
         public static List<PedidoView> GetAll()
         {
             var list = new List<PedidoView>();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Pedido_GetAll", conn) { CommandType = CommandType.StoredProcedure };
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new PedidoView {
+                                IdPedido = (int)rdr["IdPedido"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                IdProveedor = (int)rdr["IdProveedor"],
+                                Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
+                                FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today,
+                                Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
-
-                while (rdr.Read()) {
-                    var p = new PedidoView {
-                        IdPedido = (int)rdr["IdPedido"],
-                        Descripcion = (string)rdr["Descripcion"],
-                        IdProveedor = (int)rdr["IdProveedor"],
-                        Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
-                        FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today,
-                        Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
-                        Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-
-
-
-                    };
-
-                    list.Add(p);
+                            list.Add(p);
+                        }
+                    }
                 }
+
+                return list;
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-            return list;
         }
 
 
@@ -144,16 +137,14 @@ namespace Data
         public static PedidoView GetByPrimaryKeyView(long idPedido)
         {
             var c = new PedidoView();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Pedido_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                var cmd = new SqlCommand("Pedido_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
 
-            var p1 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = idPedido };
-            cmd.Parameters.Add(p1);
+                var p1 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = idPedido };
+                cmd.Parameters.Add(p1);
 
-            try {
                 conn.Open();
-                rdr = cmd.ExecuteReader();
+                var rdr = cmd.ExecuteReader();
 
                 while (rdr.Read()) {
                     c.IdPedido = (long)rdr["IdPedido"];
@@ -165,10 +156,7 @@ namespace Data
                     c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                     c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                 }
-            }
-            finally {
-                rdr?.Close();
-                conn.Close();
+
             }
 
             return c;
@@ -176,63 +164,54 @@ namespace Data
 
         public static long Update(Pedido model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_Update", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Pedido_Update", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdPedido", SqlDbType.BigInt) { Value = model.IdPedido };
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
+                    var p2 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
+                    var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
+                    var p4 = new SqlParameter("IdEstadoPedido", SqlDbType.Int) { Value = model.IdEstadoPedido };
+                    var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = model.FechaEntrega };
+                    // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
+                    var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
+                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
-            var p0 = new SqlParameter("IdPedido", SqlDbType.BigInt) { Value = model.IdPedido };
-            var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
-            var p2 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
-            var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
-            var p4 = new SqlParameter("IdEstadoPedido", SqlDbType.Int) { Value = model.IdEstadoPedido };
-            //var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = model.FechaEntrega };
-            // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
-            var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
-            var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
+                    // cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
+                    cmd.Parameters.Add(p8);
 
-            cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-            cmd.Parameters.Add(p3);
-            cmd.Parameters.Add(p4);
-            //cmd.Parameters.Add(p5);
-            // cmd.Parameters.Add(p6);
-            cmd.Parameters.Add(p7);
-            cmd.Parameters.Add(p8);
+                    conn.Open();
+                    model.IdPedido = (long)cmd.ExecuteScalar();
 
-            try {
-                conn.Open();
-                model.IdPedido = (long)cmd.ExecuteScalar();
 
+                }
             }
-            finally {
-                conn.Close();
-            }
-
             return model.IdPedido;
         }
 
 
         public static bool Delete(Pedido model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Pedido_Delete", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Pedido_Delete", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = model.IdPedido };
 
-            var p0 = new SqlParameter("IdPedido", SqlDbType.Int) { Value = model.IdPedido };
+                    cmd.Parameters.Add(p0);
 
-            cmd.Parameters.Add(p0);
-
-            try {
-                conn.Open();
-                model.IdPedido = (int)cmd.ExecuteScalar();
-                return true;
-            }
-            catch {
-                return false;
-            }
-            finally {
-                conn.Close();
+                    conn.Open();
+                    model.IdPedido = (int)cmd.ExecuteScalar();
+                    return true;
+                }
             }
         }
     }

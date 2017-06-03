@@ -315,5 +315,10 @@ namespace Kiosco
             get { return ucPedidoDetalle1.IdProducto; }
             set { ucPedidoDetalle1.IdProducto = value; }
         }
+
+        private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //wtf?
+        }
     }
 }

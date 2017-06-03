@@ -38,6 +38,7 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
+            this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +74,8 @@
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
+            this.tsbSearchClearAndPerform,
+            this.tsbCloseOnSelect});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
             this.tsb.Size = new System.Drawing.Size(929, 31);
@@ -151,6 +153,17 @@
             this.ucProductoEdit1.TabIndex = 38;
             this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
+            // tsbCloseOnSelect
+            // 
+            this.tsbCloseOnSelect.Checked = true;
+            this.tsbCloseOnSelect.CheckOnClick = true;
+            this.tsbCloseOnSelect.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsbCloseOnSelect.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOnSelect.Image")));
+            this.tsbCloseOnSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseOnSelect.Name = "tsbCloseOnSelect";
+            this.tsbCloseOnSelect.Size = new System.Drawing.Size(142, 28);
+            this.tsbCloseOnSelect.Text = "Cerrar al Seleccionar";
+            // 
             // FrmSeleccionarProductoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private UserControl.ucProductoEdit ucProductoEdit1;
+        private System.Windows.Forms.ToolStripButton tsbCloseOnSelect;
     }
 }

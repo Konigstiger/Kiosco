@@ -58,6 +58,7 @@
             this.dgv.Size = new System.Drawing.Size(1076, 440);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
+            this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // tsb
@@ -149,6 +150,8 @@
             // 
             // ucPedido1
             // 
+            this.ucPedido1.BackColor = System.Drawing.Color.White;
+            this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
             this.ucPedido1.Fecha = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
             this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
@@ -156,14 +159,14 @@
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
             this.ucPedido1.IdProveedor = 0;
-            this.ucPedido1.Location = new System.Drawing.Point(14, 13);
+            this.ucPedido1.Location = new System.Drawing.Point(14, 6);
             this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucPedido1.Name = "ucPedido1";
             this.ucPedido1.Notas = "";
             this.ucPedido1.Proveedor = "";
             this.ucPedido1.ShowDetallePedido = false;
             this.ucPedido1.ShowEstadoPedido = false;
-            this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
+            this.ucPedido1.Size = new System.Drawing.Size(1076, 174);
             this.ucPedido1.TabIndex = 91;
             this.ucPedido1.Total = new decimal(new int[] {
             0,
@@ -175,7 +178,8 @@
             // ucPedidoDetalle1
             // 
             this.ucPedidoDetalle1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ucPedidoDetalle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucPedidoDetalle1.BackColor = System.Drawing.SystemColors.Control;
+            this.ucPedidoDetalle1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedidoDetalle1.Cantidad = 1;
             this.ucPedidoDetalle1.CodigoBarras = "";
             this.ucPedidoDetalle1.Descripcion = "";

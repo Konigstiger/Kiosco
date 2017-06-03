@@ -174,6 +174,7 @@ namespace Kiosco
                 Descripcion = ucPedido1.Descripcion,
                 Total = ucPedido1.Total,
                 Fecha = ucPedido1.Fecha,
+                FechaEntrega = ucPedido1.FechaEntrega,
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
                 Notas = ucPedido1.Notas
             };
@@ -206,6 +207,7 @@ namespace Kiosco
                     Descripcion = ucPedido1.Descripcion,
                     Total = ucPedido1.Total,
                     Fecha = ucPedido1.Fecha,
+                    FechaEntrega = ucPedido1.FechaEntrega,
                     IdEstadoPedido = ucPedido1.IdEstadoPedido,
                     Notas = ucPedido1.Notas
                 };

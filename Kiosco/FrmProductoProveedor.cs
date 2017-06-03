@@ -54,7 +54,7 @@ namespace Kiosco
             SetGrid(dgv);
             tsbSave.Enabled = false;
             txtIdProductoProveedor.Visible = false;
-            nudPrecioCompra.Increment = Convert.ToDecimal("0,25");
+            Util.SetNumericBounds(nudPrecioCompra);
         }
 
 
