@@ -2,14 +2,15 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
-using Model;
+
+using static System.Globalization.CultureInfo;
+
 
 namespace Kiosco.UserControl
 {
     public partial class ucPedido : System.Windows.Forms.UserControl, ISelectorProveedor
     {
-        private bool flagReady = false;
-
+        private bool _flagReady = false;
 
 
         [Category("Action")]
@@ -268,7 +269,7 @@ namespace Kiosco.UserControl
 
         private void CargarEstadoPedido()
         {
-            if (flagReady) {
+            if (_flagReady) {
                 cboEstadoPedido.DropDownStyle = ComboBoxStyle.DropDownList;
                 var list = EstadoPedidoControlador.GetAll();
                 cboEstadoPedido.DataSource = list;
@@ -279,7 +280,7 @@ namespace Kiosco.UserControl
 
         private void ucPedido_Load(object sender, EventArgs e)
         {
-            flagReady = true;
+            _flagReady = true;
             //TODO: Aca deberia cargar o seleccionar.
             SetControles();
             CargarControles();
@@ -320,6 +321,13 @@ namespace Kiosco.UserControl
         {
             var f = new FrmPedidoDetalle(this.IdPedido);
             f.Show();
+        }
+
+        private void nudImporte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
+                e.KeyChar = CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+            }
         }
     }
 }

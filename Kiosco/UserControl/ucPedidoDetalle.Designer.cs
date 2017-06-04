@@ -96,6 +96,7 @@
             this.nudImporte.Size = new System.Drawing.Size(82, 22);
             this.nudImporte.TabIndex = 91;
             this.nudImporte.TabStop = false;
+            this.nudImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudImporte_KeyPress);
             // 
             // label8
             // 
@@ -124,6 +125,7 @@
             this.nudPrecioCosto.TabIndex = 87;
             this.nudPrecioCosto.TabStop = false;
             this.nudPrecioCosto.ValueChanged += new System.EventHandler(this.nudPrecioCosto_ValueChanged);
+            this.nudPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecioCosto_KeyPress);
             // 
             // label3
             // 

@@ -80,6 +80,7 @@
             this.nudImporte.Size = new System.Drawing.Size(151, 25);
             this.nudImporte.TabIndex = 111;
             this.nudImporte.TabStop = false;
+            this.nudImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudImporte_KeyPress);
             // 
             // dtpHoraEntrega
             // 

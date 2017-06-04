@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
 using Model;
+using static System.Globalization.CultureInfo;
 
 namespace Kiosco
 {
@@ -234,6 +235,20 @@ namespace Kiosco
         private void nudUnidades_ValueChanged(object sender, EventArgs e)
         {
             CalcularImporte();
+        }
+
+        private void nudPrecioCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
+                e.KeyChar = CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+            }
+        }
+
+        private void nudImporte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
+                e.KeyChar = CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+            }
         }
     }
 }
