@@ -97,7 +97,7 @@ namespace Data
 
         public static int Insert(Proveedor model)
         {
-            int idProveedor = 0;
+            var idProveedor = 0;
 
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
                 using (var cmd = new SqlCommand("Proveedor_Insert", conn)) {
@@ -134,93 +134,78 @@ namespace Data
         public static ProveedorView GetByPrimaryKeyView(int id)
         {
             var c = new ProveedorView();
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
-            SqlDataReader rdr = null;
-            var cmd = new SqlCommand("Proveedor_GetByPrimaryKey", conn) { CommandType = CommandType.StoredProcedure };
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Proveedor_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = id };
-            cmd.Parameters.Add(p1);
+                    var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = id };
+                    cmd.Parameters.Add(p1);
 
-            try {
-                conn.Open();
-                rdr = cmd.ExecuteReader();
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
 
-                while (rdr.Read()) {
-                    c.IdProveedor = (int)rdr["IdProveedor"];
-                    c.RazonSocial = (string)rdr["RazonSocial"];
-                    c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
-                    c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        while (rdr.Read()) {
+                            c.IdProveedor = (int)rdr["IdProveedor"];
+                            c.RazonSocial = (string)rdr["RazonSocial"];
+                            c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
+                            c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                        }
+                    }
                 }
             }
-            finally {
-                rdr?.Close();
-                conn.Close();
-            }
-
             return c;
         }
 
 
         public static bool Delete(Proveedor model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Proveedor_Delete", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Proveedor_Delete", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
 
-            var p0 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
+                    cmd.Parameters.Add(p0);
 
-            cmd.Parameters.Add(p0);
-
-            try {
-                conn.Open();
-                model.IdProveedor = (int)cmd.ExecuteScalar();
+                    conn.Open();
+                    model.IdProveedor = (int)cmd.ExecuteScalar();
+                }
                 return true;
-            }
-            catch {
-                return false;
-            }
-            finally {
-                conn.Close();
             }
         }
 
 
         public static int Update(Proveedor model)
         {
-            var conn = new SqlConnection(GeneralData.CadenaConexion);
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Proveedor_Update", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-            var cmd = new SqlCommand("Proveedor_Update", conn) { CommandType = CommandType.StoredProcedure };
+                    var p0 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
+                    var p1 = new SqlParameter("RazonSocial", SqlDbType.VarChar) { Value = model.RazonSocial };
+                    var p2 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = model.Direccion };
+                    var p3 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = model.Telefono };
+                    var p4 = new SqlParameter("PersonaContacto", SqlDbType.VarChar) { Value = model.PersonaContacto };
+                    var p5 = new SqlParameter("HorarioAtencion", SqlDbType.VarChar) { Value = model.HorarioAtencion };
+                    var p6 = new SqlParameter("DiasDeVisita", SqlDbType.VarChar) { Value = model.DiasDeVisita };
+                    var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p8 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
 
-            var p0 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = model.IdProveedor };
-            var p1 = new SqlParameter("RazonSocial", SqlDbType.VarChar) { Value = model.RazonSocial };
-            var p2 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = model.Direccion };
-            var p3 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = model.Telefono };
-            var p4 = new SqlParameter("PersonaContacto", SqlDbType.VarChar) { Value = model.PersonaContacto };
-            var p5 = new SqlParameter("HorarioAtencion", SqlDbType.VarChar) { Value = model.HorarioAtencion };
-            var p6 = new SqlParameter("DiasDeVisita", SqlDbType.VarChar) { Value = model.DiasDeVisita };
-            var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
-            var p8 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
+                    cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
+                    cmd.Parameters.Add(p8);
 
-            cmd.Parameters.Add(p0);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-            cmd.Parameters.Add(p3);
-            cmd.Parameters.Add(p4);
-            cmd.Parameters.Add(p5);
-            cmd.Parameters.Add(p6);
-            cmd.Parameters.Add(p7);
-            cmd.Parameters.Add(p8);
-
-            try {
-                conn.Open();
-                model.IdProveedor = (int)cmd.ExecuteScalar();
-
+                    conn.Open();
+                    model.IdProveedor = (int)cmd.ExecuteScalar();
+                }
             }
-            finally {
-                conn.Close();
-            }
-
             return model.IdProveedor;
         }
     }
