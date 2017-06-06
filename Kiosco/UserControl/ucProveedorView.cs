@@ -23,6 +23,7 @@ namespace Kiosco.UserControl
             SetControles();
         }
 
+
         [Description("IdProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -30,12 +31,14 @@ namespace Kiosco.UserControl
         [Bindable(true)]
         public int IdProveedor
         {
-            get
-            {
+            get {
                 int v = int.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
                 return v;
             }
-            set { txtIdProveedor.Text = value.ToString(); }
+            set {
+                txtIdProveedor.Text = value.ToString();
+                OnValueChanged(new ValueChangedEventArgs(value));
+            }
         }
 
         [Description("Descripcion o Razon Social de Proveedor."), Category("Data")]
@@ -57,7 +60,7 @@ namespace Kiosco.UserControl
             //txtDireccion.Text = c.Direccion;
             //txtTelefono.Text = c.Telefono;
             //txtNotas.Text = c.Notas;
-            OnValueChanged(new ValueChangedEventArgs(c.IdProveedor));
+            //OnValueChanged(new ValueChangedEventArgs(c.IdProveedor));
 
         }
 
@@ -73,7 +76,7 @@ namespace Kiosco.UserControl
         {
             var f = new FrmSeleccionarProveedor(this);
             f.Show();
-            
+
         }
 
         private void btnAbmProveedor_Click(object sender, EventArgs e)

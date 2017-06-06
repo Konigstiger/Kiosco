@@ -17,7 +17,11 @@ namespace Controlador
         {
             return ProductoProveedorData.GetGrid_GetByIdProveedor(idProveedor, descripcion);
         }
-        
+
+        public static List<ProductoProveedorView> GetGrid_GetByIdProducto(long idProducto)
+        {
+            return ProductoProveedorData.GetGrid_GetByIdProducto(idProducto);
+        }
 
         public static ProductoProveedor GetByPrimaryKey(long idProductoProveedor)
         {

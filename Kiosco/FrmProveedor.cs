@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Kiosco.UserControl;
 using Model;
+
 
 namespace Kiosco
 {
@@ -63,7 +62,8 @@ namespace Kiosco
             };
 
             //=====================================================================
-            if (_modo == ModoFormulario.Nuevo) {
+            if (_modo == ModoFormulario.Nuevo)
+            {
                 m.IdProveedor = ProveedorControlador.Insert(m);
 
                 var modelView = ProveedorControlador.GetByPrimaryKeyView(m.IdProveedor);
@@ -78,7 +78,9 @@ namespace Kiosco
                 //Calcular _rowIndex
                 _rowIndex = dgv.Rows.Count - 1;
 
-            } else {
+            }
+            else
+            {
 
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
@@ -103,10 +105,10 @@ namespace Kiosco
             //********************
             //meter en subrutina
 
-            dgv.Rows[_rowIndex].Cells[(int)ProveedorView.GridColumn.RazonSocial].Value = m.RazonSocial;
-            dgv.Rows[_rowIndex].Cells[(int)ProveedorView.GridColumn.Direccion].Value = m.Direccion;
-            dgv.Rows[_rowIndex].Cells[(int)ProveedorView.GridColumn.Telefono].Value = m.Telefono;
-            dgv.Rows[_rowIndex].Cells[(int)ProveedorView.GridColumn.Notas].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.RazonSocial].Value = m.RazonSocial;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Direccion].Value = m.Direccion;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Telefono].Value = m.Telefono;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Notas].Value = m.Notas;
 
             //********************
 
@@ -121,7 +123,7 @@ namespace Kiosco
                 return;
 
             //crear objeto cascara
-            var m = new Proveedor { IdProveedor = ucProveedorEdit1.IdProveedor };
+            var m = new Proveedor {IdProveedor = ucProveedorEdit1.IdProveedor};
 
             var result = ProveedorControlador.Delete(m);
 
@@ -168,8 +170,8 @@ namespace Kiosco
         {
             CargarGrilla("");
         }
-        
-        
+
+
         public void CargarGrilla(string searchText)
         {
             dgv.Columns.Clear();
@@ -178,7 +180,8 @@ namespace Kiosco
 
             var c = new DataGridViewColumn[colCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < colCount; i++)
+            {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -193,9 +196,9 @@ namespace Kiosco
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = searchText.Equals("") ?
-                ProveedorControlador.GetAll() :
-                ProveedorControlador.GetAll_GetByDescripcion(searchText);
+            origenDatos = searchText.Equals("")
+                ? ProveedorControlador.GetAll()
+                : ProveedorControlador.GetAll_GetByDescripcion(searchText);
 
             var bindingList = new MySortableBindingList<ProveedorView>(origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -213,7 +216,8 @@ namespace Kiosco
                 return;
 
             // esto funciona, pero con el numero de celda, no con ID.
-            var id = Convert.ToInt32(dgv.SelectedRows[0].Cells[(int)ProveedorView.GridColumn.IdProveedor].Value.ToString());
+            var id =
+                Convert.ToInt32(dgv.SelectedRows[0].Cells[(int) ProveedorView.GridColumn.IdProveedor].Value.ToString());
 
             _rowIndex = dgv.SelectedRows[0].Index;
 
@@ -235,7 +239,8 @@ namespace Kiosco
 
         private void FrmProveedor_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode) {
+            switch (e.KeyCode)
+            {
                 case Keys.F3:
                     tsbSearch.Checked = !tsbSearch.Checked;
                     ToggleSearch();
@@ -274,6 +279,51 @@ namespace Kiosco
             ToggleSearch();
         }
 
+        private void dgv_MouseDown(object sender, MouseEventArgs e)
+        {
+            //TODO: Adaptar esto.
+            cms.Items.Clear();
+            //cms.Items.Add("Ordenar Ascendente");
+            //cms.Items.Add("Ver Proveedores...");
 
+
+            if (e.Button == MouseButtons.Right)
+            {
+                var hti = dgv.HitTest(e.X, e.Y);
+
+                //vodoo: perfect
+                dgv.ClearSelection();
+                dgv.Rows[hti.RowIndex].Selected = true;
+                //end vodoo
+
+                switch (hti.Type)
+                {
+                    case DataGridViewHitTestType.ColumnHeader:
+                        // This positions the menu at the mouse's location.
+                        //cms.Items.Add("Ordenar Ascendente");
+                        //cms.Items.Add("Ordenar Descendente");
+
+                        //cms.Items[0].Visible = true;
+                        //cms.Items[1].Visible = false;
+                        break;
+                    // See if the user right-clicked over the header of the last column.
+                    // (ht.ColumnIndex == dgv.Columns.Count - 1)
+                    case DataGridViewHitTestType.Cell:
+                        //cms.Items[0].Visible = false;
+                        //cms.Items[1].Visible = true;
+                        var item = cms.Items.Add("Ver Productos..."); // esto puede abrir una pantalla pasando el IdProducto.
+                        item.Image = imageList1.Images[0];
+                        break;
+                }
+                cms.Show(MousePosition);
+            }
+        }
+
+        private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //abrir la pantalla de ProductoProveedor
+            var f = new FrmProductoProveedor(ucProveedorEdit1.IdProveedor);
+            f.Show();
+        }
     }
 }

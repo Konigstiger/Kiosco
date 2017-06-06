@@ -262,5 +262,36 @@ namespace Data
         }
 
 
+
+        public static List<ProductoProveedorView> GetGrid_GetByIdProducto(long idProducto)
+        {
+            var list = new List<ProductoProveedorView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("ProductoProveedor_GetAll_GetByIdProducto", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
+
+                    cmd.Parameters.Add(p0);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new ProductoProveedorView {
+                                IdProductoProveedor = (long)rdr["IdProductoProveedor"],
+                                IdProducto = (long)rdr["IdProducto"],
+                                Producto = (string)rdr["Producto"],
+                                Proveedor = (string)rdr["Proveedor"],
+                                PrecioProveedor = (decimal)rdr["PrecioProveedor"],
+                                PrecioVenta = (decimal)rdr["PrecioVenta"]
+                            };
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
     }
 }

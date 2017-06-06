@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -38,7 +39,9 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ucProveedorEdit1 = new Kiosco.UserControl.UcProveedorEdit();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +61,7 @@
             this.dgv.TabIndex = 64;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
+            this.dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseDown);
             // 
             // tsb
             // 
@@ -145,6 +149,12 @@
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // cms
+            // 
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(61, 4);
+            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
+            // 
             // ucProveedorEdit1
             // 
             this.ucProveedorEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -164,6 +174,12 @@
             this.ucProveedorEdit1.Size = new System.Drawing.Size(1171, 186);
             this.ucProveedorEdit1.TabIndex = 85;
             this.ucProveedorEdit1.Telefono = "";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "package.png");
             // 
             // FrmProveedor
             // 
@@ -201,5 +217,7 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private UserControl.UcProveedorEdit ucProveedorEdit1;
+        private System.Windows.Forms.ContextMenuStrip cms;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

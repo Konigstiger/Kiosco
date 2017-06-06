@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Model;
 
 namespace Kiosco
 {
@@ -130,6 +132,54 @@ namespace Kiosco
 
             //TODO: Mostrar Stock Actual (permitir editarlo).
 
+
+            DoStuff(p.IdProducto);
+        }
+
+
+        private const int colCount = 6;
+
+        private List<ProductoProveedorView> origenDatos = null;
+
+        private void DoStuff(long idProducto)
+        {
+            //var list = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
+
+
+            dgv.Columns.Clear();
+
+            var c = new DataGridViewColumn[colCount];
+
+            for (var i = 0; i < colCount; i++) {
+                c[i] = new DataGridViewTextBoxColumn();
+            }
+
+
+            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
+            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
+            c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
+
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
+            dgv.Columns.AddRange(c);
+
+
+            Util.SetColumnsReadOnly(dgv);
+
+            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
+
+            var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
+            var source = new BindingSource(bindingList, null);
+            dgv.DataSource = source;
+
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+
         }
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
@@ -141,5 +191,9 @@ namespace Kiosco
         {
         }
 
+        private void txtCodigoBarras_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

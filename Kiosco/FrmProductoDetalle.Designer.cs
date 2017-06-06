@@ -55,9 +55,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistrarVentaRapida = new System.Windows.Forms.Button();
             this.ucNotification = new Kiosco.UcNotification();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // tsb
@@ -314,6 +316,7 @@
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(212, 31);
             this.txtCodigoBarras.TabIndex = 60;
+            this.txtCodigoBarras.TextChanged += new System.EventHandler(this.txtCodigoBarras_TextChanged_1);
             this.txtCodigoBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
             // 
             // label1
@@ -350,11 +353,27 @@
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
+            // dgv
+            // 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(122, 528);
+            this.dgv.MultiSelect = false;
+            this.dgv.Name = "dgv";
+            this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(666, 178);
+            this.dgv.TabIndex = 82;
+            this.dgv.TabStop = false;
+            // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.btnRegistrarVentaRapida);
             this.Controls.Add(this.chkRequiereEnvase);
             this.Controls.Add(this.txtPrecioCosto);
@@ -391,6 +410,7 @@
             this.gbStock.ResumeLayout(false);
             this.gbStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +444,6 @@
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegistrarVentaRapida;
+        private System.Windows.Forms.DataGridView dgv;
     }
 }

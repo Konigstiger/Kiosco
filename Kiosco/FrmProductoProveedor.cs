@@ -16,9 +16,19 @@ namespace Kiosco
         private const int colCount = 6;
 
         private List<ProductoProveedorView> origenDatos = null;
+        private int _idProveedor;
+
+
 
         public FrmProductoProveedor()
         {
+            InitializeComponent();
+        }
+
+        public FrmProductoProveedor(int idProveedor)
+        {
+            //this._idProveedor = _idProveedor;
+            _idProveedor = idProveedor;
             InitializeComponent();
         }
 
@@ -55,6 +65,8 @@ namespace Kiosco
             tsbSave.Enabled = false;
             txtIdProductoProveedor.Visible = false;
             Util.SetNumericBounds(nudPrecioCompra);
+
+
         }
 
 
@@ -228,6 +240,11 @@ namespace Kiosco
             CargarControles();
             LimpiarControles();
             _modo = ModoFormulario.Edicion;
+
+            //TODO: Esto es desprolijo. Tengo codigo redundante. Eso ocasiona fallos y complica mantenimiento.
+            if (_idProveedor != 0) {
+                ucProveedorView1.IdProveedor = _idProveedor;
+            }
         }
 
         private void dgv_SelectionChanged(object sender, EventArgs e)

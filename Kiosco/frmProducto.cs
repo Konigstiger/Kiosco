@@ -307,9 +307,14 @@ namespace Kiosco
 
 
             if (e.Button == MouseButtons.Right) {
-                var ht = dgv.HitTest(e.X, e.Y);
+                var hti = dgv.HitTest(e.X, e.Y);
+                //vodoo: perfect
+                dgv.ClearSelection();
+                dgv.Rows[hti.RowIndex].Selected = true;
+                //end vodoo
 
-                switch (ht.Type) {
+
+                switch (hti.Type) {
                     case DataGridViewHitTestType.ColumnHeader:
                         // This positions the menu at the mouse's location.
                         cms.Items.Add("Ordenar Ascendente");
@@ -329,8 +334,6 @@ namespace Kiosco
 
                 }
                 cms.Show(MousePosition);
-
-
 
             }
         }
