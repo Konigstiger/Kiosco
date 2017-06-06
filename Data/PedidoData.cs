@@ -60,6 +60,8 @@ namespace Data
                                 Fecha = (DateTime)rdr["Fecha"],
                                 Estado = (string)rdr["Estado"],
                                 Total = (decimal)rdr["Total"]
+
+                                ,IdEstadoPedido = (int)rdr["IdEstadoPedido"]
                             };
                             list.Add(p);
                         }

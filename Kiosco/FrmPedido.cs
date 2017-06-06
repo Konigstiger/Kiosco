@@ -15,7 +15,8 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 6;
+        //private const int colCount = 6;
+        private const int colCount = 7;
 
         private List<PedidoView> origenDatos = null;
 
@@ -84,6 +85,10 @@ namespace Kiosco
             Util.SetColumn(c[(int)PedidoView.GridColumn.Fecha], "Fecha", "Fecha", 3);
             Util.SetColumn(c[(int)PedidoView.GridColumn.Estado], "Estado", "Estado", 4);
             Util.SetColumn(c[(int)PedidoView.GridColumn.Total], "Total", "Total", 5);
+            Util.SetColumn(c[(int)PedidoView.GridColumn.Total+1], "IdEstadoPedido", "IdEstadoPedido", 6);
+            c[6].Width = 0;
+            c[6].Visible = false;
+
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
@@ -98,6 +103,34 @@ namespace Kiosco
 
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
+
+            //TODO: Revisar. Esto es un hack.
+            //TODO: Hacer una enumeracion al menos, o meter en BD el color o estilo a usar.
+            foreach (DataGridViewRow row in dgv.Rows) { 
+                switch (Convert.ToInt32(row.Cells[(int)PedidoView.GridColumn.Total + 1].Value))
+                {
+                    case 3:
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        break;
+                    case 6:
+                        //Esperando Entrega
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        break;
+                    case 7:
+                        //Entregado
+                        row.DefaultCellStyle.BackColor = Color.LightBlue;
+                        break;
+                    case 8:
+                        //Cancelado
+                        row.DefaultCellStyle.BackColor = Color.LightGray;
+                        break;
+                    case 9:
+                        //Rechazado
+                        row.DefaultCellStyle.BackColor = Color.IndianRed;
+                        break;
+                }
+            }
+
         }
 
 
@@ -225,6 +258,8 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Fecha].Value = m.Fecha;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Estado].Value = ucPedido1.Estado;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Total].Value = m.Total;
+
+
 
             //********************
 

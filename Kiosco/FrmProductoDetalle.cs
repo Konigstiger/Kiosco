@@ -134,6 +134,16 @@ namespace Kiosco
 
 
             DoStuff(p.IdProducto);
+
+            CargarStockActual(p.IdProducto);
+        }
+
+
+        private void CargarStockActual(long idProducto)
+        {
+            var s = new Stock { IdProducto = idProducto, IdDeposito = Deposito.IdDepositoNegocio };
+            var cantidad = StockControlador.GetByParameters(s).Cantidad;
+            nudStockActual.Value = cantidad;
         }
 
 
@@ -194,6 +204,25 @@ namespace Kiosco
         private void txtCodigoBarras_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            var cantidad = (int)nudStockActual.Value;
+            var idProducto = Convert.ToInt64(txtIdProducto.Text.Trim());
+            var idDeposito = Deposito.IdDepositoNegocio;
+
+            var s = new Stock {
+                IdProducto = idProducto,
+                IdDeposito = idDeposito,
+                Cantidad = cantidad,
+                IdStock = -1
+
+            };
+
+            // El codigo IdStock no se conoce a priori, y no deberia ser importante.
+            //invocar a metodo update de Clase Stock
+            var res = StockControlador.Update(s);
         }
     }
 }
