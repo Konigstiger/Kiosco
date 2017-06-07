@@ -32,6 +32,7 @@ namespace Kiosco
         {
             InitializeComponent();
             ucPedido1.IdPedido = idPedido;
+            ucPedido1.CargarPedido(idPedido);
 
         }
 
@@ -224,6 +225,25 @@ namespace Kiosco
                 //Calcular _rowIndex
                 _rowIndex = dgv.Rows.Count - 1;
             }
+
+            //Se ha modificado de alguna forma el data source, se debe recalcular el total.
+            ucPedido1.Total = CalcularTotal();
+
+            /////////////////////////////////////////////////////
+            //Dado que se ha modificado el total, se debe actualizar el registro de Pedido.
+            var mNuevo = new Pedido {
+                IdPedido = ucPedido1.IdPedido,
+                IdProveedor = ucPedido1.IdProveedor,
+                Descripcion = ucPedido1.Descripcion,
+                Total = ucPedido1.Total,
+                Fecha = ucPedido1.Fecha,
+                FechaEntrega = ucPedido1.FechaEntrega,
+                IdEstadoPedido = ucPedido1.IdEstadoPedido,
+                Notas = ucPedido1.Notas
+            };
+
+            mNuevo.IdPedido = PedidoControlador.Update(mNuevo);
+            /////////////////////////////////////////////////////
 
             //TODO: Revisar este metodo y esta seccion. Hay conversiones raras. Es una necesidad esta desprolijidad.
             dgv.Rows[_rowIndex].Cells[(int)PedidoDetalleView.GridColumn.Cantidad].Value = pdv.Cantidad;

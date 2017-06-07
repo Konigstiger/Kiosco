@@ -153,8 +153,8 @@
             this.ucPedido1.BackColor = System.Drawing.Color.White;
             this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 2, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 6, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 6, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
@@ -165,7 +165,7 @@
             this.ucPedido1.Notas = "";
             this.ucPedido1.Proveedor = "";
             this.ucPedido1.ShowDetallePedido = false;
-            this.ucPedido1.ShowEstadoPedido = false;
+            this.ucPedido1.ShowEstadoPedido = true;
             this.ucPedido1.Size = new System.Drawing.Size(1076, 174);
             this.ucPedido1.TabIndex = 91;
             this.ucPedido1.Total = new decimal(new int[] {

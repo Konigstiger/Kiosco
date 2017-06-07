@@ -200,6 +200,8 @@ namespace Kiosco.UserControl
 
             var p = PedidoControlador.GetByPrimaryKey(idPedido);
 
+            CargarEstadoPedido();
+
             Descripcion = p.Descripcion;
             CheckDateNullable(p.Fecha, dtpFecha);
             CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
@@ -284,6 +286,8 @@ namespace Kiosco.UserControl
             //TODO: Aca deberia cargar o seleccionar.
             SetControles();
             CargarControles();
+            //neu
+            CargarPedido(IdPedido);
         }
 
         private void txtIdPedido_TextChanged(object sender, EventArgs e)
@@ -299,9 +303,6 @@ namespace Kiosco.UserControl
             f.Show();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-        }
 
         public void Clear()
         {
@@ -320,6 +321,7 @@ namespace Kiosco.UserControl
         private void btnVerPedidoDetalle_Click(object sender, EventArgs e)
         {
             var f = new FrmPedidoDetalle(this.IdPedido);
+            
             f.Show();
         }
 
