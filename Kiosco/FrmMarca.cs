@@ -206,7 +206,17 @@ namespace Kiosco
 
                 m.IdMarca = MarcaControlador.Update(MarcaNuevo);
 
+                // pasar o mantener _modo Edicion
+                _modo = ModoFormulario.Edicion;
 
+                //********************
+                //TODO: Revisar esto!
+                dgv.Rows[_rowIndex].Cells[(int)MarcaView.GridColumn.Descripcion].Value = m.Descripcion;
+                dgv.Rows[_rowIndex].Cells[(int)MarcaView.GridColumn.Notas].Value = m.Notas;
+                //********************
+
+                //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+                dgv.Rows[_rowIndex].Selected = true;
             }
 
             // pasar o mantener _modo Edicion
