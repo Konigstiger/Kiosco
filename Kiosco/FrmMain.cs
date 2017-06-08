@@ -40,6 +40,7 @@ namespace Kiosco
             Util.CenterFormX(btnPedido, this);
             Util.CenterFormX(btnOpciones, this);
             Util.CenterFormX(btnEstadisticas, this);
+            Util.CenterFormX(btnRecaudacion, this);
             Util.CenterFormX(btnProductoProveedor, this);
         }
 
@@ -76,6 +77,12 @@ namespace Kiosco
         private void btnProductoProveedor_Click(object sender, EventArgs e)
         {
             var f = new FrmProductoProveedor();
+            f.Show();
+        }
+
+        private void btnRecaudacion_Click(object sender, EventArgs e)
+        {
+            var f = new FrmRecaudacion();
             f.Show();
         }
     }

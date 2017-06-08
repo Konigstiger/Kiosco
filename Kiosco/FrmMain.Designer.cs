@@ -34,9 +34,10 @@
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnPedido = new System.Windows.Forms.Button();
-            this.btnEstadisticas = new System.Windows.Forms.Button();
+            this.btnRecaudacion = new System.Windows.Forms.Button();
             this.btnOpciones = new System.Windows.Forms.Button();
             this.btnProductoProveedor = new System.Windows.Forms.Button();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConsultaProducto
@@ -100,7 +101,7 @@
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(70, 737);
+            this.btnSalir.Location = new System.Drawing.Point(70, 817);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(355, 58);
@@ -123,26 +124,26 @@
             this.btnPedido.UseVisualStyleBackColor = true;
             this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
             // 
-            // btnEstadisticas
+            // btnRecaudacion
             // 
-            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
-            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(70, 577);
-            this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(355, 58);
-            this.btnEstadisticas.TabIndex = 6;
-            this.btnEstadisticas.Text = "Estadisticas";
-            this.btnEstadisticas.UseVisualStyleBackColor = true;
-            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            this.btnRecaudacion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecaudacion.Image = ((System.Drawing.Image)(resources.GetObject("btnRecaudacion.Image")));
+            this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecaudacion.Location = new System.Drawing.Point(70, 657);
+            this.btnRecaudacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRecaudacion.Name = "btnRecaudacion";
+            this.btnRecaudacion.Size = new System.Drawing.Size(355, 58);
+            this.btnRecaudacion.TabIndex = 6;
+            this.btnRecaudacion.Text = "Recaudación";
+            this.btnRecaudacion.UseVisualStyleBackColor = true;
+            this.btnRecaudacion.Click += new System.EventHandler(this.btnRecaudacion_Click);
             // 
             // btnOpciones
             // 
             this.btnOpciones.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOpciones.Image")));
             this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpciones.Location = new System.Drawing.Point(70, 657);
+            this.btnOpciones.Location = new System.Drawing.Point(70, 737);
             this.btnOpciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(355, 58);
@@ -165,14 +166,29 @@
             this.btnProductoProveedor.UseVisualStyleBackColor = true;
             this.btnProductoProveedor.Click += new System.EventHandler(this.btnProductoProveedor_Click);
             // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.Location = new System.Drawing.Point(70, 577);
+            this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(355, 58);
+            this.btnEstadisticas.TabIndex = 9;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 961);
+            this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnProductoProveedor);
             this.Controls.Add(this.btnOpciones);
-            this.Controls.Add(this.btnEstadisticas);
+            this.Controls.Add(this.btnRecaudacion);
             this.Controls.Add(this.btnPedido);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAbmProveedor);
@@ -199,8 +215,9 @@
         private System.Windows.Forms.Button btnAbmProveedor;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnPedido;
-        private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.Button btnRecaudacion;
         private System.Windows.Forms.Button btnOpciones;
         private System.Windows.Forms.Button btnProductoProveedor;
+        private System.Windows.Forms.Button btnEstadisticas;
     }
 }

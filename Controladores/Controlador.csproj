@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EstadoPedidoControlador.cs" />
+    <Compile Include="RecaudacionControlador.cs" />
     <Compile Include="PedidoDetalleControlador.cs" />
     <Compile Include="ProductoProveedorControlador.cs" />
     <Compile Include="PedidoControlador.cs" />

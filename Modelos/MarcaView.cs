@@ -10,5 +10,11 @@ namespace Model
 
         public string Notas { get; set; }
 
+        public enum GridColumn
+        {
+            IdMarca = 0,
+            Descripcion = 1,
+            Notas = 2
+        }
     }
 }

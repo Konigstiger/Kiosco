@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="EstadoPedidoView.cs" />
     <Compile Include="EstadoPedido.cs" />
+    <Compile Include="RecaudacionView.cs" />
+    <Compile Include="Recaudacion.cs" />
     <Compile Include="PedidoDetalleView.cs" />
     <Compile Include="PedidoDetalle.cs" />
     <Compile Include="ProductoProveedorView.cs" />

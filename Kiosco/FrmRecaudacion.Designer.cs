@@ -39,13 +39,13 @@
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtIdMarca = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nudTotal = new System.Windows.Forms.NumericUpDown();
+            this.txtIdRecaudacion = new System.Windows.Forms.TextBox();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.nudTotal = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,6 +77,7 @@
             this.tsbNew.Name = "tsbNew";
             this.tsbNew.Size = new System.Drawing.Size(70, 28);
             this.tsbNew.Text = "Nuevo";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
             // tsbSave
             // 
@@ -85,6 +86,7 @@
             this.tsbSave.Name = "tsbSave";
             this.tsbSave.Size = new System.Drawing.Size(77, 28);
             this.tsbSave.Text = "Guardar";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbDelete
             // 
@@ -93,6 +95,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -107,11 +110,12 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(79, 28);
             this.tsbSearch.Text = "Buscar...";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // tsbSearchTextBox
             // 
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
-            this.tsbSearchTextBox.Size = new System.Drawing.Size(135, 23);
+            this.tsbSearchTextBox.Size = new System.Drawing.Size(135, 31);
             this.tsbSearchTextBox.Visible = false;
             // 
             // tsbSearchPerform
@@ -122,6 +126,7 @@
             this.tsbSearchPerform.Name = "tsbSearchPerform";
             this.tsbSearchPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchPerform.Visible = false;
+            this.tsbSearchPerform.Click += new System.EventHandler(this.tsbSearchPerform_Click);
             // 
             // tsbSearchClearAndPerform
             // 
@@ -131,6 +136,7 @@
             this.tsbSearchClearAndPerform.Name = "tsbSearchClearAndPerform";
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
+            this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
             // dgv
             // 
@@ -146,6 +152,7 @@
             this.dgv.Size = new System.Drawing.Size(954, 561);
             this.dgv.TabIndex = 33;
             this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // panel1
             // 
@@ -155,7 +162,7 @@
             this.panel1.Controls.Add(this.dtpFecha);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.nudTotal);
-            this.panel1.Controls.Add(this.txtIdMarca);
+            this.panel1.Controls.Add(this.txtIdRecaudacion);
             this.panel1.Controls.Add(this.txtNotas);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label2);
@@ -164,14 +171,42 @@
             this.panel1.Size = new System.Drawing.Size(954, 142);
             this.panel1.TabIndex = 35;
             // 
-            // txtIdMarca
+            // dtpFecha
             // 
-            this.txtIdMarca.BackColor = System.Drawing.SystemColors.Info;
-            this.txtIdMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdMarca.Location = new System.Drawing.Point(16, 10);
-            this.txtIdMarca.Name = "txtIdMarca";
-            this.txtIdMarca.Size = new System.Drawing.Size(20, 24);
-            this.txtIdMarca.TabIndex = 53;
+            this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(173, 12);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(139, 27);
+            this.dtpFecha.TabIndex = 56;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label1.Location = new System.Drawing.Point(104, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Total:";
+            // 
+            // nudTotal
+            // 
+            this.nudTotal.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nudTotal.Location = new System.Drawing.Point(173, 54);
+            this.nudTotal.Name = "nudTotal";
+            this.nudTotal.Size = new System.Drawing.Size(140, 27);
+            this.nudTotal.TabIndex = 54;
+            // 
+            // txtIdRecaudacion
+            // 
+            this.txtIdRecaudacion.BackColor = System.Drawing.SystemColors.Info;
+            this.txtIdRecaudacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdRecaudacion.Location = new System.Drawing.Point(16, 10);
+            this.txtIdRecaudacion.Name = "txtIdRecaudacion";
+            this.txtIdRecaudacion.Size = new System.Drawing.Size(20, 24);
+            this.txtIdRecaudacion.TabIndex = 53;
+            this.txtIdRecaudacion.TextChanged += new System.EventHandler(this.txtIdRecaudacion_TextChanged);
             // 
             // txtNotas
             // 
@@ -201,33 +236,6 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Fecha:";
             // 
-            // nudTotal
-            // 
-            this.nudTotal.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.nudTotal.Location = new System.Drawing.Point(173, 54);
-            this.nudTotal.Name = "nudTotal";
-            this.nudTotal.Size = new System.Drawing.Size(140, 27);
-            this.nudTotal.TabIndex = 54;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label1.Location = new System.Drawing.Point(104, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
-            this.label1.TabIndex = 55;
-            this.label1.Text = "Total:";
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(173, 12);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(139, 27);
-            this.dtpFecha.TabIndex = 56;
-            // 
             // FrmRecaudacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -241,6 +249,7 @@
             this.Name = "FrmRecaudacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recaudacion Diaria";
+            this.Load += new System.EventHandler(this.FrmRecaudacion_Load);
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -265,7 +274,7 @@
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtIdMarca;
+        private System.Windows.Forms.TextBox txtIdRecaudacion;
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;

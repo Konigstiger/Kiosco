@@ -80,11 +80,11 @@ namespace Kiosco
             }
 
 
-            c[(int)MarcaGridColumn.IdMarca].Width = 0;
-            c[(int)MarcaGridColumn.IdMarca].Visible = false; //true;
-            Util.SetColumn(c[(int)MarcaGridColumn.IdMarca], "IdMarca", "IdMarca", 0);
-            Util.SetColumn(c[(int)MarcaGridColumn.Descripcion], "Descripcion", "Descripción", 1);
-            Util.SetColumn(c[(int)MarcaGridColumn.Notas], "Notas", "Notas", 2);
+            c[(int)MarcaView.GridColumn.IdMarca].Width = 0;
+            c[(int)MarcaView.GridColumn.IdMarca].Visible = false; //true;
+            Util.SetColumn(c[(int)MarcaView.GridColumn.IdMarca], "IdMarca", "IdMarca", 0);
+            Util.SetColumn(c[(int)MarcaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
+            Util.SetColumn(c[(int)MarcaView.GridColumn.Notas], "Notas", "Notas", 2);
             dgv.Columns.AddRange(c);
 
 
@@ -114,7 +114,7 @@ namespace Kiosco
                 return;
 
             // esto funciona, pero con el numero de celda, no con ID.
-            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)MarcaGridColumn.IdMarca].Value.ToString());
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)MarcaView.GridColumn.IdMarca].Value.ToString());
 
             _rowIndex = dgv.SelectedRows[0].Index;
 
@@ -214,8 +214,8 @@ namespace Kiosco
 
             //********************
             //meter en subrutina
-            dgv.Rows[_rowIndex].Cells[(int)MarcaGridColumn.Descripcion].Value = m.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)MarcaGridColumn.Notas].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int)MarcaView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)MarcaView.GridColumn.Notas].Value = m.Notas;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -255,12 +255,7 @@ namespace Kiosco
 
         private const int ColCount = 3;
 
-        public enum MarcaGridColumn
-        {
-            IdMarca = 0,
-            Descripcion = 1,
-            Notas = 2
-        }
+
 
         private void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
