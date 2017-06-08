@@ -31,13 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidadProductos = new System.Windows.Forms.TextBox();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.SuspendLayout();
             // 
             // pieChart1
             // 
-            this.pieChart1.Location = new System.Drawing.Point(153, 72);
+            this.pieChart1.Location = new System.Drawing.Point(16, 50);
             this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(569, 497);
+            this.pieChart1.Size = new System.Drawing.Size(397, 366);
             this.pieChart1.TabIndex = 0;
             this.pieChart1.Text = "pieChart1";
             // 
@@ -54,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 627);
+            this.label2.Location = new System.Drawing.Point(29, 625);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 2;
@@ -62,16 +63,25 @@
             // 
             // txtCantidadProductos
             // 
-            this.txtCantidadProductos.Location = new System.Drawing.Point(208, 624);
+            this.txtCantidadProductos.Location = new System.Drawing.Point(153, 622);
             this.txtCantidadProductos.Name = "txtCantidadProductos";
             this.txtCantidadProductos.Size = new System.Drawing.Size(100, 20);
             this.txtCantidadProductos.TabIndex = 3;
+            // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Location = new System.Drawing.Point(433, 67);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(683, 529);
+            this.cartesianChart1.TabIndex = 4;
+            this.cartesianChart1.Text = "cartesianChart1";
             // 
             // FrmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 771);
+            this.ClientSize = new System.Drawing.Size(1154, 771);
+            this.Controls.Add(this.cartesianChart1);
             this.Controls.Add(this.txtCantidadProductos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -91,5 +101,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCantidadProductos;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
     }
 }
