@@ -76,7 +76,7 @@
             this.btnAbmMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAbmMarca.Name = "btnAbmMarca";
             this.btnAbmMarca.Size = new System.Drawing.Size(355, 58);
-            this.btnAbmMarca.TabIndex = 2;
+            this.btnAbmMarca.TabIndex = 3;
             this.btnAbmMarca.Text = "Marcas";
             this.btnAbmMarca.UseVisualStyleBackColor = true;
             this.btnAbmMarca.Click += new System.EventHandler(this.btnAbmMarca_Click);
@@ -90,7 +90,7 @@
             this.btnAbmProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
             this.btnAbmProveedor.Size = new System.Drawing.Size(355, 58);
-            this.btnAbmProveedor.TabIndex = 3;
+            this.btnAbmProveedor.TabIndex = 2;
             this.btnAbmProveedor.Text = "Proveedores";
             this.btnAbmProveedor.UseVisualStyleBackColor = true;
             this.btnAbmProveedor.Click += new System.EventHandler(this.btnAbmProveedor_Click);
@@ -104,7 +104,7 @@
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(355, 58);
-            this.btnSalir.TabIndex = 4;
+            this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -118,7 +118,7 @@
             this.btnPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(355, 58);
-            this.btnPedido.TabIndex = 5;
+            this.btnPedido.TabIndex = 4;
             this.btnPedido.Text = "Pedidos";
             this.btnPedido.UseVisualStyleBackColor = true;
             this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
@@ -160,7 +160,7 @@
             this.btnProductoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProductoProveedor.Name = "btnProductoProveedor";
             this.btnProductoProveedor.Size = new System.Drawing.Size(355, 58);
-            this.btnProductoProveedor.TabIndex = 8;
+            this.btnProductoProveedor.TabIndex = 5;
             this.btnProductoProveedor.Text = "Productos de Proveedores";
             this.btnProductoProveedor.UseVisualStyleBackColor = true;
             this.btnProductoProveedor.Click += new System.EventHandler(this.btnProductoProveedor_Click);
