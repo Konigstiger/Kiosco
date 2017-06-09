@@ -13,7 +13,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 3;
+        private const int colCount = 4;
 
         private List<RecaudacionView> origenDatos = null;
 
@@ -29,7 +29,11 @@ namespace Kiosco
             txtIdRecaudacion.Visible = false;
             nudTotal.Maximum = 99999;
             nudTotal.Minimum = 0;
-            dtpFecha.Format=DateTimePickerFormat.Short;
+            nudCompras.Maximum = 99999;
+            nudCompras.Minimum = 0;
+            nudTotal.Increment = 100;
+            nudCompras.Increment = 100;
+            dtpFecha.Format = DateTimePickerFormat.Short;
             txtNotas.MaxLength = 100;
         }
 
@@ -54,10 +58,12 @@ namespace Kiosco
             //TODO: Ver mas propiedades del DataGridView.
         }
 
+
         public void CargarControles()
         {
             CargarGrilla(tsbSearchTextBox.Text);
         }
+
 
         public void CargarGrilla(string searchText)
         {
@@ -74,6 +80,7 @@ namespace Kiosco
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.IdRecaudacion], "IdRecaudacion", "IdRecaudacion", 0);
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.Fecha], "Fecha", "Fecha", 1);
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.Total], "Total", "Total", 2);
+            Util.SetColumn(c[(int)RecaudacionView.GridColumn.Compras], "Compras", "Compras", 3);
             dgv.Columns.AddRange(c);
 
 
@@ -93,26 +100,27 @@ namespace Kiosco
             dgv.RowHeadersVisible = false;
         }
 
+
         public void ExecuteSearch()
         {
             CargarGrilla(tsbSearchTextBox.Text);
         }
 
+
         public void GuardarOInsertar()
         {
             const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
-            var m = new Recaudacion
-            {
+            var m = new Recaudacion {
                 IdRecaudacion = -1,
                 Fecha = dtpFecha.Value,
                 IdUsuario = idUsuarioActual,
                 Total = nudTotal.Value,
+                Compras = nudCompras.Value,
                 Notas = txtNotas.Text.Trim()
             };
             //=====================================================================
-            if (_modo == ModoFormulario.Nuevo)
-            {
+            if (_modo == ModoFormulario.Nuevo) {
                 m.IdRecaudacion = RecaudacionControlador.Insert(m);
 
                 var modelView = RecaudacionControlador.GetByPrimaryKeyView(m.IdRecaudacion);
@@ -127,19 +135,17 @@ namespace Kiosco
                 //Calcular _rowIndex
                 _rowIndex = dgv.Rows.Count - 1;
 
-            }
-            else
-            {
+            } else {
                 //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
 
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var RecaudacionNuevo = new Recaudacion
-                {
+                var RecaudacionNuevo = new Recaudacion {
                     IdRecaudacion = Convert.ToInt64(txtIdRecaudacion.Text.Trim()),
                     Fecha = dtpFecha.Value,
                     Total = nudTotal.Value,
+                    Compras = nudCompras.Value,
                     IdUsuario = idUsuarioActual,
                     Notas = txtNotas.Text.Trim()
                 };
@@ -154,6 +160,7 @@ namespace Kiosco
             //TODO: Revisar esto!
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Fecha].Value = m.Fecha;
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Total].Value = m.Total;
+            dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Compras].Value = m.Compras;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -182,8 +189,10 @@ namespace Kiosco
         {
             dtpFecha.Value = DateTime.Today;
             nudTotal.Value = 0;
+            nudCompras.Value = 0;
             txtNotas.Clear();
         }
+
 
         private void FrmRecaudacion_Load(object sender, EventArgs e)
         {
@@ -243,8 +252,10 @@ namespace Kiosco
 
             dtpFecha.Value = c.Fecha;
             nudTotal.Value = c.Total;
+            nudCompras.Value = c.Compras;
             txtNotas.Text = c.Notas.Trim();
         }
+
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {

@@ -14,6 +14,7 @@ namespace Model
         public Decimal Total { get; set; }
 
         public string Notas { get; set; }
+        public decimal Compras { get; set; }
 
         public bool Validate()
         {
@@ -26,8 +27,8 @@ namespace Model
         {
             IdRecaudacion = 0,
             Fecha = 1,
-            Total = 2
-            //Notas = 3
+            Total = 2,
+            Compras = 3
         }
     }
 }

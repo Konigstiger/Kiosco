@@ -46,10 +46,13 @@
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.nudCompras = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCompras)).BeginInit();
             this.SuspendLayout();
             // 
             // tsb
@@ -159,6 +162,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.nudCompras);
             this.panel1.Controls.Add(this.dtpFecha);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.nudTotal);
@@ -236,6 +241,24 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Fecha:";
             // 
+            // nudCompras
+            // 
+            this.nudCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nudCompras.Location = new System.Drawing.Point(516, 51);
+            this.nudCompras.Name = "nudCompras";
+            this.nudCompras.Size = new System.Drawing.Size(140, 27);
+            this.nudCompras.TabIndex = 57;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label3.Location = new System.Drawing.Point(439, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Compras:";
+            // 
             // FrmRecaudacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -256,6 +279,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCompras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +305,7 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudTotal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nudCompras;
     }
 }

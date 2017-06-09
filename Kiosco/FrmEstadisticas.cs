@@ -29,61 +29,53 @@ namespace Kiosco
 
         private void CargarGrafico2()
         {
-            cartesianChart1.Series = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    Title = "Series 1",
-                    Values = new ChartValues<double> {4, 6, 5, 2, 7}
-                },
-                new LineSeries
-                {
-                    Title = "Series 2",
-                    Values = new ChartValues<double> {6, 7, 3, 4, 6},
-                    PointGeometry = null
-                }
-                //,
-                //new LineSeries
-                //{
-                //    Title = "Series 2",
-                //    Values = new ChartValues<double> {5, 2, 8, 3},
-                //    PointGeometry = DefaultGeometries.Square,
-                //    PointGeometrySize = 15
-                //}
-            };
+            //Recuperar valores de BD
+            var listRec = RecaudacionControlador.GetAll();
 
-            cartesianChart1.AxisX.Add(new Axis {
-                Title = "Mes",
-                Labels = new[] { "Ene", "Feb", "Mar", "Abr", "May" }
-            });
 
-            cartesianChart1.AxisY.Add(new Axis {
-                Title = "Sales",
-                LabelFormatter = value => value.ToString("C")
-            });
+            var sc = new SeriesCollection();
+            var ls = new LineSeries();
+            ls.Title = "Recaudacion";
+            ls.LineSmoothness = 0;
+            //ls.LineSmoothness = 0.25;
+            ls.PointGeometry = DefaultGeometries.Circle;
+            //ls.PointGeometry = DefaultGeometries.Square;
+            ls.PointGeometrySize = 10;
+            //ls.PointForeground
+
+
+            var ls2 = new LineSeries();
+            ls2.Title = "Compras";
+            ls2.LineSmoothness = 0;
+            ls2.PointGeometry = DefaultGeometries.Circle;
+            ls2.PointGeometrySize = 10;
+            //ls.PointForeground
+
+            var xAxis = new Axis();
+            xAxis.Title = "Tiempo";
+            xAxis.Labels = new List<string>();
+            ls.Values = new ChartValues<decimal>();
+            ls2.Values = new ChartValues<decimal>();
+
+            foreach (var r in listRec) {
+                ls.Values.Add(r.Total);
+                ls2.Values.Add(r.Compras);
+                xAxis.Labels.Add(r.Fecha.ToShortDateString());
+            }
+
+            sc.Add(ls);
+            sc.Add(ls2);
+
+            cartesianChart1.Series = sc;
+            cartesianChart1.AxisX.Add(xAxis);
 
             cartesianChart1.LegendLocation = LegendLocation.Right;
-
-            //modifying the series collection will animate and update the chart
-            cartesianChart1.Series.Add(new LineSeries {
-                Values = new ChartValues<double> { 5, 3, 2, 4, 5 },
-                LineSmoothness = 0, //straight lines, 1 really smooth lines
-                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
-                PointGeometrySize = 15,
-                PointForeground = Brushes.Gray
-            });
-
-            //modifying any series values will also animate and update the chart
-            cartesianChart1.Series[2].Values.Add(5d);
-
-
-            //cartesianChart1.DataClick += CartesianChart1OnDataClick;
         }
 
 
         private void CargarCantidadProductos()
         {
-            int cantidadProductos = ProductoControlador.GetAll().Count;
+            var cantidadProductos = ProductoControlador.GetAll().Count;
             txtCantidadProductos.Text = cantidadProductos.ToString();
         }
 

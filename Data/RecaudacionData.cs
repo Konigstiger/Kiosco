@@ -23,6 +23,7 @@ namespace Data
                                 IdRecaudacion = (long)rdr["IdRecaudacion"],
                                 Fecha = (DateTime)rdr["Fecha"],
                                 Total = (decimal)rdr["Total"],
+                                Compras = (decimal)rdr["Compras"],
                                 IdUsuario = (int)rdr["IdUsuario"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
@@ -55,6 +56,7 @@ namespace Data
                                 IdRecaudacion = (long)rdr["IdRecaudacion"],
                                 Fecha = (DateTime)rdr["Fecha"],
                                 Total = (decimal)rdr["Total"],
+                                Compras = (decimal)rdr["Compras"],
                                 IdUsuario = (int)rdr["IdUsuario"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
@@ -76,14 +78,16 @@ namespace Data
                     //var p0 = new SqlParameter("IdRecaudacion", SqlDbType.BigInt) { Value = m.IdRecaudacion };
                     var p1 = new SqlParameter("Fecha", SqlDbType.Date) { Value = m.Fecha };
                     var p2 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
-                    var p3 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = m.IdUsuario };
-                    var p4 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p3 = new SqlParameter("Compras", SqlDbType.Decimal) { Value = m.Compras };
+                    var p4 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = m.IdUsuario };
+                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
 
                     conn.Open();
                     m.IdRecaudacion = (long)cmd.ExecuteScalar();
@@ -110,6 +114,7 @@ namespace Data
                             c.IdRecaudacion = (long)rdr["IdRecaudacion"];
                             c.Fecha = (DateTime)rdr["Fecha"];
                             c.Total = (decimal)rdr["Total"];
+                            c.Compras = (decimal)rdr["Compras"];
                             c.IdUsuario = (int) rdr["IdUsuario"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -137,6 +142,7 @@ namespace Data
                             c.IdRecaudacion = (long)rdr["IdRecaudacion"];
                             c.Fecha = (DateTime)rdr["Fecha"];
                             c.Total = (decimal) rdr["Total"];
+                            c.Compras = (decimal) rdr["Compras"];
                             c.IdUsuario = (int) rdr["IdUsuario"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -156,14 +162,16 @@ namespace Data
                     var p0 = new SqlParameter("IdRecaudacion", SqlDbType.BigInt) { Value = model.IdRecaudacion };
                     var p1 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
                     var p2 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
-                    var p3 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = model.IdUsuario };
-                    var p4 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p3 = new SqlParameter("Compras", SqlDbType.Decimal) { Value = model.Compras };
+                    var p4 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = model.IdUsuario };
+                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
 
                     conn.Open();
                     model.IdRecaudacion = (long)cmd.ExecuteScalar();
