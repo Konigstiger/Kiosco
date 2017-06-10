@@ -200,6 +200,7 @@ namespace Kiosco
 
         }
 
+
         private void nudCantidad_ValueChanged(object sender, EventArgs e)
         {
             //Si cambia la cantidad, se debe recalcular el Importe.
@@ -209,8 +210,11 @@ namespace Kiosco
             CalcularImporte();
         }
 
+
         private void CalcularImporte()
         {
+            //TODO: Hacer que al invocar este metodo, se pase quien fue el que cambio.
+            //Evitar de alguna manera el cambio multiple.
             var cantidad = Cantidad;
             var k = nudUnidades.Value;
             var pcu = Precio;
@@ -249,6 +253,12 @@ namespace Kiosco
             if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
                 e.KeyChar = CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
             }
+        }
+
+        private void nudImporte_ValueChanged(object sender, EventArgs e)
+        {
+            //TODO: Si esto esta activo, crea una referencia circular y un overflow.
+            //CalcularImporte();
         }
     }
 }

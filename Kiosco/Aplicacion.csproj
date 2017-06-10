@@ -49,11 +49,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.4.9\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.4.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -188,12 +188,6 @@
     <Compile Include="FrmSeleccionarCliente.Designer.cs">
       <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidoOld.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPedidoOld.Designer.cs">
-      <DependentUpon>FrmPedidoOld.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,9 +312,6 @@
     <EmbeddedResource Include="FrmSeleccionarCliente.resx">
       <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPedidoOld.resx">
-      <DependentUpon>FrmPedidoOld.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +348,9 @@
     <EmbeddedResource Include="View\PedidoView.resx">
       <DependentUpon>PedidoView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Model;
+using NLog;
 
 namespace Kiosco
 {
@@ -33,12 +34,6 @@ namespace Kiosco
             txtNotas.Enabled = false;
             txtPrecio.Enabled = false;
             txtPrecioCosto.Enabled = false;
-
-        }
-
-        private void txtCodigoBarras_TextChanged(object sender, EventArgs e)
-        {
-            //TODO: De aqui saque codigo.
 
         }
 
@@ -86,7 +81,7 @@ namespace Kiosco
         {
             if (e.KeyCode == Keys.Enter) {
                 e.SuppressKeyPress = true;
-                DoThis();
+                VerificarProducto();
                 txtCodigoBarras.Select(0, txtCodigoBarras.Text.Length);
             }
 
@@ -98,12 +93,18 @@ namespace Kiosco
         }
 
 
-        private void DoThis()
+        //private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        private void VerificarProducto()
         {
             var productoEncontrado = false;
             var productoIngresado = false;
 
             var codigo = txtCodigoBarras.Text.Trim();
+
+            //logger.Error("Consulta de Producto: " + codigo);
+            //logger.Debug("Consulta de Producto: " + codigo);
+
             var p = ProductoControlador.GetByCodigoBarras(codigo);
 
             productoEncontrado = p.IdProducto != 0;
@@ -129,11 +130,7 @@ namespace Kiosco
             chkSoloAdultos.Checked = p.SoloAdultos ?? false;
             txtNotas.Text = p.Notas;
 
-
-            //TODO: Mostrar Stock Actual (permitir editarlo).
-
-
-            DoStuff(p.IdProducto);
+            CargarProveedores(p.IdProducto);
 
             CargarStockActual(p.IdProducto);
         }
@@ -151,11 +148,8 @@ namespace Kiosco
 
         private List<ProductoProveedorView> origenDatos = null;
 
-        private void DoStuff(long idProducto)
+        private void CargarProveedores(long idProducto)
         {
-            //var list = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
-
-
             dgv.Columns.Clear();
 
             var c = new DataGridViewColumn[colCount];
@@ -163,7 +157,6 @@ namespace Kiosco
             for (var i = 0; i < colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
-
 
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
@@ -189,8 +182,8 @@ namespace Kiosco
 
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
-
         }
+
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
