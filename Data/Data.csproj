@@ -46,7 +46,6 @@
     <Compile Include="PedidoDetalleData.cs" />
     <Compile Include="ProductoProveedorData.cs" />
     <Compile Include="PedidoData.cs" />
-    <Compile Include="PedidoRepository.cs" />
     <Compile Include="ProveedorData.cs" />
     <Compile Include="DepositoData.cs" />
     <Compile Include="MarcaData.cs" />
