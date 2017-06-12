@@ -55,7 +55,7 @@
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1076, 440);
+            this.dgv.Size = new System.Drawing.Size(1280, 440);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
@@ -153,8 +153,8 @@
             this.ucPedido1.BackColor = System.Drawing.Color.White;
             this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 6, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 6, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
@@ -183,6 +183,7 @@
             this.ucPedidoDetalle1.Cantidad = 1;
             this.ucPedidoDetalle1.CodigoBarras = "";
             this.ucPedidoDetalle1.Descripcion = "";
+            this.ucPedidoDetalle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucPedidoDetalle1.IdPedidoDetalle = ((long)(0));
             this.ucPedidoDetalle1.IdProducto = ((long)(0));
             this.ucPedidoDetalle1.IdUnidad = 0;
@@ -193,19 +194,20 @@
             0});
             this.ucPedidoDetalle1.Location = new System.Drawing.Point(14, 671);
             this.ucPedidoDetalle1.Name = "ucPedidoDetalle1";
+            this.ucPedidoDetalle1.Notas = "";
             this.ucPedidoDetalle1.Precio = new decimal(new int[] {
             4000,
             0,
             0,
             131072});
-            this.ucPedidoDetalle1.Size = new System.Drawing.Size(1076, 74);
+            this.ucPedidoDetalle1.Size = new System.Drawing.Size(1280, 74);
             this.ucPedidoDetalle1.TabIndex = 90;
             // 
             // FrmPedidoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 771);
+            this.ClientSize = new System.Drawing.Size(1306, 771);
             this.Controls.Add(this.ucPedido1);
             this.Controls.Add(this.ucPedidoDetalle1);
             this.Controls.Add(this.tsb);
@@ -216,6 +218,7 @@
             this.Name = "FrmPedidoDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle de Pedido";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);

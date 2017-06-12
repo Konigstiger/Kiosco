@@ -191,7 +191,7 @@ namespace Kiosco
                 IdUnidad = ucPedidoDetalle1.IdUnidad,
                 Importe = ucPedidoDetalle1.Importe,
                 Unidad = ucPedidoDetalle1.Unidad,
-                Notas = ""
+                Notas = ucPedidoDetalle1.Notas
             };
 
             if (pdv.Validate().Equals(false))

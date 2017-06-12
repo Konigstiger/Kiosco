@@ -44,6 +44,8 @@
             this.cboUnidad = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.nudUnidades = new System.Windows.Forms.NumericUpDown();
+            this.txtNotas = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
@@ -261,11 +263,34 @@
             this.nudUnidades.TabStop = false;
             this.nudUnidades.ValueChanged += new System.EventHandler(this.nudUnidades_ValueChanged);
             // 
+            // txtNotas
+            // 
+            this.txtNotas.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNotas.Location = new System.Drawing.Point(1022, 38);
+            this.txtNotas.Name = "txtNotas";
+            this.txtNotas.Size = new System.Drawing.Size(251, 25);
+            this.txtNotas.TabIndex = 100;
+            this.txtNotas.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1018, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "Notas:";
+            // 
             // ucPedidoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.txtNotas);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.nudUnidades);
             this.Controls.Add(this.cboUnidad);
             this.Controls.Add(this.label10);
@@ -285,7 +310,7 @@
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ucPedidoDetalle";
-            this.Size = new System.Drawing.Size(1020, 84);
+            this.Size = new System.Drawing.Size(1279, 74);
             this.Load += new System.EventHandler(this.ucPedidoDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
@@ -315,5 +340,7 @@
         private System.Windows.Forms.ComboBox cboUnidad;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown nudUnidades;
+        private System.Windows.Forms.TextBox txtNotas;
+        private System.Windows.Forms.Label label2;
     }
 }

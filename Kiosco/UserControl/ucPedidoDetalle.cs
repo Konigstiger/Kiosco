@@ -81,6 +81,18 @@ namespace Kiosco
         }
 
 
+        [Description("Notas del ProductoDetalle."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Notas
+        {
+            get { return txtNotas.Text.Trim(); }
+            set { txtNotas.Text = value; }
+        }
+
+
         [Description("Precio de Costo del Producto."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -194,6 +206,7 @@ namespace Kiosco
             txtIdProducto.Text = p.IdProducto.ToString();
             nudCantidad.Value = p.Cantidad;
             nudImporte.Value = p.Importe;
+            txtNotas.Text = p.Notas;
 
             //seleccionar segun el id, el elemento correspondiente del combo de unidad.
             cboUnidad.SelectedValue = p.IdUnidad ?? 1;

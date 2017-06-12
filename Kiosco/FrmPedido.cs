@@ -298,13 +298,18 @@ namespace Kiosco
 
 
             if (e.Button == MouseButtons.Right) {
-                var ht = dgv.HitTest(e.X, e.Y);
+                var hti = dgv.HitTest(e.X, e.Y);
 
-                switch (ht.Type) {
+                //vodoo: perfect
+                dgv.ClearSelection();
+                dgv.Rows[hti.RowIndex].Selected = true;
+                //end vodoo
+
+                switch (hti.Type) {
                     case DataGridViewHitTestType.ColumnHeader:
                         // This positions the menu at the mouse's location.
-                        cms.Items.Add("Ordenar Ascendente");
-                        cms.Items.Add("Ordenar Descendente");
+                        //cms.Items.Add("Ordenar Ascendente");
+                        //cms.Items.Add("Ordenar Descendente");
 
                         //cms.Items[0].Visible = true;
                         //cms.Items[1].Visible = false;
@@ -314,15 +319,12 @@ namespace Kiosco
                     case DataGridViewHitTestType.Cell:
                         //cms.Items[0].Visible = false;
                         //cms.Items[1].Visible = true;
-                        cms.Items.Add("Ver Proveedores..."); // esto puede abrir una pantalla pasando el IdPedido.
-                        cms.Items.Add("Ver Detalles...");
+                        var item = cms.Items.Add("Ver Detalles del Pedido...");
+                        item.Image = imageList1.Images[0];
                         break;
 
                 }
                 cms.Show(MousePosition);
-
-
-
             }
         }
 
@@ -369,6 +371,12 @@ namespace Kiosco
             LimpiarControles();
         }
 
-
+        private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            {
+                var f = new FrmPedidoDetalle(ucPedido1.IdPedido);
+                f.Show();
+            }
+        }
     }
 }

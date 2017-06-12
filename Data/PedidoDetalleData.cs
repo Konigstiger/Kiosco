@@ -120,7 +120,7 @@ namespace Data
                             c.Cantidad = (int)rdr["Cantidad"];
                             c.Importe = (decimal)rdr["Importe"];
                             c.IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 1;
-                            //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
                 }
@@ -201,20 +201,15 @@ namespace Data
 
                     cmd.Parameters.Add(p0);
 
-                    try {
-                        conn.Open();
-                        model.IdPedidoDetalle = (long)cmd.ExecuteScalar();
-                        return true;
-                    }
-                    catch {
-                        return false;
-                    }
-                    finally {
-                        conn.Close();
-                    }
+                    conn.Open();
+                    //TODO: HAY UN BUG AQUI. REVISAR.
+                    //model.IdPedidoDetalle = (long)cmd.ExecuteScalar();
+                    cmd.ExecuteScalar();
+                    return true;
                 }
             }
         }
+
 
         public static List<PedidoDetalleView> GetByIdPedido(long idPedido)
         {

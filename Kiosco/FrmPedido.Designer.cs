@@ -42,6 +42,7 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ucPedido1 = new Kiosco.UserControl.ucPedido();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -153,18 +154,22 @@
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
+            this.dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseDown);
             // 
             // cms
             // 
             this.cms.Name = "cms";
             this.cms.Size = new System.Drawing.Size(61, 4);
+            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
             // 
             // ucPedido1
             // 
+            this.ucPedido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 5, 29, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
             this.ucPedido1.IdProveedor = 0;
             this.ucPedido1.Location = new System.Drawing.Point(0, 525);
@@ -172,6 +177,8 @@
             this.ucPedido1.Name = "ucPedido1";
             this.ucPedido1.Notas = "";
             this.ucPedido1.Proveedor = "";
+            this.ucPedido1.ShowDetallePedido = true;
+            this.ucPedido1.ShowEstadoPedido = true;
             this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
             this.ucPedido1.TabIndex = 36;
             this.ucPedido1.Total = new decimal(new int[] {
@@ -179,6 +186,13 @@
             0,
             0,
             0});
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(1, "package.png");
             // 
             // FrmPedido
             // 
@@ -192,6 +206,7 @@
             this.Name = "FrmPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedidos a Provedores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPedido_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPedido_KeyDown);
             this.tsb.ResumeLayout(false);
@@ -216,5 +231,6 @@
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.ContextMenuStrip cms;
         private UserControl.ucPedido ucPedido1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
