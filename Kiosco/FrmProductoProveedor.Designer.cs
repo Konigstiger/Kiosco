@@ -93,6 +93,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -196,6 +197,16 @@
             this.ucProductoView1.IdProducto = ((long)(0));
             this.ucProductoView1.Location = new System.Drawing.Point(38, 9);
             this.ucProductoView1.Name = "ucProductoView1";
+            this.ucProductoView1.PrecioCosto = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoView1.PrecioVenta = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ucProductoView1.Size = new System.Drawing.Size(568, 138);
             this.ucProductoView1.TabIndex = 54;
             this.ucProductoView1.ProductoChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);

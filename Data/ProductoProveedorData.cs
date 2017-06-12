@@ -216,7 +216,7 @@ namespace Data
                     cmd.Parameters.Add(p0);
 
                     conn.Open();
-                    model.IdProductoProveedor = (int)cmd.ExecuteScalar();
+                    cmd.ExecuteScalar();
                     return true;
                 }
             }

@@ -217,6 +217,18 @@ namespace Kiosco
 
         public void Eliminar()
         {
+            if (!Util.ConfirmarEliminar())
+                return;
+
+            //crear objeto cascara
+            var m = new ProductoProveedor { IdProductoProveedor = Convert.ToInt64(txtIdProductoProveedor.Text.Trim()) };
+
+            var result = ProductoProveedorControlador.Delete(m);
+
+            // Remover visualmente el registro del producto.
+            dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+
+            LimpiarControles();
         }
 
         void IAbmGeneral.LimpiarControles()
@@ -366,5 +378,12 @@ namespace Kiosco
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        
     }
 }
