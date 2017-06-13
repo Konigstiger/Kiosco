@@ -44,6 +44,8 @@
             this.ucProductoView1 = new Kiosco.UserControl.ucProductoView();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
             this.ucProveedorView1 = new Kiosco.UserControl.ucProveedorView();
+            this.txtNotas = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -157,6 +159,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtNotas);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.nudPrecioCompra);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.ucProductoView1);
@@ -231,6 +235,25 @@
             this.ucProveedorView1.ValueChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
             this.ucProveedorView1.Load += new System.EventHandler(this.ucProveedorView1_Load);
             // 
+            // txtNotas
+            // 
+            this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNotas.Location = new System.Drawing.Point(676, 49);
+            this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNotas.Name = "txtNotas";
+            this.txtNotas.Size = new System.Drawing.Size(247, 25);
+            this.txtNotas.TabIndex = 115;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label7.Location = new System.Drawing.Point(622, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 19);
+            this.label7.TabIndex = 116;
+            this.label7.Text = "Notas:";
+            // 
             // FrmProductoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,5 +297,7 @@
         private UserControl.ucProductoView ucProductoView1;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNotas;
+        private System.Windows.Forms.Label label7;
     }
 }

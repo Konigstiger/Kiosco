@@ -19,11 +19,11 @@ namespace Kiosco
         private int _idProveedor;
 
 
-
         public FrmProductoProveedor()
         {
             InitializeComponent();
         }
+
 
         public FrmProductoProveedor(int idProveedor)
         {
@@ -31,6 +31,7 @@ namespace Kiosco
             _idProveedor = idProveedor;
             InitializeComponent();
         }
+
 
         private void txtIdProductoProveedor_TextChanged(object sender, EventArgs e)
         {
@@ -41,10 +42,9 @@ namespace Kiosco
 
             ucProductoView1.IdProducto = c.IdProducto;
             nudPrecioCompra.Value = c.PrecioProveedor;
-
-
-
+            txtNotas.Text = c.Notas;
         }
+
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
@@ -65,17 +65,21 @@ namespace Kiosco
             tsbSave.Enabled = false;
             txtIdProductoProveedor.Visible = false;
             Util.SetNumericBounds(nudPrecioCompra);
-
-
         }
 
 
         public void CargarControles()
         {
-            CargarGrilla(tsbSearchTextBox.Text);
+            CargarGrilla(_idProveedor, tsbSearchTextBox.Text);
         }
 
         public void CargarGrilla(string searchText)
+        {
+            //no en uso en esta pantalla. Revisar. Es un lio.
+            throw new NotImplementedException();
+        }
+
+        public void CargarGrilla(int idProveedor, string searchText)
         {
             dgv.Columns.Clear();
 
@@ -84,7 +88,6 @@ namespace Kiosco
             for (var i = 0; i < colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
-
 
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
@@ -102,9 +105,7 @@ namespace Kiosco
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = searchText.Equals("") ?
-                ProductoProveedorControlador.GetGrid() :
-                ProductoProveedorControlador.GetGrid_GetByDescripcion(searchText);  //TODO: Pendiente el search
+            origenDatos = ProductoProveedorControlador.GetGrid_GetByDescripcion(idProveedor, searchText);
 
             var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -138,7 +139,7 @@ namespace Kiosco
 
         public void ExecuteSearch()
         {
-            CargarGrilla(tsbSearchTextBox.Text);
+            CargarGrilla(_idProveedor, tsbSearchTextBox.Text);
         }
 
 
@@ -152,7 +153,7 @@ namespace Kiosco
                 IdProducto = ucProductoView1.IdProducto,
                 PrecioProveedor = nudPrecioCompra.Value,
                 IdUnidad = 1,
-                Notas = ""
+                Notas = txtNotas.Text.Trim()
             };
 
             //=====================================================================
@@ -179,7 +180,7 @@ namespace Kiosco
                     IdProducto = ucProductoView1.IdProducto,
                     PrecioProveedor = nudPrecioCompra.Value,
                     IdUnidad = 1,
-                    Notas = ""
+                    Notas = txtNotas.Text.Trim()
                 };
 
                 productoProveedorNuevo.IdProductoProveedor = ProductoProveedorControlador.Update(productoProveedorNuevo);
@@ -193,7 +194,7 @@ namespace Kiosco
                 PrecioProveedor = nudPrecioCompra.Value,
                 PrecioVenta = ucProductoView1.PrecioVenta,
                 IdUnidad = 1,
-                Notas = ""
+                Notas = txtNotas.Text.Trim()
             };
             _modo = ModoFormulario.Edicion;
 
@@ -204,15 +205,9 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)ProductoProveedorView.GridColumn.PrecioVenta].Value = mv.PrecioVenta;
             //********************
 
-
-
-
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
         }
-
-
-
 
 
         public void Eliminar()
@@ -313,41 +308,42 @@ namespace Kiosco
             tsbSave.Enabled = true;
 
             //Ha cambiado el proveedor elegido, cargar la grilla con sus productos ofrecidos...
-            var idProveedor = ucProveedorView1.IdProveedor;
+            _idProveedor = ucProveedorView1.IdProveedor;
+            CargarGrilla(_idProveedor, tsbSearchTextBox.Text);
 
-            dgv.Columns.Clear();
+            //dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            //var c = new DataGridViewColumn[colCount];
 
-            for (var i = 0; i < colCount; i++) {
-                c[i] = new DataGridViewTextBoxColumn();
-            }
-
-
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
-            c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
-
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            dgv.Columns.AddRange(c);
+            //for (var i = 0; i < colCount; i++) {
+            //    c[i] = new DataGridViewTextBoxColumn();
+            //}
 
 
-            Util.SetColumnsReadOnly(dgv);
+            //c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
+            //c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
+            //c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
+            //c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
 
-            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProveedor(idProveedor, "");
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
+            //dgv.Columns.AddRange(c);
 
-            var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
-            var source = new BindingSource(bindingList, null);
-            dgv.DataSource = source;
 
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
+            //Util.SetColumnsReadOnly(dgv);
+
+            //origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProveedor(idProveedor, "");
+
+            //var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
+            //var source = new BindingSource(bindingList, null);
+            //dgv.DataSource = source;
+
+            //dgv.AllowUserToResizeRows = false;
+            //dgv.RowHeadersVisible = false;
 
         }
 

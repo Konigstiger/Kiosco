@@ -68,9 +68,9 @@ namespace Controlador
             return ProductoProveedorData.GetGrid();
         }
 
-        public static List<ProductoProveedorView> GetGrid_GetByDescripcion(string searchText)
+        public static List<ProductoProveedorView> GetGrid_GetByDescripcion(int idProveedor, string searchText)
         {
-            return ProductoProveedorData.GetGrid_GetByParameters(searchText);
+            return ProductoProveedorData.GetGrid_GetByIdProveedor(idProveedor, searchText);
         }
     }
 }

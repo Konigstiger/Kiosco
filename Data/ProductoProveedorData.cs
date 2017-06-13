@@ -223,12 +223,6 @@ namespace Data
         }
 
 
-        public static List<ProductoProveedorView> GetGrid_GetByParameters(string searchText)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public static List<ProductoProveedorView> GetGrid_GetByIdProveedor(int idProveedor, string descripcion)
         {
             var list = new List<ProductoProveedorView>();
