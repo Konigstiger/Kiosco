@@ -39,6 +39,8 @@
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudCompras = new System.Windows.Forms.NumericUpDown();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.nudTotal = new System.Windows.Forms.NumericUpDown();
@@ -46,13 +48,14 @@
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.nudCompras = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nudGastos = new System.Windows.Forms.NumericUpDown();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCompras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGastos)).BeginInit();
             this.SuspendLayout();
             // 
             // tsb
@@ -162,6 +165,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.nudGastos);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.nudCompras);
             this.panel1.Controls.Add(this.dtpFecha);
@@ -176,6 +181,24 @@
             this.panel1.Size = new System.Drawing.Size(954, 142);
             this.panel1.TabIndex = 35;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label3.Location = new System.Drawing.Point(343, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Compras:";
+            // 
+            // nudCompras
+            // 
+            this.nudCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nudCompras.Location = new System.Drawing.Point(420, 54);
+            this.nudCompras.Name = "nudCompras";
+            this.nudCompras.Size = new System.Drawing.Size(140, 27);
+            this.nudCompras.TabIndex = 57;
+            // 
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -189,7 +212,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label1.Location = new System.Drawing.Point(104, 58);
+            this.label1.Location = new System.Drawing.Point(104, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 20);
             this.label1.TabIndex = 55;
@@ -241,23 +264,23 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Fecha:";
             // 
-            // nudCompras
+            // label4
             // 
-            this.nudCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.nudCompras.Location = new System.Drawing.Point(516, 51);
-            this.nudCompras.Name = "nudCompras";
-            this.nudCompras.Size = new System.Drawing.Size(140, 27);
-            this.nudCompras.TabIndex = 57;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label4.Location = new System.Drawing.Point(600, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Gastos:";
             // 
-            // label3
+            // nudGastos
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label3.Location = new System.Drawing.Point(439, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
-            this.label3.TabIndex = 58;
-            this.label3.Text = "Compras:";
+            this.nudGastos.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.nudGastos.Location = new System.Drawing.Point(666, 54);
+            this.nudGastos.Name = "nudGastos";
+            this.nudGastos.Size = new System.Drawing.Size(140, 27);
+            this.nudGastos.TabIndex = 59;
             // 
             // FrmRecaudacion
             // 
@@ -278,8 +301,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCompras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGastos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +331,7 @@
         private System.Windows.Forms.NumericUpDown nudTotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudCompras;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudGastos;
     }
 }

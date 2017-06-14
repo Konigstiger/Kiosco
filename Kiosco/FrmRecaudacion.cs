@@ -13,7 +13,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 4;
+        private const int colCount = 5;
 
         private List<RecaudacionView> origenDatos = null;
 
@@ -31,8 +31,11 @@ namespace Kiosco
             nudTotal.Minimum = 0;
             nudCompras.Maximum = 99999;
             nudCompras.Minimum = 0;
+            nudGastos.Maximum = 99999;
+            nudGastos.Minimum = 0;
             nudTotal.Increment = 100;
             nudCompras.Increment = 100;
+            nudGastos.Increment = 100;
             dtpFecha.Format = DateTimePickerFormat.Short;
             txtNotas.MaxLength = 100;
         }
@@ -81,6 +84,7 @@ namespace Kiosco
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.Fecha], "Fecha", "Fecha", 1);
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.Total], "Total", "Total", 2);
             Util.SetColumn(c[(int)RecaudacionView.GridColumn.Compras], "Compras", "Compras", 3);
+            Util.SetColumn(c[(int)RecaudacionView.GridColumn.Gastos], "Gastos", "Gastos", 4);
             dgv.Columns.AddRange(c);
 
 
@@ -117,6 +121,7 @@ namespace Kiosco
                 IdUsuario = idUsuarioActual,
                 Total = nudTotal.Value,
                 Compras = nudCompras.Value,
+                Gastos = nudGastos.Value,
                 Notas = txtNotas.Text.Trim()
             };
             //=====================================================================
@@ -146,6 +151,7 @@ namespace Kiosco
                     Fecha = dtpFecha.Value,
                     Total = nudTotal.Value,
                     Compras = nudCompras.Value,
+                    Gastos = nudGastos.Value,
                     IdUsuario = idUsuarioActual,
                     Notas = txtNotas.Text.Trim()
                 };
@@ -161,6 +167,7 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Fecha].Value = m.Fecha;
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Total].Value = m.Total;
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Compras].Value = m.Compras;
+            dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Gastos].Value = m.Compras;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -253,6 +260,7 @@ namespace Kiosco
             dtpFecha.Value = c.Fecha;
             nudTotal.Value = c.Total;
             nudCompras.Value = c.Compras;
+            nudGastos.Value = c.Gastos;
             txtNotas.Text = c.Notas.Trim();
         }
 

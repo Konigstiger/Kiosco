@@ -51,20 +51,30 @@ namespace Kiosco
             ls2.PointGeometrySize = 10;
             //ls.PointForeground
 
+            var ls3 = new LineSeries();
+            ls3.Title = "Gastos";
+            ls3.LineSmoothness = 0;
+            ls3.PointGeometry = DefaultGeometries.Circle;
+            ls3.PointGeometrySize = 10;
+            //ls.PointForeground
+
             var xAxis = new Axis();
             xAxis.Title = "Tiempo";
             xAxis.Labels = new List<string>();
             ls.Values = new ChartValues<decimal>();
             ls2.Values = new ChartValues<decimal>();
+            ls3.Values = new ChartValues<decimal>();
 
             foreach (var r in listRec) {
                 ls.Values.Add(r.Total);
                 ls2.Values.Add(r.Compras);
+                ls3.Values.Add(r.Gastos);
                 xAxis.Labels.Add(r.Fecha.ToShortDateString());
             }
 
             sc.Add(ls);
             sc.Add(ls2);
+            sc.Add(ls3);
 
             cartesianChart1.Series = sc;
             cartesianChart1.AxisX.Add(xAxis);

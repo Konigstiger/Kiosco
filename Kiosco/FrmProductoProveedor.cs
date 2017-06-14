@@ -75,7 +75,8 @@ namespace Kiosco
 
         public void CargarGrilla(string searchText)
         {
-            //no en uso en esta pantalla. Revisar. Es un lio.
+            //no en uso en esta pantalla. Revisar. Es un lio esta interface. Da mas problemas que otra cosa.
+            //Tal vez deberia tener una interface cada pantalla. El tema de las referencias de uso incorrectas.
             throw new NotImplementedException();
         }
 
@@ -304,53 +305,18 @@ namespace Kiosco
 
         private void ucProveedorView1_ValueChanged(object sender, UserControl.ValueChangedEventArgs e)
         {
-            //tener cuidado con esto.
             tsbSave.Enabled = true;
 
             //Ha cambiado el proveedor elegido, cargar la grilla con sus productos ofrecidos...
             _idProveedor = ucProveedorView1.IdProveedor;
             CargarGrilla(_idProveedor, tsbSearchTextBox.Text);
-
-            //dgv.Columns.Clear();
-
-            //var c = new DataGridViewColumn[colCount];
-
-            //for (var i = 0; i < colCount; i++) {
-            //    c[i] = new DataGridViewTextBoxColumn();
-            //}
-
-
-            //c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
-            //c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
-            //c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
-            //c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
-
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            //dgv.Columns.AddRange(c);
-
-
-            //Util.SetColumnsReadOnly(dgv);
-
-            //origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProveedor(idProveedor, "");
-
-            //var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
-            //var source = new BindingSource(bindingList, null);
-            //dgv.DataSource = source;
-
-            //dgv.AllowUserToResizeRows = false;
-            //dgv.RowHeadersVisible = false;
-
         }
+
 
         private void ucProveedorView1_Load(object sender, EventArgs e)
         {
-
         }
+
 
         private void ucProductoView1_ProductoChanged(object sender, UserControl.ValueChangedEventArgs e)
         {
@@ -358,7 +324,7 @@ namespace Kiosco
             nudPrecioCompra.Value = ucProductoView1.PrecioCosto;
         }
 
-        //Esto merece ser refinado
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData) {
@@ -368,12 +334,15 @@ namespace Kiosco
                 case (Keys.Control | Keys.N):
                     BotonNuevo();
                     break;
+                case (Keys.Control | Keys.D):
+                    Eliminar();
+                    break;
                 default:
                     break;
             }
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {

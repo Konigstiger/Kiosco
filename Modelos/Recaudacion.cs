@@ -11,6 +11,7 @@ namespace Model
         public DateTime Fecha { get; set; }
         public Decimal Total { get; set; }
         public decimal Compras { get; set; }
+        public decimal Gastos { get; set; }
         public string Notas { get; set; }
         
 

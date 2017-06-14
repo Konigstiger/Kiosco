@@ -279,9 +279,14 @@ namespace Kiosco
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
+            BotonNuevo();
+        }
+
+        private void BotonNuevo()
+        {
             LimpiarControles();
             _modo = ModoFormulario.Nuevo;
-            ucProductoEdit1.Focus();  //TODO: Pendiente que pase este evento a su control.
+            ucProductoEdit1.Focus(); //TODO: Pendiente que pase este evento a su control.
         }
 
 
@@ -392,5 +397,23 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = e.NewValue;
         }
 
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData) {
+                case (Keys.Control | Keys.G):
+                    GuardarOInsertar();
+                    break;
+                case (Keys.Control | Keys.N):
+                    BotonNuevo();
+                    break;
+                case (Keys.Control | Keys.D):
+                    Eliminar();
+                    break;
+                default:
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
