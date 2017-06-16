@@ -25,7 +25,7 @@ namespace Kiosco.UserControl
         {
             ProductoChanged?.Invoke(this, e);
         }
-        
+
 
 
         public ucProductoEdit()
@@ -123,8 +123,7 @@ namespace Kiosco.UserControl
                 long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
                 return v;
             }
-            set
-            {
+            set {
                 txtIdProducto.Text = value.ToString();
                 OnProductoChanged(new ValueChangedEventArgs(value));
             }
@@ -283,7 +282,8 @@ namespace Kiosco.UserControl
 
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
-            if (DesignMode) return;
+            if (DesignMode)
+                return;
 
             var id = Convert.ToInt64(txtIdProducto.Text.Trim());
 
@@ -384,6 +384,7 @@ namespace Kiosco.UserControl
             cboRubro.DisplayMember = "Descripcion";
         }
 
+
         private void SetControles()
         {
             txtIdProducto.Visible = false;
@@ -391,7 +392,13 @@ namespace Kiosco.UserControl
 
             Util.SetNumericBounds(nudPrecio);
             Util.SetNumericBounds(nudPrecioCosto);
-
+            nudStockActual.Minimum = 0;
+            nudStockActual.Maximum = 9999;
+            nudStockMaximo.Minimum = 0;
+            nudStockMaximo.Maximum = 9999;
+            nudStockMinimo.Minimum = 0;
+            nudStockMinimo.Maximum = 9999;
+            nudStockActual.Increment = 1;
             nudStockMaximo.Increment = 1;
             nudStockMinimo.Increment = 1;
             txtIdMarca.Visible = false;

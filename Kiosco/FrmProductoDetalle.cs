@@ -127,7 +127,6 @@ namespace Kiosco
             chkSoloAdultos.Checked = p.SoloAdultos ?? false;
             txtNotas.Text = p.Notas;
 
-            //CargarProveedores(p.IdProducto);
             ucProveedorList1.IdProducto = p.IdProducto;
 
             CargarStockActual(p.IdProducto);

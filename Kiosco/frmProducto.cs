@@ -136,6 +136,7 @@ namespace Kiosco
             _rowIndex = dgv.SelectedRows[0].Index;
 
             ucProductoEdit1.IdProducto = id;
+            ucProveedorList1.IdProducto = id;
         }
 
 

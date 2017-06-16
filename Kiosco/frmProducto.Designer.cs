@@ -42,9 +42,17 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpProducto = new System.Windows.Forms.TabPage();
             this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
+            this.tpProveedores = new System.Windows.Forms.TabPage();
+            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tpProducto.SuspendLayout();
+            this.tpProveedores.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -59,7 +67,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(918, 497);
+            this.dgv.Size = new System.Drawing.Size(1539, 469);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -80,7 +88,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(938, 31);
+            this.tsb.Size = new System.Drawing.Size(1559, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -162,18 +170,41 @@
             this.cms.Name = "cms";
             this.cms.Size = new System.Drawing.Size(61, 4);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControl1.Controls.Add(this.tpProducto);
+            this.tabControl1.Controls.Add(this.tpProveedores);
+            this.tabControl1.ImageList = this.imageList1;
+            this.tabControl1.Location = new System.Drawing.Point(12, 509);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(919, 260);
+            this.tabControl1.TabIndex = 88;
+            // 
+            // tpProducto
+            // 
+            this.tpProducto.Controls.Add(this.ucProductoEdit1);
+            this.tpProducto.ImageIndex = 5;
+            this.tpProducto.Location = new System.Drawing.Point(4, 24);
+            this.tpProducto.Name = "tpProducto";
+            this.tpProducto.Size = new System.Drawing.Size(911, 232);
+            this.tpProducto.TabIndex = 1;
+            this.tpProducto.Text = "Producto";
+            this.tpProducto.UseVisualStyleBackColor = true;
+            // 
             // ucProductoEdit1
             // 
-            this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucProductoEdit1.CodigoBarras = "";
             this.ucProductoEdit1.Descripcion = "";
+            this.ucProductoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucProductoEdit1.IdMarca = 0;
             this.ucProductoEdit1.IdProducto = ((long)(0));
-            this.ucProductoEdit1.IdRubro = 1;
-            this.ucProductoEdit1.IdUnidad = 1;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(12, 538);
+            this.ucProductoEdit1.IdRubro = 0;
+            this.ucProductoEdit1.IdUnidad = 0;
+            this.ucProductoEdit1.Location = new System.Drawing.Point(0, 0);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
@@ -187,20 +218,52 @@
             0,
             0,
             0});
-            this.ucProductoEdit1.Size = new System.Drawing.Size(911, 230);
+            this.ucProductoEdit1.Size = new System.Drawing.Size(911, 232);
             this.ucProductoEdit1.SoloAdultos = false;
             this.ucProductoEdit1.StockActual = 0;
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
-            this.ucProductoEdit1.TabIndex = 33;
-            this.ucProductoEdit1.StockChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
+            this.ucProductoEdit1.TabIndex = 34;
+            // 
+            // tpProveedores
+            // 
+            this.tpProveedores.Controls.Add(this.ucProveedorList1);
+            this.tpProveedores.ImageIndex = 0;
+            this.tpProveedores.Location = new System.Drawing.Point(4, 24);
+            this.tpProveedores.Name = "tpProveedores";
+            this.tpProveedores.Padding = new System.Windows.Forms.Padding(3);
+            this.tpProveedores.Size = new System.Drawing.Size(911, 232);
+            this.tpProveedores.TabIndex = 0;
+            this.tpProveedores.Text = "Proveedores";
+            this.tpProveedores.UseVisualStyleBackColor = true;
+            // 
+            // ucProveedorList1
+            // 
+            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucProveedorList1.IdProducto = ((long)(0));
+            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ucProveedorList1.Name = "ucProveedorList1";
+            this.ucProveedorList1.Size = new System.Drawing.Size(905, 226);
+            this.ucProveedorList1.TabIndex = 87;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "users.png");
+            this.imageList1.Images.SetKeyName(1, "trucking.png");
+            this.imageList1.Images.SetKeyName(2, "dollar32.png");
+            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(4, "trolley.png");
+            this.imageList1.Images.SetKeyName(5, "package.png");
             // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 781);
-            this.Controls.Add(this.ucProductoEdit1);
+            this.ClientSize = new System.Drawing.Size(1559, 781);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -216,6 +279,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tpProducto.ResumeLayout(false);
+            this.tpProveedores.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,7 +300,12 @@
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ContextMenuStrip cms;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpProveedores;
+        private UserControl.ucProveedorList ucProveedorList1;
+        private System.Windows.Forms.TabPage tpProducto;
         private UserControl.ucProductoEdit ucProductoEdit1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
