@@ -219,6 +219,12 @@
     <Compile Include="UserControl\UcProveedorEdit.Designer.cs">
       <DependentUpon>UcProveedorEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ucProveedorList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucProveedorList.Designer.cs">
+      <DependentUpon>ucProveedorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ucProveedorView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -341,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UcProveedorEdit.resx">
       <DependentUpon>UcProveedorEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucProveedorList.resx">
+      <DependentUpon>ucProveedorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProveedorView.resx">
       <DependentUpon>ucProveedorView.cs</DependentUpon>

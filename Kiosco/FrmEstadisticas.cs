@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Media;
 using Controlador;
 using LiveCharts;
-using System.Windows.Media;
 using LiveCharts.Wpf;
 using Model;
 //using Brushes = System.Drawing.Brushes;

@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductoDetalle));
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
@@ -54,18 +55,22 @@
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistrarVentaRapida = new System.Windows.Forms.Button();
-            this.dgv = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpProveedores = new System.Windows.Forms.TabPage();
+            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             this.ucNotification = new Kiosco.UcNotification();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tpProveedores.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsb
@@ -348,21 +353,6 @@
             this.btnRegistrarVentaRapida.UseVisualStyleBackColor = true;
             this.btnRegistrarVentaRapida.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dgv
-            // 
-            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(224, 528);
-            this.dgv.MultiSelect = false;
-            this.dgv.Name = "dgv";
-            this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(564, 178);
-            this.dgv.TabIndex = 82;
-            this.dgv.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -393,6 +383,38 @@
             this.pictureBox3.TabIndex = 85;
             this.pictureBox3.TabStop = false;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tpProveedores);
+            this.tabControl1.ImageList = this.imageList1;
+            this.tabControl1.Location = new System.Drawing.Point(77, 494);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(711, 202);
+            this.tabControl1.TabIndex = 87;
+            // 
+            // tpProveedores
+            // 
+            this.tpProveedores.Controls.Add(this.ucProveedorList1);
+            this.tpProveedores.ImageIndex = 0;
+            this.tpProveedores.Location = new System.Drawing.Point(4, 29);
+            this.tpProveedores.Name = "tpProveedores";
+            this.tpProveedores.Padding = new System.Windows.Forms.Padding(3);
+            this.tpProveedores.Size = new System.Drawing.Size(703, 169);
+            this.tpProveedores.TabIndex = 0;
+            this.tpProveedores.Text = "Proveedores";
+            this.tpProveedores.UseVisualStyleBackColor = true;
+            // 
+            // ucProveedorList1
+            // 
+            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucProveedorList1.IdProducto = ((long)(0));
+            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ucProveedorList1.Name = "ucProveedorList1";
+            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this.ucProveedorList1.TabIndex = 87;
+            // 
             // ucNotification
             // 
             this.ucNotification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -405,15 +427,25 @@
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "users.png");
+            this.imageList1.Images.SetKeyName(1, "trucking.png");
+            this.imageList1.Images.SetKeyName(2, "dollar32.png");
+            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(4, "trolley.png");
+            // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dgv);
             this.Controls.Add(this.btnRegistrarVentaRapida);
             this.Controls.Add(this.chkRequiereEnvase);
             this.Controls.Add(this.txtPrecioCosto);
@@ -450,10 +482,11 @@
             this.gbStock.ResumeLayout(false);
             this.gbStock.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tpProveedores.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,9 +520,12 @@
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegistrarVentaRapida;
-        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpProveedores;
+        private UserControl.ucProveedorList ucProveedorList1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -35,26 +35,8 @@ namespace Kiosco
             txtNotas.Enabled = false;
             txtPrecio.Enabled = false;
             txtPrecioCosto.Enabled = false;
-            SetGrid(dgv);
         }
 
-
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv.ColumnHeadersHeight = 20;
-
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-        }
 
         private void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
@@ -97,16 +79,13 @@ namespace Kiosco
 
         private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)
         {
+            //si se produce este evento con Enter, es porque se ha ingresado con la lectora,
+            //o bien el usuario presiono enter a proposito...
             if (e.KeyCode == Keys.Enter) {
                 e.SuppressKeyPress = true;
                 VerificarProducto();
                 txtCodigoBarras.Select(0, txtCodigoBarras.Text.Length);
             }
-
-            //si se produce este evento con Enter, es porque se ha ingresado con la lectora,
-            //o bien el usuario presiono enter a proposito...
-
-
 
         }
 
@@ -148,7 +127,8 @@ namespace Kiosco
             chkSoloAdultos.Checked = p.SoloAdultos ?? false;
             txtNotas.Text = p.Notas;
 
-            CargarProveedores(p.IdProducto);
+            //CargarProveedores(p.IdProducto);
+            ucProveedorList1.IdProducto = p.IdProducto;
 
             CargarStockActual(p.IdProducto);
         }
@@ -166,43 +146,7 @@ namespace Kiosco
 
         private List<ProductoProveedorView> origenDatos = null;
 
-        private void CargarProveedores(long idProducto)
-        {
-            dgv.Columns.Clear();
-
-            var c = new DataGridViewColumn[colCount];
-
-            for (var i = 0; i < colCount; i++) {
-                c[i] = new DataGridViewTextBoxColumn();
-            }
-
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
-            c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
-            c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
-
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            dgv.Columns.AddRange(c);
-
-
-            Util.SetColumnsReadOnly(dgv);
-
-            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
-
-            var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
-            var source = new BindingSource(bindingList, null);
-            dgv.DataSource = source;
-
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
-        }
-
-
+   
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
 
