@@ -4,11 +4,12 @@ using Kiosco.UI;
 
 namespace Kiosco
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain :Form
     {
         public FrmMain()
         {
             InitializeComponent();
+           
         }
 
         private void btnAbmProducto_Click(object sender, EventArgs e)

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="EstadoPedidoView.cs" />
     <Compile Include="EstadoPedido.cs" />
+    <Compile Include="Prioridad.cs" />
     <Compile Include="RecaudacionView.cs" />
     <Compile Include="Recaudacion.cs" />
     <Compile Include="PedidoDetalleView.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="IEntidad.cs" />
     <Compile Include="Pedido.cs" />
+    <Compile Include="PrioridadView.cs" />
     <Compile Include="UnidadView.cs" />
     <Compile Include="Unidad.cs" />
     <Compile Include="UsuarioView.cs" />

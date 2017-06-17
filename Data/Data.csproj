@@ -51,6 +51,7 @@
     <Compile Include="MarcaData.cs" />
     <Compile Include="ClienteData.cs" />
     <Compile Include="GeneralData.cs" />
+    <Compile Include="PrioridadData.cs" />
     <Compile Include="UsuarioData.cs" />
     <Compile Include="UnidadData.cs" />
     <Compile Include="StockData.cs" />

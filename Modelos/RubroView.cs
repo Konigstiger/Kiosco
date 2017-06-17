@@ -4,7 +4,6 @@ namespace Model
 {
     public class RubroView
     {
-
         public int IdRubro { get; set; }
 
         public string Descripcion { get; set; }

@@ -48,6 +48,7 @@
     <Compile Include="ProveedorControlador.cs" />
     <Compile Include="DepositoControlador.cs" />
     <Compile Include="ClienteControlador.cs" />
+    <Compile Include="PrioridadControlador.cs" />
     <Compile Include="UsuarioControlador.cs" />
     <Compile Include="UnidadControlador.cs" />
     <Compile Include="StockControlador.cs" />
