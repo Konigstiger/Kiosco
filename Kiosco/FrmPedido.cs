@@ -283,6 +283,8 @@ namespace Kiosco
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
+
+            AplicarColorSegunEstado();
         }
 
 
