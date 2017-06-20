@@ -167,7 +167,7 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Fecha].Value = m.Fecha;
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Total].Value = m.Total;
             dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Compras].Value = m.Compras;
-            dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Gastos].Value = m.Compras;
+            dgv.Rows[_rowIndex].Cells[(int)RecaudacionView.GridColumn.Gastos].Value = m.Gastos;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
