@@ -18,7 +18,7 @@ namespace Kiosco
         private void FrmProductoDetalle_Load(object sender, EventArgs e)
         {
             SetControles();
-            
+
 
         }
 
@@ -35,6 +35,9 @@ namespace Kiosco
             txtNotas.Enabled = false;
             txtPrecio.Enabled = false;
             txtPrecioCosto.Enabled = false;
+
+            //TODO: CUIDADO CON ESTO. EXPERIMENTAL
+            btnRegistrarVentaRapida.Enabled = true;
         }
 
 
@@ -112,7 +115,7 @@ namespace Kiosco
                     "Producto encontrado.";
 
             ucNotification.BackColor = !productoEncontrado ?
-                Color.LightCoral : 
+                Color.LightCoral :
                 Color.LightGreen;
 
             ucNotification.Ocultar();
@@ -145,7 +148,7 @@ namespace Kiosco
 
         private List<ProductoProveedorView> origenDatos = null;
 
-   
+
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
 
@@ -153,7 +156,101 @@ namespace Kiosco
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //TODO: REVISAR ESTA PRUEBA.
+            //Codigo de prueba para realizar una venta rapida,
+            //de un solo producto, en cantidad m.
+
+            VenderProducto(Convert.ToInt64(txtIdProducto.Text));
+
         }
+
+
+        private void VenderProducto(long idProducto)
+        {
+            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
+
+            var codigoBarras = txtCodigoBarras.Text.Trim();
+            var cantidad = (int)nudCantidadVenta.Value;
+            var precio = Convert.ToDecimal(txtPrecio.Text);
+            var importe = cantidad * precio;
+
+
+            //=====================================================================
+            var modelMovimientoCaja = new MovimientoCaja {
+                IdMovimientoCaja = -1,
+                IdUsuario = idUsuarioActual,
+                IdClaseMovimientoCaja = MovimientoCaja.IdClaseMovimientoCajaVenta,
+                Monto = importe,
+                Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                Hora = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second)
+            };
+
+            //=====================================================================
+
+            modelMovimientoCaja.IdMovimientoCaja = MovimientoCajaControlador.Insert(modelMovimientoCaja);
+
+            //TODO: Tratar de validar antes de esto.
+            //Todo lo que venga de la pantalla es poco confiable.
+
+            //TODO: Tambien deberia validar si la insercion anterior fue exitosa.
+            //El proceso puede ser reversible tambien si se han hecho algunas inserciones y no todas.
+
+            var modelVenta = new Venta {
+                IdVenta = -1,
+                IdCliente = 1,
+                Total = modelMovimientoCaja.Monto,
+                Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                IdMovimientoCaja = modelMovimientoCaja.IdMovimientoCaja,
+                PendientePago = false,
+                Notas = ""
+            };
+
+            modelVenta.IdVenta = VentaControlador.Insert(modelVenta);
+
+            //=====================================================================
+
+
+            var mp = new MovimientoProducto {
+                IdMovimientoProducto = -1,
+                IdProducto = idProducto,
+                Cantidad = cantidad,
+                Fecha = modelVenta.Fecha,
+                IdClaseMovimientoProducto = MovimientoProducto.IdClaseMovimientoProductoVenta,
+                IdUsuario = idUsuarioActual
+            };
+            //A partir del codigobarras recuperar el producto, si no tengo su id en grilla.
+
+            //por cada elemento, persistir en BD.
+            mp.IdMovimientoProducto = MovimientoProductoControlador.Insert(mp);
+
+            //=====================================================================
+            var vd = new VentaDetalle {
+                IdVentaDetalle = -1,
+                IdVenta = modelVenta.IdVenta,
+                Cantidad = cantidad,
+                Importe = importe,
+                IdMovimientoProducto = mp.IdMovimientoProducto,
+                IdProducto = mp.IdProducto
+            };
+
+            vd.IdVentaDetalle = VentaDetalleControlador.Insert(vd);
+
+            //=====================================================================
+            var s = new Stock {
+                IdStock = -1,
+                Cantidad = -cantidad,
+                IdDeposito = 1,
+                IdProducto = mp.IdProducto
+            };
+
+            s.IdStock = StockControlador.Update(s);
+            //=====================================================================
+
+
+            return;
+
+        }
+
 
         private void txtCodigoBarras_TextChanged_1(object sender, EventArgs e)
         {

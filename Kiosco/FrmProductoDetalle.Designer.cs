@@ -61,8 +61,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
             this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
-            this.ucNotification = new Kiosco.UcNotification();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ucNotification = new Kiosco.UcNotification();
+            this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpProveedores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // tsb
@@ -345,7 +348,7 @@
             // btnRegistrarVentaRapida
             // 
             this.btnRegistrarVentaRapida.Enabled = false;
-            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(931, 406);
+            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(931, 523);
             this.btnRegistrarVentaRapida.Name = "btnRegistrarVentaRapida";
             this.btnRegistrarVentaRapida.Size = new System.Drawing.Size(262, 74);
             this.btnRegistrarVentaRapida.TabIndex = 81;
@@ -415,6 +418,16 @@
             this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
             this.ucProveedorList1.TabIndex = 87;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "users.png");
+            this.imageList1.Images.SetKeyName(1, "trucking.png");
+            this.imageList1.Images.SetKeyName(2, "dollar32.png");
+            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(4, "trolley.png");
+            // 
             // ucNotification
             // 
             this.ucNotification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -427,21 +440,38 @@
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
-            // imageList1
+            // nudCantidadVenta
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "users.png");
-            this.imageList1.Images.SetKeyName(1, "trucking.png");
-            this.imageList1.Images.SetKeyName(2, "dollar32.png");
-            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
-            this.imageList1.Images.SetKeyName(4, "trolley.png");
+            this.nudCantidadVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.nudCantidadVenta.Location = new System.Drawing.Point(1075, 463);
+            this.nudCantidadVenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudCantidadVenta.Name = "nudCantidadVenta";
+            this.nudCantidadVenta.Size = new System.Drawing.Size(118, 31);
+            this.nudCantidadVenta.TabIndex = 88;
+            this.nudCantidadVenta.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.label8.Location = new System.Drawing.Point(923, 465);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 25);
+            this.label8.TabIndex = 89;
+            this.label8.Text = "Cantidad:";
             // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.nudCantidadVenta);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -487,6 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpProveedores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,5 +558,7 @@
         private System.Windows.Forms.TabPage tpProveedores;
         private UserControl.ucProveedorList ucProveedorList1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.NumericUpDown nudCantidadVenta;
+        private System.Windows.Forms.Label label8;
     }
 }

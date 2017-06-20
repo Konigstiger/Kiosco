@@ -97,10 +97,11 @@ namespace Data
                     cmd.Parameters.Add(p3);
 
                     conn.Open();
-                    idStock = (long)cmd.ExecuteScalar();
+                    cmd.ExecuteScalar();
                 }
             }
-            return idStock;
+            //TODO: CORREGIR ESTO.
+            return 0;
         }
 
 
