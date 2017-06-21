@@ -61,10 +61,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
             this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
+            this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucNotification = new Kiosco.UcNotification();
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.nudImporte = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nudPrecio = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ucNotification2 = new Kiosco.UcNotification();
+            this.ucNotification = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
@@ -74,6 +80,8 @@
             this.tabControl1.SuspendLayout();
             this.tpProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
             // tsb
@@ -348,9 +356,9 @@
             // btnRegistrarVentaRapida
             // 
             this.btnRegistrarVentaRapida.Enabled = false;
-            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(931, 523);
+            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(1272, 457);
             this.btnRegistrarVentaRapida.Name = "btnRegistrarVentaRapida";
-            this.btnRegistrarVentaRapida.Size = new System.Drawing.Size(262, 74);
+            this.btnRegistrarVentaRapida.Size = new System.Drawing.Size(216, 47);
             this.btnRegistrarVentaRapida.TabIndex = 81;
             this.btnRegistrarVentaRapida.Text = "Registrar Venta Rapida";
             this.btnRegistrarVentaRapida.UseVisualStyleBackColor = true;
@@ -389,6 +397,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpProveedores);
+            this.tabControl1.Controls.Add(this.tpPromociones);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(77, 494);
             this.tabControl1.Name = "tabControl1";
@@ -418,6 +427,15 @@
             this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
             this.ucProveedorList1.TabIndex = 87;
             // 
+            // tpPromociones
+            // 
+            this.tpPromociones.Location = new System.Drawing.Point(4, 29);
+            this.tpPromociones.Name = "tpPromociones";
+            this.tpPromociones.Size = new System.Drawing.Size(703, 169);
+            this.tpPromociones.TabIndex = 1;
+            this.tpPromociones.Text = "Promociones";
+            this.tpPromociones.UseVisualStyleBackColor = true;
+            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -427,6 +445,93 @@
             this.imageList1.Images.SetKeyName(2, "dollar32.png");
             this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
             this.imageList1.Images.SetKeyName(4, "trolley.png");
+            // 
+            // nudCantidadVenta
+            // 
+            this.nudCantidadVenta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudCantidadVenta.Location = new System.Drawing.Point(932, 464);
+            this.nudCantidadVenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudCantidadVenta.Name = "nudCantidadVenta";
+            this.nudCantidadVenta.Size = new System.Drawing.Size(71, 33);
+            this.nudCantidadVenta.TabIndex = 88;
+            this.nudCantidadVenta.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(928, 436);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 21);
+            this.label8.TabIndex = 89;
+            this.label8.Text = "Cantidad:";
+            // 
+            // nudImporte
+            // 
+            this.nudImporte.DecimalPlaces = 2;
+            this.nudImporte.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.nudImporte.Location = new System.Drawing.Point(1125, 464);
+            this.nudImporte.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nudImporte.Name = "nudImporte";
+            this.nudImporte.Size = new System.Drawing.Size(141, 33);
+            this.nudImporte.TabIndex = 92;
+            this.nudImporte.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label9.Location = new System.Drawing.Point(1121, 436);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 21);
+            this.label9.TabIndex = 93;
+            this.label9.Text = "Importe:";
+            // 
+            // nudPrecio
+            // 
+            this.nudPrecio.DecimalPlaces = 2;
+            this.nudPrecio.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.nudPrecio.Location = new System.Drawing.Point(1010, 464);
+            this.nudPrecio.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.nudPrecio.Name = "nudPrecio";
+            this.nudPrecio.Size = new System.Drawing.Size(109, 33);
+            this.nudPrecio.TabIndex = 90;
+            this.nudPrecio.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label10.Location = new System.Drawing.Point(1006, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 21);
+            this.label10.TabIndex = 91;
+            this.label10.Text = "Precio:";
+            // 
+            // ucNotification2
+            // 
+            this.ucNotification2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucNotification2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucNotification2.Location = new System.Drawing.Point(932, 523);
+            this.ucNotification2.Margin = new System.Windows.Forms.Padding(6);
+            this.ucNotification2.Name = "ucNotification2";
+            this.ucNotification2.Size = new System.Drawing.Size(564, 64);
+            this.ucNotification2.TabIndex = 94;
+            this.ucNotification2.Text = "[Mensaje]";
+            this.ucNotification2.Visible = false;
             // 
             // ucNotification
             // 
@@ -440,36 +545,16 @@
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
-            // nudCantidadVenta
-            // 
-            this.nudCantidadVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.nudCantidadVenta.Location = new System.Drawing.Point(1075, 463);
-            this.nudCantidadVenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.nudCantidadVenta.Name = "nudCantidadVenta";
-            this.nudCantidadVenta.Size = new System.Drawing.Size(118, 31);
-            this.nudCantidadVenta.TabIndex = 88;
-            this.nudCantidadVenta.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label8.Location = new System.Drawing.Point(923, 465);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 25);
-            this.label8.TabIndex = 89;
-            this.label8.Text = "Cantidad:";
-            // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.ucNotification2);
+            this.Controls.Add(this.nudImporte);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.nudPrecio);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.nudCantidadVenta);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tabControl1);
@@ -518,6 +603,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tpProveedores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +647,11 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.NumericUpDown nudCantidadVenta;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nudImporte;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown nudPrecio;
+        private System.Windows.Forms.Label label10;
+        private UcNotification ucNotification2;
+        private System.Windows.Forms.TabPage tpPromociones;
     }
 }

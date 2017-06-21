@@ -162,6 +162,17 @@ namespace Kiosco
 
             VenderProducto(Convert.ToInt64(txtIdProducto.Text));
 
+            //TODO: encapsular.
+            ucNotification2.Text ="Venta registrada con Exito.";
+            ucNotification2.BackColor = Color.LightGreen;
+            ucNotification2.Ocultar();
+
+            //Importante. Esto evita a priori registrar ventas accidentales!
+            txtCodigoBarras.Focus();
+
+            //TODO: Nota, debe haber una forma de DESHACER una Venta.
+            //Es muy facil cometer errores en esto, por la velocidad y el caos.
+
         }
 
 
@@ -254,7 +265,7 @@ namespace Kiosco
 
         private void txtCodigoBarras_TextChanged_1(object sender, EventArgs e)
         {
-
+            //TODO: Ver si puedo meter codigos especiales... tipo "rb" para red bus. O usar iconos.
         }
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
