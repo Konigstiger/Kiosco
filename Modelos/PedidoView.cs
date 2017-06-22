@@ -36,20 +36,11 @@ namespace Model
             Proveedor = 1,
             Descripcion = 2,
             Fecha = 3,
-            Estado = 4,
-            Total = 5
+            FechaEntrega = 4,
+            Estado = 5,
+            Total = 6,
+            IdEstadoPedido = 7
         }
 
-        /*
-         IdPedido
-         Proveedo
-         Descripc
-         Fecha], 
-         Estado],
-         Total], 
-         */
-
-        //Proveedor
-        //Estado (Estado Pedido)
     }
 }

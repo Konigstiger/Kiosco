@@ -261,7 +261,7 @@ namespace Kiosco
 
             //********************
             //TODO: Revisar esto!
-            var cc = Math.Round(1 - (m.PrecioCostoPromedio / m.PrecioVenta) * 100, 2);
+            var cc = Math.Round((1 - (m.PrecioCostoPromedio / m.PrecioVenta)) * 100, 2);
 
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = m.CodigoBarras;
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Descripcion].Value = m.Descripcion;

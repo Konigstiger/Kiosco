@@ -39,13 +39,14 @@
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtNotas = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.ucProductoView1 = new Kiosco.UserControl.ucProductoView();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
             this.ucProveedorView1 = new Kiosco.UserControl.ucProveedorView();
-            this.txtNotas = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnSetPrecioCosto = new System.Windows.Forms.Button();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,7 +67,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(986, 31);
+            this.tsb.Size = new System.Drawing.Size(1183, 31);
             this.tsb.TabIndex = 34;
             this.tsb.Text = "toolStrip1";
             // 
@@ -149,7 +150,7 @@
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(962, 413);
+            this.dgv.Size = new System.Drawing.Size(1159, 413);
             this.dgv.TabIndex = 33;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -159,22 +160,42 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnSetPrecioCosto);
             this.panel1.Controls.Add(this.txtNotas);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.nudPrecioCompra);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.ucProductoView1);
             this.panel1.Controls.Add(this.txtIdProductoProveedor);
+            this.panel1.Controls.Add(this.ucProductoView1);
             this.panel1.Location = new System.Drawing.Point(12, 512);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 152);
+            this.panel1.Size = new System.Drawing.Size(1159, 152);
             this.panel1.TabIndex = 35;
+            // 
+            // txtNotas
+            // 
+            this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNotas.Location = new System.Drawing.Point(643, 49);
+            this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNotas.Name = "txtNotas";
+            this.txtNotas.Size = new System.Drawing.Size(247, 25);
+            this.txtNotas.TabIndex = 115;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label7.Location = new System.Drawing.Point(589, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 19);
+            this.label7.TabIndex = 116;
+            this.label7.Text = "Notas:";
             // 
             // nudPrecioCompra
             // 
             this.nudPrecioCompra.DecimalPlaces = 2;
             this.nudPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudPrecioCompra.Location = new System.Drawing.Point(782, 18);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(749, 18);
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(141, 24);
             this.nudPrecioCompra.TabIndex = 55;
@@ -189,7 +210,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(628, 18);
+            this.label3.Location = new System.Drawing.Point(595, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 18);
             this.label3.TabIndex = 56;
@@ -199,7 +220,7 @@
             // 
             this.ucProductoView1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ucProductoView1.IdProducto = ((long)(0));
-            this.ucProductoView1.Location = new System.Drawing.Point(38, 9);
+            this.ucProductoView1.Location = new System.Drawing.Point(8, 9);
             this.ucProductoView1.Name = "ucProductoView1";
             this.ucProductoView1.PrecioCosto = new decimal(new int[] {
             1,
@@ -235,30 +256,21 @@
             this.ucProveedorView1.ValueChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
             this.ucProveedorView1.Load += new System.EventHandler(this.ucProveedorView1_Load);
             // 
-            // txtNotas
+            // btnSetPrecioCosto
             // 
-            this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(676, 49);
-            this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(247, 25);
-            this.txtNotas.TabIndex = 115;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.Location = new System.Drawing.Point(622, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 19);
-            this.label7.TabIndex = 116;
-            this.label7.Text = "Notas:";
+            this.btnSetPrecioCosto.Location = new System.Drawing.Point(897, 9);
+            this.btnSetPrecioCosto.Name = "btnSetPrecioCosto";
+            this.btnSetPrecioCosto.Size = new System.Drawing.Size(208, 33);
+            this.btnSetPrecioCosto.TabIndex = 117;
+            this.btnSetPrecioCosto.Text = "Definir como Precio de Costo";
+            this.btnSetPrecioCosto.UseVisualStyleBackColor = true;
+            this.btnSetPrecioCosto.Click += new System.EventHandler(this.btnSetPrecioCosto_Click);
             // 
             // FrmProductoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 676);
+            this.ClientSize = new System.Drawing.Size(1183, 676);
             this.Controls.Add(this.ucProveedorView1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
@@ -299,5 +311,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSetPrecioCosto;
     }
 }

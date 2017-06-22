@@ -16,10 +16,7 @@ namespace Kiosco
         private int _rowIndex = 0;
         private const int colCount = 6;
 
-        private List<PedidoDetalleView> origenDatos = null;
-
-
-        private const int ColCount = 6;
+        private List<PedidoDetalleView> _origenDatos = null;
 
 
         public FrmPedidoDetalle()
@@ -101,11 +98,11 @@ namespace Kiosco
             Util.SetColumnsReadOnly(dgv);
 
             //TODO: Corregir esto.
-            origenDatos = searchText.Equals("") ?
+            _origenDatos = searchText.Equals("") ?
                 PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido) :
                 PedidoDetalleControlador.GetByIdPedido(ucPedido1.IdPedido);
 
-            var bindingList = new MySortableBindingList<PedidoDetalleView>(origenDatos);
+            var bindingList = new MySortableBindingList<PedidoDetalleView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
@@ -216,9 +213,9 @@ namespace Kiosco
                 pdv.IdPedidoDetalle = PedidoDetalleControlador.Insert(pd);
 
                 // modificar el datasource.
-                origenDatos.Add(pdv);
+                _origenDatos.Add(pdv);
 
-                var bindingList = new BindingList<PedidoDetalleView>(origenDatos);
+                var bindingList = new BindingList<PedidoDetalleView>(_origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -263,7 +260,7 @@ namespace Kiosco
         {
             decimal sumImporte = 0;
 
-            foreach (var o in origenDatos) {
+            foreach (var o in _origenDatos) {
                 sumImporte += o.Importe;
             }
 

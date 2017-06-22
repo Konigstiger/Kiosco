@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Stock
+    public class Stock: IEntidad
     {
         /*
         [IdStock] [bigint] NOT NULL,
@@ -18,5 +18,10 @@ namespace Model
         public int IdDeposito { get; set; }
 
         public long IdProducto { get; set; }
+
+        public bool Validate()
+        {
+            return Cantidad >= 0;
+        }
     }
 }

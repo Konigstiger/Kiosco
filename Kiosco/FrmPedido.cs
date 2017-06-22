@@ -15,10 +15,9 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        //private const int colCount = 6;
-        private const int colCount = 7;
+        private const int ColCount = 8;
 
-        private List<PedidoView> origenDatos = null;
+        private List<PedidoView> _origenDatos = null;
 
 
         public FrmPedido()
@@ -70,9 +69,9 @@ namespace Kiosco
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[ColCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < ColCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -83,21 +82,22 @@ namespace Kiosco
             Util.SetColumn(c[(int)PedidoView.GridColumn.Proveedor], "Proveedor", "Proveedor", 1);
             Util.SetColumn(c[(int)PedidoView.GridColumn.Descripcion], "Descripcion", "Descripcion", 2);
             Util.SetColumn(c[(int)PedidoView.GridColumn.Fecha], "Fecha", "Fecha", 3);
-            Util.SetColumn(c[(int)PedidoView.GridColumn.Estado], "Estado", "Estado", 4);
-            Util.SetColumn(c[(int)PedidoView.GridColumn.Total], "Total", "Total", 5);
-            Util.SetColumn(c[(int)PedidoView.GridColumn.Total+1], "IdEstadoPedido", "IdEstadoPedido", 6);
-            c[6].Width = 0;
-            c[6].Visible = false;
+            Util.SetColumn(c[(int)PedidoView.GridColumn.FechaEntrega], "FechaEntrega", "Fecha Entrega", 4);
+            Util.SetColumn(c[(int)PedidoView.GridColumn.Estado], "Estado", "Estado", 5);
+            Util.SetColumn(c[(int)PedidoView.GridColumn.Total], "Total", "Total", 6);
+            Util.SetColumn(c[(int)PedidoView.GridColumn.IdEstadoPedido], "IdEstadoPedido", "IdEstadoPedido", 7);
+            c[(int)PedidoView.GridColumn.IdEstadoPedido].Width = 0;
+            c[(int)PedidoView.GridColumn.IdEstadoPedido].Visible = false;
 
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = searchText.Equals("") ?
+            _origenDatos = searchText.Equals("") ?
                 PedidoControlador.GetAll_GetByParameters("") :
                 PedidoControlador.GetAll_GetByParameters(searchText);
 
-            var bindingList = new MySortableBindingList<PedidoView>(origenDatos);
+            var bindingList = new MySortableBindingList<PedidoView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
@@ -240,9 +240,9 @@ namespace Kiosco
                 var modelView = PedidoControlador.GetByPrimaryKeyView(m.IdPedido);
 
                 //modificar el origen de datos
-                origenDatos.Add(modelView);
+                _origenDatos.Add(modelView);
 
-                var bindingList = new BindingList<PedidoView>(origenDatos);
+                var bindingList = new BindingList<PedidoView>(_origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -250,8 +250,6 @@ namespace Kiosco
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
@@ -277,6 +275,7 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Descripcion].Value = m.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Proveedor].Value = ucPedido1.Proveedor;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Fecha].Value = m.Fecha;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.FechaEntrega].Value = m.FechaEntrega;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Estado].Value = ucPedido1.Estado;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Total].Value = m.Total;
             //********************

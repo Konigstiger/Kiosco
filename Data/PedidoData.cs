@@ -58,9 +58,9 @@ namespace Data
                                 Proveedor = (string)rdr["Proveedor"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 Fecha = (DateTime)rdr["Fecha"],
+                                FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue,
                                 Estado = (string)rdr["Estado"],
                                 Total = (decimal)rdr["Total"]
-
                                 ,IdEstadoPedido = (int)rdr["IdEstadoPedido"]
                             };
                             list.Add(p);

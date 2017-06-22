@@ -349,6 +349,19 @@ namespace Kiosco
             Eliminar();
         }
 
-        
+        private void btnSetPrecioCosto_Click(object sender, EventArgs e)
+        {
+            //TODO: Hack, refinar y mejorar.
+            decimal PCP = nudPrecioCompra.Value;
+
+            Producto p = new Producto();
+            p.IdProducto = ucProductoView1.IdProducto;
+            p = ProductoControlador.GetByPrimaryKey(p.IdProducto);
+            p.PrecioCostoPromedio = PCP;
+            ProductoControlador.Update(p);
+            ucProductoView1.PrecioCosto = p.PrecioCostoPromedio;
+            dgv.Focus();
+
+        }
     }
 }

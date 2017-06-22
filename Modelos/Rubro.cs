@@ -9,9 +9,10 @@ namespace Model
         public string Descripcion { get; set; }
 
         public string Notas { get; set; }
+
         public bool Validate()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
