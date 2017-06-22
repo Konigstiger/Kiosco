@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Heimdall;
 using Kiosco.UI;
 
 namespace Kiosco
@@ -84,6 +85,12 @@ namespace Kiosco
         private void btnRecaudacion_Click(object sender, EventArgs e)
         {
             var f = new FrmRecaudacion();
+            f.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var f = new FrmDemo();
             f.Show();
         }
     }

@@ -19,11 +19,11 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new PedidoView {
-                                IdPedido = (int)rdr["IdPedido"],
+                                IdPedido = (long)rdr["IdPedido"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 IdProveedor = (int)rdr["IdProveedor"],
                                 Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
-                                FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today,
+                                FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue,
                                 Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
