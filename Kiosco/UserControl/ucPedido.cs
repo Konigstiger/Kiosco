@@ -184,6 +184,18 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("EstaPago."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool EstaPago
+        {
+            get { return chkEstaPago.Checked; }
+            set { chkEstaPago.Checked = value; }
+        }
+
+
         public ucPedido()
         {
             if (DesignMode)
@@ -209,6 +221,8 @@ namespace Kiosco.UserControl
             IdProveedor = p.IdProveedor;
             IdEstadoPedido = p.IdEstadoPedido;
             Notas = p.Notas;
+            EstaPago = p.EstaPago;
+
         }
 
 
@@ -258,6 +272,7 @@ namespace Kiosco.UserControl
             dtpFechaEntrega.Checked = false;
             dtpHoraEntrega.Checked = false;
             dtpHoraEntrega.Value = DateTime.Now;
+            chkEstaPago.Checked = false;
 
 
         }
@@ -316,12 +331,13 @@ namespace Kiosco.UserControl
             dtpFechaEntrega.Value = DateTime.Today;
             dtpHoraEntrega.Value = DateTime.Now;
             cboEstadoPedido.SelectedValue = 1;
+            chkEstaPago.Checked = false;
         }
+
 
         private void btnVerPedidoDetalle_Click(object sender, EventArgs e)
         {
             var f = new FrmPedidoDetalle(this.IdPedido);
-            
             f.Show();
         }
 

@@ -50,6 +50,7 @@
             this.btnVerPedidoDetalle = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cboEstadoPedido = new System.Windows.Forms.ComboBox();
+            this.chkEstaPago = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             this.panelEstadoyDetalles.SuspendLayout();
             this.SuspendLayout();
@@ -295,10 +296,21 @@
             this.cboEstadoPedido.Size = new System.Drawing.Size(254, 25);
             this.cboEstadoPedido.TabIndex = 123;
             // 
+            // chkEstaPago
+            // 
+            this.chkEstaPago.AutoSize = true;
+            this.chkEstaPago.Location = new System.Drawing.Point(721, 136);
+            this.chkEstaPago.Name = "chkEstaPago";
+            this.chkEstaPago.Size = new System.Drawing.Size(100, 23);
+            this.chkEstaPago.TabIndex = 124;
+            this.chkEstaPago.Text = "¿Está Pago?";
+            this.chkEstaPago.UseVisualStyleBackColor = true;
+            // 
             // ucPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkEstaPago);
             this.Controls.Add(this.panelEstadoyDetalles);
             this.Controls.Add(this.btnAbmProveedor);
             this.Controls.Add(this.btnSeleccionarProveedor);
@@ -355,5 +367,6 @@
         private System.Windows.Forms.Button btnVerPedidoDetalle;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboEstadoPedido;
+        private System.Windows.Forms.CheckBox chkEstaPago;
     }
 }

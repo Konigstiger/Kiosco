@@ -230,7 +230,8 @@ namespace Kiosco
                 Fecha = ucPedido1.Fecha,
                 FechaEntrega = ucPedido1.FechaEntrega,
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
-                Notas = ucPedido1.Notas
+                Notas = ucPedido1.Notas,
+                EstaPago = ucPedido1.EstaPago
             };
 
             //=====================================================================
@@ -261,7 +262,8 @@ namespace Kiosco
                     Fecha = ucPedido1.Fecha,
                     FechaEntrega = ucPedido1.FechaEntrega,
                     IdEstadoPedido = ucPedido1.IdEstadoPedido,
-                    Notas = ucPedido1.Notas
+                    Notas = ucPedido1.Notas,
+                    EstaPago = ucPedido1.EstaPago
                 };
 
                 m.IdPedido = PedidoControlador.Update(mNuevo);

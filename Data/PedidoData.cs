@@ -25,7 +25,8 @@ namespace Data
                                 Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
                                 FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue,
                                 Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
+                                EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false
                             };
 
                             list.Add(p);
@@ -54,14 +55,15 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new PedidoView {
-                                IdPedido = (long)rdr["IdPedido"],
-                                Proveedor = (string)rdr["Proveedor"],
-                                Descripcion = (string)rdr["Descripcion"],
-                                Fecha = (DateTime)rdr["Fecha"],
-                                FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue,
-                                Estado = (string)rdr["Estado"],
-                                Total = (decimal)rdr["Total"]
-                                ,IdEstadoPedido = (int)rdr["IdEstadoPedido"]
+                                IdPedido = (long)rdr["IdPedido"]
+                                , Proveedor = (string)rdr["Proveedor"]
+                                , Descripcion = (string)rdr["Descripcion"]
+                                , Fecha = (DateTime)rdr["Fecha"]
+                                , FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue
+                                , Estado = (string)rdr["Estado"]
+                                , Total = (decimal)rdr["Total"]
+                                , IdEstadoPedido = (int)rdr["IdEstadoPedido"]
+                                , EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false
                             };
                             list.Add(p);
                         }
@@ -87,6 +89,7 @@ namespace Data
                     var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = m.FechaEntrega };
                     var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = m.HoraEntrega }; // esto deberia ser 1,2,3, mañana tarde noche.
                     var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
+                    var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = m.EstaPago };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -96,6 +99,7 @@ namespace Data
                     cmd.Parameters.Add(p5);
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
+                    cmd.Parameters.Add(p8);
 
                     conn.Open();
                     m.IdPedido = (long)cmd.ExecuteScalar();
@@ -127,6 +131,7 @@ namespace Data
                             c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
                             c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
                         }
                     }
                 }
@@ -157,6 +162,7 @@ namespace Data
                     c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
                     c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                     c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                    c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
                 }
 
             }
@@ -179,6 +185,7 @@ namespace Data
                     // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
                     var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
                     var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p9 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = model.EstaPago };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -189,6 +196,7 @@ namespace Data
                     // cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     model.IdPedido = (long)cmd.ExecuteScalar();
