@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
@@ -8,7 +9,7 @@ using NLog;
 
 namespace Kiosco
 {
-    public partial class FrmProductoDetalle : Form
+    public partial class FrmProductoDetalle : Form, ISelectorProducto
     {
         public FrmProductoDetalle()
         {
@@ -285,6 +286,32 @@ namespace Kiosco
             // El codigo IdStock no se conoce a priori, y no deberia ser importante.
             //invocar a metodo update de Clase Stock
             var res = StockControlador.Update(s);
+        }
+
+        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
+        {
+            var f = new FrmSeleccionarProducto(this);
+            f.Show();
+        }
+
+        [Description("IdProducto. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public long IdProducto
+        {
+            get {
+                long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+            set {
+                txtIdProducto.Text = value.ToString();
+                //OnProductoChanged(new ValueChangedEventArgs(value));
+                var p = ProductoControlador.GetByPrimaryKey(Convert.ToInt64(txtIdProducto.Text));
+                txtCodigoBarras.Text = p.CodigoBarras;
+                VerificarProducto();
+            }
         }
     }
 }

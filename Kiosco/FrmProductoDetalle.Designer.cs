@@ -60,7 +60,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
-            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
@@ -69,7 +68,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnSeleccionarProducto = new System.Windows.Forms.Button();
             this.ucNotification2 = new Kiosco.UcNotification();
+            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             this.ucNotification = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
@@ -212,7 +213,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(130, 209);
+            this.label6.Location = new System.Drawing.Point(131, 209);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 25);
@@ -270,7 +271,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 307);
+            this.label5.Location = new System.Drawing.Point(129, 307);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 25);
@@ -281,7 +282,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(128, 258);
+            this.label4.Location = new System.Drawing.Point(127, 258);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 25);
@@ -324,7 +325,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 110);
+            this.label2.Location = new System.Drawing.Point(74, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
@@ -417,16 +418,6 @@
             this.tpProveedores.TabIndex = 0;
             this.tpProveedores.Text = "Proveedores";
             this.tpProveedores.UseVisualStyleBackColor = true;
-            // 
-            // ucProveedorList1
-            // 
-            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucProveedorList1.IdProducto = ((long)(0));
-            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
-            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucProveedorList1.Name = "ucProveedorList1";
-            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
-            this.ucProveedorList1.TabIndex = 87;
             // 
             // tpPromociones
             // 
@@ -528,6 +519,16 @@
             this.label10.Text = "Precio:";
             this.label10.Visible = false;
             // 
+            // btnSeleccionarProducto
+            // 
+            this.btnSeleccionarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProducto.Image")));
+            this.btnSeleccionarProducto.Location = new System.Drawing.Point(443, 61);
+            this.btnSeleccionarProducto.Name = "btnSeleccionarProducto";
+            this.btnSeleccionarProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnSeleccionarProducto.TabIndex = 95;
+            this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
+            // 
             // ucNotification2
             // 
             this.ucNotification2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -539,6 +540,16 @@
             this.ucNotification2.TabIndex = 94;
             this.ucNotification2.Text = "[Mensaje]";
             this.ucNotification2.Visible = false;
+            // 
+            // ucProveedorList1
+            // 
+            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucProveedorList1.IdProducto = ((long)(0));
+            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ucProveedorList1.Name = "ucProveedorList1";
+            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this.ucProveedorList1.TabIndex = 87;
             // 
             // ucNotification
             // 
@@ -557,6 +568,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.btnSeleccionarProducto);
             this.Controls.Add(this.ucNotification2);
             this.Controls.Add(this.nudImporte);
             this.Controls.Add(this.label9);
@@ -660,5 +672,6 @@
         private System.Windows.Forms.Label label10;
         private UcNotification ucNotification2;
         private System.Windows.Forms.TabPage tpPromociones;
+        private System.Windows.Forms.Button btnSeleccionarProducto;
     }
 }
