@@ -15,6 +15,7 @@ namespace Model
         public int IdClaseMovimientoCaja { get; set; }
 
         public int IdUsuario { get; set; }
+        public int IdPuntoVenta { get; set; }
 
     }
 }

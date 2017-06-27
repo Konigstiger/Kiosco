@@ -26,7 +26,8 @@ namespace Data
                                     rdr["IdClaseMovimientoCaja"] != DBNull.Value
                                         ? (int)rdr["IdClaseMovimientoCaja"]
                                         : 0,
-                                IdUsuario = rdr["IdUsuario"] != DBNull.Value ? (int)rdr["IdUsuario"] : 0
+                                IdUsuario = rdr["IdUsuario"] != DBNull.Value ? (int)rdr["IdUsuario"] : 0,
+                                IdPuntoVenta = (int)rdr["IdPuntoVenta"]
                             };
                             list.Add(p);
                         }
@@ -58,6 +59,7 @@ namespace Data
                                 ? (int)rdr["IdClaseMovimientoCaja"]
                                 : 0;
                             c.IdUsuario = rdr["IdUsuario"] != DBNull.Value ? (int)rdr["IdUsuario"] : 0;
+                            c.IdPuntoVenta = (int) rdr["IdPuntoVenta"];
                         }
                     }
                 }
@@ -82,6 +84,7 @@ namespace Data
                         Value = model.IdClaseMovimientoCaja
                     };
                     var p5 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = model.IdUsuario };
+                    var p6 = new SqlParameter("IdPuntoVenta", SqlDbType.Int) { Value = model.IdPuntoVenta};
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);

@@ -77,7 +77,6 @@ namespace Kiosco
 
                 //Calcular _rowIndex
                 _rowIndex = dgv.Rows.Count - 1;
-
             }
             else
             {

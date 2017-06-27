@@ -12,7 +12,7 @@ namespace Model
 
         public string Direccion { get; set; }
 
-        public bool PuntoVenta { get; set; }
+        public int IdPuntoVenta { get; set; }
 
         public string Notas { get; set; }
 

@@ -23,7 +23,7 @@ namespace Data
                                 IdDeposito = (int)rdr["IdDeposito"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
-                                PuntoVenta = rdr["PuntoVenta"] != DBNull.Value && (bool)rdr["PuntoVenta"],
+                                IdPuntoVenta = (int)rdr["IdPuntoVenta"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
@@ -53,7 +53,7 @@ namespace Data
                                 IdDeposito = (int)rdr["IdDeposito"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
-                                PuntoVenta = rdr["PuntoVenta"] != DBNull.Value && (bool)rdr["PuntoVenta"],
+                                IdPuntoVenta = (int)rdr["IdPuntoVenta"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
 
@@ -74,9 +74,13 @@ namespace Data
 
                     var p0 = new SqlParameter("IdDeposito", SqlDbType.Int) { Direction = ParameterDirection.Output };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = c.Descripcion };
+                    var p2 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = c.Direccion };
+                    var p3 = new SqlParameter("IdPuntoVenta", SqlDbType.Int) { Value = c.IdPuntoVenta };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
 
                     conn.Open();
 
@@ -104,7 +108,7 @@ namespace Data
                             c.IdDeposito = (int)rdr["IdDeposito"];
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
-                            c.PuntoVenta = rdr["PuntoVenta"] != DBNull.Value && (bool)rdr["PuntoVenta"];
+                            c.IdPuntoVenta = (int)rdr["PuntoVenta"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
@@ -113,16 +117,16 @@ namespace Data
             return c;
         }
 
-/*
-    public static void Update(Canal c)
-    {
-    }
-*/
+        /*
+            public static void Update(Canal c)
+            {
+            }
+        */
 
-/*
-    public static bool Delete(Canal c)
-    {
-    }
-*/
+        /*
+            public static bool Delete(Canal c)
+            {
+            }
+        */
     }
 }

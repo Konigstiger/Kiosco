@@ -21,6 +21,8 @@ namespace Model
 
         public int IdUsuario { get; set; }
 
+        public int IdPuntoVenta { get; set; }
+
         public bool Validate()
         {
             throw new NotImplementedException();
