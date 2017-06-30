@@ -135,6 +135,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(138, 31);
             this.txtPrecio.TabIndex = 77;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // txtRubroDescripcion
             // 
@@ -340,7 +341,6 @@
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(212, 31);
             this.txtCodigoBarras.TabIndex = 60;
-            this.txtCodigoBarras.TextChanged += new System.EventHandler(this.txtCodigoBarras_TextChanged_1);
             this.txtCodigoBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
             // 
             // label1
@@ -357,13 +357,12 @@
             // btnRegistrarVentaRapida
             // 
             this.btnRegistrarVentaRapida.Enabled = false;
-            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(1272, 457);
+            this.btnRegistrarVentaRapida.Location = new System.Drawing.Point(1272, 464);
             this.btnRegistrarVentaRapida.Name = "btnRegistrarVentaRapida";
-            this.btnRegistrarVentaRapida.Size = new System.Drawing.Size(216, 47);
+            this.btnRegistrarVentaRapida.Size = new System.Drawing.Size(216, 33);
             this.btnRegistrarVentaRapida.TabIndex = 81;
             this.btnRegistrarVentaRapida.Text = "Registrar Venta Rapida";
             this.btnRegistrarVentaRapida.UseVisualStyleBackColor = true;
-            this.btnRegistrarVentaRapida.Visible = false;
             this.btnRegistrarVentaRapida.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
@@ -451,7 +450,7 @@
             0,
             0,
             0});
-            this.nudCantidadVenta.Visible = false;
+            this.nudCantidadVenta.ValueChanged += new System.EventHandler(this.nudCantidadVenta_ValueChanged);
             // 
             // label8
             // 
@@ -463,7 +462,6 @@
             this.label8.Size = new System.Drawing.Size(75, 21);
             this.label8.TabIndex = 89;
             this.label8.Text = "Cantidad:";
-            this.label8.Visible = false;
             // 
             // nudImporte
             // 
@@ -479,7 +477,6 @@
             this.nudImporte.Size = new System.Drawing.Size(141, 33);
             this.nudImporte.TabIndex = 92;
             this.nudImporte.TabStop = false;
-            this.nudImporte.Visible = false;
             // 
             // label9
             // 
@@ -490,7 +487,6 @@
             this.label9.Size = new System.Drawing.Size(68, 21);
             this.label9.TabIndex = 93;
             this.label9.Text = "Importe:";
-            this.label9.Visible = false;
             // 
             // nudPrecio
             // 
@@ -506,7 +502,7 @@
             this.nudPrecio.Size = new System.Drawing.Size(109, 33);
             this.nudPrecio.TabIndex = 90;
             this.nudPrecio.TabStop = false;
-            this.nudPrecio.Visible = false;
+            this.nudPrecio.ValueChanged += new System.EventHandler(this.nudPrecio_ValueChanged);
             // 
             // label10
             // 
@@ -517,7 +513,6 @@
             this.label10.Size = new System.Drawing.Size(56, 21);
             this.label10.TabIndex = 91;
             this.label10.Text = "Precio:";
-            this.label10.Visible = false;
             // 
             // btnSeleccionarProducto
             // 
@@ -539,7 +534,6 @@
             this.ucNotification2.Size = new System.Drawing.Size(564, 64);
             this.ucNotification2.TabIndex = 94;
             this.ucNotification2.Text = "[Mensaje]";
-            this.ucNotification2.Visible = false;
             // 
             // ucProveedorList1
             // 

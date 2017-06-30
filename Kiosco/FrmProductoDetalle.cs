@@ -64,6 +64,7 @@ namespace Kiosco
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             LimpiarControles();
+            list.Clear();
         }
 
         private void LimpiarControles()
@@ -96,6 +97,9 @@ namespace Kiosco
 
         //private static Logger logger = LogManager.GetCurrentClassLogger();
 
+        //Esta lista esta pensada para contener todos los objetos consultados, hasta que se resetee.
+        List<Producto> list = new List<Producto>();
+
         private void VerificarProducto()
         {
             var productoEncontrado = false;
@@ -120,6 +124,11 @@ namespace Kiosco
                 Color.LightGreen;
 
             ucNotification.Ocultar();
+
+            if (productoEncontrado)
+            {
+                list.Add(p);
+            }
 
             //esto sirve en ambos casos.
             txtDescripcion.Text = p.Descripcion;
@@ -161,7 +170,9 @@ namespace Kiosco
             //Codigo de prueba para realizar una venta rapida,
             //de un solo producto, en cantidad m.
 
-            VenderProducto(Convert.ToInt64(txtIdProducto.Text));
+
+
+            VenderProducto(Convert.ToInt64(txtIdProducto.Text), (int)nudCantidadVenta.Value);
 
             //TODO: encapsular.
             ucNotification2.Text ="Venta registrada con Exito.";
@@ -177,12 +188,11 @@ namespace Kiosco
         }
 
 
-        private void VenderProducto(long idProducto)
+        private void VenderProducto(long idProducto, int cantidad)
         {
             const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
             var codigoBarras = txtCodigoBarras.Text.Trim();
-            var cantidad = (int)nudCantidadVenta.Value;
             var precio = Convert.ToDecimal(txtPrecio.Text);
             var importe = cantidad * precio;
 
@@ -312,6 +322,35 @@ namespace Kiosco
                 txtCodigoBarras.Text = p.CodigoBarras;
                 VerificarProducto();
             }
+        }
+
+        private void nudCantidadVenta_ValueChanged(object sender, EventArgs e)
+        {
+            AjustarPrecios();
+
+        }
+
+        private void AjustarPrecios()
+        {
+            decimal importe = 0;
+            var cantidad = 1;
+            decimal precioUnitario = 0;
+
+            cantidad = (int)nudCantidadVenta.Value;
+            precioUnitario = nudPrecio.Value;
+            importe = cantidad * precioUnitario;
+
+            nudImporte.Value = importe;
+        }
+
+        private void nudPrecio_ValueChanged(object sender, EventArgs e)
+        {
+            AjustarPrecios();
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            nudPrecio.Value = Convert.ToDecimal(txtPrecio.Text.Trim());
         }
     }
 }
