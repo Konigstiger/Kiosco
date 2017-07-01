@@ -15,7 +15,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int ColCount = 8;
+        private const int ColCount = 9;
 
         private List<PedidoView> _origenDatos = null;
 
@@ -86,6 +86,7 @@ namespace Kiosco
             Util.SetColumn(c[(int)PedidoView.GridColumn.Estado], "Estado", "Estado", 5);
             Util.SetColumn(c[(int)PedidoView.GridColumn.Total], "Total", "Total", 6);
             Util.SetColumn(c[(int)PedidoView.GridColumn.IdEstadoPedido], "IdEstadoPedido", "IdEstadoPedido", 7);
+            Util.SetColumn(c[(int)PedidoView.GridColumn.Prioridad], "Prioridad", "Prioridad", 8);
             c[(int)PedidoView.GridColumn.IdEstadoPedido].Width = 0;
             c[(int)PedidoView.GridColumn.IdEstadoPedido].Visible = false;
 
@@ -231,7 +232,8 @@ namespace Kiosco
                 FechaEntrega = ucPedido1.FechaEntrega,
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
                 Notas = ucPedido1.Notas,
-                EstaPago = ucPedido1.EstaPago
+                EstaPago = ucPedido1.EstaPago,
+                IdPrioridad = ucPedido1.IdPrioridad
             };
 
             //=====================================================================
@@ -263,7 +265,8 @@ namespace Kiosco
                     FechaEntrega = ucPedido1.FechaEntrega,
                     IdEstadoPedido = ucPedido1.IdEstadoPedido,
                     Notas = ucPedido1.Notas,
-                    EstaPago = ucPedido1.EstaPago
+                    EstaPago = ucPedido1.EstaPago,
+                    IdPrioridad = ucPedido1.IdPrioridad
                 };
 
                 m.IdPedido = PedidoControlador.Update(mNuevo);
@@ -280,6 +283,8 @@ namespace Kiosco
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.FechaEntrega].Value = m.FechaEntrega;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Estado].Value = ucPedido1.Estado;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Total].Value = m.Total;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Prioridad].Value = ucPedido1.Prioridad;
+            //TODO: VER el tema entre las entidades y sus Vistas.
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.

@@ -14,8 +14,11 @@ namespace Model
         public DateTime Fecha { get; set; }
 
         public int IdEstadoPedido { get; set; }
+        public int IdPrioridad { get; set; }
 
         public string Estado { get; set; }
+
+        public string Prioridad { get; set; }
 
         public DateTime FechaEntrega { get; set; }
 
@@ -41,7 +44,8 @@ namespace Model
             FechaEntrega = 4,
             Estado = 5,
             Total = 6,
-            IdEstadoPedido = 7
+            IdEstadoPedido = 7,
+            Prioridad = 8
         }
 
     }

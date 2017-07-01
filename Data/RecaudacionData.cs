@@ -26,7 +26,7 @@ namespace Data
                                 Compras = (decimal)rdr["Compras"],
                                 Gastos = (decimal)rdr["Gastos"],
                                 IdUsuario = (int)rdr["IdUsuario"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
                             };
                             list.Add(p);
                         }

@@ -10,6 +10,7 @@ namespace Model
         public int IdProveedor { get; set; }
 
         public int IdEstadoPedido { get; set; }
+        public int IdPrioridad { get; set; }
 
         public DateTime? Fecha { get; set; }
 
@@ -22,6 +23,7 @@ namespace Model
         public string Notas { get; set; }
 
         public bool EstaPago { get; set; }
+        public string Prioridad { get; set; }
 
         public bool Validate()
         {

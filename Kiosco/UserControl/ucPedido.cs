@@ -184,6 +184,21 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("IdPrioridad. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdPrioridad
+        {
+            get {
+                int v = int.TryParse(cboPrioridad.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboPrioridad.SelectedValue = value; }
+        }
+
+
         [Description("EstaPago."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -195,6 +210,13 @@ namespace Kiosco.UserControl
             set { chkEstaPago.Checked = value; }
         }
 
+
+        [Description("Prioridad."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Prioridad => cboPrioridad.Text.Trim();
 
         public ucPedido()
         {
@@ -213,6 +235,7 @@ namespace Kiosco.UserControl
             var p = PedidoControlador.GetByPrimaryKey(idPedido);
 
             CargarEstadoPedido();
+            CargarPrioridad();
 
             Descripcion = p.Descripcion;
             CheckDateNullable(p.Fecha, dtpFecha);
@@ -222,7 +245,7 @@ namespace Kiosco.UserControl
             IdEstadoPedido = p.IdEstadoPedido;
             Notas = p.Notas;
             EstaPago = p.EstaPago;
-
+            IdPrioridad = p.IdPrioridad;
         }
 
 
@@ -295,13 +318,25 @@ namespace Kiosco.UserControl
             }
         }
 
+
+        private void CargarPrioridad()
+        {
+            if (_flagReady) {
+                cboPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
+                var list = PrioridadControlador.GetAll();
+                cboPrioridad.DataSource = list;
+                cboPrioridad.ValueMember = "IdPrioridad";
+                cboPrioridad.DisplayMember = "Descripcion";
+            }
+        }
+
+
         private void ucPedido_Load(object sender, EventArgs e)
         {
             _flagReady = true;
             //TODO: Aca deberia cargar o seleccionar.
             SetControles();
             CargarControles();
-            //neu
             CargarPedido(IdPedido);
         }
 

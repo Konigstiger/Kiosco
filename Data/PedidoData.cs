@@ -26,8 +26,9 @@ namespace Data
                                 FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.MinValue,
                                 Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
-                                EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false
-                            };
+                                EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false,
+                                IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3
+                        };
 
                             list.Add(p);
                         }
@@ -64,7 +65,9 @@ namespace Data
                                 , Total = (decimal)rdr["Total"]
                                 , IdEstadoPedido = (int)rdr["IdEstadoPedido"]
                                 , EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false
-                            };
+                                , IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3
+                                , Prioridad = rdr["Prioridad"] != DBNull.Value ? (string)rdr["Prioridad"] : string.Empty
+                        };
                             list.Add(p);
                         }
                     }
@@ -90,6 +93,7 @@ namespace Data
                     var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = m.HoraEntrega }; // esto deberia ser 1,2,3, mañana tarde noche.
                     var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
                     var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = m.EstaPago };
+                    var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int ) { Value = m.IdPrioridad };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -100,6 +104,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     m.IdPedido = (long)cmd.ExecuteScalar();
@@ -132,6 +137,7 @@ namespace Data
                             c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                             c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
+                            c.IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3;
                         }
                     }
                 }
@@ -163,6 +169,7 @@ namespace Data
                     c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                     c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                     c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
+                    c.IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3;
                 }
 
             }
@@ -182,10 +189,11 @@ namespace Data
                     var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
                     var p4 = new SqlParameter("IdEstadoPedido", SqlDbType.Int) { Value = model.IdEstadoPedido };
                     var p5 = new SqlParameter("FechaEntrega", SqlDbType.Date) { Value = model.FechaEntrega };
-                    // var p6 = new SqlParameter("HoraEntrega", SqlDbType.Time) { Value = model.HoraEntrega };
-                    var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
-                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
-                    var p9 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = model.EstaPago };
+                    var p6 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
+                    var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = model.EstaPago };
+                    var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = model.IdPrioridad };
+
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -193,7 +201,7 @@ namespace Data
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
-                    // cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);

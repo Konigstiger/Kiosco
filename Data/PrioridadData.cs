@@ -20,7 +20,7 @@ namespace Data
                             var p = new PrioridadView {
                                 IdPrioridad = (int)rdr["IdPrioridad"],
                                 Descripcion = (string)rdr["Descripcion"],
-                                Notas = (string)rdr["Notas"]
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
                             };
                             // Obtener los resultados de cada columna
                             list.Add(p);

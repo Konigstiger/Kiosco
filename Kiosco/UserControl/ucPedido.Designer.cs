@@ -51,6 +51,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cboEstadoPedido = new System.Windows.Forms.ComboBox();
             this.chkEstaPago = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboPrioridad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             this.panelEstadoyDetalles.SuspendLayout();
             this.SuspendLayout();
@@ -196,7 +198,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(145, 12);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(558, 25);
+            this.txtDescripcion.Size = new System.Drawing.Size(559, 25);
             this.txtDescripcion.TabIndex = 115;
             // 
             // label6
@@ -299,17 +301,40 @@
             // chkEstaPago
             // 
             this.chkEstaPago.AutoSize = true;
-            this.chkEstaPago.Location = new System.Drawing.Point(721, 136);
+            this.chkEstaPago.Location = new System.Drawing.Point(330, 107);
             this.chkEstaPago.Name = "chkEstaPago";
             this.chkEstaPago.Size = new System.Drawing.Size(100, 23);
             this.chkEstaPago.TabIndex = 124;
             this.chkEstaPago.Text = "¿Está Pago?";
             this.chkEstaPago.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label9.Location = new System.Drawing.Point(725, 139);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 19);
+            this.label9.TabIndex = 126;
+            this.label9.Text = "Prioridad:";
+            // 
+            // cboPrioridad
+            // 
+            this.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrioridad.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboPrioridad.FormattingEnabled = true;
+            this.cboPrioridad.Location = new System.Drawing.Point(800, 136);
+            this.cboPrioridad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboPrioridad.Name = "cboPrioridad";
+            this.cboPrioridad.Size = new System.Drawing.Size(254, 25);
+            this.cboPrioridad.TabIndex = 125;
+            // 
             // ucPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cboPrioridad);
             this.Controls.Add(this.chkEstaPago);
             this.Controls.Add(this.panelEstadoyDetalles);
             this.Controls.Add(this.btnAbmProveedor);
@@ -368,5 +393,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboEstadoPedido;
         private System.Windows.Forms.CheckBox chkEstaPago;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cboPrioridad;
     }
 }
