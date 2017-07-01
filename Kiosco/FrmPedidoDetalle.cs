@@ -364,5 +364,53 @@ namespace Kiosco
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void dgv_MouseDown(object sender, MouseEventArgs e)
+        {
+            //TODO: Adaptar esto.
+            cms.Items.Clear();
+
+            if (e.Button == MouseButtons.Right) {
+                var hti = dgv.HitTest(e.X, e.Y);
+
+                //vodoo: perfect
+                dgv.ClearSelection();
+                dgv.Rows[hti.RowIndex].Selected = true;
+                //end vodoo
+
+                switch (hti.Type) {
+                    case DataGridViewHitTestType.ColumnHeader:
+                        // This positions the menu at the mouse's location.
+                        //cms.Items.Add("Ordenar Ascendente");
+                        //cms.Items.Add("Ordenar Descendente");
+
+                        //cms.Items[0].Visible = true;
+                        //cms.Items[1].Visible = false;
+                        break;
+                    // See if the user right-clicked over the header of the last column.
+                    // (ht.ColumnIndex == dgv.Columns.Count - 1)
+                    case DataGridViewHitTestType.Cell:
+                        //cms.Items[0].Visible = false;
+                        //cms.Items[1].Visible = true;
+                        var item = cms.Items.Add("Marcar"); // esto puede abrir una pantalla pasando el IdProducto.
+                        item.Image = imageList1.Images[0];
+                        break;
+                }
+                cms.Show(MousePosition);
+            }
+
+        }
+
+        private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //Marcar el registro seleccionado. Con otro color o estilo.
+            //TODO: Esto es peligroso, y muy muy fragil.
+            dgv.SelectedRows[0].Cells[0].Style.BackColor = Color.DarkKhaki;
+            dgv.SelectedRows[0].Cells[1].Style.BackColor = Color.DarkKhaki;
+            dgv.SelectedRows[0].Cells[2].Style.BackColor = Color.DarkKhaki;
+            dgv.SelectedRows[0].Cells[3].Style.BackColor = Color.DarkKhaki;
+            dgv.SelectedRows[0].Cells[4].Style.BackColor = Color.DarkKhaki;
+            dgv.SelectedRows[0].Cells[5].Style.BackColor = Color.DarkKhaki;
+        }
     }
 }

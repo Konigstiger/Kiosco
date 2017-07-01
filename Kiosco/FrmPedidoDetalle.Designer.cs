@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidoDetalle));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -40,6 +41,8 @@
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.ucPedido1 = new Kiosco.UserControl.ucPedido();
             this.ucPedidoDetalle1 = new Kiosco.ucPedidoDetalle();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +63,7 @@
             this.dgv.TabStop = false;
             this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
+            this.dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseDown);
             // 
             // tsb
             // 
@@ -153,11 +157,13 @@
             this.ucPedido1.BackColor = System.Drawing.Color.White;
             this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 11, 0, 0, 0, 0);
+            this.ucPedido1.EstaPago = false;
+            this.ucPedido1.Fecha = new System.DateTime(2017, 7, 1, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 7, 1, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
+            this.ucPedido1.IdPrioridad = 0;
             this.ucPedido1.IdProveedor = 0;
             this.ucPedido1.Location = new System.Drawing.Point(14, 6);
             this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -203,6 +209,18 @@
             this.ucPedidoDetalle1.Size = new System.Drawing.Size(1280, 74);
             this.ucPedidoDetalle1.TabIndex = 90;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "package.png");
+            // 
+            // cms
+            // 
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(153, 26);
+            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
+            // 
             // FrmPedidoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -242,6 +260,8 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private ucPedidoDetalle ucPedidoDetalle1;
         private UserControl.ucPedido ucPedido1;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ContextMenuStrip cms;
     }
 }
 

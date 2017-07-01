@@ -257,19 +257,21 @@
             // panelEstadoyDetalles
             // 
             this.panelEstadoyDetalles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelEstadoyDetalles.Controls.Add(this.label9);
             this.panelEstadoyDetalles.Controls.Add(this.btnVerPedidoDetalle);
+            this.panelEstadoyDetalles.Controls.Add(this.cboPrioridad);
             this.panelEstadoyDetalles.Controls.Add(this.label8);
             this.panelEstadoyDetalles.Controls.Add(this.cboEstadoPedido);
-            this.panelEstadoyDetalles.Location = new System.Drawing.Point(721, 12);
+            this.panelEstadoyDetalles.Location = new System.Drawing.Point(719, 12);
             this.panelEstadoyDetalles.Name = "panelEstadoyDetalles";
-            this.panelEstadoyDetalles.Size = new System.Drawing.Size(361, 100);
+            this.panelEstadoyDetalles.Size = new System.Drawing.Size(361, 149);
             this.panelEstadoyDetalles.TabIndex = 123;
             // 
             // btnVerPedidoDetalle
             // 
             this.btnVerPedidoDetalle.BackColor = System.Drawing.SystemColors.Control;
             this.btnVerPedidoDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(78, 49);
+            this.btnVerPedidoDetalle.Location = new System.Drawing.Point(78, 94);
             this.btnVerPedidoDetalle.Name = "btnVerPedidoDetalle";
             this.btnVerPedidoDetalle.Size = new System.Drawing.Size(254, 36);
             this.btnVerPedidoDetalle.TabIndex = 125;
@@ -281,7 +283,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label8.Location = new System.Drawing.Point(3, 19);
+            this.label8.Location = new System.Drawing.Point(17, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 19);
             this.label8.TabIndex = 124;
@@ -312,7 +314,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.Location = new System.Drawing.Point(725, 139);
+            this.label9.Location = new System.Drawing.Point(3, 52);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 19);
             this.label9.TabIndex = 126;
@@ -323,7 +325,7 @@
             this.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPrioridad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboPrioridad.FormattingEnabled = true;
-            this.cboPrioridad.Location = new System.Drawing.Point(800, 136);
+            this.cboPrioridad.Location = new System.Drawing.Point(78, 49);
             this.cboPrioridad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboPrioridad.Name = "cboPrioridad";
             this.cboPrioridad.Size = new System.Drawing.Size(254, 25);
@@ -333,8 +335,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.cboPrioridad);
             this.Controls.Add(this.chkEstaPago);
             this.Controls.Add(this.panelEstadoyDetalles);
             this.Controls.Add(this.btnAbmProveedor);
