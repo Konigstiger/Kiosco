@@ -236,7 +236,8 @@ namespace Kiosco
                 Fecha = ucPedido1.Fecha,
                 FechaEntrega = ucPedido1.FechaEntrega,
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
-                Notas = ucPedido1.Notas
+                Notas = ucPedido1.Notas,
+                IdPrioridad = ucPedido1.IdPrioridad
             };
 
             mNuevo.IdPedido = PedidoControlador.Update(mNuevo);
