@@ -241,6 +241,12 @@
     <Compile Include="UserControl\ucProveedorView.Designer.cs">
       <DependentUpon>ucProveedorView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\UcVentaDetalleEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcVentaDetalleEdit.Designer.cs">
+      <DependentUpon>UcVentaDetalleEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ValueChangedEventArgs.cs" />
     <Compile Include="View\IPedidoView.cs" />
     <Compile Include="ISelectorMarca.cs" />
@@ -257,11 +263,11 @@
     <Compile Include="UserControl\ucNotification.Designer.cs">
       <DependentUpon>ucNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ucPedidoDetalle.cs">
+    <Compile Include="UserControl\UcPedidoDetalle.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\ucPedidoDetalle.Designer.cs">
-      <DependentUpon>ucPedidoDetalle.cs</DependentUpon>
+    <Compile Include="UserControl\UcPedidoDetalle.Designer.cs">
+      <DependentUpon>UcPedidoDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="View\PedidoView.cs">
@@ -350,8 +356,8 @@
     <EmbeddedResource Include="UserControl\ucPedido.resx">
       <DependentUpon>ucPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ucPedidoDetalle.resx">
-      <DependentUpon>ucPedidoDetalle.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\UcPedidoDetalle.resx">
+      <DependentUpon>UcPedidoDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProductoEdit.resx">
       <DependentUpon>ucProductoEdit.cs</DependentUpon>
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProveedorView.resx">
       <DependentUpon>ucProveedorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ucVentaDetalleEdit.resx">
+      <DependentUpon>UcVentaDetalleEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PedidoView.resx">
       <DependentUpon>PedidoView.cs</DependentUpon>

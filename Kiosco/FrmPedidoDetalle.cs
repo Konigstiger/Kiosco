@@ -195,8 +195,7 @@ namespace Kiosco
                 throw new Exception("Errores en validacion!");
 
             //El pedido detalle debe tener su descripcion actualizada. Sino, toma una vieja.
-            var pd = new PedidoDetalle
-            {
+            var pd = new PedidoDetalle {
                 Cantidad = pdv.Cantidad,
                 IdPedidoDetalle = pdv.IdPedidoDetalle,
                 IdProducto = pdv.IdProducto,
@@ -401,16 +400,14 @@ namespace Kiosco
 
         }
 
+
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //Marcar el registro seleccionado. Con otro color o estilo.
             //TODO: Esto es peligroso, y muy muy fragil.
-            dgv.SelectedRows[0].Cells[0].Style.BackColor = Color.DarkKhaki;
-            dgv.SelectedRows[0].Cells[1].Style.BackColor = Color.DarkKhaki;
-            dgv.SelectedRows[0].Cells[2].Style.BackColor = Color.DarkKhaki;
-            dgv.SelectedRows[0].Cells[3].Style.BackColor = Color.DarkKhaki;
-            dgv.SelectedRows[0].Cells[4].Style.BackColor = Color.DarkKhaki;
-            dgv.SelectedRows[0].Cells[5].Style.BackColor = Color.DarkKhaki;
+            foreach (DataGridViewCell dgc in dgv.SelectedRows[0].Cells) {
+                dgc.Style.BackColor = Color.Yellow;
+            }
         }
     }
 }

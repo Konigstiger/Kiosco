@@ -374,10 +374,6 @@ namespace Kiosco
             //txtNotas.Text = c.Notas;
         }
 
-        private void btnAgregarEnvase_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnVender_Click(object sender, EventArgs e)
         {
@@ -453,13 +449,6 @@ namespace Kiosco
                 vd.IdVentaDetalle = VentaDetalleControlador.Insert(vd);
 
                 //=====================================================================
-                //TODO: Pendiente Stock
-                /*
-                 @IdDeposito        int
-                ,@IdProducto        bigint
-                ,@CantidadVariacion int
-                */
-
                 var s = new Stock {
                     IdStock = -1,
                     Cantidad = -cantidad,

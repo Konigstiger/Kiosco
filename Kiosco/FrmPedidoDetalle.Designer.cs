@@ -40,7 +40,7 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.ucPedido1 = new Kiosco.UserControl.ucPedido();
-            this.ucPedidoDetalle1 = new Kiosco.ucPedidoDetalle();
+            this.ucPedidoDetalle1 = new Kiosco.UcPedidoDetalle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -172,7 +172,7 @@
             this.ucPedido1.Proveedor = "";
             this.ucPedido1.ShowDetallePedido = false;
             this.ucPedido1.ShowEstadoPedido = true;
-            this.ucPedido1.Size = new System.Drawing.Size(1076, 174);
+            this.ucPedido1.Size = new System.Drawing.Size(1280, 174);
             this.ucPedido1.TabIndex = 91;
             this.ucPedido1.Total = new decimal(new int[] {
             0,
@@ -218,7 +218,7 @@
             // cms
             // 
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(153, 26);
+            this.cms.Size = new System.Drawing.Size(61, 4);
             this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
             // 
             // FrmPedidoDetalle
@@ -258,7 +258,7 @@
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
-        private ucPedidoDetalle ucPedidoDetalle1;
+        private UcPedidoDetalle ucPedidoDetalle1;
         private UserControl.ucPedido ucPedido1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip cms;

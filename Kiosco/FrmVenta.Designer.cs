@@ -55,18 +55,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpFechaActual = new System.Windows.Forms.DateTimePicker();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.nudCantidadEnvases = new System.Windows.Forms.NumericUpDown();
-            this.btnAgregarEnvase = new System.Windows.Forms.Button();
             this.btnVender = new System.Windows.Forms.Button();
-            this.btnConfirmation = new System.Windows.Forms.Button();
+            this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadEnvases)).BeginInit();
             this.SuspendLayout();
             // 
             // nudPrecio
@@ -369,50 +365,6 @@
             this.txtIdCliente.Visible = false;
             this.txtIdCliente.TextChanged += new System.EventHandler(this.txtIdCliente_TextChanged);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(14, 499);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 18);
-            this.label10.TabIndex = 67;
-            this.label10.Text = "Envase:";
-            this.label10.Visible = false;
-            // 
-            // nudCantidadEnvases
-            // 
-            this.nudCantidadEnvases.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudCantidadEnvases.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudCantidadEnvases.Location = new System.Drawing.Point(92, 497);
-            this.nudCantidadEnvases.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudCantidadEnvases.Name = "nudCantidadEnvases";
-            this.nudCantidadEnvases.Size = new System.Drawing.Size(88, 24);
-            this.nudCantidadEnvases.TabIndex = 68;
-            this.nudCantidadEnvases.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCantidadEnvases.Visible = false;
-            // 
-            // btnAgregarEnvase
-            // 
-            this.btnAgregarEnvase.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarEnvase.Image")));
-            this.btnAgregarEnvase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarEnvase.Location = new System.Drawing.Point(186, 492);
-            this.btnAgregarEnvase.Name = "btnAgregarEnvase";
-            this.btnAgregarEnvase.Size = new System.Drawing.Size(94, 40);
-            this.btnAgregarEnvase.TabIndex = 69;
-            this.btnAgregarEnvase.Text = "Agregar";
-            this.btnAgregarEnvase.UseVisualStyleBackColor = true;
-            this.btnAgregarEnvase.Visible = false;
-            this.btnAgregarEnvase.Click += new System.EventHandler(this.btnAgregarEnvase_Click);
-            // 
             // btnVender
             // 
             this.btnVender.Location = new System.Drawing.Point(556, 545);
@@ -423,26 +375,29 @@
             this.btnVender.UseVisualStyleBackColor = true;
             this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
-            // btnConfirmation
+            // ucVentaDetalleEdit1
             // 
-            this.btnConfirmation.Location = new System.Drawing.Point(92, 556);
-            this.btnConfirmation.Name = "btnConfirmation";
-            this.btnConfirmation.Size = new System.Drawing.Size(188, 23);
-            this.btnConfirmation.TabIndex = 71;
-            this.btnConfirmation.Text = "button1";
-            this.btnConfirmation.UseVisualStyleBackColor = true;
-            this.btnConfirmation.Click += new System.EventHandler(this.btnConfirmation_Click);
+            this.ucVentaDetalleEdit1.CodigoBarras = "";
+            this.ucVentaDetalleEdit1.Descripcion = "";
+            this.ucVentaDetalleEdit1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucVentaDetalleEdit1.IdProducto = ((long)(0));
+            this.ucVentaDetalleEdit1.Location = new System.Drawing.Point(53, 622);
+            this.ucVentaDetalleEdit1.Name = "ucVentaDetalleEdit1";
+            this.ucVentaDetalleEdit1.PrecioVenta = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.ucVentaDetalleEdit1.Size = new System.Drawing.Size(895, 79);
+            this.ucVentaDetalleEdit1.TabIndex = 71;
             // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 747);
-            this.Controls.Add(this.btnConfirmation);
+            this.Controls.Add(this.ucVentaDetalleEdit1);
             this.Controls.Add(this.btnVender);
-            this.Controls.Add(this.btnAgregarEnvase);
-            this.Controls.Add(this.nudCantidadEnvases);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.dtpFechaActual);
             this.Controls.Add(this.label7);
@@ -480,7 +435,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadEnvases)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,10 +467,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpFechaActual;
         private System.Windows.Forms.TextBox txtIdCliente;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown nudCantidadEnvases;
-        private System.Windows.Forms.Button btnAgregarEnvase;
         private System.Windows.Forms.Button btnVender;
-        private System.Windows.Forms.Button btnConfirmation;
+        private Heimdall.UserControl.UcVentaDetalleEdit ucVentaDetalleEdit1;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Kiosco
 {
-    partial class ucPedidoDetalle
+    partial class UcPedidoDetalle
     {
         /// <summary> 
         /// Required designer variable.
@@ -284,7 +284,7 @@
             this.label2.TabIndex = 101;
             this.label2.Text = "Notas:";
             // 
-            // ucPedidoDetalle
+            // UcPedidoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +309,7 @@
             this.Controls.Add(this.nudCantidad);
             this.Controls.Add(this.label6);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ucPedidoDetalle";
+            this.Name = "UcPedidoDetalle";
             this.Size = new System.Drawing.Size(1279, 74);
             this.Load += new System.EventHandler(this.ucPedidoDetalle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();

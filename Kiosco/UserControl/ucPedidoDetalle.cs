@@ -7,9 +7,9 @@ using static System.Globalization.CultureInfo;
 
 namespace Kiosco
 {
-    public partial class ucPedidoDetalle : System.Windows.Forms.UserControl, IPedidoDetalle, ISelectorProducto
+    public partial class UcPedidoDetalle : System.Windows.Forms.UserControl, IPedidoDetalle, ISelectorProducto
     {
-        public ucPedidoDetalle()
+        public UcPedidoDetalle()
         {
             InitializeComponent();
         }
