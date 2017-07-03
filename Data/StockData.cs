@@ -105,6 +105,29 @@ namespace Data
         }
 
 
+        public static long UpdateDelta(Stock model)
+        {
+            long idStock;
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Stock_Update_Delta", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = model.IdDeposito };
+                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = model.IdProducto };
+                    var p3 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = model.Cantidad };
+
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+            }
+            //TODO: CORREGIR ESTO.
+            return 0;
+        }
+
         public static Stock GetByParameters(Stock producto)
         {
             var c = new Stock();

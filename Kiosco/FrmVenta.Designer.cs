@@ -42,6 +42,7 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnVender = new System.Windows.Forms.Button();
             this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
+            this.ucNotification1 = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
@@ -105,7 +106,7 @@
             this.nudTotal.BackColor = System.Drawing.SystemColors.Info;
             this.nudTotal.DecimalPlaces = 2;
             this.nudTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudTotal.Location = new System.Drawing.Point(869, 530);
+            this.nudTotal.Location = new System.Drawing.Point(816, 534);
             this.nudTotal.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -129,12 +130,10 @@
             // btnSeleccionarCliente
             // 
             this.btnSeleccionarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarCliente.Image")));
-            this.btnSeleccionarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(310, 66);
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(310, 67);
             this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
-            this.btnSeleccionarCliente.Size = new System.Drawing.Size(181, 24);
+            this.btnSeleccionarCliente.Size = new System.Drawing.Size(24, 24);
             this.btnSeleccionarCliente.TabIndex = 63;
-            this.btnSeleccionarCliente.Text = "Seleccionar Cliente...";
             this.btnSeleccionarCliente.UseVisualStyleBackColor = true;
             this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
             // 
@@ -160,7 +159,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(497, 66);
+            this.txtIdCliente.Location = new System.Drawing.Point(340, 67);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(30, 24);
             this.txtIdCliente.TabIndex = 66;
@@ -169,9 +168,9 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(722, 572);
+            this.btnVender.Location = new System.Drawing.Point(963, 532);
             this.btnVender.Name = "btnVender";
-            this.btnVender.Size = new System.Drawing.Size(288, 37);
+            this.btnVender.Size = new System.Drawing.Size(159, 29);
             this.btnVender.TabIndex = 70;
             this.btnVender.Text = "(F5) Vender";
             this.btnVender.UseVisualStyleBackColor = true;
@@ -204,11 +203,22 @@
             this.ucVentaDetalleEdit1.UpdateAction += new Heimdall.UserControl.UpdateActionEventHandler(this.ucVentaDetalleEdit1_UpdateAction);
             this.ucVentaDetalleEdit1.RemoveAction += new Heimdall.UserControl.RemoveActionEventHandler(this.ucVentaDetalleEdit1_RemoveAction);
             // 
+            // ucNotification1
+            // 
+            this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucNotification1.Location = new System.Drawing.Point(522, 567);
+            this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
+            this.ucNotification1.Name = "ucNotification1";
+            this.ucNotification1.Size = new System.Drawing.Size(600, 64);
+            this.ucNotification1.TabIndex = 72;
+            this.ucNotification1.Text = "ucNotification1";
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 747);
+            this.Controls.Add(this.ucNotification1);
             this.Controls.Add(this.ucVentaDetalleEdit1);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.txtIdCliente);
@@ -249,5 +259,6 @@
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Button btnVender;
         private Heimdall.UserControl.UcVentaDetalleEdit ucVentaDetalleEdit1;
+        private UcNotification ucNotification1;
     }
 }

@@ -38,6 +38,10 @@ namespace Controlador
             return StockData.Update(c);
         }
 
+        public static long UpdateDelta(Stock c)
+        {
+            return StockData.Update(c);
+        }
 
         public static Stock GetByParameters(Stock producto)
         {

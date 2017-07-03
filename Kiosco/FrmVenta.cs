@@ -414,16 +414,23 @@ namespace Kiosco
                 //=====================================================================
                 var s = new Stock {
                     IdStock = -1,
-                    Cantidad = -cantidad,
+                    Cantidad = cantidad,
                     IdDeposito = 1,
                     IdProducto = mp.IdProducto
                 };
 
-                s.IdStock = StockControlador.Update(s);
+                s.IdStock = StockControlador.UpdateDelta(s);
 
                 //notificationControl1.Visible = true;
+                //ucNotification1.Visible = true;
 
                 //que pase un tiempo, y hacer invisible.
+                ucNotification1.Text = "Venta registrada con éxito.";
+
+                ucNotification1.BackColor = Color.LightGreen;
+
+                ucNotification1.Ocultar();
+
 
             }
 
