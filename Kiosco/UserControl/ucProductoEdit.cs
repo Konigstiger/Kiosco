@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall.UserControl;
 using Model;
 
 namespace Kiosco.UserControl
@@ -196,7 +197,7 @@ namespace Kiosco.UserControl
             set { nudStockMaximo.Value = value; }
         }
 
-        [Description("StockActual."), Category("Data")]
+        [Description("Stock."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]

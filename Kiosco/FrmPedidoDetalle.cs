@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using Controlador;
+using Heimdall.UserControl;
 using Model;
 
 namespace Kiosco
@@ -327,7 +328,7 @@ namespace Kiosco
 
 
 
-        private void ucPedido1_ProveedorChanged(object sender, UserControl.ValueChangedEventArgs e)
+        private void ucPedido1_ProveedorChanged(object sender, ValueChangedEventArgs e)
         {
             CargarGrilla(tsbSearchTextBox.Text);
         }
@@ -392,7 +393,9 @@ namespace Kiosco
                         //cms.Items[0].Visible = false;
                         //cms.Items[1].Visible = true;
                         var item = cms.Items.Add("Marcar"); // esto puede abrir una pantalla pasando el IdProducto.
+                        var item2 = cms.Items.Add("Desmarcar"); // esto puede abrir una pantalla pasando el IdProducto.
                         item.Image = imageList1.Images[0];
+                        item2.Image = imageList1.Images[1];
                         break;
                 }
                 cms.Show(MousePosition);
@@ -403,11 +406,24 @@ namespace Kiosco
 
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            
             //Marcar el registro seleccionado. Con otro color o estilo.
             //TODO: Esto es peligroso, y muy muy fragil.
             foreach (DataGridViewCell dgc in dgv.SelectedRows[0].Cells) {
-                dgc.Style.BackColor = Color.Yellow;
+                if (e.ClickedItem.Text.Equals("Marcar")) {
+                    dgc.Style.BackColor = Color.Yellow;
+                    dgc.Tag = 1;
+                }
+                else
+                {
+                    //desmarcar
+                    //nota: para que quede igual, se puede ver si es par o no.
+                    dgc.Style.BackColor = DefaultBackColor;
+                    dgc.Tag = 0;
+                }
             }
+
+
         }
     }
 }

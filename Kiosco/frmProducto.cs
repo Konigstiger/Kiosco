@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall.UserControl;
 using Model;
 
 namespace Kiosco
@@ -393,7 +394,7 @@ namespace Kiosco
         }
 
 
-        private void ucProductoEdit1_StockChanged(object sender, UserControl.ValueChangedEventArgs e)
+        private void ucProductoEdit1_StockChanged(object sender, ValueChangedEventArgs e)
         {
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = e.NewValue;
         }

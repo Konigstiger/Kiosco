@@ -16,6 +16,38 @@ namespace Heimdall.UserControl
 {
     public partial class UcVentaDetalleEdit : System.Windows.Forms.UserControl, ISelectorProducto
     {
+        private const int MaxLenghtCodeBar = 13;
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se desea agregar un elemento nuevo.")]
+        public event AddActionEventHandler AddAction;
+
+        protected virtual void OnAddAction(EventArgs e)
+        {
+            AddAction?.Invoke(this, e);
+        }
+
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se desea actualizar un elemento existente.")]
+        public event UpdateActionEventHandler UpdateAction;
+
+        protected virtual void OnUpdateAction(EventArgs e)
+        {
+            UpdateAction?.Invoke(this, e);
+        }
+
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se desea remover un elemento existente.")]
+        public event RemoveActionEventHandler RemoveAction;
+
+        protected virtual void OnRemoveAction(EventArgs e)
+        {
+            RemoveAction?.Invoke(this, e);
+        }
+
+
         [Description("IdProducto. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -57,7 +89,21 @@ namespace Heimdall.UserControl
             set { txtDescripcion.Text = value; }
         }
 
-            
+
+        [Description("Cantidad."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int Cantidad
+        {
+            get {
+                return (int)nudCantidad.Value;
+            }
+            set { nudCantidad.Value = value; }
+        }
+
+
         [Description("PrecioVenta."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -70,15 +116,26 @@ namespace Heimdall.UserControl
         }
 
 
-        [Description("StockActual."), Category("Data")]
+        [Description("Importe."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
-        public int StockActual
+        public decimal Importe
         {
-            get
-            {
+            get { return nudImporte.Value; }
+            set { nudImporte.Value = value; }
+        }
+
+
+        [Description("Stock."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int Stock
+        {
+            get {
                 int v = int.TryParse(txtStock.Text.Trim(), out v) ? v : 0;
                 return v;
             }
@@ -171,6 +228,7 @@ namespace Heimdall.UserControl
         {
             txtIdProducto.Visible = false;
             txtCodigoBarras.MaxLength = 13;
+            txtCodigoBarras.MaxLength = MaxLenghtCodeBar;
             Util.SetNumericBounds(nudPrecio);
             txtDescripcion.MaxLength = 255;
         }
@@ -180,5 +238,35 @@ namespace Heimdall.UserControl
             //CargarUnidad();
         }
 
+        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
+        {
+            var f = new FrmSeleccionarProducto(this);
+            f.Show();
+        }
+
+        private void nudPrecio_ValueChanged(object sender, EventArgs e)
+        {
+            nudImporte.Value = Cantidad * PrecioVenta;
+        }
+
+        private void nudCantidad_ValueChanged(object sender, EventArgs e)
+        {
+            nudImporte.Value = Cantidad * PrecioVenta;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            OnAddAction(new EventArgs());
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            OnUpdateAction(new EventArgs());
+        }
+
+        private void btnRemoverItem_Click(object sender, EventArgs e)
+        {
+            OnRemoveAction(new EventArgs());
+        }
     }
 }

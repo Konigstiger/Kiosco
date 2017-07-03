@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall.UserControl;
 using Model;
 
 namespace Kiosco
@@ -10,7 +11,7 @@ namespace Kiosco
     public partial class FrmVenta : Form, ISelectorCliente
     {
         private const int ColCount = 7;
-        private const int MaxLenghtCodeBar = 13;
+
 
         public long IdCliente
         {
@@ -56,10 +57,9 @@ namespace Kiosco
 
         private void SetControles()
         {
-            btnAgregar.Enabled = false;
-            btnRemoverItem.Enabled = false;
-            btnModificar.Enabled = false;
-            txtCodigoBarras.MaxLength = MaxLenghtCodeBar;
+            //btnAgregar.Enabled = false;
+            //btnRemoverItem.Enabled = false;
+            //btnModificar.Enabled = false;
             dtpFechaActual.Value = DateTime.Today;
             txtClienteDescripcion.Enabled = false;
             txtIdCliente.Text = "1";
@@ -96,15 +96,15 @@ namespace Kiosco
             var productoEncontrado = false;
             var productoIngresado = false;
 
-            var codigo = txtCodigoBarras.Text.Trim();
+            var codigo = ucVentaDetalleEdit1.CodigoBarras;
             var p = ProductoControlador.GetByCodigoBarrasView(codigo);
 
             productoEncontrado = p.IdProducto != -1;
 
             //esto sirve en ambos casos.
-            txtDescripcion.Text = p.Descripcion;
-            nudPrecio.Value = p.Precio;
-            txtStock.Text = p.Stock.ToString();
+            ucVentaDetalleEdit1.Descripcion = p.Descripcion;
+            ucVentaDetalleEdit1.PrecioVenta = p.Precio;
+            ucVentaDetalleEdit1.Stock = p.Stock;
 
 
 
@@ -113,32 +113,21 @@ namespace Kiosco
             productoIngresado = !codigoDevuelto.Equals(-1);
 
             if (productoEncontrado && productoIngresado) {
-                btnAgregar.Enabled = false;
-                btnRemoverItem.Enabled = true;
+                //btnAgregar.Enabled = false;
+                //btnRemoverItem.Enabled = true;
             }
 
             if (productoIngresado) {
-                btnAgregar.Enabled = false;
+                //btnAgregar.Enabled = false;
                 IndexRowItem = codigoDevuelto;
             } else {
-                btnAgregar.Enabled = productoEncontrado;
+                //btnAgregar.Enabled = productoEncontrado;
             }
 
             //Cual de las dos dejo?
-            btnModificar.Enabled = productoIngresado && productoEncontrado;
-            btnModificar.Enabled = productoIngresado;
+            //btnModificar.Enabled = productoIngresado && productoEncontrado;
+            //btnModificar.Enabled = productoIngresado;
 
-        }
-
-
-        private void nudCantidad_ValueChanged(object sender, EventArgs e)
-        {
-            //TODO: Agregar validaciones. O usar controles que solo admitan numeros.
-            var precio = nudPrecio.Value;
-            var cantidad = (int)nudCantidad.Value;
-            nudImporte.Value = CalcularImporte(cantidad, precio);
-
-            VerificarVarios();
         }
 
 
@@ -173,8 +162,7 @@ namespace Kiosco
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            CodigoBotonAgregar();
-            Util.ReordenarNumeros(dgv);
+
         }
 
         private void CodigoBotonAgregar()
@@ -189,12 +177,12 @@ namespace Kiosco
             }
 
             cell[0].Value = dgv.Rows.Count + 1;
-            cell[1].Value = txtCodigoBarras.Text.Trim();
-            cell[2].Value = (int)nudCantidad.Value;
-            cell[3].Value = txtDescripcion.Text.Trim();
-            cell[4].Value = nudPrecio.Value;
-            cell[5].Value = nudImporte.Value;
-            cell[6].Value = txtStock.Text;
+            cell[1].Value = ucVentaDetalleEdit1.CodigoBarras;
+            cell[2].Value = ucVentaDetalleEdit1.Cantidad;
+            cell[3].Value = ucVentaDetalleEdit1.Descripcion;
+            cell[4].Value = ucVentaDetalleEdit1.PrecioVenta;
+            cell[5].Value = ucVentaDetalleEdit1.Importe;
+            cell[6].Value = ucVentaDetalleEdit1.Stock;
 
             //Esta validacion permite resaltar los colores, o algun otro detalle
             if (Convert.ToInt32(cell[6].Value) <
@@ -203,17 +191,18 @@ namespace Kiosco
 
             row.Cells.AddRange(cell);
 
-            SumImporte += nudImporte.Value;
+            SumImporte += ucVentaDetalleEdit1.Importe;
 
             dgv.Rows.Add(row);
 
             nudTotal.Value = CalcularTotal();
 
-            txtCodigoBarras.Clear();
-            txtCodigoBarras.Focus();
+            //TODO: ver, no tiene acceso al UC
+            //ucVentaDetalleEdit1.CodigoBarras = string.Empty;
+            //ucVentaDetalleEdit1.CodigoBarras.Focus();
 
-            btnAgregar.Enabled = false;
-            btnRemoverItem.Enabled = true;
+            //btnAgregar.Enabled = false;
+            //btnRemoverItem.Enabled = true;
         }
 
 
@@ -227,22 +216,16 @@ namespace Kiosco
                 var cantidad = (int)item.Cells[(int)VentaGridColumn.Cantidad].Value;
                 var importe = (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
 
-                nudCantidad.Value = cantidad;
-                txtCodigoBarras.Text = codigoBarras;
-                nudImporte.Value = importe;
+                ucVentaDetalleEdit1.Cantidad = cantidad;
+                ucVentaDetalleEdit1.CodigoBarras = codigoBarras;
+                ucVentaDetalleEdit1.Importe = importe;
             }
         }
 
 
         private void btnRemoverItem_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in dgv.SelectedRows) {
-                dgv.Rows.RemoveAt(item.Index);
-            }
-            nudTotal.Value = CalcularTotal();
-            txtCodigoBarras.Focus();
 
-            Util.ReordenarNumeros(dgv);
         }
 
 
@@ -266,26 +249,20 @@ namespace Kiosco
         private void LimpiarControles()
         {
             dgv.Rows.Clear();
-            txtCodigoBarras.Clear();
-            txtDescripcion.Clear();
-            nudCantidad.Value = 0;
-            nudPrecio.Value = 0;
-            nudImporte.Value = 0;
-            nudTotal.Value = 0;
-            txtCodigoBarras.Focus();
+            ucVentaDetalleEdit1.Clear();
 
-            btnAgregar.Enabled = false;
-            btnModificar.Enabled = false;
-            btnRemoverItem.Enabled = false;
+            //btnAgregar.Enabled = false;
+            //btnModificar.Enabled = false;
+            //btnRemoverItem.Enabled = false;
         }
 
 
         private void nudPrecio_ValueChanged(object sender, EventArgs e)
         {
             //TODO: Agregar validaciones. O usar controles que solo admitan numeros.
-            var precio = nudPrecio.Value;
-            var cantidad = (int)nudCantidad.Value;
-            nudImporte.Value = CalcularImporte(cantidad, precio);
+            var precio = ucVentaDetalleEdit1.PrecioVenta;
+            var cantidad = ucVentaDetalleEdit1.Cantidad;
+            ucVentaDetalleEdit1.Importe = CalcularImporte(cantidad, precio);
         }
 
 
@@ -313,21 +290,7 @@ namespace Kiosco
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var codigoBarras = txtCodigoBarras.Text.Trim();
-            IndexRowItem = ComprobarExistenciaItem(codigoBarras);
 
-            //Modifica en la grilla un registro existente.
-            var row = dgv.Rows[IndexRowItem];
-
-            row.Cells[2].Value = (int)nudCantidad.Value;
-            row.Cells[4].Value = nudPrecio.Value;
-            row.Cells[5].Value = nudImporte.Value;
-
-            nudTotal.Value = CalcularTotal();
-
-            txtCodigoBarras.Focus();
-
-            btnRemoverItem.Enabled = true;
         }
 
 
@@ -335,7 +298,7 @@ namespace Kiosco
         {
             switch (e.KeyCode) {
                 case Keys.Enter:
-                    if (btnAgregar.Enabled)
+                    //if (btnAgregar.Enabled)
                         CodigoBotonAgregar();
                     break;
 
@@ -348,7 +311,7 @@ namespace Kiosco
         private void nudCantidad_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) {
-                if (btnAgregar.Enabled)
+                //if (btnAgregar.Enabled)
                     CodigoBotonAgregar();
             }
         }
@@ -468,16 +431,40 @@ namespace Kiosco
 
         }
 
-        private void btnConfirmation_Click(object sender, EventArgs e)
+        private void ucVentaDetalleEdit1_AddAction(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
-                                     "Confirm Delete!!",
-                                     MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes) {
-                // If 'Yes', do something here.
-            } else {
-                // If 'No', do something here.
+            CodigoBotonAgregar();
+            Util.ReordenarNumeros(dgv);
+        }
+
+        private void ucVentaDetalleEdit1_UpdateAction(object sender, EventArgs e)
+        {
+            var codigoBarras = ucVentaDetalleEdit1.CodigoBarras;
+            IndexRowItem = ComprobarExistenciaItem(codigoBarras);
+
+            //Modifica en la grilla un registro existente.
+            var row = dgv.Rows[IndexRowItem];
+
+            row.Cells[2].Value = ucVentaDetalleEdit1.Cantidad;
+            row.Cells[4].Value = ucVentaDetalleEdit1.PrecioVenta;
+            row.Cells[5].Value = ucVentaDetalleEdit1.Importe;
+
+            nudTotal.Value = CalcularTotal();
+
+            //txtCodigoBarras.Focus();
+
+            //btnRemoverItem.Enabled = true;
+        }
+
+        private void ucVentaDetalleEdit1_RemoveAction(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgv.SelectedRows) {
+                dgv.Rows.RemoveAt(item.Index);
             }
+            nudTotal.Value = CalcularTotal();
+            //txtCodigoBarras.Focus();
+
+            Util.ReordenarNumeros(dgv);
         }
     }
 }

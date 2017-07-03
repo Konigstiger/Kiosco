@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using Model;
 using Controlador;
+using Heimdall.UserControl;
 
 namespace Kiosco
 {
@@ -161,7 +162,7 @@ namespace Kiosco
             tsbSearchTextBox.Focus();
         }
 
-        private void ucProductoEdit1_StockChanged(object sender, UserControl.ValueChangedEventArgs e)
+        private void ucProductoEdit1_StockChanged(object sender, ValueChangedEventArgs e)
         {
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = e.NewValue;
         }

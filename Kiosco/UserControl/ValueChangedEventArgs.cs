@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     public class ValueChangedEventArgs : EventArgs
     {
@@ -29,4 +27,9 @@ namespace Kiosco.UserControl
     }
 
     public delegate void ProductoChangedEventHandler(object sender, ValueChangedEventArgs e);
+
+    //test
+    public delegate void AddActionEventHandler(object sender, EventArgs e);
+    public delegate void UpdateActionEventHandler(object sender, EventArgs e);
+    public delegate void RemoveActionEventHandler(object sender, EventArgs e);
 }

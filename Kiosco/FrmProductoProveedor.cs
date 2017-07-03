@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall.UserControl;
 using Model;
 
 namespace Kiosco
@@ -303,7 +304,7 @@ namespace Kiosco
             }
         }
 
-        private void ucProveedorView1_ValueChanged(object sender, UserControl.ValueChangedEventArgs e)
+        private void ucProveedorView1_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             tsbSave.Enabled = true;
 
@@ -318,7 +319,7 @@ namespace Kiosco
         }
 
 
-        private void ucProductoView1_ProductoChanged(object sender, UserControl.ValueChangedEventArgs e)
+        private void ucProductoView1_ProductoChanged(object sender, ValueChangedEventArgs e)
         {
             //cuando se selecciona un nuevo Producto, se sugiere el PCP.
             nudPrecioCompra.Value = ucProductoView1.PrecioCosto;

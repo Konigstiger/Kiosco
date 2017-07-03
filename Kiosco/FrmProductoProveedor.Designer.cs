@@ -1,4 +1,6 @@
-﻿namespace Kiosco
+﻿using Heimdall.UserControl;
+
+namespace Kiosco
 {
     partial class FrmProductoProveedor
     {
@@ -234,7 +236,7 @@
             0});
             this.ucProductoView1.Size = new System.Drawing.Size(568, 138);
             this.ucProductoView1.TabIndex = 54;
-            this.ucProductoView1.ProductoChanged += new Kiosco.UserControl.ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);
+            this.ucProductoView1.ProductoChanged += new ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);
             // 
             // txtIdProductoProveedor
             // 
@@ -253,7 +255,7 @@
             this.ucProveedorView1.Name = "ucProveedorView1";
             this.ucProveedorView1.Size = new System.Drawing.Size(666, 53);
             this.ucProveedorView1.TabIndex = 36;
-            this.ucProveedorView1.ValueChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
+            this.ucProveedorView1.ValueChanged += new ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
             this.ucProveedorView1.Load += new System.EventHandler(this.ucProveedorView1_Load);
             // 
             // btnSetPrecioCosto

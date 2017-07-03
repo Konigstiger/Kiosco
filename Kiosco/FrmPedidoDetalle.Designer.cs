@@ -1,4 +1,6 @@
-﻿namespace Kiosco
+﻿using Heimdall.UserControl;
+
+namespace Kiosco
 {
     partial class FrmPedidoDetalle
     {
@@ -39,10 +41,10 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.ucPedido1 = new Kiosco.UserControl.ucPedido();
-            this.ucPedidoDetalle1 = new Kiosco.UcPedidoDetalle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ucPedido1 = new Kiosco.UserControl.ucPedido();
+            this.ucPedidoDetalle1 = new Kiosco.UcPedidoDetalle();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +82,7 @@
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(327, 31);
+            this.tsb.Size = new System.Drawing.Size(532, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -152,14 +154,27 @@
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "highlighter24.png");
+            this.imageList1.Images.SetKeyName(1, "eraser.png");
+            // 
+            // cms
+            // 
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(61, 4);
+            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
+            // 
             // ucPedido1
             // 
             this.ucPedido1.BackColor = System.Drawing.Color.White;
             this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
             this.ucPedido1.EstaPago = false;
-            this.ucPedido1.Fecha = new System.DateTime(2017, 7, 1, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 7, 1, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
@@ -179,7 +194,7 @@
             0,
             0,
             0});
-            this.ucPedido1.ProveedorChanged += new Kiosco.UserControl.ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
+            this.ucPedido1.ProveedorChanged += new ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
             // 
             // ucPedidoDetalle1
             // 
@@ -208,18 +223,6 @@
             131072});
             this.ucPedidoDetalle1.Size = new System.Drawing.Size(1280, 74);
             this.ucPedidoDetalle1.TabIndex = 90;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "package.png");
-            // 
-            // cms
-            // 
-            this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(61, 4);
-            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
             // 
             // FrmPedidoDetalle
             // 

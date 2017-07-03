@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcVentaDetalleEdit));
             this.txtStock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
@@ -40,6 +41,10 @@
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.btnSeleccionarProducto = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnRemoverItem = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
@@ -83,6 +88,7 @@
             0,
             0,
             0});
+            this.nudCantidad.ValueChanged += new System.EventHandler(this.nudCantidad_ValueChanged);
             // 
             // nudImporte
             // 
@@ -136,6 +142,7 @@
             this.nudPrecio.Size = new System.Drawing.Size(83, 22);
             this.nudPrecio.TabIndex = 66;
             this.nudPrecio.TabStop = false;
+            this.nudPrecio.ValueChanged += new System.EventHandler(this.nudPrecio_ValueChanged);
             this.nudPrecio.Enter += new System.EventHandler(this.nudPrecio_Enter);
             this.nudPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecio_KeyPress);
             // 
@@ -174,7 +181,7 @@
             this.txtCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoBarras.Location = new System.Drawing.Point(3, 35);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(143, 22);
+            this.txtCodigoBarras.Size = new System.Drawing.Size(114, 22);
             this.txtCodigoBarras.TabIndex = 63;
             // 
             // label1
@@ -197,10 +204,54 @@
             this.txtIdProducto.Text = "0";
             this.txtIdProducto.TextChanged += new System.EventHandler(this.txtIdProducto_TextChanged);
             // 
+            // btnSeleccionarProducto
+            // 
+            this.btnSeleccionarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProducto.Image")));
+            this.btnSeleccionarProducto.Location = new System.Drawing.Point(123, 35);
+            this.btnSeleccionarProducto.Name = "btnSeleccionarProducto";
+            this.btnSeleccionarProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnSeleccionarProducto.TabIndex = 96;
+            this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.Location = new System.Drawing.Point(921, 34);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(24, 24);
+            this.btnModificar.TabIndex = 99;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnRemoverItem
+            // 
+            this.btnRemoverItem.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoverItem.Image")));
+            this.btnRemoverItem.Location = new System.Drawing.Point(949, 34);
+            this.btnRemoverItem.Name = "btnRemoverItem";
+            this.btnRemoverItem.Size = new System.Drawing.Size(24, 24);
+            this.btnRemoverItem.TabIndex = 98;
+            this.btnRemoverItem.UseVisualStyleBackColor = true;
+            this.btnRemoverItem.Click += new System.EventHandler(this.btnRemoverItem_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.Location = new System.Drawing.Point(893, 34);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(24, 24);
+            this.btnAgregar.TabIndex = 97;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // UcVentaDetalleEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnRemoverItem);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnSeleccionarProducto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.txtStock);
@@ -216,7 +267,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcVentaDetalleEdit";
-            this.Size = new System.Drawing.Size(895, 79);
+            this.Size = new System.Drawing.Size(980, 79);
             this.Load += new System.EventHandler(this.UcVentaDetalleEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
@@ -241,5 +292,9 @@
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.Button btnSeleccionarProducto;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnRemoverItem;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
