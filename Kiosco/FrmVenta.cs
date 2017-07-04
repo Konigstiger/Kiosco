@@ -223,12 +223,6 @@ namespace Kiosco
         }
 
 
-        private void btnRemoverItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private decimal CalcularTotal()
         {
             SumImporte = 0;
@@ -341,6 +335,7 @@ namespace Kiosco
         private void btnVender_Click(object sender, EventArgs e)
         {
             VenderProductos();
+            LimpiarControles();
         }
 
 

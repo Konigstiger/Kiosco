@@ -41,11 +41,13 @@
             this.dtpFechaActual = new System.Windows.Forms.DateTimePicker();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnVender = new System.Windows.Forms.Button();
-            this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ucNotification1 = new Kiosco.UcNotification();
+            this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsb
@@ -55,7 +57,7 @@
             this.tsbNuevo});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1134, 31);
+            this.tsb.Size = new System.Drawing.Size(1132, 31);
             this.tsb.TabIndex = 44;
             this.tsb.Text = "toolStrip1";
             // 
@@ -71,14 +73,15 @@
             // 
             // dgv
             // 
-            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 96);
+            this.dgv.Location = new System.Drawing.Point(12, 99);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1110, 322);
+            this.dgv.Size = new System.Drawing.Size(1111, 388);
             this.dgv.TabIndex = 40;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -106,7 +109,7 @@
             this.nudTotal.BackColor = System.Drawing.SystemColors.Info;
             this.nudTotal.DecimalPlaces = 2;
             this.nudTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudTotal.Location = new System.Drawing.Point(816, 534);
+            this.nudTotal.Location = new System.Drawing.Point(65, 27);
             this.nudTotal.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -121,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(700, 477);
+            this.label5.Location = new System.Drawing.Point(14, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 18);
             this.label5.TabIndex = 57;
@@ -141,7 +144,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label7.Location = new System.Drawing.Point(949, 64);
+            this.label7.Location = new System.Drawing.Point(952, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 18);
             this.label7.TabIndex = 64;
@@ -150,7 +153,7 @@
             // dtpFechaActual
             // 
             this.dtpFechaActual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaActual.Location = new System.Drawing.Point(1008, 64);
+            this.dtpFechaActual.Location = new System.Drawing.Point(1011, 68);
             this.dtpFechaActual.Name = "dtpFechaActual";
             this.dtpFechaActual.Size = new System.Drawing.Size(106, 20);
             this.dtpFechaActual.TabIndex = 65;
@@ -168,7 +171,7 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(963, 532);
+            this.btnVender.Location = new System.Drawing.Point(212, 25);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(159, 29);
             this.btnVender.TabIndex = 70;
@@ -176,8 +179,34 @@
             this.btnVender.UseVisualStyleBackColor = true;
             this.btnVender.Click += new System.EventHandler(this.btnVender_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.nudTotal);
+            this.panel1.Controls.Add(this.ucNotification1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnVender);
+            this.panel1.Location = new System.Drawing.Point(12, 493);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1111, 76);
+            this.panel1.TabIndex = 73;
+            // 
+            // ucNotification1
+            // 
+            this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucNotification1.Location = new System.Drawing.Point(501, 6);
+            this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
+            this.ucNotification1.Name = "ucNotification1";
+            this.ucNotification1.Size = new System.Drawing.Size(603, 64);
+            this.ucNotification1.TabIndex = 72;
+            this.ucNotification1.Text = "ucNotification1";
+            // 
             // ucVentaDetalleEdit1
             // 
+            this.ucVentaDetalleEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ucVentaDetalleEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucVentaDetalleEdit1.Cantidad = 1;
             this.ucVentaDetalleEdit1.CodigoBarras = "";
@@ -189,44 +218,31 @@
             0,
             0,
             0});
-            this.ucVentaDetalleEdit1.Location = new System.Drawing.Point(12, 435);
+            this.ucVentaDetalleEdit1.Location = new System.Drawing.Point(12, 574);
             this.ucVentaDetalleEdit1.Name = "ucVentaDetalleEdit1";
             this.ucVentaDetalleEdit1.PrecioVenta = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.ucVentaDetalleEdit1.Size = new System.Drawing.Size(1110, 79);
+            this.ucVentaDetalleEdit1.Size = new System.Drawing.Size(1111, 75);
             this.ucVentaDetalleEdit1.Stock = 0;
             this.ucVentaDetalleEdit1.TabIndex = 71;
             this.ucVentaDetalleEdit1.AddAction += new Heimdall.UserControl.AddActionEventHandler(this.ucVentaDetalleEdit1_AddAction);
             this.ucVentaDetalleEdit1.UpdateAction += new Heimdall.UserControl.UpdateActionEventHandler(this.ucVentaDetalleEdit1_UpdateAction);
             this.ucVentaDetalleEdit1.RemoveAction += new Heimdall.UserControl.RemoveActionEventHandler(this.ucVentaDetalleEdit1_RemoveAction);
             // 
-            // ucNotification1
-            // 
-            this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucNotification1.Location = new System.Drawing.Point(522, 567);
-            this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
-            this.ucNotification1.Name = "ucNotification1";
-            this.ucNotification1.Size = new System.Drawing.Size(600, 64);
-            this.ucNotification1.TabIndex = 72;
-            this.ucNotification1.Text = "ucNotification1";
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 747);
-            this.Controls.Add(this.ucNotification1);
+            this.ClientSize = new System.Drawing.Size(1132, 653);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucVentaDetalleEdit1);
-            this.Controls.Add(this.btnVender);
             this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.dtpFechaActual);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSeleccionarCliente);
-            this.Controls.Add(this.nudTotal);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtClienteDescripcion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tsb);
@@ -234,12 +250,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmVenta";
+            this.Text = "Registrar Venta";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +278,6 @@
         private System.Windows.Forms.Button btnVender;
         private Heimdall.UserControl.UcVentaDetalleEdit ucVentaDetalleEdit1;
         private UcNotification ucNotification1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
