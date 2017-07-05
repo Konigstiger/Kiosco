@@ -109,7 +109,7 @@
             this.nudTotal.BackColor = System.Drawing.SystemColors.Info;
             this.nudTotal.DecimalPlaces = 2;
             this.nudTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudTotal.Location = new System.Drawing.Point(65, 27);
+            this.nudTotal.Location = new System.Drawing.Point(795, 25);
             this.nudTotal.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -124,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 29);
+            this.label5.Location = new System.Drawing.Point(744, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 18);
             this.label5.TabIndex = 57;
@@ -171,7 +171,7 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(212, 25);
+            this.btnVender.Location = new System.Drawing.Point(942, 23);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(159, 29);
             this.btnVender.TabIndex = 70;
@@ -188,7 +188,7 @@
             this.panel1.Controls.Add(this.ucNotification1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btnVender);
-            this.panel1.Location = new System.Drawing.Point(12, 493);
+            this.panel1.Location = new System.Drawing.Point(12, 574);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1111, 76);
             this.panel1.TabIndex = 73;
@@ -196,7 +196,7 @@
             // ucNotification1
             // 
             this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucNotification1.Location = new System.Drawing.Point(501, 6);
+            this.ucNotification1.Location = new System.Drawing.Point(6, 6);
             this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
             this.ucNotification1.Name = "ucNotification1";
             this.ucNotification1.Size = new System.Drawing.Size(603, 64);
@@ -218,7 +218,7 @@
             0,
             0,
             0});
-            this.ucVentaDetalleEdit1.Location = new System.Drawing.Point(12, 574);
+            this.ucVentaDetalleEdit1.Location = new System.Drawing.Point(12, 493);
             this.ucVentaDetalleEdit1.Name = "ucVentaDetalleEdit1";
             this.ucVentaDetalleEdit1.PrecioVenta = new decimal(new int[] {
             0,
