@@ -32,12 +32,12 @@ namespace Controlador
             return VentaData.Delete(c);
         }
 
-        public static void Update(Venta c)
-        {
-            VentaData.Update(c);
-        }
         */
 
+        public static void Update(Venta modelVenta)
+        {
+            VentaData.Update(modelVenta);
+        }
     }
 }
 

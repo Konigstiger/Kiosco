@@ -187,14 +187,14 @@ namespace Kiosco
 
         }
 
-
+        //TODO: Este metodo, super importante esta en esta pantalla y en la de ventas. Unificar.
         private void VenderProducto(long idProducto, int cantidad)
         {
             const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
             var codigoBarras = txtCodigoBarras.Text.Trim();
-            var precio = Convert.ToDecimal(txtPrecio.Text);
-            var importe = cantidad * precio;
+            var precioUnitario = Convert.ToDecimal(txtPrecio.Text);
+            var importe = cantidad * precioUnitario;
 
 
             //=====================================================================
@@ -246,26 +246,42 @@ namespace Kiosco
             mp.IdMovimientoProducto = MovimientoProductoControlador.Insert(mp);
 
             //=====================================================================
+            //Ahora se registrara la ganancia, asi que debo recuperar el registro
+            //del producto, para ver sus precios de compra y venta.
+            var p = ProductoControlador.GetByPrimaryKey(IdProducto);
+
+
             var vd = new VentaDetalle {
                 IdVentaDetalle = -1,
                 IdVenta = modelVenta.IdVenta,
                 Cantidad = cantidad,
+                PrecioUnitario = precioUnitario,
                 Importe = importe,
+                Ganancia = p.PrecioVenta - p.PrecioCostoPromedio, 
                 IdMovimientoProducto = mp.IdMovimientoProducto,
                 IdProducto = mp.IdProducto
             };
 
+            //TODO: Acumular la ganancia de esta ventaDetalle, para actualizar luego
+            //el registro de Venta.
+            //En este caso, es un unico VentaDetalle. No hace falta acumular.
+
+            modelVenta.Ganancia = vd.Ganancia;
+            VentaControlador.Update(modelVenta);
+
             vd.IdVentaDetalle = VentaDetalleControlador.Insert(vd);
+
+
 
             //=====================================================================
             var s = new Stock {
                 IdStock = -1,
-                Cantidad = -cantidad,
+                Cantidad = cantidad,
                 IdDeposito = 1,
                 IdProducto = mp.IdProducto
             };
 
-            s.IdStock = StockControlador.Update(s);
+            s.IdStock = StockControlador.UpdateDelta(s);
             //=====================================================================
 
 

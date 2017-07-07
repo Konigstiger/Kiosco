@@ -205,6 +205,12 @@
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="IPedidoDetalle.cs" />
+    <Compile Include="UserControl\UcIntervaloFechaEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcIntervaloFechaEdit.Designer.cs">
+      <DependentUpon>UcIntervaloFechaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ucPedido.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -350,6 +356,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControl\UcIntervaloFechaEdit.resx">
+      <DependentUpon>UcIntervaloFechaEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucNotification.resx">
       <DependentUpon>ucNotification.cs</DependentUpon>
     </EmbeddedResource>

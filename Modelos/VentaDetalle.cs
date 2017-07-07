@@ -13,6 +13,7 @@ namespace Model
         public decimal PrecioUnitario { get; set; }
 
         public decimal Importe { get; set; }
+        public decimal Ganancia { get; set; }
 
         public long IdMovimientoProducto { get; set; }
 

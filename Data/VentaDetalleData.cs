@@ -23,6 +23,7 @@ namespace Data
                                 IdVenta = (long)rdr["IdVenta"],
                                 IdProducto = (long)rdr["Fecha"],
                                 Cantidad = (int)rdr["Cantidad"],
+                                PrecioUnitario = (decimal)rdr["PrecioUnitario"],
                                 Importe = (decimal)rdr["Importe"],
                                 IdMovimientoProducto =
                                     rdr["IdMovimientoProducto"] != DBNull.Value ? (long)rdr["IdMovimientoProducto"] : 1
@@ -54,6 +55,7 @@ namespace Data
                             c.IdVenta = (long)rdr["IdVenta"];
                             c.IdProducto = (long)rdr["Fecha"];
                             c.Cantidad = (int)rdr["Cantidad"];
+                            c.PrecioUnitario = (decimal)rdr["PrecioUnitario"];
                             c.Importe = (decimal)rdr["Importe"];
                             c.IdMovimientoProducto = rdr["IdMovimientoProducto"] != DBNull.Value
                                 ? (long)rdr["IdMovimientoProducto"]
@@ -76,17 +78,21 @@ namespace Data
 
                     var p1 = new SqlParameter("IdVenta", SqlDbType.BigInt) { Value = model.IdVenta };
                     var p2 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = model.Cantidad };
-                    var p3 = new SqlParameter("Importe", SqlDbType.Decimal) { Value = model.Importe };
-                    var p4 = new SqlParameter("IdMovimientoProducto", SqlDbType.BigInt) {
+                    var p3 = new SqlParameter("PrecioUnitario", SqlDbType.Decimal) { Value = model.PrecioUnitario };
+                    var p4 = new SqlParameter("Importe", SqlDbType.Decimal) { Value = model.Importe };
+                    var p5 = new SqlParameter("Ganancia", SqlDbType.Decimal) { Value = model.Ganancia };
+                    var p6 = new SqlParameter("IdMovimientoProducto", SqlDbType.BigInt) {
                         Value = model.IdMovimientoProducto
                     };
-                    var p5 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = model.IdProducto };
+                    var p7 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = model.IdProducto };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
 
                     conn.Open();
                     idVentaDetalle = (long)cmd.ExecuteScalar();

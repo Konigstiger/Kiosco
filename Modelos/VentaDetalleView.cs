@@ -15,6 +15,8 @@ namespace Model
 
         public decimal Importe { get; set; }
 
+        public decimal Ganancia { get; set; }
+
         public long IdMovimientoProducto { get; set; }
 
         public long IdProducto { get; set; }

@@ -160,10 +160,6 @@ namespace Kiosco
         }
 
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CodigoBotonAgregar()
         {
@@ -177,12 +173,12 @@ namespace Kiosco
             }
 
             cell[0].Value = dgv.Rows.Count + 1;
-            cell[1].Value = ucVentaDetalleEdit1.CodigoBarras;
-            cell[2].Value = ucVentaDetalleEdit1.Cantidad;
-            cell[3].Value = ucVentaDetalleEdit1.Descripcion;
-            cell[4].Value = ucVentaDetalleEdit1.PrecioVenta;
-            cell[5].Value = ucVentaDetalleEdit1.Importe;
-            cell[6].Value = ucVentaDetalleEdit1.Stock;
+            cell[(int)VentaGridColumn.CodigoBarra].Value = ucVentaDetalleEdit1.CodigoBarras;
+            cell[(int)VentaGridColumn.Cantidad].Value = ucVentaDetalleEdit1.Cantidad;
+            cell[(int)VentaGridColumn.Descripcion].Value = ucVentaDetalleEdit1.Descripcion;
+            cell[(int)VentaGridColumn.Precio].Value = ucVentaDetalleEdit1.PrecioVenta;
+            cell[(int)VentaGridColumn.Importe].Value = ucVentaDetalleEdit1.Importe;
+            cell[(int)VentaGridColumn.Stock].Value = ucVentaDetalleEdit1.Stock;
 
             //Esta validacion permite resaltar los colores, o algun otro detalle
             if (Convert.ToInt32(cell[6].Value) <
@@ -208,17 +204,21 @@ namespace Kiosco
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
+            //TODO: VER BIEN ESTE CODIGO.
+
             if (dgv.SelectedRows.Count <= 0)
                 return;
 
             foreach (DataGridViewRow item in dgv.SelectedRows) {
                 var codigoBarras = (string)item.Cells[(int)VentaGridColumn.CodigoBarra].Value;
                 var cantidad = (int)item.Cells[(int)VentaGridColumn.Cantidad].Value;
+                var precioUnitario = (decimal)item.Cells[(int)VentaGridColumn.Precio].Value;
                 var importe = (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
 
                 ucVentaDetalleEdit1.Cantidad = cantidad;
                 ucVentaDetalleEdit1.CodigoBarras = codigoBarras;
                 ucVentaDetalleEdit1.Importe = importe;
+                ucVentaDetalleEdit1.PrecioVenta = precioUnitario;
             }
         }
 
@@ -251,14 +251,6 @@ namespace Kiosco
         }
 
 
-        private void nudPrecio_ValueChanged(object sender, EventArgs e)
-        {
-            //TODO: Agregar validaciones. O usar controles que solo admitan numeros.
-            var precio = ucVentaDetalleEdit1.PrecioVenta;
-            var cantidad = ucVentaDetalleEdit1.Cantidad;
-            ucVentaDetalleEdit1.Importe = CalcularImporte(cantidad, precio);
-        }
-
 
         /// <summary>
         /// Comprueba si un item, a partir de su codigo de barras esta ingresado en la grilla.
@@ -282,12 +274,6 @@ namespace Kiosco
         }
 
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode) {
@@ -302,19 +288,12 @@ namespace Kiosco
         }
 
 
-        private void nudCantidad_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) {
-                //if (btnAgregar.Enabled)
-                    CodigoBotonAgregar();
-            }
-        }
-
         private void btnSeleccionarCliente_Click(object sender, EventArgs e)
         {
             FrmSeleccionarCliente f = new FrmSeleccionarCliente(this);
             f.Show();
         }
+
 
         private void txtIdCliente_TextChanged(object sender, EventArgs e)
         {
@@ -377,9 +356,10 @@ namespace Kiosco
             //=====================================================================
 
             foreach (DataGridViewRow item in dgv.Rows) {
-                var codigoBarras = (string)item.Cells[1].Value;
-                var cantidad = (int)item.Cells[2].Value;
-                var importe = (decimal)item.Cells[5].Value;
+                var codigoBarras = (string)item.Cells[(int)VentaGridColumn.CodigoBarra].Value;
+                var cantidad = (int)item.Cells[(int)VentaGridColumn.Cantidad].Value;
+                var precioUnitario = (decimal) item.Cells[(int)VentaGridColumn.Precio].Value;
+                var importe = (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
 
                 var mp = new MovimientoProducto {
                     IdMovimientoProducto = -1,
@@ -389,20 +369,29 @@ namespace Kiosco
                     IdClaseMovimientoProducto = MovimientoProducto.IdClaseMovimientoProductoVenta,
                     IdUsuario = idUsuarioActual
                 };
-                //A partir del codigobarras recuperar el producto, si no tengo su id en grilla.
 
                 //por cada elemento, persistir en BD.
                 mp.IdMovimientoProducto = MovimientoProductoControlador.Insert(mp);
 
                 //=====================================================================
+                //Ahora se registrara la ganancia, asi que debo recuperar el registro
+                //del producto, para ver sus precios de compra y venta.
+                var p = ProductoControlador.GetByPrimaryKey(mp.IdProducto);
+
+
                 var vd = new VentaDetalle {
                     IdVentaDetalle = -1,
                     IdVenta = modelVenta.IdVenta,
                     Cantidad = cantidad,
+                    PrecioUnitario = precioUnitario,
                     Importe = importe,
+                    Ganancia = cantidad * (p.PrecioVenta - p.PrecioCostoPromedio),
                     IdMovimientoProducto = mp.IdMovimientoProducto,
                     IdProducto = mp.IdProducto
                 };
+
+                //Calcular la ganancia, acumulando las ganancias parciales de cada producto.
+                modelVenta.Ganancia += vd.Ganancia;
 
                 vd.IdVentaDetalle = VentaDetalleControlador.Insert(vd);
 
@@ -416,19 +405,17 @@ namespace Kiosco
 
                 s.IdStock = StockControlador.UpdateDelta(s);
 
-                //notificationControl1.Visible = true;
-                //ucNotification1.Visible = true;
-
-                //que pase un tiempo, y hacer invisible.
                 ucNotification1.Text = "Venta registrada con éxito.";
-
                 ucNotification1.BackColor = Color.LightGreen;
-
                 ucNotification1.Ocultar();
-
 
             }
 
+            //TODO: Acumular la ganancia de esta ventaDetalle, para actualizar luego
+            //el registro de Venta.
+            //En este caso, es un unico VentaDetalle. No hace falta acumular.
+            
+            VentaControlador.Update(modelVenta);
             return;
 
         }
@@ -437,6 +424,7 @@ namespace Kiosco
         {
             CodigoBotonAgregar();
             Util.ReordenarNumeros(dgv);
+            SetValorDefault();
         }
 
         private void ucVentaDetalleEdit1_UpdateAction(object sender, EventArgs e)
@@ -467,6 +455,12 @@ namespace Kiosco
             //txtCodigoBarras.Focus();
 
             Util.ReordenarNumeros(dgv);
+            SetValorDefault();
+        }
+
+        private void SetValorDefault()
+        {
+            ucVentaDetalleEdit1.Cantidad = 1;
         }
     }
 }

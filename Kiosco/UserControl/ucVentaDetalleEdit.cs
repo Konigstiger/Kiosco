@@ -268,5 +268,17 @@ namespace Heimdall.UserControl
         {
             OnRemoveAction(new EventArgs());
         }
+
+
+        private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode) {
+                case Keys.Enter:
+                        //?
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

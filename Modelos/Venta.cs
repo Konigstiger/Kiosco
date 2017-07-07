@@ -20,6 +20,7 @@ namespace Model
         public decimal Total { get; set; }
 
         public DateTime Fecha { get; set; }
+        public decimal Ganancia { get; set; }
 
         public long? IdMovimientoCaja { get; set; }
 
