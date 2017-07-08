@@ -24,7 +24,7 @@ namespace Kiosco
         {
             CallerForm = callerForm;
 
-            // Si hago una interface, que implemente FrmVenta (y otras pantallas),
+            // Si hago una interface, que implemente FrmRegistrarVenta (y otras pantallas),
             // ahi puedo definir una propiedad IdCliente, y otros posibles comportamientos,
             // con lo cual tengo polimorfismo y reusabilidad.
             

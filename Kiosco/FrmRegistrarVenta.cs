@@ -8,7 +8,7 @@ using Model;
 
 namespace Kiosco
 {
-    public partial class FrmVenta : Form, ISelectorCliente
+    public partial class FrmRegistrarVenta : Form, ISelectorCliente
     {
         private const int ColCount = 7;
 
@@ -36,7 +36,7 @@ namespace Kiosco
         public decimal SumImporte;
 
 
-        public FrmVenta()
+        public FrmRegistrarVenta()
         {
             InitializeComponent();
         }
@@ -163,42 +163,58 @@ namespace Kiosco
 
         private void CodigoBotonAgregar()
         {
-            //Agrega a la grilla (ya seteada) un Nuevo registro para ser procesado luego.
-            var row = new DataGridViewRow();
+            var codigoNuevo = ucVentaDetalleEdit1.CodigoBarras;
+            bool agregarNuevo = true;
+            var rowToUpdate = 0;
 
-            var cell = new DataGridViewTextBoxCell[ColCount];
-
-            for (var i = 0; i < ColCount; i++) {
-                cell[i] = new DataGridViewTextBoxCell();
+            //Ver si el codigo de barras a agregar ya ha sido usado. De ser asi, no habra que agregar.
+            //recorrer rows
+            for (var i = 0; i < dgv.Rows.Count; i++) {
+                var codigoActual = dgv.Rows[i].Cells[(int)VentaGridColumn.CodigoBarra].Value;
+                if (codigoActual.Equals(codigoNuevo)) {
+                    //el codigo a ingresar ya esta en uso. Se debe combinar, y no agregar uno nuevo.
+                    agregarNuevo = false;
+                    rowToUpdate = i;
+                }
             }
 
-            cell[0].Value = dgv.Rows.Count + 1;
-            cell[(int)VentaGridColumn.CodigoBarra].Value = ucVentaDetalleEdit1.CodigoBarras;
-            cell[(int)VentaGridColumn.Cantidad].Value = ucVentaDetalleEdit1.Cantidad;
-            cell[(int)VentaGridColumn.Descripcion].Value = ucVentaDetalleEdit1.Descripcion;
-            cell[(int)VentaGridColumn.Precio].Value = ucVentaDetalleEdit1.PrecioVenta;
-            cell[(int)VentaGridColumn.Importe].Value = ucVentaDetalleEdit1.Importe;
-            cell[(int)VentaGridColumn.Stock].Value = ucVentaDetalleEdit1.Stock;
+            if (agregarNuevo == false) {
+                var nuevaCantidad = ucVentaDetalleEdit1.Cantidad;
+                var cantidad = (int)dgv.Rows[rowToUpdate].Cells[(int)VentaGridColumn.Cantidad].Value;
 
-            //Esta validacion permite resaltar los colores, o algun otro detalle
-            if (Convert.ToInt32(cell[6].Value) <
-                Convert.ToInt32(cell[2].Value))
-                cell[6].Style.BackColor = Color.Red;
+                cantidad += nuevaCantidad;
 
-            row.Cells.AddRange(cell);
+                dgv.Rows[rowToUpdate].Cells[(int)VentaGridColumn.Cantidad].Value = cantidad;
+                dgv.Rows[rowToUpdate].Cells[(int)VentaGridColumn.Importe].Value = cantidad * ucVentaDetalleEdit1.PrecioVenta;
 
+                //otras tareas
+            } else {
+                //Agrega a la grilla (ya seteada) un Nuevo registro para ser procesado luego.
+                var row = new DataGridViewRow();
+                var cell = new DataGridViewTextBoxCell[ColCount];
+
+                for (var i = 0; i < ColCount; i++) {
+                    cell[i] = new DataGridViewTextBoxCell();
+                }
+
+                cell[(int)VentaGridColumn.Item].Value = dgv.Rows.Count + 1;
+                cell[(int)VentaGridColumn.CodigoBarra].Value = ucVentaDetalleEdit1.CodigoBarras;
+                cell[(int)VentaGridColumn.Cantidad].Value = ucVentaDetalleEdit1.Cantidad;
+                cell[(int)VentaGridColumn.Descripcion].Value = ucVentaDetalleEdit1.Descripcion;
+                cell[(int)VentaGridColumn.Precio].Value = ucVentaDetalleEdit1.PrecioVenta;
+                cell[(int)VentaGridColumn.Importe].Value = ucVentaDetalleEdit1.Importe;
+                cell[(int)VentaGridColumn.Stock].Value = ucVentaDetalleEdit1.Stock;
+
+                //Esta validacion permite resaltar los colores, o algun otro detalle
+                if (Convert.ToInt32(cell[(int)VentaGridColumn.Stock].Value) <
+                    Convert.ToInt32(cell[(int)VentaGridColumn.Cantidad].Value))
+                    cell[(int)VentaGridColumn.Stock].Style.BackColor = Color.Red;
+
+                row.Cells.AddRange(cell);
+                dgv.Rows.Add(row);
+            }
             SumImporte += ucVentaDetalleEdit1.Importe;
-
-            dgv.Rows.Add(row);
-
             nudTotal.Value = CalcularTotal();
-
-            //TODO: ver, no tiene acceso al UC
-            //ucVentaDetalleEdit1.CodigoBarras = string.Empty;
-            //ucVentaDetalleEdit1.CodigoBarras.Focus();
-
-            //btnAgregar.Enabled = false;
-            //btnRemoverItem.Enabled = true;
         }
 
 
@@ -279,7 +295,7 @@ namespace Kiosco
             switch (e.KeyCode) {
                 case Keys.Enter:
                     //if (btnAgregar.Enabled)
-                        CodigoBotonAgregar();
+                    CodigoBotonAgregar();
                     break;
 
                 default:
@@ -358,7 +374,7 @@ namespace Kiosco
             foreach (DataGridViewRow item in dgv.Rows) {
                 var codigoBarras = (string)item.Cells[(int)VentaGridColumn.CodigoBarra].Value;
                 var cantidad = (int)item.Cells[(int)VentaGridColumn.Cantidad].Value;
-                var precioUnitario = (decimal) item.Cells[(int)VentaGridColumn.Precio].Value;
+                var precioUnitario = (decimal)item.Cells[(int)VentaGridColumn.Precio].Value;
                 var importe = (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
 
                 var mp = new MovimientoProducto {
@@ -414,7 +430,7 @@ namespace Kiosco
             //TODO: Acumular la ganancia de esta ventaDetalle, para actualizar luego
             //el registro de Venta.
             //En este caso, es un unico VentaDetalle. No hace falta acumular.
-            
+
             VentaControlador.Update(modelVenta);
             return;
 
@@ -425,6 +441,8 @@ namespace Kiosco
             CodigoBotonAgregar();
             Util.ReordenarNumeros(dgv);
             SetValorDefault();
+            //Habilitar boton de venta
+            btnVender.Enabled = true;
         }
 
         private void ucVentaDetalleEdit1_UpdateAction(object sender, EventArgs e)

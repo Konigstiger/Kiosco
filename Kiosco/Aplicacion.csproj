@@ -198,11 +198,11 @@
     <Compile Include="FrmSeleccionarCliente.Designer.cs">
       <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVenta.cs">
+    <Compile Include="FrmRegistrarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
+    <Compile Include="FrmRegistrarVenta.Designer.cs">
+      <DependentUpon>FrmRegistrarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="IPedidoDetalle.cs" />
     <Compile Include="UserControl\UcIntervaloFechaEdit.cs">
@@ -343,8 +343,8 @@
     <EmbeddedResource Include="FrmSeleccionarCliente.resx">
       <DependentUpon>FrmSeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmVenta.resx">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRegistrarVenta.resx">
+      <DependentUpon>FrmRegistrarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

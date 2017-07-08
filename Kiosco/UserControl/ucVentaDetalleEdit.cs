@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using Controlador;
 using Kiosco;
@@ -150,6 +146,9 @@ namespace Heimdall.UserControl
         protected virtual void OnProductoChanged(ValueChangedEventArgs e)
         {
             ProductoChanged?.Invoke(this, e);
+            //Se ha elegido un producto. Habilitar controles.
+            btnAgregar.Enabled = true;
+            btnRemoverItem.Enabled = true;
         }
 
 
@@ -231,6 +230,10 @@ namespace Heimdall.UserControl
             txtCodigoBarras.MaxLength = MaxLenghtCodeBar;
             Util.SetNumericBounds(nudPrecio);
             txtDescripcion.MaxLength = 255;
+
+            btnAgregar.Enabled = false;
+            btnRemoverItem.Enabled = false;
+            btnModificar.Enabled = false;
         }
 
         private void CargarControles()
@@ -256,6 +259,7 @@ namespace Heimdall.UserControl
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            btnModificar.Enabled = true;
             OnAddAction(new EventArgs());
         }
 
@@ -272,13 +276,34 @@ namespace Heimdall.UserControl
 
         private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode) {
-                case Keys.Enter:
-                        //?
-                    break;
-                default:
-                    break;
+            //si se produce este evento con Enter, es porque se ha ingresado con la lectora,
+            //o bien el usuario presiono enter a proposito...
+            if (e.KeyCode == Keys.Enter) {
+                e.SuppressKeyPress = true;
+                VerificarProducto();
+                txtCodigoBarras.Select(0, txtCodigoBarras.Text.Length);
+
+                OnAddAction(new EventArgs());
             }
+        }
+
+
+        private void VerificarProducto()
+        {
+            var codigo = this.CodigoBarras;
+            var c = ProductoControlador.GetByCodigoBarras(codigo);
+
+            txtCodigoBarras.Text = c.CodigoBarras;
+            txtDescripcion.Text = c.Descripcion;
+            nudPrecio.Value = c.PrecioVenta;
+
+            var s = new Stock {
+                IdProducto = c.IdProducto,
+                IdDeposito = 1
+            };
+
+            var q = StockControlador.GetByParameters(s);
+            txtStock.Text = q.Cantidad.ToString();
         }
     }
 }

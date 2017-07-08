@@ -1,6 +1,6 @@
 ﻿namespace Kiosco
 {
-    partial class FrmVenta
+    partial class FrmRegistrarVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarVenta));
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -232,7 +232,7 @@
             this.ucVentaDetalleEdit1.UpdateAction += new Heimdall.UserControl.UpdateActionEventHandler(this.ucVentaDetalleEdit1_UpdateAction);
             this.ucVentaDetalleEdit1.RemoveAction += new Heimdall.UserControl.RemoveActionEventHandler(this.ucVentaDetalleEdit1_RemoveAction);
             // 
-            // FrmVenta
+            // FrmRegistrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -248,7 +248,7 @@
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmVenta";
+            this.Name = "FrmRegistrarVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Venta";
             this.Load += new System.EventHandler(this.FrmVenta_Load);

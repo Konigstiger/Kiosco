@@ -97,7 +97,7 @@ namespace Kiosco
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            var f = new FrmVenta();
+            var f = new FrmRegistrarVenta();
             f.Show();
         }
     }

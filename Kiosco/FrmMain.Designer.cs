@@ -51,7 +51,7 @@
             this.btnConsultaProducto.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultaProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaProducto.Image")));
             this.btnConsultaProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaProducto.Location = new System.Drawing.Point(70, 24);
+            this.btnConsultaProducto.Location = new System.Drawing.Point(70, 52);
             this.btnConsultaProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConsultaProducto.Name = "btnConsultaProducto";
             this.btnConsultaProducto.Size = new System.Drawing.Size(355, 58);
@@ -69,7 +69,7 @@
             this.btnAbmProducto.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbmProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProducto.Image")));
             this.btnAbmProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbmProducto.Location = new System.Drawing.Point(70, 182);
+            this.btnAbmProducto.Location = new System.Drawing.Point(70, 210);
             this.btnAbmProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAbmProducto.Name = "btnAbmProducto";
             this.btnAbmProducto.Size = new System.Drawing.Size(355, 58);
@@ -87,7 +87,7 @@
             this.btnAbmMarca.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbmMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmMarca.Image")));
             this.btnAbmMarca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbmMarca.Location = new System.Drawing.Point(70, 340);
+            this.btnAbmMarca.Location = new System.Drawing.Point(70, 368);
             this.btnAbmMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAbmMarca.Name = "btnAbmMarca";
             this.btnAbmMarca.Size = new System.Drawing.Size(355, 58);
@@ -105,7 +105,7 @@
             this.btnAbmProveedor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbmProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProveedor.Image")));
             this.btnAbmProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbmProveedor.Location = new System.Drawing.Point(70, 261);
+            this.btnAbmProveedor.Location = new System.Drawing.Point(70, 289);
             this.btnAbmProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
             this.btnAbmProveedor.Size = new System.Drawing.Size(355, 58);
@@ -123,7 +123,7 @@
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(70, 814);
+            this.btnSalir.Location = new System.Drawing.Point(70, 842);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(355, 58);
@@ -141,7 +141,7 @@
             this.btnPedido.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedido.Image = ((System.Drawing.Image)(resources.GetObject("btnPedido.Image")));
             this.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedido.Location = new System.Drawing.Point(70, 419);
+            this.btnPedido.Location = new System.Drawing.Point(70, 447);
             this.btnPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(355, 58);
@@ -159,7 +159,7 @@
             this.btnRecaudacion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecaudacion.Image = ((System.Drawing.Image)(resources.GetObject("btnRecaudacion.Image")));
             this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecaudacion.Location = new System.Drawing.Point(70, 656);
+            this.btnRecaudacion.Location = new System.Drawing.Point(70, 684);
             this.btnRecaudacion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRecaudacion.Name = "btnRecaudacion";
             this.btnRecaudacion.Size = new System.Drawing.Size(355, 58);
@@ -177,7 +177,7 @@
             this.btnOpciones.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOpciones.Image")));
             this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpciones.Location = new System.Drawing.Point(70, 735);
+            this.btnOpciones.Location = new System.Drawing.Point(70, 763);
             this.btnOpciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(355, 58);
@@ -195,7 +195,7 @@
             this.btnProductoProveedor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoProveedor.Image")));
             this.btnProductoProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductoProveedor.Location = new System.Drawing.Point(70, 498);
+            this.btnProductoProveedor.Location = new System.Drawing.Point(70, 526);
             this.btnProductoProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProductoProveedor.Name = "btnProductoProveedor";
             this.btnProductoProveedor.Size = new System.Drawing.Size(355, 58);
@@ -213,7 +213,7 @@
             this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstadisticas.Location = new System.Drawing.Point(70, 577);
+            this.btnEstadisticas.Location = new System.Drawing.Point(70, 605);
             this.btnEstadisticas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(355, 58);
@@ -242,7 +242,7 @@
             this.btnVenta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta.Image")));
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVenta.Location = new System.Drawing.Point(70, 103);
+            this.btnVenta.Location = new System.Drawing.Point(70, 131);
             this.btnVenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(355, 58);
