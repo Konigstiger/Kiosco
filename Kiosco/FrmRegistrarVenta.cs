@@ -459,7 +459,7 @@ namespace Kiosco
 
             nudTotal.Value = CalcularTotal();
 
-            //txtCodigoBarras.Focus();
+            ucVentaDetalleEdit1.Focus();
 
             //btnRemoverItem.Enabled = true;
         }

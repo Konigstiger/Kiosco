@@ -305,5 +305,11 @@ namespace Heimdall.UserControl
             var q = StockControlador.GetByParameters(s);
             txtStock.Text = q.Cantidad.ToString();
         }
+
+
+        public new void Focus()
+        {
+            txtCodigoBarras.Focus();
+        }
     }
 }
