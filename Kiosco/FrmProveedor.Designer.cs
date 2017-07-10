@@ -195,6 +195,7 @@
             this.Name = "FrmProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmProveedores_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmProveedor_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();

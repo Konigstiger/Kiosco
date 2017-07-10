@@ -202,6 +202,7 @@
             this.ucNotification1.Size = new System.Drawing.Size(603, 64);
             this.ucNotification1.TabIndex = 72;
             this.ucNotification1.Text = "ucNotification1";
+            this.ucNotification1.Visible = false;
             // 
             // ucVentaDetalleEdit1
             // 
