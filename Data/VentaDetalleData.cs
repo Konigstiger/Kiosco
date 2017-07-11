@@ -33,7 +33,36 @@ namespace Data
                     }
                 }
             }
+            return list;
+        }
 
+
+        public static List<VentaDetalleView> GetAll_ByIdVenta(long idVenta)
+        {
+            var list = new List<VentaDetalleView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("VentaDetalle_GetAll_ByIdVenta", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("IdVenta", SqlDbType.BigInt) { Value = idVenta };
+                    cmd.Parameters.Add(p1);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new VentaDetalleView {
+                                IdVentaDetalle = (long)rdr["IdVentaDetalle"],
+                                Cantidad = (int)rdr["Cantidad"],
+                                Producto = (string)rdr["Producto"],
+                                PrecioUnitario = (decimal)rdr["PrecioUnitario"],
+                                Importe = (decimal)rdr["Importe"],
+                                Ganancia = (decimal)rdr["Ganancia"]
+                            };
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
             return list;
         }
 

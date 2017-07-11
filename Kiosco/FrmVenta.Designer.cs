@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ucIntervaloFechaEdit1 = new Heimdall.UserControl.UcIntervaloFechaEdit();
+            this.ucVentaDetalleList1 = new Heimdall.UserControl.UcVentaDetalleList();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -147,9 +148,10 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1189, 668);
+            this.dgv.Size = new System.Drawing.Size(1189, 436);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // label1
             // 
@@ -205,11 +207,20 @@
             this.ucIntervaloFechaEdit1.TabIndex = 0;
             this.ucIntervaloFechaEdit1.FiltrarAction += new Heimdall.UserControl.AddActionEventHandler(this.ucIntervaloFechaEdit1_FiltrarAction);
             // 
+            // ucVentaDetalleList1
+            // 
+            this.ucVentaDetalleList1.IdVenta = ((long)(0));
+            this.ucVentaDetalleList1.Location = new System.Drawing.Point(12, 568);
+            this.ucVentaDetalleList1.Name = "ucVentaDetalleList1";
+            this.ucVentaDetalleList1.Size = new System.Drawing.Size(959, 206);
+            this.ucVentaDetalleList1.TabIndex = 30;
+            // 
             // FrmVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 786);
+            this.Controls.Add(this.ucVentaDetalleList1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -217,7 +228,7 @@
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucIntervaloFechaEdit1);
-            this.Font = new System.Drawing.Font("WillowBody", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -248,5 +259,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private UserControl.UcVentaDetalleList ucVentaDetalleList1;
     }
 }

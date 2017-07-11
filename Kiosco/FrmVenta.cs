@@ -156,5 +156,20 @@ namespace Heimdall
             var f = new FrmRegistrarVenta();
             f.Show();
         }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)VentaView.GridColumn.IdVenta].Value.ToString());
+
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucVentaDetalleList1.IdVenta = id;
+        }
     }
 }

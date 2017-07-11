@@ -13,6 +13,12 @@ namespace Controlador
             return VentaDetalleData.GetAll();
         }
 
+        public static List<VentaDetalleView> GetAll_ByIdVenta(long idVenta)
+        {
+            return VentaDetalleData.GetAll_ByIdVenta(idVenta);
+        }
+        
+
         public static VentaDetalleView GetByPrimaryKey(int idVentaDetalle)
         {
             return VentaDetalleData.GetByPrimaryKey(idVentaDetalle);

@@ -259,6 +259,12 @@
     <Compile Include="UserControl\UcVentaDetalleEdit.Designer.cs">
       <DependentUpon>UcVentaDetalleEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\UcVentaDetalleList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcVentaDetalleList.Designer.cs">
+      <DependentUpon>UcVentaDetalleList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ValueChangedEventArgs.cs" />
     <Compile Include="View\IPedidoView.cs" />
     <Compile Include="ISelectorMarca.cs" />
@@ -394,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucVentaDetalleEdit.resx">
       <DependentUpon>UcVentaDetalleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UcVentaDetalleList.resx">
+      <DependentUpon>UcVentaDetalleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PedidoView.resx">
       <DependentUpon>PedidoView.cs</DependentUpon>
