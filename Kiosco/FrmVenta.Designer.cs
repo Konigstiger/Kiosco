@@ -39,12 +39,12 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ucIntervaloFechaEdit1 = new Heimdall.UserControl.UcIntervaloFechaEdit();
+            this.txtGanancias = new System.Windows.Forms.TextBox();
+            this.txtVentas = new System.Windows.Forms.TextBox();
             this.ucVentaDetalleList1 = new Heimdall.UserControl.UcVentaDetalleList();
+            this.ucIntervaloFechaEdit1 = new Heimdall.UserControl.UcIntervaloFechaEdit();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -141,45 +141,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 105);
+            this.dgv.Location = new System.Drawing.Point(12, 112);
             this.dgv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1189, 436);
+            this.dgv.Size = new System.Drawing.Size(1189, 429);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(494, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 20);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "0.0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(656, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 20);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "0.0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 81);
+            this.label3.Location = new System.Drawing.Point(433, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 28;
@@ -189,11 +167,37 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(597, 81);
+            this.label4.Location = new System.Drawing.Point(646, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 29;
             this.label4.Text = "Ventas:";
+            // 
+            // txtGanancias
+            // 
+            this.txtGanancias.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGanancias.Location = new System.Drawing.Point(518, 80);
+            this.txtGanancias.Name = "txtGanancias";
+            this.txtGanancias.Size = new System.Drawing.Size(100, 25);
+            this.txtGanancias.TabIndex = 31;
+            // 
+            // txtVentas
+            // 
+            this.txtVentas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVentas.Location = new System.Drawing.Point(707, 81);
+            this.txtVentas.Name = "txtVentas";
+            this.txtVentas.Size = new System.Drawing.Size(100, 25);
+            this.txtVentas.TabIndex = 32;
+            // 
+            // ucVentaDetalleList1
+            // 
+            this.ucVentaDetalleList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucVentaDetalleList1.IdVenta = ((long)(0));
+            this.ucVentaDetalleList1.Location = new System.Drawing.Point(12, 568);
+            this.ucVentaDetalleList1.Name = "ucVentaDetalleList1";
+            this.ucVentaDetalleList1.Size = new System.Drawing.Size(1189, 206);
+            this.ucVentaDetalleList1.TabIndex = 30;
             // 
             // ucIntervaloFechaEdit1
             // 
@@ -203,32 +207,25 @@
             this.ucIntervaloFechaEdit1.Location = new System.Drawing.Point(0, 46);
             this.ucIntervaloFechaEdit1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ucIntervaloFechaEdit1.Name = "ucIntervaloFechaEdit1";
-            this.ucIntervaloFechaEdit1.Size = new System.Drawing.Size(419, 62);
+            this.ucIntervaloFechaEdit1.Size = new System.Drawing.Size(431, 62);
             this.ucIntervaloFechaEdit1.TabIndex = 0;
             this.ucIntervaloFechaEdit1.FiltrarAction += new Heimdall.UserControl.AddActionEventHandler(this.ucIntervaloFechaEdit1_FiltrarAction);
-            // 
-            // ucVentaDetalleList1
-            // 
-            this.ucVentaDetalleList1.IdVenta = ((long)(0));
-            this.ucVentaDetalleList1.Location = new System.Drawing.Point(12, 568);
-            this.ucVentaDetalleList1.Name = "ucVentaDetalleList1";
-            this.ucVentaDetalleList1.Size = new System.Drawing.Size(959, 206);
-            this.ucVentaDetalleList1.TabIndex = 30;
             // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 786);
+            this.Controls.Add(this.txtVentas);
+            this.Controls.Add(this.txtGanancias);
             this.Controls.Add(this.ucVentaDetalleList1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucIntervaloFechaEdit1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -255,10 +252,10 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private UserControl.UcVentaDetalleList ucVentaDetalleList1;
+        private System.Windows.Forms.TextBox txtGanancias;
+        private System.Windows.Forms.TextBox txtVentas;
     }
 }

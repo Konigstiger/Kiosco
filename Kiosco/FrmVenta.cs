@@ -57,8 +57,8 @@ namespace Heimdall
         public void CargarControles()
         {
             CargarGrilla(tsbSearchTextBox.Text);
-            label1.Text = CalcularGanancias().ToString();
-            label2.Text = CalcularVentas().ToString();
+            txtGanancias.Text = CalcularGanancias().ToString();
+            txtVentas.Text = CalcularVentas().ToString();
         }
 
 
@@ -125,8 +125,8 @@ namespace Heimdall
         {
             //recuperar los datos y mostrar segun las fechas especificadas.
             CargarGrilla("");
-            label1.Text = CalcularGanancias().ToString();
-            label2.Text = CalcularVentas().ToString();
+            txtGanancias.Text = CalcularGanancias().ToString();
+            txtVentas.Text = CalcularVentas().ToString();
 
         }
 
