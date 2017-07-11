@@ -211,6 +211,12 @@
       <DependentUpon>FrmRegistrarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="IPedidoDetalle.cs" />
+    <Compile Include="UserControl\UcFiltroProducto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcFiltroProducto.Designer.cs">
+      <DependentUpon>UcFiltroProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UcIntervaloFechaEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -371,6 +377,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControl\UcFiltroProducto.resx">
+      <DependentUpon>UcFiltroProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UcIntervaloFechaEdit.resx">
       <DependentUpon>UcIntervaloFechaEdit.cs</DependentUpon>
     </EmbeddedResource>

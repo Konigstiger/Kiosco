@@ -148,7 +148,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1189, 429);
+            this.dgv.Size = new System.Drawing.Size(1189, 439);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -157,7 +157,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(433, 81);
+            this.label3.Location = new System.Drawing.Point(433, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 28;
@@ -167,7 +167,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(646, 80);
+            this.label4.Location = new System.Drawing.Point(646, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 29;
@@ -176,7 +176,7 @@
             // txtGanancias
             // 
             this.txtGanancias.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGanancias.Location = new System.Drawing.Point(518, 80);
+            this.txtGanancias.Location = new System.Drawing.Point(518, 78);
             this.txtGanancias.Name = "txtGanancias";
             this.txtGanancias.Size = new System.Drawing.Size(100, 25);
             this.txtGanancias.TabIndex = 31;
@@ -184,7 +184,7 @@
             // txtVentas
             // 
             this.txtVentas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVentas.Location = new System.Drawing.Point(707, 81);
+            this.txtVentas.Location = new System.Drawing.Point(707, 79);
             this.txtVentas.Name = "txtVentas";
             this.txtVentas.Size = new System.Drawing.Size(100, 25);
             this.txtVentas.TabIndex = 32;
