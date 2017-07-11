@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Heimdall.UserControl
@@ -15,6 +11,16 @@ namespace Heimdall.UserControl
         public UcIntervaloFechaEdit()
         {
             InitializeComponent();
+        }
+
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se filtra por las fechas definidas.")]
+        public event AddActionEventHandler FiltrarAction;
+
+        protected virtual void OnFiltrarAction(EventArgs e)
+        {
+            FiltrarAction?.Invoke(this, e);
         }
 
 
@@ -39,6 +45,11 @@ namespace Heimdall.UserControl
         {
             get { return dtpFechaFin.Value; }
             set { dtpFechaFin.Value = value; }
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            OnFiltrarAction(new EventArgs());
         }
     }
 }

@@ -114,6 +114,12 @@
     <Compile Include="FrmSeleccionarProductoProveedor.Designer.cs">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVenta.Designer.cs">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\AbmToolBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionarProductoProveedor.resx">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AbmToolBar.resx">
       <DependentUpon>AbmToolBar.cs</DependentUpon>

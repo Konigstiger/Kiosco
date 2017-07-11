@@ -34,6 +34,38 @@ namespace Data
             }
             return list;
         }
+        
+
+
+        public static List<VentaView> GetAll_ByDateInterval(DateTime fechaInicio, DateTime fechaFin)
+        {
+            var list = new List<VentaView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Venta_GetAll_ByDateInterval", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("FechaInicio", SqlDbType.Date) { Value = fechaInicio};
+                    var p2 = new SqlParameter("FechaFin", SqlDbType.Date) { Value = fechaFin};
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new VentaView();
+                            p.IdVenta = (long)rdr["IdVenta"];
+                            p.Cliente = (string)rdr["Cliente"];
+                            p.Fecha = (DateTime)rdr["Fecha"];
+                            p.Total = (decimal)rdr["Total"];
+                            p.Ganancia = (decimal)rdr["Ganancia"];
+                            p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
 
 
         public static VentaView GetByPrimaryKey(long idVenta)

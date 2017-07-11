@@ -244,7 +244,7 @@ namespace Kiosco
             SumImporte = 0;
 
             foreach (DataGridViewRow item in dgv.Rows) {
-                SumImporte += (decimal)item.Cells[5].Value;
+                SumImporte += (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
             }
             return SumImporte;
         }

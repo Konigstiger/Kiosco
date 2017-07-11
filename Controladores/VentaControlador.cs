@@ -13,6 +13,11 @@ namespace Controlador
             return VentaData.GetAll();
         }
 
+        public static List<VentaView> GetAll_ByDateInterval(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return VentaData.GetAll_ByDateInterval(fechaInicio, fechaFin);
+        }
+
         public static VentaView GetByPrimaryKey(int idVenta)
         {
             return VentaData.GetByPrimaryKey(idVenta);
