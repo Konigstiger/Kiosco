@@ -60,6 +60,7 @@ namespace Kiosco
             //btnAgregar.Enabled = false;
             //btnRemoverItem.Enabled = false;
             //btnModificar.Enabled = false;
+            btnVender.Enabled = false;
             dtpFechaActual.Value = DateTime.Today;
             txtClienteDescripcion.Enabled = false;
             txtIdCliente.Text = "1";
@@ -242,7 +243,6 @@ namespace Kiosco
         private decimal CalcularTotal()
         {
             SumImporte = 0;
-
             foreach (DataGridViewRow item in dgv.Rows) {
                 SumImporte += (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
             }
@@ -260,10 +260,7 @@ namespace Kiosco
         {
             dgv.Rows.Clear();
             ucVentaDetalleEdit1.Clear();
-
-            //btnAgregar.Enabled = false;
-            //btnModificar.Enabled = false;
-            //btnRemoverItem.Enabled = false;
+            btnVender.Enabled = false;
         }
 
 

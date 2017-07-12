@@ -11,6 +11,18 @@ namespace Heimdall.UserControl
         public UcIntervaloFechaEdit()
         {
             InitializeComponent();
+            btnFiltrar.MouseEnter += btnFiltrar_MouseEnter;
+            btnFiltrar.MouseLeave += btnFiltrar_MouseLeave;
+        }
+
+        private void btnFiltrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnFiltrar.Image = Properties.Resources.filter;
+        }
+
+        private void btnFiltrar_MouseEnter(object sender, EventArgs e)
+        {
+            btnFiltrar.Image = Properties.Resources.filter_hot;
         }
 
 

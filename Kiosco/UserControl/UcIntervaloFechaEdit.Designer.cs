@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcIntervaloFechaEdit));
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,7 +72,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
+            this.btnFiltrar.Image = global::Heimdall.Properties.Resources.filter;
             this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFiltrar.Location = new System.Drawing.Point(277, 24);
             this.btnFiltrar.Name = "btnFiltrar";

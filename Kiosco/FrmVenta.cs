@@ -56,6 +56,8 @@ namespace Heimdall
 
         public void CargarControles()
         {
+            ucIntervaloFechaEdit1.FechaInicio = DateTime.Today;
+            ucIntervaloFechaEdit1.FechaFin = DateTime.Today;
             CargarGrilla(tsbSearchTextBox.Text);
             txtGanancias.Text = CalcularGanancias().ToString();
             txtVentas.Text = CalcularVentas().ToString();

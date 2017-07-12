@@ -193,6 +193,7 @@
             // 
             this.ucVentaDetalleList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucVentaDetalleList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucVentaDetalleList1.IdVenta = ((long)(0));
             this.ucVentaDetalleList1.Location = new System.Drawing.Point(12, 568);
             this.ucVentaDetalleList1.Name = "ucVentaDetalleList1";
