@@ -8,35 +8,6 @@ namespace Data
 {
     public class VentaData
     {
-        public static List<VentaView> GetAll()
-        {
-            var list = new List<VentaView>();
-            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
-                using (var cmd = new SqlCommand("Venta_GetAll", conn)) {
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    conn.Open();
-                    using (var rdr = cmd.ExecuteReader()) {
-                        while (rdr.Read()) {
-                            var p = new VentaView {
-                                IdVenta = (long)rdr["IdVenta"],
-                                IdCliente = (long)rdr["IdCliente"],
-                                Total = (decimal)rdr["Total"],
-                                IdMovimientoCaja =
-                                    rdr["IdMovimientoCaja"] != DBNull.Value ? (long)rdr["IdMovimientoCaja"] : 0,
-                                Fecha = (DateTime)rdr["Fecha"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
-                            };
-                            list.Add(p);
-                        }
-                    }
-                }
-            }
-            return list;
-        }
-        
-
-
         public static List<VentaView> GetAll_ByDateInterval(DateTime fechaInicio, DateTime fechaFin)
         {
             var list = new List<VentaView>();
@@ -44,8 +15,8 @@ namespace Data
                 using (var cmd = new SqlCommand("Venta_GetAll_ByDateInterval", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("FechaInicio", SqlDbType.Date) { Value = fechaInicio};
-                    var p2 = new SqlParameter("FechaFin", SqlDbType.Date) { Value = fechaFin};
+                    var p1 = new SqlParameter("FechaInicio", SqlDbType.Date) { Value = fechaInicio };
+                    var p2 = new SqlParameter("FechaFin", SqlDbType.Date) { Value = fechaFin };
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
 
@@ -56,6 +27,7 @@ namespace Data
                             p.IdVenta = (long)rdr["IdVenta"];
                             p.Cliente = (string)rdr["Cliente"];
                             p.Fecha = (DateTime)rdr["Fecha"];
+                            p.Hora = rdr["Hora"] != DBNull.Value ? (TimeSpan)rdr["Hora"] : TimeSpan.Zero;
                             p.Total = (decimal)rdr["Total"];
                             p.Ganancia = (decimal)rdr["Ganancia"];
                             p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
@@ -89,6 +61,7 @@ namespace Data
                                 ? (long)rdr["IdMovimientoCaja"]
                                 : 0;
                             c.Fecha = (DateTime)rdr["Fecha"];
+                            c.Hora = rdr["Hora"] != DBNull.Value ? (TimeSpan)rdr["Hora"] : TimeSpan.Zero;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
@@ -109,14 +82,16 @@ namespace Data
                     var p1 = new SqlParameter("IdCliente", SqlDbType.BigInt) { Value = model.IdCliente };
                     var p2 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
                     var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
-                    var p4 = new SqlParameter("IdMovimientoCaja", SqlDbType.BigInt) { Value = model.IdMovimientoCaja };
-                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p4 = new SqlParameter("Hora", SqlDbType.Time) { Value = model.Hora };
+                    var p5 = new SqlParameter("IdMovimientoCaja", SqlDbType.BigInt) { Value = model.IdMovimientoCaja };
+                    var p6 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
 
                     conn.Open();
                     idVenta = (long)cmd.ExecuteScalar();
@@ -136,9 +111,10 @@ namespace Data
                     var p1 = new SqlParameter("IdCliente", SqlDbType.BigInt) { Value = model.IdCliente };
                     var p2 = new SqlParameter("Total", SqlDbType.Decimal) { Value = model.Total };
                     var p3 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
-                    var p4 = new SqlParameter("Ganancia", SqlDbType.Decimal) { Value = model.Ganancia };
-                    var p5 = new SqlParameter("IdMovimientoCaja", SqlDbType.BigInt) { Value = model.IdMovimientoCaja };
-                    var p6 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p4 = new SqlParameter("Hora", SqlDbType.Time) { Value = model.Hora };
+                    var p5 = new SqlParameter("Ganancia", SqlDbType.Decimal) { Value = model.Ganancia };
+                    var p6 = new SqlParameter("IdMovimientoCaja", SqlDbType.BigInt) { Value = model.IdMovimientoCaja };
+                    var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -147,6 +123,7 @@ namespace Data
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
                     cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
 
                     conn.Open();
                     cmd.ExecuteScalar();

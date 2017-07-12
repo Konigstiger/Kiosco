@@ -222,6 +222,7 @@ namespace Kiosco
                 IdCliente = 1,
                 Total = modelMovimientoCaja.Monto,
                 Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                Hora = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second),
                 IdMovimientoCaja = modelMovimientoCaja.IdMovimientoCaja,
                 PendientePago = false,
                 Notas = ""

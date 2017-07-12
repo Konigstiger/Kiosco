@@ -14,8 +14,7 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 6;
-        //private const int colCount = 7;
+        private const int colCount = 7;
 
         private List<VentaView> origenDatos = null;
 
@@ -80,10 +79,10 @@ namespace Heimdall
             Util.SetColumn(c[(int)VentaView.GridColumn.IdVenta], "IdVenta", "IdVenta", 0);
             Util.SetColumn(c[(int)VentaView.GridColumn.Cliente], "Cliente", "Cliente", 1);
             Util.SetColumn(c[(int)VentaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
-            //Util.SetColumn(c[(int)VentaView.GridColumn.Hora], "Hora", "Hora", 3);
-            Util.SetColumn(c[(int)VentaView.GridColumn.Total], "Total", "Total", 3);
-            Util.SetColumn(c[(int)VentaView.GridColumn.Ganancia], "Ganancia", "Ganancia", 4);
-            Util.SetColumn(c[(int)VentaView.GridColumn.Notas], "Notas", "Notas", 5);
+            Util.SetColumn(c[(int)VentaView.GridColumn.Hora], "Hora", "Hora", 3);
+            Util.SetColumn(c[(int)VentaView.GridColumn.Total], "Total", "Total", 4);
+            Util.SetColumn(c[(int)VentaView.GridColumn.Ganancia], "Ganancia", "Ganancia", 5);
+            Util.SetColumn(c[(int)VentaView.GridColumn.Notas], "Notas", "Notas", 6);
             dgv.Columns.AddRange(c);
 
 

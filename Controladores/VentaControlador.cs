@@ -8,11 +8,6 @@ namespace Controlador
 {
     public class VentaControlador
     {
-        public static List<VentaView> GetAll()
-        {
-            return VentaData.GetAll();
-        }
-
         public static List<VentaView> GetAll_ByDateInterval(DateTime fechaInicio, DateTime fechaFin)
         {
             return VentaData.GetAll_ByDateInterval(fechaInicio, fechaFin);

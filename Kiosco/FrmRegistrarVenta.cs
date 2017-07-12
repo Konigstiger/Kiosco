@@ -359,6 +359,7 @@ namespace Kiosco
                 IdCliente = Convert.ToInt64(txtIdCliente.Text.Trim()),
                 Total = modelMovimientoCaja.Monto,
                 Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString()),
+                Hora = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second),
                 IdMovimientoCaja = modelMovimientoCaja.IdMovimientoCaja,
                 PendientePago = false,
                 Notas = ""
