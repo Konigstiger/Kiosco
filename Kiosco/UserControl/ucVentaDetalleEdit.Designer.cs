@@ -45,6 +45,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRemoverItem = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnActualizarStock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
@@ -245,10 +246,21 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnActualizarStock
+            // 
+            this.btnActualizarStock.Location = new System.Drawing.Point(899, 28);
+            this.btnActualizarStock.Name = "btnActualizarStock";
+            this.btnActualizarStock.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizarStock.TabIndex = 100;
+            this.btnActualizarStock.Text = "Actualizar";
+            this.btnActualizarStock.UseVisualStyleBackColor = true;
+            this.btnActualizarStock.Click += new System.EventHandler(this.btnActualizarStock_Click);
+            // 
             // UcVentaDetalleEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnActualizarStock);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRemoverItem);
             this.Controls.Add(this.btnAgregar);
@@ -268,7 +280,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcVentaDetalleEdit";
-            this.Size = new System.Drawing.Size(904, 57);
+            this.Size = new System.Drawing.Size(981, 57);
             this.Load += new System.EventHandler(this.UcVentaDetalleEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
@@ -297,5 +309,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRemoverItem;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnActualizarStock;
     }
 }

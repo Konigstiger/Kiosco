@@ -260,6 +260,7 @@ namespace Heimdall.UserControl
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             btnModificar.Enabled = true;
+            nudCantidad.Value = 1;
             OnAddAction(new EventArgs());
         }
 
@@ -310,6 +311,28 @@ namespace Heimdall.UserControl
         public new void Focus()
         {
             txtCodigoBarras.Focus();
+        }
+
+        private void btnActualizarStock_Click(object sender, EventArgs e)
+        {
+            ActualizarStock();
+        }
+
+        private void ActualizarStock()
+        {
+            var cantidad = Convert.ToInt32(txtStock.Text.Trim());
+            var idProducto = Convert.ToInt64(txtIdProducto.Text.Trim());
+            var idDeposito = Deposito.IdDepositoNegocio;
+
+            var s = new Stock {
+                IdProducto = idProducto,
+                IdDeposito = idDeposito,
+                Cantidad = cantidad,
+                IdStock = -1
+            };
+
+            //invocar a metodo update de Clase Stock
+            var res = StockControlador.Update(s);
         }
     }
 }

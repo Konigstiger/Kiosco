@@ -231,11 +231,13 @@ namespace Kiosco
                 var cantidad = (int)item.Cells[(int)VentaGridColumn.Cantidad].Value;
                 var precioUnitario = (decimal)item.Cells[(int)VentaGridColumn.Precio].Value;
                 var importe = (decimal)item.Cells[(int)VentaGridColumn.Importe].Value;
+                var descripcion = (string)item.Cells[(int)VentaGridColumn.Descripcion].Value;
 
                 ucVentaDetalleEdit1.Cantidad = cantidad;
                 ucVentaDetalleEdit1.CodigoBarras = codigoBarras;
                 ucVentaDetalleEdit1.Importe = importe;
                 ucVentaDetalleEdit1.PrecioVenta = precioUnitario;
+                ucVentaDetalleEdit1.Descripcion = descripcion;
             }
         }
 
@@ -261,6 +263,7 @@ namespace Kiosco
             dgv.Rows.Clear();
             ucVentaDetalleEdit1.Clear();
             btnVender.Enabled = false;
+            nudTotal.Value = 0;
         }
 
 

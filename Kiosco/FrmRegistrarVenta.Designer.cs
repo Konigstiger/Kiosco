@@ -41,9 +41,9 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnVender = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ucNotification1 = new Kiosco.UcNotification();
             this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
-            this.ucNotification1 = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTotal)).BeginInit();
@@ -187,6 +187,17 @@
             this.panel1.Size = new System.Drawing.Size(1157, 76);
             this.panel1.TabIndex = 73;
             // 
+            // ucNotification1
+            // 
+            this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucNotification1.Location = new System.Drawing.Point(6, 6);
+            this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
+            this.ucNotification1.Name = "ucNotification1";
+            this.ucNotification1.Size = new System.Drawing.Size(603, 64);
+            this.ucNotification1.TabIndex = 72;
+            this.ucNotification1.Text = "ucNotification1";
+            this.ucNotification1.Visible = false;
+            // 
             // btnSeleccionarCliente
             // 
             this.btnSeleccionarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarCliente.Image")));
@@ -218,23 +229,12 @@
             0,
             0,
             0});
-            this.ucVentaDetalleEdit1.Size = new System.Drawing.Size(904, 57);
+            this.ucVentaDetalleEdit1.Size = new System.Drawing.Size(1157, 57);
             this.ucVentaDetalleEdit1.Stock = 0;
             this.ucVentaDetalleEdit1.TabIndex = 74;
             this.ucVentaDetalleEdit1.AddAction += new Heimdall.UserControl.AddActionEventHandler(this.ucVentaDetalleEdit1_AddAction);
             this.ucVentaDetalleEdit1.UpdateAction += new Heimdall.UserControl.UpdateActionEventHandler(this.ucVentaDetalleEdit1_UpdateAction);
             this.ucVentaDetalleEdit1.RemoveAction += new Heimdall.UserControl.RemoveActionEventHandler(this.ucVentaDetalleEdit1_RemoveAction);
-            // 
-            // ucNotification1
-            // 
-            this.ucNotification1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucNotification1.Location = new System.Drawing.Point(6, 6);
-            this.ucNotification1.Margin = new System.Windows.Forms.Padding(6);
-            this.ucNotification1.Name = "ucNotification1";
-            this.ucNotification1.Size = new System.Drawing.Size(603, 64);
-            this.ucNotification1.TabIndex = 72;
-            this.ucNotification1.Text = "ucNotification1";
-            this.ucNotification1.Visible = false;
             // 
             // FrmRegistrarVenta
             // 

@@ -18,7 +18,7 @@ namespace Kiosco
 
         private List<ProductoView> origenDatos = null;
 
-        
+
 
         public FrmSeleccionarProducto()
         {
@@ -120,11 +120,14 @@ namespace Kiosco
             CargarControles();
             LimpiarControles();
             _modo = ModoFormulario.Edicion;
+
         }
 
         private void CargarControles()
         {
             CargarGrilla(tsbSearchTextBox.Text);
+            //ToggleSearch();
+            //tsbSearchTextBox.Focus();
         }
 
         public void LimpiarControles()
@@ -142,14 +145,6 @@ namespace Kiosco
 
         private void dgv_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var messageBoxCs = new StringBuilder();
-            messageBoxCs.AppendFormat("{0} = {1}", "ColumnIndex", e.ColumnIndex);
-            messageBoxCs.AppendLine();
-            messageBoxCs.AppendFormat("{0} = {1}", "RowIndex", e.RowIndex);
-            messageBoxCs.AppendLine();
-
-            ucProductoEdit1.Notas = messageBoxCs.ToString();
-
             //obtener el numero de row, y con eso, obtener los demas datos.
 
             var idProducto = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value);
@@ -158,17 +153,17 @@ namespace Kiosco
             //Comunicar las ventanas entre si...
             CallerForm.IdProducto = idProducto;
 
-
-            if (tsbCloseOnSelect.Checked)
-            {
+            if (tsbCloseOnSelect.Checked) {
                 CerrarVentana();
             }
         }
+
 
         private void tsbSearch_Click(object sender, EventArgs e)
         {
             ToggleSearch();
         }
+
 
         private void ToggleSearch()
         {
@@ -177,6 +172,7 @@ namespace Kiosco
             tsbSearchClearAndPerform.Visible = !tsbSearchClearAndPerform.Visible;
             tsbSearchTextBox.Focus();
         }
+
 
         private void ucProductoEdit1_StockChanged(object sender, ValueChangedEventArgs e)
         {
@@ -214,8 +210,8 @@ namespace Kiosco
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
+
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
