@@ -1,4 +1,4 @@
-﻿namespace Kiosco.UserControl
+﻿namespace Heimdall.UserControl
 {
     partial class ucProductoEdit
     {
@@ -57,12 +57,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.nudCapacidad = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMarca
@@ -308,7 +311,7 @@
             // 
             this.chkSoloAdultos.AutoSize = true;
             this.chkSoloAdultos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.chkSoloAdultos.Location = new System.Drawing.Point(659, 163);
+            this.chkSoloAdultos.Location = new System.Drawing.Point(659, 141);
             this.chkSoloAdultos.Name = "chkSoloAdultos";
             this.chkSoloAdultos.Size = new System.Drawing.Size(144, 22);
             this.chkSoloAdultos.TabIndex = 63;
@@ -363,11 +366,36 @@
             this.label1.TabIndex = 58;
             this.label1.Text = "Código:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(571, 172);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 18);
+            this.label11.TabIndex = 78;
+            this.label11.Text = "Capacidad:";
+            // 
+            // nudCapacidad
+            // 
+            this.nudCapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.nudCapacidad.Location = new System.Drawing.Point(659, 169);
+            this.nudCapacidad.Name = "nudCapacidad";
+            this.nudCapacidad.Size = new System.Drawing.Size(141, 24);
+            this.nudCapacidad.TabIndex = 79;
+            this.nudCapacidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // ucProductoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.nudCapacidad);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtIdMarca);
             this.Controls.Add(this.btnAbmMarca);
@@ -402,6 +430,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMaximo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,5 +467,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown nudCapacidad;
     }
 }

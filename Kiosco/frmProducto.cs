@@ -5,16 +5,17 @@ using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
+using Kiosco;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmProducto : Form, IAbmGeneral
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 8;
+        private const int colCount = 9;
 
         private List<ProductoView> origenDatos = null;
 
@@ -98,11 +99,12 @@ namespace Kiosco
             Util.SetColumn(c[(int)ProductoView.GridColumn.IdProducto], "IdProducto", "IdProducto", 0);
             Util.SetColumn(c[(int)ProductoView.GridColumn.CodigoBarras], "CodigoBarras", "Código", 1);
             Util.SetColumn(c[(int)ProductoView.GridColumn.Descripcion], "Descripcion", "Descripción", 2);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Precio], "Precio", "Precio", 3);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Ganancia], "Ganancia", "Ganancia", 4);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Marca], "Marca", "Marca", 5);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 6);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 7);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Capacidad], "Capacidad", "Capacidad", 3);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Precio], "Precio", "Precio", 4);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Ganancia], "Ganancia", "Ganancia", 5);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Marca], "Marca", "Marca", 6);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 7);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 8);
             dgv.Columns.AddRange(c);
 
 
@@ -195,6 +197,7 @@ namespace Kiosco
                 IdProducto = -1,
                 CodigoBarras = ucProductoEdit1.CodigoBarras,
                 Descripcion = ucProductoEdit1.Descripcion,
+                Capacidad = ucProductoEdit1.Capacidad,
                 PrecioVenta = ucProductoEdit1.PrecioVenta,
                 StockMinimo = ucProductoEdit1.StockMinimo,
                 StockMaximo = ucProductoEdit1.StockMaximo,
@@ -241,6 +244,7 @@ namespace Kiosco
                     IdProducto = ucProductoEdit1.IdProducto,
                     CodigoBarras = ucProductoEdit1.CodigoBarras,
                     Descripcion = ucProductoEdit1.Descripcion,
+                    Capacidad = ucProductoEdit1.Capacidad,
                     PrecioVenta = ucProductoEdit1.PrecioVenta,
                     StockMinimo = ucProductoEdit1.StockMinimo,
                     StockMaximo = ucProductoEdit1.StockMaximo,
@@ -266,6 +270,7 @@ namespace Kiosco
 
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = m.CodigoBarras;
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Capacidad].Value = m.Capacidad;
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Precio].Value = m.PrecioVenta.ToString("N");
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Ganancia].Value = cc.ToString() + " %";
 

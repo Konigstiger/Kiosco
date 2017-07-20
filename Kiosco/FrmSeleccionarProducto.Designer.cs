@@ -1,6 +1,6 @@
 ﻿using Heimdall.UserControl;
 
-namespace Kiosco
+namespace Heimdall
 {
     partial class FrmSeleccionarProducto
     {
@@ -41,7 +41,7 @@ namespace Kiosco
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
-            this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
+            this.ucProductoEdit1 = new ucProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -203,7 +203,7 @@ namespace Kiosco
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
-        private UserControl.ucProductoEdit ucProductoEdit1;
+        private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbCloseOnSelect;
     }

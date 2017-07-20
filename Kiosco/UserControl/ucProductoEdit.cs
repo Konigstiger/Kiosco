@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall.UserControl;
+using Kiosco;
 using Model;
 
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     public partial class ucProductoEdit : System.Windows.Forms.UserControl, ISelectorMarca
     {
@@ -281,6 +281,18 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("Capacidad."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int Capacidad
+        {
+            get { return (int)nudCapacidad.Value; }
+            set { nudCapacidad.Value = value; }
+        }
+
+
         private void txtIdProducto_TextChanged(object sender, EventArgs e)
         {
             if (DesignMode)
@@ -292,6 +304,7 @@ namespace Kiosco.UserControl
 
             txtCodigoBarras.Text = c.CodigoBarras;
             txtDescripcion.Text = c.Descripcion;
+            nudCapacidad.Value = c.Capacidad;
             nudPrecio.Value = c.PrecioVenta;
             nudStockMinimo.Value = c.StockMinimo;
             nudStockMaximo.Value = c.StockMaximo;
@@ -326,6 +339,7 @@ namespace Kiosco.UserControl
 
             txtMarca.Text = c.Descripcion;
         }
+
 
         public void Clear()
         {
@@ -399,9 +413,12 @@ namespace Kiosco.UserControl
             nudStockMaximo.Maximum = 9999;
             nudStockMinimo.Minimum = 0;
             nudStockMinimo.Maximum = 9999;
+            nudCapacidad.Minimum = 0;
+            nudCapacidad.Maximum = 9999;
             nudStockActual.Increment = 1;
             nudStockMaximo.Increment = 1;
             nudStockMinimo.Increment = 1;
+            nudCapacidad.Increment = 250;
             txtIdMarca.Visible = false;
 
             txtDescripcion.MaxLength = 255;

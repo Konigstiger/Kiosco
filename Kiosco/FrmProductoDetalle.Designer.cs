@@ -1,4 +1,6 @@
-﻿namespace Kiosco
+﻿using Kiosco;
+
+namespace Heimdall
 {
     partial class FrmProductoDetalle
     {
@@ -656,7 +658,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private UserControl.ucProveedorList ucProveedorList1;
+        private Kiosco.UserControl.ucProveedorList ucProveedorList1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.NumericUpDown nudCantidadVenta;
         private System.Windows.Forms.Label label8;

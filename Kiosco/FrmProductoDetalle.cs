@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Kiosco;
 using Model;
-using NLog;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmProductoDetalle : Form, ISelectorProducto
     {

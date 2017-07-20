@@ -39,7 +39,7 @@ namespace Kiosco
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
+            this.ucProductoEdit1 = new ucProductoEdit();
             this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -196,7 +196,7 @@ namespace Kiosco
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
-        private UserControl.ucProductoEdit ucProductoEdit1;
+        private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ToolStripButton tsbCloseOnSelect;
     }
 }

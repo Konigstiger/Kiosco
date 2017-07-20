@@ -29,7 +29,8 @@ namespace Data
                                 SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false,
                                 StockMinimo = (int)rdr["StockMinimo"],
                                 StockMaximo = (int)rdr["StockMaximo"],
-                                IdUnidad = (int)rdr["IdUnidad"]
+                                IdUnidad = (int)rdr["IdUnidad"],
+                                Capacidad = (int)rdr["Capacidad"]
                             };
 
                             list.Add(p);
@@ -54,6 +55,7 @@ namespace Data
                                 IdProducto = (long)rdr["IdProducto"],
                                 CodigoBarras = (string)rdr["CodigoBarras"],
                                 Descripcion = (string)rdr["Descripcion"],
+                                Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Marca = (string)rdr["Marca"],
                                 Rubro = (string)rdr["Rubro"],
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0
@@ -83,6 +85,7 @@ namespace Data
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.CodigoBarras = (string)rdr["CodigoBarras"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                             //TODO: Continuar aqui...
                         }
@@ -109,6 +112,7 @@ namespace Data
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.CodigoBarras = (string)rdr["CodigoBarras"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.PrecioVenta = (decimal)rdr["PrecioVenta"];
                             c.PrecioCostoPromedio = (decimal)rdr["PrecioCostoPromedio"];
                             c.SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false;
@@ -152,7 +156,8 @@ namespace Data
                                 Ganancia = (string)rdr["Ganancia"],
                                 Stock = (int)rdr["Stock"],
                                 Marca = (string)rdr["Marca"],
-                                Rubro = (string)rdr["Rubro"]
+                                Rubro = (string)rdr["Rubro"],
+                                Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0
                             };
                             list.Add(p);
                         }
@@ -183,6 +188,7 @@ namespace Data
                                 IdProducto = (long)rdr["IdProducto"],
                                 CodigoBarras = (string)rdr["CodigoBarras"],
                                 Descripcion = (string)rdr["Descripcion"],
+                                Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
                                 Ganancia = (string)rdr["Ganancia"],
                                 Marca = (string)rdr["Marca"],
@@ -217,6 +223,7 @@ namespace Data
                                 IdProducto = (long)rdr["IdProducto"],
                                 CodigoBarras = (string)rdr["CodigoBarras"],
                                 Descripcion = (string)rdr["Descripcion"],
+                                Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
                                 Ganancia = (string)rdr["Ganancia"],
                                 Marca = (string)rdr["Marca"],
@@ -250,6 +257,7 @@ namespace Data
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.CodigoBarras = (string)rdr["CodigoBarras"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.Precio = (decimal)rdr["Precio"];
                             c.PrecioCosto = (decimal)rdr["PrecioCosto"];
                             //c.Ganancia = (string)rdr["Ganancia"];
@@ -282,6 +290,7 @@ namespace Data
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.CodigoBarras = (string)rdr["CodigoBarras"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.PrecioVenta = (decimal)rdr["PrecioVenta"];
                             c.PrecioCostoPromedio = (decimal)rdr["PrecioCostoPromedio"];
                             c.IdRubro = (int)rdr["IdRubro"];
@@ -308,16 +317,17 @@ namespace Data
 
                     var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
                     var p2 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
-                    var p3 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
-                    var p4 = new SqlParameter("PrecioCostoPromedio", SqlDbType.Decimal) {
+                    var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad };
+                    var p4 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
+                    var p5 = new SqlParameter("PrecioCostoPromedio", SqlDbType.Decimal) {
                         Value = model.PrecioCostoPromedio
                     };
-                    var p5 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
-                    var p6 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
-                    var p7 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
-                    var p8 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
-                    var p9 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
-                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p6 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
+                    var p7 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
+                    var p8 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
+                    var p9 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
+                    var p10 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
+                    var p11 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -329,6 +339,7 @@ namespace Data
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
                     cmd.Parameters.Add(p10);
+                    cmd.Parameters.Add(p11);
 
                     conn.Open();
                     idProducto = (long)cmd.ExecuteScalar();
@@ -347,16 +358,18 @@ namespace Data
                     var p0 = new SqlParameter("IdProducto", SqlDbType.VarChar) { Value = model.IdProducto };
                     var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
                     var p2 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
-                    var p3 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
-                    var p4 = new SqlParameter("PrecioCostoPromedio", SqlDbType.Decimal) {
+                    var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad};
+
+                    var p4 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
+                    var p5 = new SqlParameter("PrecioCostoPromedio", SqlDbType.Decimal) {
                         Value = model.PrecioCostoPromedio
                     };
-                    var p5 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
-                    var p6 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
-                    var p7 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
-                    var p8 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
-                    var p9 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
-                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
+                    var p6 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
+                    var p7 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
+                    var p8 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
+                    var p9 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
+                    var p10 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
+                    var p11 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -369,6 +382,7 @@ namespace Data
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
                     cmd.Parameters.Add(p10);
+                    cmd.Parameters.Add(p11);
 
                     conn.Open();
                     model.IdProducto = (long)cmd.ExecuteScalar();

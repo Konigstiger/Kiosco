@@ -20,6 +20,7 @@ namespace Model
         public string Marca { get; set; }
 
         public string Rubro { get; set; }
+        public string Unidad { get; set; }
 
         public decimal Precio { get; set; }
 
@@ -27,20 +28,24 @@ namespace Model
 
         public int Stock { get; set; }
 
+        public int Capacidad { get; set; }
+
         public string Ganancia { get; set; }
 
         public string Notas { get; set; }
+
 
         public enum GridColumn
         {
             IdProducto = 0,
             CodigoBarras = 1,
             Descripcion = 2,
-            Precio = 3,
-            Ganancia = 4,
-            Marca = 5,
-            Stock = 6,
-            Rubro = 7
+            Capacidad = 3,
+            Precio = 4,
+            Ganancia = 5,
+            Marca = 6,
+            Stock = 7,
+            Rubro = 8
         }
 
     }

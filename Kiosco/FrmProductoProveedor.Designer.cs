@@ -45,7 +45,7 @@ namespace Kiosco
             this.label7 = new System.Windows.Forms.Label();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.ucProductoView1 = new Kiosco.UserControl.ucProductoView();
+            this.ucProductoView1 = new ucProductoView();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
             this.ucProveedorView1 = new Kiosco.UserControl.ucProveedorView();
             this.btnSetPrecioCosto = new System.Windows.Forms.Button();
@@ -308,7 +308,7 @@ namespace Kiosco
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtIdProductoProveedor;
         private UserControl.ucProveedorView ucProveedorView1;
-        private UserControl.ucProductoView ucProductoView1;
+        private ucProductoView ucProductoView1;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNotas;

@@ -1,6 +1,6 @@
 ﻿using Heimdall.UserControl;
 
-namespace Kiosco
+namespace Heimdall
 {
     partial class FrmProducto
     {
@@ -48,7 +48,7 @@ namespace Kiosco
             this.tpProducto = new System.Windows.Forms.TabPage();
             this.tpProveedores = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucProductoEdit1 = new Kiosco.UserControl.ucProductoEdit();
+            this.ucProductoEdit1 = new ucProductoEdit();
             this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -305,9 +305,9 @@ namespace Kiosco
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private UserControl.ucProveedorList ucProveedorList1;
+        private Kiosco.UserControl.ucProveedorList ucProveedorList1;
         private System.Windows.Forms.TabPage tpProducto;
-        private UserControl.ucProductoEdit ucProductoEdit1;
+        private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ImageList imageList1;
     }
 }

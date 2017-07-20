@@ -1,11 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
-
 using Controlador;
-using Heimdall.UserControl;
-using Model;
+using Kiosco;
 
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     public partial class ucProductoView : System.Windows.Forms.UserControl, ISelectorProducto
     {

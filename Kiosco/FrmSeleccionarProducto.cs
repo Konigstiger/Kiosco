@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
+using Kiosco;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmSeleccionarProducto : Form
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 8;
+        private const int colCount = 9;
 
         private List<ProductoView> origenDatos = null;
 
@@ -85,11 +85,12 @@ namespace Kiosco
             Util.SetColumn(c[(int)ProductoView.GridColumn.IdProducto], "IdProducto", "IdProducto", 0);
             Util.SetColumn(c[(int)ProductoView.GridColumn.CodigoBarras], "CodigoBarras", "Código", 1);
             Util.SetColumn(c[(int)ProductoView.GridColumn.Descripcion], "Descripcion", "Descripción", 2);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Precio], "Precio", "Precio", 3);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Ganancia], "Ganancia", "Ganancia", 4);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Marca], "Marca", "Marca", 5);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 6);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 7);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Capacidad], "Capacidad", "Capacidad", 3);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Precio], "Precio", "Precio", 4);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Ganancia], "Ganancia", "Ganancia", 5);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Marca], "Marca", "Marca", 6);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 7);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 8);
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
@@ -128,7 +129,24 @@ namespace Kiosco
             CargarGrilla(tsbSearchTextBox.Text);
             //ToggleSearch();
             //tsbSearchTextBox.Focus();
+            CargarSearchBoxSuggestions();
         }
+
+
+        private void CargarSearchBoxSuggestions()
+        {
+            //obtener origen de datos.
+            var list = ProductoControlador.GetAll_AutoComplete();
+
+            var ac = new AutoCompleteStringCollection();
+            foreach (var p in list) {
+                ac.Add(p.Descripcion);
+            }
+            //tsbSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            tsbSearchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            tsbSearchTextBox.AutoCompleteCustomSource = ac;
+        }
+
 
         public void LimpiarControles()
         {

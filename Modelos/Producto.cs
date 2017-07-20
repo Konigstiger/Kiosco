@@ -43,6 +43,7 @@ namespace Model
         public int StockMinimo { get; set; }
 
         public int StockMaximo { get; set; }
+        public int Capacidad { get; set; }
 
         public int? IdUnidad { get; set; }
 
@@ -77,6 +78,7 @@ namespace Model
                 IdUnidad = null,
                 PrecioCostoPromedio = 1,
                 PrecioVenta = v.Precio,
+                Capacidad = v.Capacidad,
                 SoloAdultos = null,
                 StockMaximo = 0,
                 StockMinimo = 0
