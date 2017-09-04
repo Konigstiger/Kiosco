@@ -147,7 +147,6 @@
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(411, 39);
             this.txtDescripcion.Name = "txtDescripcion";

@@ -48,7 +48,8 @@ namespace Heimdall
             this.tpProducto = new System.Windows.Forms.TabPage();
             this.tpProveedores = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucProductoEdit1 = new ucProductoEdit();
+            this.ucPrecioGananciaEdit1 = new Heimdall.UserControl.UcPrecioGananciaEdit();
+            this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -144,6 +145,7 @@ namespace Heimdall
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
             this.tsbSearchTextBox.Size = new System.Drawing.Size(200, 31);
             this.tsbSearchTextBox.Visible = false;
+            this.tsbSearchTextBox.Enter += new System.EventHandler(this.tsbSearchTextBox_Enter);
             this.tsbSearchTextBox.Leave += new System.EventHandler(this.tsbSearchTextBox_Leave);
             this.tsbSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProducto_KeyDown);
             // 
@@ -218,9 +220,17 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "trolley.png");
             this.imageList1.Images.SetKeyName(5, "package.png");
             // 
+            // ucPrecioGananciaEdit1
+            // 
+            this.ucPrecioGananciaEdit1.Location = new System.Drawing.Point(951, 533);
+            this.ucPrecioGananciaEdit1.Name = "ucPrecioGananciaEdit1";
+            this.ucPrecioGananciaEdit1.Size = new System.Drawing.Size(542, 81);
+            this.ucPrecioGananciaEdit1.TabIndex = 89;
+            // 
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucProductoEdit1.Capacidad = 1;
             this.ucProductoEdit1.CodigoBarras = "";
             this.ucProductoEdit1.Descripcion = "";
             this.ucProductoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -249,7 +259,7 @@ namespace Heimdall
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 34;
-            this.ucProductoEdit1.StockChanged += new ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
+            this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
             // ucProveedorList1
             // 
@@ -258,7 +268,7 @@ namespace Heimdall
             this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
             this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.ucProveedorList1.Name = "ucProveedorList1";
-            this.ucProveedorList1.Size = new System.Drawing.Size(905, 226);
+            this.ucProveedorList1.Size = new System.Drawing.Size(905, 227);
             this.ucProveedorList1.TabIndex = 87;
             // 
             // FrmProducto
@@ -266,6 +276,7 @@ namespace Heimdall
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1559, 781);
+            this.Controls.Add(this.ucPrecioGananciaEdit1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
@@ -309,6 +320,7 @@ namespace Heimdall
         private System.Windows.Forms.TabPage tpProducto;
         private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ImageList imageList1;
+        private UcPrecioGananciaEdit ucPrecioGananciaEdit1;
     }
 }
 

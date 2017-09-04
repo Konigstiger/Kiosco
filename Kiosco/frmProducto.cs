@@ -16,6 +16,7 @@ namespace Heimdall
 
         private int _rowIndex = 0;
         private const int colCount = 9;
+        private bool busquedaActiva = false;
 
         private List<ProductoView> origenDatos = null;
 
@@ -176,7 +177,7 @@ namespace Heimdall
                     ToggleSearch();
                     break;
                 case (Keys.Enter):
-                    if (!_ingresandoCodigo)
+                    if (busquedaActiva)
                         ExecuteSearch();
                     break;
 
@@ -357,18 +358,14 @@ namespace Heimdall
         }
 
 
-        private bool _ingresandoCodigo = false;
-
-
         private void FrmProducto_Leave(object sender, EventArgs e)
         {
-            _ingresandoCodigo = false;
         }
 
 
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
-            _ingresandoCodigo = true;
+            busquedaActiva = false;
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -407,6 +404,7 @@ namespace Heimdall
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            //TODO: Aqui puedo incluir el F3 y el Enter?
             switch (keyData) {
                 case (Keys.Control | Keys.G):
                     GuardarOInsertar();
@@ -421,6 +419,11 @@ namespace Heimdall
                     break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void tsbSearchTextBox_Enter(object sender, EventArgs e)
+        {
+            busquedaActiva = true;
         }
     }
 }
