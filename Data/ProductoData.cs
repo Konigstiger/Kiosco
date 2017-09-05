@@ -18,20 +18,19 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new Producto {
-                                IdProducto = (long)rdr["IdProducto"],
-                                CodigoBarras = (string)rdr["CodigoBarras"],
-                                Descripcion = (string)rdr["Descripcion"],
-                                PrecioVenta = rdr["PrecioVenta"] != DBNull.Value ? (decimal)rdr["PrecioVenta"] : 0,
-                                PrecioCostoPromedio = rdr["PrecioCostoPromedio"] != DBNull.Value ? (decimal)rdr["PrecioCostoPromedio"] : 0,
-                                IdRubro = (int)rdr["IdRubro"],
-                                IdMarca = (int)rdr["IdMarca"],
-                                SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false,
-                                StockMinimo = (int)rdr["StockMinimo"],
-                                StockMaximo = (int)rdr["StockMaximo"],
-                                IdUnidad = (int)rdr["IdUnidad"],
-                                Capacidad = (int)rdr["Capacidad"]
-                            };
+                            var p = new Producto();
+                            p.IdProducto = (long)rdr["IdProducto"];
+                            p.CodigoBarras = (string)rdr["CodigoBarras"];
+                            p.Descripcion = (string)rdr["Descripcion"];
+                            p.PrecioVenta = rdr["PrecioVenta"] != DBNull.Value ? (decimal)rdr["PrecioVenta"] : 0;
+                            p.PrecioCostoPromedio = rdr["PrecioCostoPromedio"] != DBNull.Value ? (decimal)rdr["PrecioCostoPromedio"] : 0;
+                            p.IdRubro = (int)rdr["IdRubro"];
+                            p.IdMarca = (int)rdr["IdMarca"];
+                            p.SoloAdultos = rdr["SoloAdultos"] != DBNull.Value ? (bool)rdr["SoloAdultos"] : false;
+                            p.StockMinimo = (int)rdr["StockMinimo"];
+                            p.StockMaximo = (int)rdr["StockMaximo"];
+                            p.IdUnidad = (int)rdr["IdUnidad"];
+                            //p.Capacidad = (int)rdr["Capacidad"];
 
                             list.Add(p);
                         }

@@ -106,6 +106,14 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controladores\Controlador.csproj">
+      <Project>{f7a39fc4-6f89-42b8-96bf-31d23075f08a}</Project>
+      <Name>Controlador</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kiosco\Aplicacion.csproj">
+      <Project>{9c0ef7a8-ea40-49e2-8e67-8ad1b968fcf7}</Project>
+      <Name>Aplicacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelos\Model.csproj">
       <Project>{04064249-d5ad-48ba-aba5-52768724cd94}</Project>
       <Name>Model</Name>
