@@ -46,11 +46,11 @@ namespace Heimdall
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProducto = new System.Windows.Forms.TabPage();
+            this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             this.tpProveedores = new System.Windows.Forms.TabPage();
+            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ucPrecioGananciaEdit1 = new Heimdall.UserControl.UcPrecioGananciaEdit();
-            this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
-            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -197,36 +197,6 @@ namespace Heimdall
             this.tpProducto.Text = "Producto";
             this.tpProducto.UseVisualStyleBackColor = true;
             // 
-            // tpProveedores
-            // 
-            this.tpProveedores.Controls.Add(this.ucProveedorList1);
-            this.tpProveedores.ImageIndex = 0;
-            this.tpProveedores.Location = new System.Drawing.Point(4, 24);
-            this.tpProveedores.Name = "tpProveedores";
-            this.tpProveedores.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProveedores.Size = new System.Drawing.Size(911, 232);
-            this.tpProveedores.TabIndex = 0;
-            this.tpProveedores.Text = "Proveedores";
-            this.tpProveedores.UseVisualStyleBackColor = true;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "users.png");
-            this.imageList1.Images.SetKeyName(1, "trucking.png");
-            this.imageList1.Images.SetKeyName(2, "dollar32.png");
-            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
-            this.imageList1.Images.SetKeyName(4, "trolley.png");
-            this.imageList1.Images.SetKeyName(5, "package.png");
-            // 
-            // ucPrecioGananciaEdit1
-            // 
-            this.ucPrecioGananciaEdit1.Location = new System.Drawing.Point(951, 533);
-            this.ucPrecioGananciaEdit1.Name = "ucPrecioGananciaEdit1";
-            this.ucPrecioGananciaEdit1.Size = new System.Drawing.Size(542, 81);
-            this.ucPrecioGananciaEdit1.TabIndex = 89;
-            // 
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -261,6 +231,18 @@ namespace Heimdall
             this.ucProductoEdit1.TabIndex = 34;
             this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
+            // tpProveedores
+            // 
+            this.tpProveedores.Controls.Add(this.ucProveedorList1);
+            this.tpProveedores.ImageIndex = 0;
+            this.tpProveedores.Location = new System.Drawing.Point(4, 24);
+            this.tpProveedores.Name = "tpProveedores";
+            this.tpProveedores.Padding = new System.Windows.Forms.Padding(3);
+            this.tpProveedores.Size = new System.Drawing.Size(911, 232);
+            this.tpProveedores.TabIndex = 0;
+            this.tpProveedores.Text = "Proveedores";
+            this.tpProveedores.UseVisualStyleBackColor = true;
+            // 
             // ucProveedorList1
             // 
             this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -268,8 +250,27 @@ namespace Heimdall
             this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
             this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.ucProveedorList1.Name = "ucProveedorList1";
-            this.ucProveedorList1.Size = new System.Drawing.Size(905, 227);
+            this.ucProveedorList1.Size = new System.Drawing.Size(905, 226);
             this.ucProveedorList1.TabIndex = 87;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "users.png");
+            this.imageList1.Images.SetKeyName(1, "trucking.png");
+            this.imageList1.Images.SetKeyName(2, "dollar32.png");
+            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(4, "trolley.png");
+            this.imageList1.Images.SetKeyName(5, "package.png");
+            // 
+            // ucPrecioGananciaEdit1
+            // 
+            this.ucPrecioGananciaEdit1.Location = new System.Drawing.Point(951, 533);
+            this.ucPrecioGananciaEdit1.Name = "ucPrecioGananciaEdit1";
+            this.ucPrecioGananciaEdit1.Size = new System.Drawing.Size(542, 81);
+            this.ucPrecioGananciaEdit1.TabIndex = 89;
+            this.ucPrecioGananciaEdit1.Visible = false;
             // 
             // FrmProducto
             // 
