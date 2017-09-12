@@ -9,7 +9,7 @@ namespace Data
 {
     public static class GeneralData
     {
-        private const string cadenaConexion = "Data Source=NOTEBOOK;Initial Catalog=Kiosco;Integrated Security=True";
+        private const string cadenaConexion = "Data Source=PHANTOM;Initial Catalog=Kiosco;Integrated Security=True";
 
         public static string CadenaConexion
         {

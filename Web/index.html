@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Aplicacion de Productos</title>
+    <title>Product App</title>
 </head>
 <body>
 
     <div>
-        <h2>Todos los Productos</h2>
+        <h2>All Products</h2>
         <ul id="products" />
     </div>
     <div>
-        <h2>Buscar por ID</h2>
+        <h2>Search by ID</h2>
         <input type="text" id="prodId" size="5" />
         <input type="button" value="Search" onclick="find();" />
         <p id="product" />
@@ -27,23 +27,23 @@
             // On success, 'data' contains a list of products.
             $.each(data, function (key, item) {
               // Add a list item for the product.
-              $('<li>', { text: formatItem(item) }).appendTo($('#producto'));
+              $('<li>', { text: formatItem(item) }).appendTo($('#products'));
             });
           });
     });
 
     function formatItem(item) {
-      return item.Name + ': $' + item.Price;
+      return item.Descripcion + ': $' + item.PrecioVenta;
     }
 
     function find() {
-      var id = $('#IdProducto').val();
+      var id = $('#prodId').val();
       $.getJSON(uri + '/' + id)
           .done(function (data) {
-            $('#producto').text(formatItem(data));
+            $('#product').text(formatItem(data));
           })
           .fail(function (jqXHR, textStatus, err) {
-            $('#producto').text('Error: ' + err);
+            $('#product').text('Error: ' + err);
           });
     }
     </script>
