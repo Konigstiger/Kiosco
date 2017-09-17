@@ -39,8 +39,8 @@ namespace Kiosco
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.ucProductoEdit1 = new ucProductoEdit();
             this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
+            this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,8 @@ namespace Kiosco
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
             this.tsbSearchTextBox.Size = new System.Drawing.Size(116, 31);
             this.tsbSearchTextBox.Visible = false;
-            this.tsbSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tsbSearchTextBox_KeyDown);
+            this.tsbSearchTextBox.Enter += new System.EventHandler(this.tsbSearchTextBox_Enter);
+            this.tsbSearchTextBox.Leave += new System.EventHandler(this.tsbSearchTextBox_Leave);
             // 
             // tsbSearchPerform
             // 
@@ -122,10 +123,22 @@ namespace Kiosco
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // tsbCloseOnSelect
+            // 
+            this.tsbCloseOnSelect.Checked = true;
+            this.tsbCloseOnSelect.CheckOnClick = true;
+            this.tsbCloseOnSelect.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tsbCloseOnSelect.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOnSelect.Image")));
+            this.tsbCloseOnSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseOnSelect.Name = "tsbCloseOnSelect";
+            this.tsbCloseOnSelect.Size = new System.Drawing.Size(142, 28);
+            this.tsbCloseOnSelect.Text = "Cerrar al Seleccionar";
+            // 
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucProductoEdit1.Capacidad = 1;
             this.ucProductoEdit1.CodigoBarras = "";
             this.ucProductoEdit1.Descripcion = "";
             this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,18 +166,7 @@ namespace Kiosco
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 38;
-            this.ucProductoEdit1.StockChanged += new ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
-            // 
-            // tsbCloseOnSelect
-            // 
-            this.tsbCloseOnSelect.Checked = true;
-            this.tsbCloseOnSelect.CheckOnClick = true;
-            this.tsbCloseOnSelect.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.tsbCloseOnSelect.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOnSelect.Image")));
-            this.tsbCloseOnSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCloseOnSelect.Name = "tsbCloseOnSelect";
-            this.tsbCloseOnSelect.Size = new System.Drawing.Size(142, 28);
-            this.tsbCloseOnSelect.Text = "Cerrar al Seleccionar";
+            this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
             // FrmSeleccionarProductoProveedor
             // 
@@ -175,10 +177,12 @@ namespace Kiosco
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.ucProductoEdit1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FrmSeleccionarProductoProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seleccionar Producto de Proveedor";
             this.Load += new System.EventHandler(this.FrmSeleccionarProductoProveedor_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSeleccionarProductoProveedor_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();

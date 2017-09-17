@@ -27,13 +27,13 @@
             // On success, 'data' contains a list of products.
             $.each(data, function (key, item) {
               // Add a list item for the product.
-              $('<li>', { text: formatItem(item) }).appendTo($('#producto'));
+              $('<li>', { text: formatItem(item) }).appendTo($('#product'));
             });
           });
     });
 
     function formatItem(item) {
-      return item.Name + ': $' + item.Price;
+      return item.Descripcion + ': $' + item.PrecioVenta;
     }
 
     function find() {

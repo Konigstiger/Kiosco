@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,6 +11,7 @@ namespace Kiosco
 {
     public partial class FrmSeleccionarProductoProveedor : Form
     {
+        private bool busquedaActiva = false;
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
@@ -184,16 +184,10 @@ namespace Kiosco
             CargarGrilla(tsbSearchTextBox.Text);
         }
 
-        private void tsbSearchTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private bool _ingresandoCodigo = false;
 
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
-            _ingresandoCodigo = true;
+            busquedaActiva = false;
         }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -216,6 +210,26 @@ namespace Kiosco
             _rowIndex = dgv.SelectedRows[0].Index;
 
             ucProductoEdit1.IdProducto = id;
+        }
+
+        private void FrmSeleccionarProductoProveedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode) {
+                case Keys.F3:
+                    tsbSearch.Checked = !tsbSearch.Checked;
+                    ToggleSearch();
+                    break;
+                case (Keys.Enter):
+                    if (busquedaActiva)
+                        ExecuteSearch();
+                    break;
+
+            }
+        }
+
+        private void tsbSearchTextBox_Enter(object sender, EventArgs e)
+        {
+            busquedaActiva = true;
         }
     }
 }
