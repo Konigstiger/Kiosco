@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Aplicacion de Productos</title>
+    <title>MaxiKiosco - Productos [beta]</title>
 </head>
 <body>
-
-    <div>
-        <h2>Todos los Productos</h2>
-        <ul id="products" />
-    </div>
     <div>
         <h2>Buscar por ID</h2>
         <input type="text" id="prodId" size="5" />
         <input type="button" value="Search" onclick="find();" />
         <p id="product" />
     </div>
+    <div>
+        <h2>Listado de Productos</h2>
+        <ul id="products" />
+    </div>
+
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
@@ -27,7 +27,7 @@
             // On success, 'data' contains a list of products.
             $.each(data, function (key, item) {
               // Add a list item for the product.
-              $('<li>', { text: formatItem(item) }).appendTo($('#product'));
+              $('<li>', { text: formatItem(item) }).appendTo($('#producto'));
             });
           });
     });
@@ -37,13 +37,13 @@
     }
 
     function find() {
-      var id = $('#IdProducto').val();
+      var id = $('#prodId').val();
       $.getJSON(uri + '/' + id)
           .done(function (data) {
-            $('#producto').text(formatItem(data));
+            $('#product').text(formatItem(data));
           })
           .fail(function (jqXHR, textStatus, err) {
-            $('#producto').text('Error: ' + err);
+            $('#product').text('Error: ' + err);
           });
     }
     </script>
