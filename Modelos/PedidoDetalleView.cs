@@ -17,7 +17,9 @@ namespace Model
         public decimal Importe { get; set; }
 
         public int? IdUnidad { get; set; }
+        public int? Capacidad { get; set; }
 
+        public string Marca { get; set; }
         public string Notas { get; set; }
 
         public enum GridColumn
@@ -28,7 +30,9 @@ namespace Model
             Unidad = 2,
             Producto = 3,
             Importe = 4,
-            Notas = 5
+            Marca = 5,
+            Capacidad = 6,
+            Notas = 7
         }
 
 

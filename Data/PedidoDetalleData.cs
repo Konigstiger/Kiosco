@@ -225,14 +225,17 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new PedidoDetalleView {
-                                IdPedidoDetalle = (long)rdr["IdPedidoDetalle"],
-                                IdProducto = (long)rdr["IdProducto"],
-                                Producto = (string)rdr["Producto"],
-                                Cantidad = (int)rdr["Cantidad"],
-                                Importe = (decimal)rdr["Importe"],
-                                Unidad = (string)rdr["Unidad"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            var p = new PedidoDetalleView
+                            {
+                                IdPedidoDetalle = (long) rdr["IdPedidoDetalle"],
+                                IdProducto = (long) rdr["IdProducto"],
+                                Producto = (string) rdr["Producto"],
+                                Cantidad = (int) rdr["Cantidad"],
+                                Importe = (decimal) rdr["Importe"],
+                                Unidad = (string) rdr["Unidad"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string) rdr["Notas"] : "",
+                                Capacidad = rdr["Capacidad"] != DBNull.Value ? (int) rdr["Capacidad"] : 0,
+                                Marca = (string) rdr["Marca"]
                             };
                             list.Add(p);
                         }

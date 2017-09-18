@@ -16,7 +16,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 6;
+        private const int colCount = 8;
 
         private List<PedidoDetalleView> _origenDatos = null;
 
@@ -94,7 +94,9 @@ namespace Kiosco
             Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Unidad], "Unidad", "Unidad", 2);
             Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Producto], "Producto", "Producto", 3);
             Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Importe], "Importe", "Importe", 4);
-            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Notas], "Notas", "Notas", 5);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Marca], "Marca", "Marca", 5);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Capacidad], "Capacidad", "Capacidad", 6);
+            Util.SetColumn(c[(int)PedidoDetalleView.GridColumn.Notas], "Notas", "Notas", 7);
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
