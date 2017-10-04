@@ -120,27 +120,7 @@
   <metadata name="formAssistant1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAbmMarca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAG
-        7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEgSURBVDhPjdI7
-        SgNRFIfxwRh1Cy7A1s7CILoBF5A+kM7C2sY1uADf7yrEB6KIQiws04mdnSA2Ctbj9w0zw2RyZ/TAL7kz
-        nP/JveFGcRz/C9VAGwMM0UEz2FxGGT7CA1qYxy06wUARZfgYPrygiyYcMgyGMlQWfsQKFvEEh7iTQTAo
-        yvAJrjGNJfTgEHficdp14VNcIQu/p9/uxKZDNELhSZzhEuXwDDzOASaS/orwBaZQDt8gD48MoAyfo4+q
-        8D7ycHmAv/yDbvp8j2J4DyPhpC9tXsAbNsGrfGgW3sVYOOlJPqJoCxvp2kEu1lAbluXZPzBXeHmHT+yg
-        MixrFa68GF7RZXxhG7VhWf55rvSNZ6zjz7CsV3jjvN+zoaZqcfQLILSnphb1LV8AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnSeleccionarMarca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAE
-        IQAABCEBWUxZGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD4SURBVDhPhdKx
-        DgFBEMbxoRKVTiVKoecBRLQiXkAnXkGnEqITp1IolCoPeP6zt9nMjXMm+Z3k253J3i3J8zyhZrggww1X
-        7NGx+6ziIdLGGRs0ShtEerhjbvO0Hh5F88AvWtQJw4o8HHvjFzyqhQeaLg/vXDr2L9QWI5dJZoM61ARr
-        l8nNBnWoPnYuk6sN6lALLF0W7rlnw1+oI7oukw7uNqxCjXH4yuPiHHrPLb8hrmvzG0+0S2tm0xB6z3pV
-        +rX1g+k767EP0OZl/E1D0oA4pIkR1thBG8I7U/p3/xpSGvCPNsXmNKRyY53QVDSv8Krc9E8c8hKR6QcR
-        SBnT6BRLxQAAAABJRU5ErkJggg==
-</value>
-  </data>
+  <metadata name="defaultLookAndFeel1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>150, 17</value>
+  </metadata>
 </root>

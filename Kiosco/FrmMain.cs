@@ -5,7 +5,7 @@ using Kiosco.UI;
 
 namespace Kiosco
 {
-    public partial class FrmMain :Form
+    public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
         public FrmMain()
         {
@@ -46,6 +46,16 @@ namespace Kiosco
             Util.CenterFormX(btnProductoProveedor, this);
             Util.CenterFormX(btnVenta, this);
             Util.CenterFormX(btnVentas, this);
+            Util.CenterFormX(btnCerrarSesion, this);
+            
+
+            if (Program.UsuarioConectado.Usr != "Admin")
+            {
+                btnAbmProveedor.Enabled = false;
+                btnProductoProveedor.Enabled = false;
+                btnEstadisticas.Enabled = false;
+                btnRecaudacion.Enabled = false;
+            }
         }
 
 

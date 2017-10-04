@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kiosco;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
-    public partial class FrmLogin : Form
+    public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
         public FrmLogin()
         {
@@ -18,12 +14,12 @@ namespace Kiosco
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            //this.BackColor = Color.Gray;
+            txtUser.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+            DialogResult = DialogResult.Cancel;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -35,7 +31,20 @@ namespace Kiosco
                 Pwd = txtPwd.Text.Trim()
             };
 
+            Program.UsuarioConectado = u;
+
+            DialogResult = DialogResult.OK;
+
+            //redirigir.
+            //Application.Run(new FrmMain());
+
+            //this.Close();
+
             //validar con metodo de ctrl
+            //if(!u.Usr.Equals("Admin"))
+
+            //var snapshot = cameraControl1.TakeSnapshot();
+            //snapshot.Save();
 
         }
     }

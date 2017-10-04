@@ -427,7 +427,7 @@ namespace Heimdall.UserControl
 
         private void txtCodigoBarras_TextChanged(object sender, EventArgs e)
         {
-
+            barCodeControl1.Text = txtCodigoBarras.Text.Trim();
         }
 
         private void txtCodigoBarras_KeyDown(object sender, KeyEventArgs e)

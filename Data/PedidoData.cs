@@ -133,7 +133,7 @@ namespace Data
                             c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
                             c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
-                            c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
+                            //c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
                             c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                             c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;

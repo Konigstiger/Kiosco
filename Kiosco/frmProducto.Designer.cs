@@ -50,7 +50,8 @@ namespace Heimdall
             this.tpProveedores = new System.Windows.Forms.TabPage();
             this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucPrecioGananciaEdit1 = new Heimdall.UserControl.UcPrecioGananciaEdit();
+            this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -64,13 +65,13 @@ namespace Heimdall
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 34);
+            this.dgv.Location = new System.Drawing.Point(12, 39);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1539, 469);
+            this.dgv.Size = new System.Drawing.Size(1539, 481);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -180,7 +181,7 @@ namespace Heimdall
             this.tabControl1.Controls.Add(this.tpProducto);
             this.tabControl1.Controls.Add(this.tpProveedores);
             this.tabControl1.ImageList = this.imageList1;
-            this.tabControl1.Location = new System.Drawing.Point(12, 509);
+            this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(919, 260);
@@ -264,24 +265,21 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "trolley.png");
             this.imageList1.Images.SetKeyName(5, "package.png");
             // 
-            // ucPrecioGananciaEdit1
+            // defaultLookAndFeel1
             // 
-            this.ucPrecioGananciaEdit1.Location = new System.Drawing.Point(951, 533);
-            this.ucPrecioGananciaEdit1.Name = "ucPrecioGananciaEdit1";
-            this.ucPrecioGananciaEdit1.Size = new System.Drawing.Size(542, 81);
-            this.ucPrecioGananciaEdit1.TabIndex = 89;
-            this.ucPrecioGananciaEdit1.Visible = false;
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Seven Classic";
             // 
             // FrmProducto
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 781);
-            this.Controls.Add(this.ucPrecioGananciaEdit1);
+            this.ClientSize = new System.Drawing.Size(1559, 793);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FrmProducto";
@@ -321,7 +319,8 @@ namespace Heimdall
         private System.Windows.Forms.TabPage tpProducto;
         private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ImageList imageList1;
-        private UcPrecioGananciaEdit ucPrecioGananciaEdit1;
+        private DevExpress.XtraBars.FormAssistant formAssistant1;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }
 
