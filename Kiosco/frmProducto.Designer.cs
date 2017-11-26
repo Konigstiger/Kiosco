@@ -65,13 +65,13 @@ namespace Heimdall
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 39);
+            this.dgv.Location = new System.Drawing.Point(12, 34);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1539, 481);
+            this.dgv.Size = new System.Drawing.Size(915, 481);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -92,7 +92,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1559, 31);
+            this.tsb.Size = new System.Drawing.Size(935, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -274,7 +274,7 @@ namespace Heimdall
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1559, 793);
+            this.ClientSize = new System.Drawing.Size(935, 793);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);

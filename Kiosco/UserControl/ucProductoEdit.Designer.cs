@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraPrinting.BarCode.Code39ExtendedGenerator code39ExtendedGenerator1 = new DevExpress.XtraPrinting.BarCode.Code39ExtendedGenerator();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProductoEdit));
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtIdMarca = new System.Windows.Forms.TextBox();
@@ -58,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.nudCapacidad = new System.Windows.Forms.NumericUpDown();
-            this.barCodeControl1 = new DevExpress.XtraEditors.BarCodeControl();
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.btnAbmMarca = new System.Windows.Forms.Button();
             this.btnSeleccionarMarca = new System.Windows.Forms.Button();
@@ -390,18 +388,6 @@
             0,
             0});
             // 
-            // barCodeControl1
-            // 
-            this.barCodeControl1.AutoModule = true;
-            this.barCodeControl1.Location = new System.Drawing.Point(255, 51);
-            this.barCodeControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barCodeControl1.Name = "barCodeControl1";
-            this.barCodeControl1.Padding = new System.Windows.Forms.Padding(9, 2, 9, 0);
-            this.barCodeControl1.Size = new System.Drawing.Size(190, 43);
-            code39ExtendedGenerator1.WideNarrowRatio = 3F;
-            this.barCodeControl1.Symbology = code39ExtendedGenerator1;
-            this.barCodeControl1.TabIndex = 80;
-            // 
             // btnAbmMarca
             // 
             this.btnAbmMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmMarca.Image")));
@@ -429,7 +415,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.barCodeControl1);
             this.Controls.Add(this.nudCapacidad);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtMarca);
@@ -503,7 +488,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown nudCapacidad;
-        private DevExpress.XtraEditors.BarCodeControl barCodeControl1;
         private DevExpress.XtraBars.FormAssistant formAssistant1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         //private DevExpress.Utils.Taskbar.TaskbarAssistant taskbarAssistant1;

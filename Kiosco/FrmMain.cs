@@ -100,11 +100,7 @@ namespace Kiosco
             f.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var f = new FrmDemo();
-            f.Show();
-        }
+
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
@@ -115,6 +111,12 @@ namespace Kiosco
         private void btnVentas_Click(object sender, EventArgs e)
         {
             var f = new FrmVenta();
+            f.Show();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            var f = new FrmProducto2();
             f.Show();
         }
     }

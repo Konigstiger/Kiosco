@@ -29,7 +29,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.button1 = new System.Windows.Forms.Button();
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.btnVenta = new DevExpress.XtraEditors.SimpleButton();
@@ -47,20 +46,10 @@
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.btnCerrarSesion = new DevExpress.XtraEditors.SimpleButton();
             this.btnConsultaProducto = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.styleController1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "demo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // defaultLookAndFeel1
             // 
@@ -248,6 +237,18 @@
             this.btnConsultaProducto.Text = "Consulta de Productos";
             this.btnConsultaProducto.Click += new System.EventHandler(this.btnConsultaProducto_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.ImageIndex = 3;
+            this.simpleButton1.ImageOptions.ImageList = this.imageCollection1;
+            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(292, 58);
+            this.simpleButton1.StyleController = this.styleController1;
+            this.simpleButton1.TabIndex = 26;
+            this.simpleButton1.Text = "Productos 2";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // FrmMain
             // 
             this.Appearance.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -256,6 +257,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 961);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnOpciones);
@@ -269,7 +271,6 @@
             this.Controls.Add(this.btnVentas);
             this.Controls.Add(this.btnConsultaProducto);
             this.Controls.Add(this.btnVenta);
-            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -285,7 +286,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private DevExpress.XtraBars.FormAssistant formAssistant1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraEditors.SimpleButton btnVenta;
@@ -303,5 +303,6 @@
         private DevExpress.XtraEditors.SimpleButton btnOpciones;
         private DevExpress.XtraEditors.SimpleButton btnSalir;
         private DevExpress.XtraEditors.SimpleButton btnCerrarSesion;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
