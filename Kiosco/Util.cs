@@ -1,10 +1,21 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Kiosco
+namespace Heimdall
 {
     public static class Util
     {
+        public static void CheckDateNullable(DateTime? d, DateTimePicker ctrl)
+        {
+            if (d == null || d == DateTime.MinValue) {
+                ctrl.Checked = false;
+                ctrl.Value = DateTime.Today;
+            } else {
+                ctrl.Checked = true;
+                ctrl.Value = (DateTime)d;
+            }
+        }
+
         public static void CenterFormX(Control ctrl, Form form)
         {
             ctrl.Left = (form.ClientSize.Width - ctrl.Width) / 2;

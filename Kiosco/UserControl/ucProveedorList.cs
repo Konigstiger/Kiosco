@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall.UserControl;
+using Kiosco;
 using Model;
 
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     /// <summary>
     /// Muestra los Proveedores de un Producto, y el precio de cada uno.
     /// </summary>
-    public partial class ucProveedorList : System.Windows.Forms.UserControl
+    public partial class UcProveedorList : System.Windows.Forms.UserControl
     {
-        public ucProveedorList()
+        public UcProveedorList()
         {
             InitializeComponent();
             SetControles();

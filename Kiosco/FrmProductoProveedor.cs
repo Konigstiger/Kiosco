@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall;
 using Heimdall.UserControl;
 using Model;
+
 
 namespace Kiosco
 {
@@ -14,7 +16,7 @@ namespace Kiosco
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 6;
+        private const int ColCount = 7;
 
         private List<ProductoProveedorView> origenDatos = null;
         private int _idProveedor;
@@ -43,6 +45,7 @@ namespace Kiosco
 
             ucProductoView1.IdProducto = c.IdProducto;
             nudPrecioCompra.Value = c.PrecioProveedor;
+            Util.CheckDateNullable(c.FechaModificacion, dtpFechaModificacion);
             txtNotas.Text = c.Notas;
         }
 
@@ -85,9 +88,9 @@ namespace Kiosco
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[ColCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < ColCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -102,8 +105,9 @@ namespace Kiosco
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            dgv.Columns.AddRange(c);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.FechaModificacion], "FechaModificacion", "FechaModificacion", 6);
 
+            dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
 
@@ -154,6 +158,7 @@ namespace Kiosco
                 IdProveedor = ucProveedorView1.IdProveedor,
                 IdProducto = ucProductoView1.IdProducto,
                 PrecioProveedor = nudPrecioCompra.Value,
+                FechaModificacion = dtpFechaModificacion.Value,
                 IdUnidad = 1,
                 Notas = txtNotas.Text.Trim()
             };
@@ -181,6 +186,7 @@ namespace Kiosco
                     IdProveedor = ucProveedorView1.IdProveedor,
                     IdProducto = ucProductoView1.IdProducto,
                     PrecioProveedor = nudPrecioCompra.Value,
+                    FechaModificacion = dtpFechaModificacion.Value,
                     IdUnidad = 1,
                     Notas = txtNotas.Text.Trim()
                 };
@@ -194,6 +200,7 @@ namespace Kiosco
                 Producto = ucProductoView1.Descripcion,
                 IdProducto = ucProductoView1.IdProducto,
                 PrecioProveedor = nudPrecioCompra.Value,
+                FechaModificacion = dtpFechaModificacion.Value,
                 PrecioVenta = ucProductoView1.PrecioVenta,
                 IdUnidad = 1,
                 Notas = txtNotas.Text.Trim()

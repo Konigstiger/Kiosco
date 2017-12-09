@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using Controlador;
+using Heimdall;
 using Model;
 
 namespace Kiosco

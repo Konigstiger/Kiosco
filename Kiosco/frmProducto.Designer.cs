@@ -48,7 +48,7 @@ namespace Heimdall
             this.tpProducto = new System.Windows.Forms.TabPage();
             this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             this.tpProveedores = new System.Windows.Forms.TabPage();
-            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
+            this.ucProveedorList1 = new UcProveedorList();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
@@ -315,7 +315,7 @@ namespace Heimdall
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private Kiosco.UserControl.ucProveedorList ucProveedorList1;
+        private UcProveedorList ucProveedorList1;
         private System.Windows.Forms.TabPage tpProducto;
         private ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ImageList imageList1;

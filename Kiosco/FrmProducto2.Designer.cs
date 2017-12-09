@@ -1,4 +1,6 @@
-﻿namespace Heimdall
+﻿using Heimdall.UserControl;
+
+namespace Heimdall
 {
     partial class FrmProducto2
     {
@@ -55,7 +57,7 @@
             this.tpProducto = new System.Windows.Forms.TabPage();
             this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             this.tpProveedores = new System.Windows.Forms.TabPage();
-            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
+            this.ucProveedorList1 = new UcProveedorList();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -399,7 +401,7 @@
         private System.Windows.Forms.TabPage tpProducto;
         private UserControl.ucProductoEdit ucProductoEdit1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private Kiosco.UserControl.ucProveedorList ucProveedorList1;
+        private UcProveedorList ucProveedorList1;
         private System.Windows.Forms.ImageList imageList1;
     }
 }

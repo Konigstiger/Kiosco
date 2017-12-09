@@ -23,6 +23,7 @@ namespace Data
                                 IdProveedor = (int)rdr["IdProveedor"],
                                 IdProducto = (long)rdr["IdProducto"],
                                 PrecioProveedor = (decimal)rdr["PrecioProveedor"],
+                                FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue,
                                 IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0,
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
@@ -49,7 +50,8 @@ namespace Data
                                 Proveedor = (string)rdr["Proveedor"],
                                 Producto = (string)rdr["Producto"],
                                 PrecioProveedor = (decimal)rdr["PrecioProveedor"],
-                                PrecioVenta = (decimal)rdr["PrecioVenta"]
+                                PrecioVenta = (decimal)rdr["PrecioVenta"],
+                                FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue
                             };
                             list.Add(p);
                         }
@@ -78,6 +80,7 @@ namespace Data
                                 IdProveedor = (int)rdr["IdProveedor"],
                                 IdProducto = (long)rdr["IdProducto"],
                                 PrecioProveedor = (decimal)rdr["PrecioProveedor"],
+                                FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue,
                                 IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0,
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
@@ -100,8 +103,9 @@ namespace Data
                     var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
                     var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
                     var p3 = new SqlParameter("PrecioProveedor", SqlDbType.Decimal) { Value = m.PrecioProveedor };
-                    var p4 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
-                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p4 = new SqlParameter("FechaModificacion", SqlDbType.Date) {Value = m.FechaModificacion};
+                    var p5 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
+                    var p6 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -109,6 +113,7 @@ namespace Data
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
 
                     conn.Open();
 
@@ -138,6 +143,9 @@ namespace Data
                             c.IdProveedor = (int)rdr["IdProveedor"];
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.PrecioProveedor = (decimal)rdr["PrecioProveedor"];
+                            c.FechaModificacion = rdr["FechaModificacion"] != DBNull.Value
+                                ? (DateTime) rdr["FechaModificacion"]
+                                : DateTime.MinValue;
                             c.IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -165,6 +173,9 @@ namespace Data
                             c.Proveedor = (string)rdr["Proveedor"];
                             c.Producto = (string)rdr["Producto"];
                             c.PrecioProveedor = (decimal)rdr["PrecioProveedor"];
+                            c.FechaModificacion = rdr["FechaModificacion"] != DBNull.Value
+                               ? (DateTime)rdr["FechaModificacion"]
+                               : DateTime.MinValue;
                             c.IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -186,8 +197,9 @@ namespace Data
                     var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
                     var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
                     var p3 = new SqlParameter("PrecioProveedor", SqlDbType.Decimal) { Value = m.PrecioProveedor };
-                    var p4 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
-                    var p5 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p4 = new SqlParameter("FechaModificacion", SqlDbType.Date) { Value = m.FechaModificacion };
+                    var p5 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
+                    var p6 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -195,6 +207,7 @@ namespace Data
                     cmd.Parameters.Add(p3);
                     cmd.Parameters.Add(p4);
                     cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
 
                     if (conn.State != ConnectionState.Open)
                         conn.Open();
@@ -239,14 +252,14 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new ProductoProveedorView {
-                                IdProductoProveedor = (long)rdr["IdProductoProveedor"],
-                                IdProducto = (long)rdr["IdProducto"],
-                                Producto = (string)rdr["Producto"],
-                                Proveedor = (string)rdr["Proveedor"],
-                                PrecioProveedor = (decimal)rdr["PrecioProveedor"],
-                                PrecioVenta = (decimal)rdr["PrecioVenta"]
-                            };
+                            var p = new ProductoProveedorView();
+                            p.IdProductoProveedor = (long)rdr["IdProductoProveedor"];
+                            p.IdProducto = (long)rdr["IdProducto"];
+                            p.Producto = (string)rdr["Producto"];
+                            p.Proveedor = (string)rdr["Proveedor"];
+                            p.PrecioProveedor = (decimal)rdr["PrecioProveedor"];
+                            p.FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue;
+                            p.PrecioVenta = (decimal)rdr["PrecioVenta"];
                             list.Add(p);
                         }
                     }
@@ -277,6 +290,7 @@ namespace Data
                                 Producto = (string)rdr["Producto"],
                                 Proveedor = (string)rdr["Proveedor"],
                                 PrecioProveedor = (decimal)rdr["PrecioProveedor"],
+                                FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue,
                                 PrecioVenta = (decimal)rdr["PrecioVenta"]
                             };
                             list.Add(p);

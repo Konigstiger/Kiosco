@@ -11,6 +11,9 @@ namespace Model
         public string Producto { get; set; }
         public decimal PrecioProveedor { get; set; }
         public decimal PrecioVenta { get; set; }
+
+        public DateTime? FechaModificacion { get; set; }
+
         public int IdUnidad { get; set; }
         public string Notas { get; set; }
 
@@ -26,8 +29,8 @@ namespace Model
             Producto = 2,
             Proveedor = 3,
             PrecioProveedor = 4,
-            PrecioVenta = 5
-        }
+            PrecioVenta = 5,
+            FechaModificacion = 6}
 
     }
 }

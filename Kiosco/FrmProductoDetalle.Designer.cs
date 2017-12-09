@@ -1,4 +1,5 @@
-﻿using Kiosco;
+﻿using Heimdall.UserControl;
+using Kiosco;
 
 namespace Heimdall
 {
@@ -72,7 +73,7 @@ namespace Heimdall
             this.label10 = new System.Windows.Forms.Label();
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
             this.ucNotification2 = new Kiosco.UcNotification();
-            this.ucProveedorList1 = new Kiosco.UserControl.ucProveedorList();
+            this.ucProveedorList1 = new UcProveedorList();
             this.ucNotification = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
@@ -658,7 +659,7 @@ namespace Heimdall
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private Kiosco.UserControl.ucProveedorList ucProveedorList1;
+        private UcProveedorList ucProveedorList1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.NumericUpDown nudCantidadVenta;
         private System.Windows.Forms.Label label8;

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
+using Heimdall;
 using Heimdall.UserControl;
 using static System.Globalization.CultureInfo;
 
@@ -238,8 +239,8 @@ namespace Kiosco.UserControl
             CargarPrioridad();
 
             Descripcion = p.Descripcion;
-            CheckDateNullable(p.Fecha, dtpFecha);
-            CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
+            Util.CheckDateNullable(p.Fecha, dtpFecha);
+            Util.CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
             Total = p.Total;
             IdProveedor = p.IdProveedor;
             IdEstadoPedido = p.IdEstadoPedido;
@@ -249,16 +250,7 @@ namespace Kiosco.UserControl
         }
 
 
-        public void CheckDateNullable(DateTime? d, DateTimePicker ctrl)
-        {
-            if (d == null || d == DateTime.MinValue) {
-                ctrl.Checked = false;
-                ctrl.Value = DateTime.Today;
-            } else {
-                ctrl.Checked = true;
-                ctrl.Value = (DateTime)d;
-            }
-        }
+
 
         private void CargarControles()
         {

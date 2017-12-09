@@ -41,14 +41,16 @@ namespace Kiosco
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSetPrecioCosto = new System.Windows.Forms.Button();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.ucProductoView1 = new ucProductoView();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
+            this.ucProductoView1 = new Heimdall.UserControl.ucProductoView();
             this.ucProveedorView1 = new Kiosco.UserControl.ucProveedorView();
-            this.btnSetPrecioCosto = new System.Windows.Forms.Button();
+            this.dtpFechaModificacion = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
@@ -162,6 +164,8 @@ namespace Kiosco
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dtpFechaModificacion);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSetPrecioCosto);
             this.panel1.Controls.Add(this.txtNotas);
             this.panel1.Controls.Add(this.label7);
@@ -174,22 +178,32 @@ namespace Kiosco
             this.panel1.Size = new System.Drawing.Size(1159, 152);
             this.panel1.TabIndex = 35;
             // 
+            // btnSetPrecioCosto
+            // 
+            this.btnSetPrecioCosto.Location = new System.Drawing.Point(929, 18);
+            this.btnSetPrecioCosto.Name = "btnSetPrecioCosto";
+            this.btnSetPrecioCosto.Size = new System.Drawing.Size(176, 24);
+            this.btnSetPrecioCosto.TabIndex = 117;
+            this.btnSetPrecioCosto.Text = "Definir como Precio de Costo";
+            this.btnSetPrecioCosto.UseVisualStyleBackColor = true;
+            this.btnSetPrecioCosto.Click += new System.EventHandler(this.btnSetPrecioCosto_Click);
+            // 
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(643, 49);
+            this.txtNotas.Location = new System.Drawing.Point(749, 82);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(247, 25);
+            this.txtNotas.Size = new System.Drawing.Size(356, 25);
             this.txtNotas.TabIndex = 115;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.Location = new System.Drawing.Point(589, 52);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(695, 87);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 19);
+            this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 116;
             this.label7.Text = "Notas:";
             // 
@@ -199,7 +213,7 @@ namespace Kiosco
             this.nudPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.nudPrecioCompra.Location = new System.Drawing.Point(749, 18);
             this.nudPrecioCompra.Name = "nudPrecioCompra";
-            this.nudPrecioCompra.Size = new System.Drawing.Size(141, 24);
+            this.nudPrecioCompra.Size = new System.Drawing.Size(170, 24);
             this.nudPrecioCompra.TabIndex = 55;
             this.nudPrecioCompra.Value = new decimal(new int[] {
             1,
@@ -211,12 +225,22 @@ namespace Kiosco
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(595, 18);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(606, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 18);
+            this.label3.Size = new System.Drawing.Size(136, 16);
             this.label3.TabIndex = 56;
             this.label3.Text = "Precio de Proveedor:";
+            // 
+            // txtIdProductoProveedor
+            // 
+            this.txtIdProductoProveedor.BackColor = System.Drawing.SystemColors.Info;
+            this.txtIdProductoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProductoProveedor.Location = new System.Drawing.Point(14, 9);
+            this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
+            this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
+            this.txtIdProductoProveedor.TabIndex = 53;
+            this.txtIdProductoProveedor.TextChanged += new System.EventHandler(this.txtIdProductoProveedor_TextChanged);
             // 
             // ucProductoView1
             // 
@@ -236,17 +260,7 @@ namespace Kiosco
             0});
             this.ucProductoView1.Size = new System.Drawing.Size(568, 138);
             this.ucProductoView1.TabIndex = 54;
-            this.ucProductoView1.ProductoChanged += new ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);
-            // 
-            // txtIdProductoProveedor
-            // 
-            this.txtIdProductoProveedor.BackColor = System.Drawing.SystemColors.Info;
-            this.txtIdProductoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProductoProveedor.Location = new System.Drawing.Point(14, 9);
-            this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
-            this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
-            this.txtIdProductoProveedor.TabIndex = 53;
-            this.txtIdProductoProveedor.TextChanged += new System.EventHandler(this.txtIdProductoProveedor_TextChanged);
+            this.ucProductoView1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoView1_ProductoChanged);
             // 
             // ucProveedorView1
             // 
@@ -255,18 +269,29 @@ namespace Kiosco
             this.ucProveedorView1.Name = "ucProveedorView1";
             this.ucProveedorView1.Size = new System.Drawing.Size(666, 53);
             this.ucProveedorView1.TabIndex = 36;
-            this.ucProveedorView1.ValueChanged += new ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
+            this.ucProveedorView1.ValueChanged += new Heimdall.UserControl.ValueChangedEventHandler(this.ucProveedorView1_ValueChanged);
             this.ucProveedorView1.Load += new System.EventHandler(this.ucProveedorView1_Load);
             // 
-            // btnSetPrecioCosto
+            // dtpFechaModificacion
             // 
-            this.btnSetPrecioCosto.Location = new System.Drawing.Point(897, 9);
-            this.btnSetPrecioCosto.Name = "btnSetPrecioCosto";
-            this.btnSetPrecioCosto.Size = new System.Drawing.Size(208, 33);
-            this.btnSetPrecioCosto.TabIndex = 117;
-            this.btnSetPrecioCosto.Text = "Definir como Precio de Costo";
-            this.btnSetPrecioCosto.UseVisualStyleBackColor = true;
-            this.btnSetPrecioCosto.Click += new System.EventHandler(this.btnSetPrecioCosto_Click);
+            this.dtpFechaModificacion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpFechaModificacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaModificacion.Location = new System.Drawing.Point(749, 49);
+            this.dtpFechaModificacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dtpFechaModificacion.Name = "dtpFechaModificacion";
+            this.dtpFechaModificacion.ShowCheckBox = true;
+            this.dtpFechaModificacion.Size = new System.Drawing.Size(170, 25);
+            this.dtpFechaModificacion.TabIndex = 119;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(614, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 16);
+            this.label1.TabIndex = 118;
+            this.label1.Text = "Fecha Modificación:";
             // 
             // FrmProductoProveedor
             // 
@@ -314,5 +339,7 @@ namespace Kiosco
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSetPrecioCosto;
+        private System.Windows.Forms.DateTimePicker dtpFechaModificacion;
+        private System.Windows.Forms.Label label1;
     }
 }
