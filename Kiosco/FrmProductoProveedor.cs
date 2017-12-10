@@ -105,7 +105,7 @@ namespace Kiosco
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.FechaModificacion], "FechaModificacion", "FechaModificacion", 6);
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.FechaModificacion], "FechaModificacion", "Fecha Modificacion", 6);
 
             dgv.Columns.AddRange(c);
 
