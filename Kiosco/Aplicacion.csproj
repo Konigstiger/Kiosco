@@ -51,20 +51,6 @@
     <StartupObject>Kiosco.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="LiveCharts, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.6\lib\net45\LiveCharts.dll</HintPath>
       <Private>True</Private>
@@ -109,12 +95,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCalendario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCalendario.Designer.cs">
-      <DependentUpon>FrmCalendario.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,12 +113,6 @@
     <Compile Include="FrmPedido.Designer.cs">
       <DependentUpon>FrmPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProducto2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProducto2.Designer.cs">
-      <DependentUpon>FrmProducto2.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmProductoProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +130,6 @@
     </Compile>
     <Compile Include="FrmSeleccionarProductoProveedor.Designer.cs">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSplashScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSplashScreen.Designer.cs">
-      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
@@ -356,9 +324,6 @@
       <DependentUpon>PedidoView.cs</DependentUpon>
     </Compile>
     <Compile Include="MySortableBindingList.cs" />
-    <EmbeddedResource Include="FrmCalendario.resx">
-      <DependentUpon>FrmCalendario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmDemo.resx">
       <DependentUpon>FrmDemo.cs</DependentUpon>
     </EmbeddedResource>
@@ -368,9 +333,6 @@
     <EmbeddedResource Include="FrmPedido.resx">
       <DependentUpon>FrmPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProducto2.resx">
-      <DependentUpon>FrmProducto2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmProductoProveedor.resx">
       <DependentUpon>FrmProductoProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,9 +341,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionarProductoProveedor.resx">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSplashScreen.resx">
-      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>

@@ -9,18 +9,6 @@ namespace Heimdall
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         #region Windows Form Designer generated code
 
@@ -48,8 +36,6 @@ namespace Heimdall
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
             this.ucProveedorList1 = new Heimdall.UserControl.UcProveedorList();
@@ -209,10 +195,6 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "trolley.png");
             this.imageList1.Images.SetKeyName(5, "package.png");
             // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Seven Classic";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -274,7 +256,6 @@ namespace Heimdall
             // 
             // FrmProducto
             // 
-            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1656, 757);
@@ -282,7 +263,6 @@ namespace Heimdall
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FrmProducto";
@@ -315,8 +295,6 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ImageList imageList1;
-        private DevExpress.XtraBars.FormAssistant formAssistant1;
-        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private UcProveedorList ucProveedorList1;
         private ucProductoEdit ucProductoEdit1;

@@ -10,7 +10,7 @@ using Model;
 
 namespace Heimdall
 {
-    public partial class FrmProducto : DevExpress.XtraEditors.XtraForm, IAbmGeneral
+    public partial class FrmProducto : Form, IAbmGeneral
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 

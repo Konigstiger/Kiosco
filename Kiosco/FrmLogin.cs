@@ -5,7 +5,7 @@ using Model;
 
 namespace Heimdall
 {
-    public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
+    public partial class FrmLogin : Form
     {
         public FrmLogin()
         {

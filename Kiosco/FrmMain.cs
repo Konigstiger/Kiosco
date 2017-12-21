@@ -5,7 +5,7 @@ using Kiosco.UI;
 
 namespace Kiosco
 {
-    public partial class FrmMain : DevExpress.XtraEditors.XtraForm
+    public partial class FrmMain : Form
     {
         public FrmMain()
         {
@@ -116,8 +116,7 @@ namespace Kiosco
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            var f = new FrmProducto2();
-            f.Show();
+
         }
     }
 }

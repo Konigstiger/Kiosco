@@ -57,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.nudCapacidad = new System.Windows.Forms.NumericUpDown();
-            this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.btnAbmMarca = new System.Windows.Forms.Button();
             this.btnSeleccionarMarca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
@@ -488,8 +487,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown nudCapacidad;
-        private DevExpress.XtraBars.FormAssistant formAssistant1;
-        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
-        //private DevExpress.Utils.Taskbar.TaskbarAssistant taskbarAssistant1;
     }
 }
