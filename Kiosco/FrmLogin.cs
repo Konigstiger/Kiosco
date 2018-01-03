@@ -15,6 +15,7 @@ namespace Heimdall
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             txtUser.Focus();
+            txtUser.Text = @"Admin";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

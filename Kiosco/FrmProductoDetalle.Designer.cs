@@ -63,6 +63,7 @@ namespace Heimdall
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
+            this.ucProveedorList1 = new Heimdall.UserControl.UcProveedorList();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
@@ -73,7 +74,6 @@ namespace Heimdall
             this.label10 = new System.Windows.Forms.Label();
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
             this.ucNotification2 = new Kiosco.UcNotification();
-            this.ucProveedorList1 = new UcProveedorList();
             this.ucNotification = new Kiosco.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
@@ -366,6 +366,7 @@ namespace Heimdall
             this.btnRegistrarVentaRapida.TabIndex = 81;
             this.btnRegistrarVentaRapida.Text = "Registrar Venta Rapida";
             this.btnRegistrarVentaRapida.UseVisualStyleBackColor = true;
+            this.btnRegistrarVentaRapida.Visible = false;
             this.btnRegistrarVentaRapida.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
@@ -421,6 +422,16 @@ namespace Heimdall
             this.tpProveedores.Text = "Proveedores";
             this.tpProveedores.UseVisualStyleBackColor = true;
             // 
+            // ucProveedorList1
+            // 
+            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucProveedorList1.IdProducto = ((long)(0));
+            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ucProveedorList1.Name = "ucProveedorList1";
+            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this.ucProveedorList1.TabIndex = 87;
+            // 
             // tpPromociones
             // 
             this.tpPromociones.Location = new System.Drawing.Point(4, 29);
@@ -453,6 +464,7 @@ namespace Heimdall
             0,
             0,
             0});
+            this.nudCantidadVenta.Visible = false;
             this.nudCantidadVenta.ValueChanged += new System.EventHandler(this.nudCantidadVenta_ValueChanged);
             // 
             // label8
@@ -465,6 +477,7 @@ namespace Heimdall
             this.label8.Size = new System.Drawing.Size(75, 21);
             this.label8.TabIndex = 89;
             this.label8.Text = "Cantidad:";
+            this.label8.Visible = false;
             // 
             // nudImporte
             // 
@@ -480,6 +493,7 @@ namespace Heimdall
             this.nudImporte.Size = new System.Drawing.Size(141, 33);
             this.nudImporte.TabIndex = 92;
             this.nudImporte.TabStop = false;
+            this.nudImporte.Visible = false;
             // 
             // label9
             // 
@@ -490,6 +504,7 @@ namespace Heimdall
             this.label9.Size = new System.Drawing.Size(68, 21);
             this.label9.TabIndex = 93;
             this.label9.Text = "Importe:";
+            this.label9.Visible = false;
             // 
             // nudPrecio
             // 
@@ -505,6 +520,7 @@ namespace Heimdall
             this.nudPrecio.Size = new System.Drawing.Size(109, 33);
             this.nudPrecio.TabIndex = 90;
             this.nudPrecio.TabStop = false;
+            this.nudPrecio.Visible = false;
             this.nudPrecio.ValueChanged += new System.EventHandler(this.nudPrecio_ValueChanged);
             // 
             // label10
@@ -516,6 +532,7 @@ namespace Heimdall
             this.label10.Size = new System.Drawing.Size(56, 21);
             this.label10.TabIndex = 91;
             this.label10.Text = "Precio:";
+            this.label10.Visible = false;
             // 
             // btnSeleccionarProducto
             // 
@@ -537,16 +554,7 @@ namespace Heimdall
             this.ucNotification2.Size = new System.Drawing.Size(564, 64);
             this.ucNotification2.TabIndex = 94;
             this.ucNotification2.Text = "[Mensaje]";
-            // 
-            // ucProveedorList1
-            // 
-            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucProveedorList1.IdProducto = ((long)(0));
-            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
-            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucProveedorList1.Name = "ucProveedorList1";
-            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
-            this.ucProveedorList1.TabIndex = 87;
+            this.ucNotification2.Visible = false;
             // 
             // ucNotification
             // 

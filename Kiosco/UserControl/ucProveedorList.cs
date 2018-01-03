@@ -25,7 +25,7 @@ namespace Heimdall.UserControl
         }
 
 
-        private const int colCount = 6;
+        private const int ColCount = 5;
 
         private List<ProductoProveedorView> origenDatos = null;
 
@@ -69,9 +69,9 @@ namespace Heimdall.UserControl
 
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[ColCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < ColCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -82,10 +82,11 @@ namespace Heimdall.UserControl
 
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "Precio Proveedor", 4);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
+            Util.SetColumn(c[2], "Proveedor", "Proveedor", 2);
+            Util.SetColumn(c[3], "PrecioProveedor", "Precio Proveedor", 3);
+            Util.SetColumn(c[4], "FechaModificacion", "Fecha de Modificacion", 4);
+            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
             dgv.Columns.AddRange(c);
 
 
