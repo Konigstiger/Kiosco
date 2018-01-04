@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall;
+using Kiosco;
 using Model;
 
-
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmProveedor : Form, IAbmGeneral
     {
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 8;
+        private const int ColCount = 6;
 
-        private List<ProveedorView> origenDatos = null;
+        private List<ProveedorView> _origenDatos = null;
 
         public FrmProveedor()
         {
@@ -70,9 +69,9 @@ namespace Kiosco
                 var modelView = ProveedorControlador.GetByPrimaryKeyView(m.IdProveedor);
 
                 //modificar el origen de datos
-                origenDatos.Add(modelView);
+                _origenDatos.Add(modelView);
 
-                var bindingList = new MySortableBindingList<ProveedorView>(origenDatos);
+                var bindingList = new MySortableBindingList<ProveedorView>(_origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -176,12 +175,10 @@ namespace Kiosco
         {
             dgv.Columns.Clear();
 
-            const int colCount = 5;
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[ColCount];
 
-            for (var i = 0; i < colCount; i++)
-            {
+            for (var i = 0; i < ColCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -191,16 +188,17 @@ namespace Kiosco
             Util.SetColumn(c[1], "RazonSocial", "Razon Social", 1);
             Util.SetColumn(c[2], "Direccion", "Direccion", 2);
             Util.SetColumn(c[3], "Telefono", "Telefono", 3);
-            Util.SetColumn(c[4], "Notas", "Notas", 4);
+            Util.SetColumn(c[4], "Estado", "Estado", 4);
+            Util.SetColumn(c[5], "Notas", "Notas", 5);
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = searchText.Equals("")
+            _origenDatos = searchText.Equals("")
                 ? ProveedorControlador.GetAll()
                 : ProveedorControlador.GetAll_GetByDescripcion(searchText);
 
-            var bindingList = new MySortableBindingList<ProveedorView>(origenDatos);
+            var bindingList = new MySortableBindingList<ProveedorView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 

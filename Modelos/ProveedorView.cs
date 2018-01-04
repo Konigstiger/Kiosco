@@ -22,6 +22,8 @@ namespace Model
 
         public string Notas { get; set; }
 
+        public string Estado { get; set; }
+
         public bool Validate()
         {
             //TODO: Pendiente
@@ -34,7 +36,8 @@ namespace Model
             RazonSocial = 1,
             Direccion = 2,
             Telefono = 3,
-            Notas = 4
+            Estado = 4,
+            Notas = 5
         }
 
     }

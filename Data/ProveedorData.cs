@@ -22,6 +22,7 @@ namespace Data
                                 RazonSocial = (string)rdr["RazonSocial"],
                                 Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
                                 Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
+                                Estado = (string)rdr["EstadoProveedor"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
@@ -83,6 +84,7 @@ namespace Data
                             RazonSocial = (string)rdr["RazonSocial"],
                             Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
                             Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
+                            Estado = (string)rdr["EstadoProveedor"],
                             Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                         };
 
@@ -112,6 +114,7 @@ namespace Data
 
                     var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
                     var p8 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
+                    var p9 = new SqlParameter("IdEstadoProveedor", SqlDbType.Int) { Value = model.IdEstadoProveedor };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -121,6 +124,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     idProveedor = (int)cmd.ExecuteScalar();
@@ -191,6 +195,7 @@ namespace Data
                     var p6 = new SqlParameter("DiasDeVisita", SqlDbType.VarChar) { Value = model.DiasDeVisita };
                     var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
                     var p8 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
+                    var p9 = new SqlParameter("IdEstadoProveedor", SqlDbType.Int) { Value = model.IdEstadoProveedor };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -201,6 +206,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     model.IdProveedor = (int)cmd.ExecuteScalar();

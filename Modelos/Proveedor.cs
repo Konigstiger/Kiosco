@@ -24,6 +24,7 @@ namespace Model
         public string DiasDeVisita { get; set; }
 
         public int IdRubro { get; set; }
+        public int IdEstadoProveedor { get; set; }
 
         public bool Validate()
         {

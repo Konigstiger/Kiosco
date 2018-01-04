@@ -1,4 +1,4 @@
-﻿namespace Kiosco
+﻿namespace Heimdall
 {
     partial class FrmProveedor
     {
@@ -217,7 +217,7 @@
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
-        private UserControl.UcProveedorEdit ucProveedorEdit1;
+        private Kiosco.UserControl.UcProveedorEdit ucProveedorEdit1;
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ImageList imageList1;
     }
