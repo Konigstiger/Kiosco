@@ -1,4 +1,6 @@
-﻿namespace Heimdall
+﻿using Heimdall.UserControl;
+
+namespace Heimdall
 {
     partial class FrmProveedor
     {
@@ -40,7 +42,7 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ucProveedorEdit1 = new Kiosco.UserControl.UcProveedorEdit();
+            this.ucProveedorEdit1 = new UcProveedorEdit();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -217,7 +219,7 @@
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
-        private Kiosco.UserControl.UcProveedorEdit ucProveedorEdit1;
+        private UcProveedorEdit ucProveedorEdit1;
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ImageList imageList1;
     }

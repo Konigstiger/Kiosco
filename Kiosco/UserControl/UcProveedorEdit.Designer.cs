@@ -1,4 +1,4 @@
-﻿namespace Kiosco.UserControl
+﻿namespace Heimdall.UserControl
 {
     partial class UcProveedorEdit
     {
@@ -46,6 +46,8 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
+            this.cboEstadoProveedor = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cboRubro
@@ -234,10 +236,32 @@
             this.txtIdProveedor.TabStop = false;
             this.txtIdProveedor.TextChanged += new System.EventHandler(this.txtIdProveedor_TextChanged);
             // 
+            // cboEstadoProveedor
+            // 
+            this.cboEstadoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.cboEstadoProveedor.FormattingEnabled = true;
+            this.cboEstadoProveedor.Location = new System.Drawing.Point(705, 150);
+            this.cboEstadoProveedor.Name = "cboEstadoProveedor";
+            this.cboEstadoProveedor.Size = new System.Drawing.Size(355, 26);
+            this.cboEstadoProveedor.TabIndex = 104;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(642, 152);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 18);
+            this.label10.TabIndex = 105;
+            this.label10.Text = "Estado:";
+            // 
             // UcProveedorEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cboEstadoProveedor);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.cboRubro);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -288,5 +312,7 @@
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdProveedor;
+        private System.Windows.Forms.ComboBox cboEstadoProveedor;
+        private System.Windows.Forms.Label label10;
     }
 }

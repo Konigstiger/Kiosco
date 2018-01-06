@@ -58,7 +58,9 @@ namespace Heimdall
                 PersonaContacto = ucProveedorEdit1.PersonaContacto,
                 HorarioAtencion = ucProveedorEdit1.HorarioAtencion,
                 DiasDeVisita = ucProveedorEdit1.DiasDeVisita,
-                IdRubro = ucProveedorEdit1.IdRubro
+                IdRubro = ucProveedorEdit1.IdRubro,
+                IdEstadoProveedor = 1       /* TODO: Refactor: Estado Activo. */
+
             };
 
             //=====================================================================
@@ -94,6 +96,7 @@ namespace Heimdall
                 m.HorarioAtencion = ucProveedorEdit1.HorarioAtencion;
                 m.DiasDeVisita = ucProveedorEdit1.DiasDeVisita;
                 m.IdRubro = ucProveedorEdit1.IdRubro;
+                m.IdEstadoProveedor = ucProveedorEdit1.IdEstadoProveedor;
 
                 m.IdProveedor = ProveedorControlador.Update(m);
             }

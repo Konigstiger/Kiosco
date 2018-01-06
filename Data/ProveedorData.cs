@@ -57,6 +57,7 @@ namespace Data
                         c.DiasDeVisita = rdr["DiasDeVisita"] != DBNull.Value ? (string)rdr["DiasDeVisita"] : "";
                         c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         c.IdRubro = rdr["IdRubro"] != DBNull.Value ? (int)rdr["IdRubro"] : 0;
+                        c.IdEstadoProveedor = rdr["IdEstadoProveedor"] != DBNull.Value ? (int)rdr["IdEstadoProveedor"] : 0;
                     }
                 }
             }

@@ -2,9 +2,8 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall.UserControl;
 
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     public partial class UcProveedorEdit : System.Windows.Forms.UserControl
     {
@@ -105,12 +104,36 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("EstadoProveedor."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string EstadoProveedor => cboEstadoProveedor.Text.Trim();
+
+
+        [Description("IdEstadoProveedor."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdEstadoProveedor
+        {
+            get {
+                int v = int.TryParse(cboEstadoProveedor.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboEstadoProveedor.SelectedValue = value; }
+        }
+
+
         [Description("Rubro."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
         public string Rubro => cboRubro.Text.Trim();
+
 
 
 
@@ -182,6 +205,7 @@ namespace Kiosco.UserControl
             txtNotas.Text = c.Notas;
 
             cboRubro.SelectedValue = c.IdRubro;
+            cboEstadoProveedor.SelectedValue = c.IdEstadoProveedor;
 
 
         }
@@ -196,6 +220,7 @@ namespace Kiosco.UserControl
         private void CargarControles()
         {
             CargarRubro();
+            CargarEstadoProveedor();
         }
 
         private void CargarRubro()
@@ -209,6 +234,21 @@ namespace Kiosco.UserControl
             cboRubro.ValueMember = "IdRubro";
             cboRubro.DisplayMember = "Descripcion";
         }
+
+
+        private void CargarEstadoProveedor()
+        {
+            if (DesignMode)
+                return;
+
+            cboEstadoProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = EstadoProveedorControlador.GetAll();
+            cboEstadoProveedor.DataSource = list;
+            cboEstadoProveedor.ValueMember = "IdEstadoProveedor";
+            cboEstadoProveedor.DisplayMember = "Descripcion";
+        }
+
+
 
         private void SetControles()
         {

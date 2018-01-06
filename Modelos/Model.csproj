@@ -57,6 +57,8 @@
     <Compile Include="IEntidad.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="PrioridadView.cs" />
+    <Compile Include="EstadoProveedorView.cs" />
+    <Compile Include="EstadoProveedor.cs" />
     <Compile Include="UnidadView.cs" />
     <Compile Include="Unidad.cs" />
     <Compile Include="UsuarioView.cs" />
