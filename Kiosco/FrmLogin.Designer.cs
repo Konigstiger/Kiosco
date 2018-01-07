@@ -31,18 +31,18 @@ namespace Heimdall
             // labTitulo
             // 
             this.labTitulo.AutoSize = true;
-            this.labTitulo.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTitulo.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.labTitulo.Location = new System.Drawing.Point(81, 52);
+            this.labTitulo.Font = new System.Drawing.Font("Teko", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labTitulo.ForeColor = System.Drawing.Color.Orange;
+            this.labTitulo.Location = new System.Drawing.Point(101, 24);
             this.labTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTitulo.Name = "labTitulo";
-            this.labTitulo.Size = new System.Drawing.Size(460, 50);
+            this.labTitulo.Size = new System.Drawing.Size(503, 91);
             this.labTitulo.TabIndex = 0;
             this.labTitulo.Text = "Autenticación de Usuario";
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(191, 178);
+            this.txtPwd.Location = new System.Drawing.Point(191, 184);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '•';
             this.txtPwd.Size = new System.Drawing.Size(304, 29);
@@ -50,7 +50,7 @@ namespace Heimdall
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(191, 127);
+            this.txtUser.Location = new System.Drawing.Point(191, 133);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(304, 29);
             this.txtUser.TabIndex = 1;
@@ -58,20 +58,20 @@ namespace Heimdall
             // labelControl1
             // 
             this.labelControl1.AutoSize = true;
-            this.labelControl1.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(85, 133);
+            this.labelControl1.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(98, 134);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(81, 17);
+            this.labelControl1.Size = new System.Drawing.Size(83, 24);
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Usuario:";
             // 
             // labelControl2
             // 
             this.labelControl2.AutoSize = true;
-            this.labelControl2.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(73, 184);
+            this.labelControl2.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(86, 184);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(101, 17);
+            this.labelControl2.Size = new System.Drawing.Size(99, 24);
             this.labelControl2.TabIndex = 12;
             this.labelControl2.Text = "Password:";
             // 

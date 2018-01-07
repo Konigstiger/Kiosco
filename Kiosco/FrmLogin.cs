@@ -14,9 +14,18 @@ namespace Heimdall
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            SetControles();
+        }
+
+
+        private void SetControles()
+        {
             txtUser.Focus();
             txtUser.Text = @"Admin";
+
+            Util.CenterFormX(labTitulo, this);
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -26,8 +35,7 @@ namespace Heimdall
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             //Validar credenciales del usuario.
-            var u = new Usuario
-            {
+            var u = new Usuario {
                 Usr = txtUser.Text.Trim(),
                 Pwd = txtPwd.Text.Trim()
             };
