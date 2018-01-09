@@ -1,13 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
-
 using Controlador;
-using Heimdall;
-using Heimdall.UserControl;
+using Kiosco;
 
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
-    public partial class ucProveedorView : System.Windows.Forms.UserControl, ISelectorProveedor
+    public partial class UcProveedorView : System.Windows.Forms.UserControl, ISelectorProveedor
     {
         [Category("Action")]
         [Description("Es lanzado cuando el valor es cambiado")]
@@ -19,7 +17,7 @@ namespace Kiosco.UserControl
         }
 
 
-        public ucProveedorView()
+        public UcProveedorView()
         {
             InitializeComponent();
             SetControles();

@@ -35,6 +35,7 @@
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
+            this.ucProveedorView1 = new Heimdall.UserControl.UcProveedorView();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             this.dtpFechaModificacion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpFechaModificacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaModificacion.Location = new System.Drawing.Point(161, 47);
+            this.dtpFechaModificacion.Location = new System.Drawing.Point(103, 77);
             this.dtpFechaModificacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaModificacion.Name = "dtpFechaModificacion";
             this.dtpFechaModificacion.ShowCheckBox = true;
@@ -53,15 +54,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 55);
+            this.label1.Location = new System.Drawing.Point(39, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 16);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 125;
-            this.label1.Text = "Fecha Modificación:";
+            this.label1.Text = "Fecha:";
             // 
             // btnSetPrecioCosto
             // 
-            this.btnSetPrecioCosto.Location = new System.Drawing.Point(341, 16);
+            this.btnSetPrecioCosto.Location = new System.Drawing.Point(297, 46);
             this.btnSetPrecioCosto.Name = "btnSetPrecioCosto";
             this.btnSetPrecioCosto.Size = new System.Drawing.Size(176, 24);
             this.btnSetPrecioCosto.TabIndex = 124;
@@ -71,17 +72,17 @@
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(161, 80);
+            this.txtNotas.Location = new System.Drawing.Point(103, 110);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(356, 25);
+            this.txtNotas.Size = new System.Drawing.Size(370, 25);
             this.txtNotas.TabIndex = 122;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(107, 85);
+            this.label7.Location = new System.Drawing.Point(41, 115);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 123;
@@ -91,7 +92,7 @@
             // 
             this.nudPrecioCompra.DecimalPlaces = 2;
             this.nudPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudPrecioCompra.Location = new System.Drawing.Point(161, 16);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(103, 46);
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(170, 24);
             this.nudPrecioCompra.TabIndex = 120;
@@ -105,11 +106,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 18);
+            this.label3.Location = new System.Drawing.Point(38, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 16);
+            this.label3.Size = new System.Drawing.Size(50, 16);
             this.label3.TabIndex = 121;
-            this.label3.Text = "Precio de Proveedor:";
+            this.label3.Text = "Precio:";
             // 
             // txtIdProductoProveedor
             // 
@@ -120,6 +121,14 @@
             this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
             this.txtIdProductoProveedor.TabIndex = 127;
             this.txtIdProductoProveedor.Visible = false;
+            // 
+            // ucProveedorView1
+            // 
+            this.ucProveedorView1.IdProveedor = 0;
+            this.ucProveedorView1.Location = new System.Drawing.Point(0, 0);
+            this.ucProveedorView1.Name = "ucProveedorView1";
+            this.ucProveedorView1.Size = new System.Drawing.Size(549, 40);
+            this.ucProveedorView1.TabIndex = 128;
             // 
             // UcProductoProveedorEdit
             // 
@@ -134,8 +143,9 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudPrecioCompra);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.ucProveedorView1);
             this.Name = "UcProductoProveedorEdit";
-            this.Size = new System.Drawing.Size(541, 120);
+            this.Size = new System.Drawing.Size(552, 140);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,5 +162,6 @@
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdProductoProveedor;
+        private UcProveedorView ucProveedorView1;
     }
 }

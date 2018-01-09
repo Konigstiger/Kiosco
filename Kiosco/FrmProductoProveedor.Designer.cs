@@ -48,7 +48,7 @@ namespace Kiosco
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
             this.ucProductoView1 = new Heimdall.UserControl.ucProductoView();
-            this.ucProveedorView1 = new Kiosco.UserControl.ucProveedorView();
+            this.ucProveedorView1 = new UcProveedorView();
             this.dtpFechaModificacion = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.tsb.SuspendLayout();
@@ -332,7 +332,7 @@ namespace Kiosco
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtIdProductoProveedor;
-        private UserControl.ucProveedorView ucProveedorView1;
+        private UcProveedorView ucProveedorView1;
         private ucProductoView ucProductoView1;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
         private System.Windows.Forms.Label label3;

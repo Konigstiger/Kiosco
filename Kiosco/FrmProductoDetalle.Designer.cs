@@ -63,7 +63,7 @@ namespace Heimdall
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
-            this.ucProveedorList1 = new Heimdall.UserControl.UcProveedorList();
+            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
@@ -412,7 +412,7 @@ namespace Heimdall
             // 
             // tpProveedores
             // 
-            this.tpProveedores.Controls.Add(this.ucProveedorList1);
+            this.tpProveedores.Controls.Add(this._ucProductoProveedorList1);
             this.tpProveedores.ImageIndex = 0;
             this.tpProveedores.Location = new System.Drawing.Point(4, 29);
             this.tpProveedores.Name = "tpProveedores";
@@ -422,15 +422,15 @@ namespace Heimdall
             this.tpProveedores.Text = "Proveedores";
             this.tpProveedores.UseVisualStyleBackColor = true;
             // 
-            // ucProveedorList1
+            // _ucProductoProveedorList1
             // 
-            this.ucProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucProveedorList1.IdProducto = ((long)(0));
-            this.ucProveedorList1.Location = new System.Drawing.Point(3, 3);
-            this.ucProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucProveedorList1.Name = "ucProveedorList1";
-            this.ucProveedorList1.Size = new System.Drawing.Size(697, 163);
-            this.ucProveedorList1.TabIndex = 87;
+            this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._ucProductoProveedorList1.IdProducto = ((long)(0));
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this._ucProductoProveedorList1.TabIndex = 87;
             // 
             // tpPromociones
             // 
@@ -667,7 +667,7 @@ namespace Heimdall
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpProveedores;
-        private UcProveedorList ucProveedorList1;
+        private UcProductoProveedorList _ucProductoProveedorList1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.NumericUpDown nudCantidadVenta;
         private System.Windows.Forms.Label label8;

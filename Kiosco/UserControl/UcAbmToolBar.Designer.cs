@@ -1,6 +1,6 @@
-﻿namespace Kiosco
+﻿namespace Heimdall.UserControl
 {
-    partial class AbmToolBar
+    partial class UcAbmToolBar
     {
         /// <summary> 
         /// Required designer variable.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbmToolBar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcAbmToolBar));
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
@@ -121,12 +121,12 @@
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
             // 
-            // AbmToolBar
+            // UcAbmToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tsb);
-            this.Name = "AbmToolBar";
+            this.Name = "UcAbmToolBar";
             this.Size = new System.Drawing.Size(763, 32);
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();

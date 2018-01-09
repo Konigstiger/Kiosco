@@ -140,7 +140,7 @@ namespace Heimdall
             chkSoloAdultos.Checked = p.SoloAdultos ?? false;
             txtNotas.Text = p.Notas;
 
-            ucProveedorList1.IdProducto = p.IdProducto;
+            _ucProductoProveedorList1.IdProducto = p.IdProducto;
 
             CargarStockActual(p.IdProducto);
         }

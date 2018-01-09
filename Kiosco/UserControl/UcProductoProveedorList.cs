@@ -11,9 +11,9 @@ namespace Heimdall.UserControl
     /// <summary>
     /// Muestra los Proveedores de un Producto, y el precio de cada uno.
     /// </summary>
-    public partial class UcProveedorList : System.Windows.Forms.UserControl
+    public partial class UcProductoProveedorList : System.Windows.Forms.UserControl
     {
-        public UcProveedorList()
+        public UcProductoProveedorList()
         {
             InitializeComponent();
             SetControles();
@@ -27,7 +27,7 @@ namespace Heimdall.UserControl
 
         private const int ColCount = 5;
 
-        private List<ProductoProveedorView> origenDatos = null;
+        private List<ProductoProveedorView> _origenDatos = null;
 
 
         [Category("Action")]
@@ -56,12 +56,12 @@ namespace Heimdall.UserControl
                 OnProductoChanged(new ValueChangedEventArgs(value));
 
                 //TODO: Ver. Tal vez conviene invocar este metodo desde afuera, o sea en el evento OnProductoChanged.
-                CargarProveedores(value);
+                CargarProductoProveedorList(value);
             }
         }
 
 
-        private void CargarProveedores(long idProducto)
+        private void CargarProductoProveedorList(long idProducto)
         {
             if (DesignMode)
                 return;
@@ -92,9 +92,9 @@ namespace Heimdall.UserControl
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
+            _origenDatos = ProductoProveedorControlador.GetGrid_GetByIdProducto(idProducto);
 
-            var bindingList = new MySortableBindingList<ProductoProveedorView>(origenDatos);
+            var bindingList = new MySortableBindingList<ProductoProveedorView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 

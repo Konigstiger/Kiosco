@@ -1,6 +1,6 @@
-﻿namespace Kiosco.UserControl
+﻿namespace Heimdall.UserControl
 {
-    partial class ucProveedorView
+    partial class UcProveedorView
     {
         /// <summary> 
         /// Required designer variable.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProveedorView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcProveedorView));
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
@@ -39,7 +39,7 @@
             // 
             this.btnAbmProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnAbmProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProveedor.Image")));
-            this.btnAbmProveedor.Location = new System.Drawing.Point(629, 12);
+            this.btnAbmProveedor.Location = new System.Drawing.Point(516, 4);
             this.btnAbmProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
             this.btnAbmProveedor.Size = new System.Drawing.Size(30, 32);
@@ -51,7 +51,7 @@
             // 
             this.btnSeleccionarProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSeleccionarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProveedor.Image")));
-            this.btnSeleccionarProveedor.Location = new System.Drawing.Point(594, 12);
+            this.btnSeleccionarProveedor.Location = new System.Drawing.Point(481, 4);
             this.btnSeleccionarProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSeleccionarProveedor.Name = "btnSeleccionarProveedor";
             this.btnSeleccionarProveedor.Size = new System.Drawing.Size(30, 32);
@@ -74,23 +74,23 @@
             // 
             this.txtRazonSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRazonSocial.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtRazonSocial.Location = new System.Drawing.Point(101, 15);
+            this.txtRazonSocial.Location = new System.Drawing.Point(101, 7);
             this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(486, 25);
+            this.txtRazonSocial.Size = new System.Drawing.Size(372, 25);
             this.txtRazonSocial.TabIndex = 121;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label4.Location = new System.Drawing.Point(20, 16);
+            this.label4.Location = new System.Drawing.Point(20, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 122;
             this.label4.Text = "Proveedor:";
             // 
-            // ucProveedorView
+            // UcProveedorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,9 +99,8 @@
             this.Controls.Add(this.txtIdProveedor);
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.label4);
-            this.Name = "ucProveedorView1";
-            this.Size = new System.Drawing.Size(666, 53);
-            //this.Load += new System.EventHandler(this.ucProveedorView_Load);
+            this.Name = "UcProveedorView";
+            this.Size = new System.Drawing.Size(550, 37);
             this.ResumeLayout(false);
             this.PerformLayout();
 

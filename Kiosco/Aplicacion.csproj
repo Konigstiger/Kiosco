@@ -137,11 +137,11 @@
     <Compile Include="FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\AbmToolBar.cs">
+    <Compile Include="UserControl\UcAbmToolBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\AbmToolBar.Designer.cs">
-      <DependentUpon>AbmToolBar.cs</DependentUpon>
+    <Compile Include="UserControl\UcAbmToolBar.Designer.cs">
+      <DependentUpon>UcAbmToolBar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCalculadora.cs">
       <SubType>Form</SubType>
@@ -276,11 +276,11 @@
     <Compile Include="UserControl\UcProveedorEdit.Designer.cs">
       <DependentUpon>UcProveedorEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ucProveedorList.cs">
+    <Compile Include="UserControl\UcProductoProveedorList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\ucProveedorList.Designer.cs">
-      <DependentUpon>ucProveedorList.cs</DependentUpon>
+    <Compile Include="UserControl\UcProductoProveedorList.Designer.cs">
+      <DependentUpon>UcProductoProveedorList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucProveedorView.cs">
       <SubType>UserControl</SubType>
@@ -352,8 +352,8 @@
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="UserControl\AbmToolBar.resx">
-      <DependentUpon>AbmToolBar.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\UcAbmToolBar.resx">
+      <DependentUpon>UcAbmToolBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculadora.resx">
       <DependentUpon>frmCalculadora.cs</DependentUpon>
@@ -437,8 +437,8 @@
     <EmbeddedResource Include="UserControl\UcProveedorEdit.resx">
       <DependentUpon>UcProveedorEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\ucProveedorList.resx">
-      <DependentUpon>ucProveedorList.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\UcProductoProveedorList.resx">
+      <DependentUpon>UcProductoProveedorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProveedorView.resx">
       <DependentUpon>ucProveedorView.cs</DependentUpon>

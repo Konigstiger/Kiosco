@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Kiosco
+namespace Heimdall.UserControl
 {
-    public partial class AbmToolBar : System.Windows.Forms.UserControl
+    public partial class UcAbmToolBar : System.Windows.Forms.UserControl
     {
-        public AbmToolBar()
+        public UcAbmToolBar()
         {
             InitializeComponent();
         }

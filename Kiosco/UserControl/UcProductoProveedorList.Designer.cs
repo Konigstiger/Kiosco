@@ -1,6 +1,6 @@
 ﻿namespace Heimdall.UserControl
 {
-    partial class UcProveedorList
+    partial class UcProductoProveedorList
     {
         /// <summary> 
         /// Required designer variable.
@@ -54,13 +54,13 @@
             this.txtIdProducto.TabIndex = 84;
             this.txtIdProducto.Text = "0";
             // 
-            // UcProveedorList
+            // UcProductoProveedorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.dgv);
-            this.Name = "UcProveedorList";
+            this.Name = "UcProductoProveedorList";
             this.Size = new System.Drawing.Size(844, 230);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
