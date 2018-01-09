@@ -29,6 +29,7 @@
         {
             this.dgv = new System.Windows.Forms.DataGridView();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.dgv.Size = new System.Drawing.Size(844, 230);
             this.dgv.TabIndex = 83;
             this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // txtIdProducto
             // 
@@ -54,10 +56,21 @@
             this.txtIdProducto.TabIndex = 84;
             this.txtIdProducto.Text = "0";
             // 
+            // txtIdProductoProveedor
+            // 
+            this.txtIdProductoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProductoProveedor.Location = new System.Drawing.Point(16, 33);
+            this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
+            this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
+            this.txtIdProductoProveedor.TabIndex = 85;
+            this.txtIdProductoProveedor.Text = "0";
+            this.txtIdProductoProveedor.Visible = false;
+            // 
             // UcProductoProveedorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtIdProductoProveedor);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.dgv);
             this.Name = "UcProductoProveedorList";
@@ -72,5 +85,6 @@
 
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.TextBox txtIdProductoProveedor;
     }
 }

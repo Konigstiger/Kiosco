@@ -284,15 +284,15 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new ProductoProveedorView {
-                                IdProductoProveedor = (long)rdr["IdProductoProveedor"],
-                                IdProducto = (long)rdr["IdProducto"],
-                                Producto = (string)rdr["Producto"],
-                                Proveedor = (string)rdr["Proveedor"],
-                                PrecioProveedor = (decimal)rdr["PrecioProveedor"],
-                                FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue,
-                                PrecioVenta = (decimal)rdr["PrecioVenta"]
-                            };
+                            var p = new ProductoProveedorView();
+                            p.IdProductoProveedor = (long)rdr["IdProductoProveedor"];
+                            p.IdProducto = (long)rdr["IdProducto"];
+                            p.IdProveedor = rdr["IdProveedor"] != DBNull.Value ? (int)rdr["IdProveedor"] : 0;
+                            p.Producto = (string)rdr["Producto"];
+                            p.Proveedor = (string)rdr["Proveedor"];
+                            p.PrecioProveedor = (decimal)rdr["PrecioProveedor"];
+                            p.FechaModificacion = rdr["FechaModificacion"] != DBNull.Value ? (DateTime)rdr["FechaModificacion"] : DateTime.MinValue;
+                            p.PrecioVenta = (decimal)rdr["PrecioVenta"];
                             list.Add(p);
                         }
                     }

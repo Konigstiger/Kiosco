@@ -1,6 +1,6 @@
 ﻿namespace Heimdall.UserControl
 {
-    partial class ucProductoEdit
+    partial class UcProductoEdit
     {
         /// <summary> 
         /// Required designer variable.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProductoEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcProductoEdit));
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtIdMarca = new System.Windows.Forms.TextBox();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
@@ -409,7 +409,7 @@
             this.btnSeleccionarMarca.UseVisualStyleBackColor = true;
             this.btnSeleccionarMarca.Click += new System.EventHandler(this.btnSeleccionarMarca_Click);
             // 
-            // ucProductoEdit
+            // UcProductoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,7 +438,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodigoBarras);
             this.Controls.Add(this.label1);
-            this.Name = "ucProductoEdit";
+            this.Name = "UcProductoEdit";
             this.Size = new System.Drawing.Size(781, 176);
             this.Load += new System.EventHandler(this.ucProductoEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).EndInit();

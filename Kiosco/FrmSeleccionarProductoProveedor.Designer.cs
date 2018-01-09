@@ -40,7 +40,7 @@ namespace Heimdall
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseOnSelect = new System.Windows.Forms.ToolStripButton();
-            this.ucProductoEdit1 = new Heimdall.UserControl.ucProductoEdit();
+            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -200,7 +200,7 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
-        private ucProductoEdit ucProductoEdit1;
+        private UcProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ToolStripButton tsbCloseOnSelect;
     }
 }

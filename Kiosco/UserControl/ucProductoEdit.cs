@@ -7,7 +7,7 @@ using Model;
 
 namespace Heimdall.UserControl
 {
-    public partial class ucProductoEdit : System.Windows.Forms.UserControl, ISelectorMarca
+    public partial class UcProductoEdit : System.Windows.Forms.UserControl, ISelectorMarca
     {
         [Category("Action")]
         [Description("Es lanzado cuando el Stock es cambiado")]
@@ -29,7 +29,7 @@ namespace Heimdall.UserControl
 
 
 
-        public ucProductoEdit()
+        public UcProductoEdit()
         {
             InitializeComponent();
         }

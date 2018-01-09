@@ -16,6 +16,7 @@ namespace Model
 
         public int IdUnidad { get; set; }
         public string Notas { get; set; }
+        public long IdProveedor { get; set; }
 
         public bool Validate()
         {

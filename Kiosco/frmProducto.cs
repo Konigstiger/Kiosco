@@ -426,5 +426,27 @@ namespace Heimdall
         {
             busquedaActiva = true;
         }
+
+        private void _ucProductoProveedorList1_ProductoProveedorChanged(object sender, ValueChangedEventArgs e)
+        {
+            //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
+            var idproductoproveedor = this._ucProductoProveedorList1.IdProductoProveedor;
+            var idproducto = this._ucProductoProveedorList1.IdProducto;
+            var idproveedor = this._ucProductoProveedorList1.IdProveedor;
+
+            
+            ucProductoProveedorEdit1.IdProducto = (long)idproducto;
+            ucProductoProveedorEdit1.IdProductoProveedor = (long) idproductoproveedor;
+            ucProductoProveedorEdit1.IdProveedor = idproveedor;
+
+            //ucProductoProveedorEdit1.Precio = this._ucProductoProveedorList1.Precio;
+
+
+        }
+
+        private void _ucProductoProveedorList1_ProductoChanged(object sender, ValueChangedEventArgs e)
+        {
+            //?
+        }
     }
 }

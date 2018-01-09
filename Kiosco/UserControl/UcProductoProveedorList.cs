@@ -19,6 +19,10 @@ namespace Heimdall.UserControl
             SetControles();
         }
 
+        //*//
+
+        //*//
+
         private void SetControles()
         {
             txtIdProducto.Visible = false;
@@ -82,6 +86,8 @@ namespace Heimdall.UserControl
 
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
+            //TODO: Agregar el IdProveedor aqui, asi se ahorran lecturas
+
             //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
             Util.SetColumn(c[2], "Proveedor", "Proveedor", 2);
             Util.SetColumn(c[3], "PrecioProveedor", "Precio Proveedor", 3);
@@ -119,5 +125,69 @@ namespace Heimdall.UserControl
             dgv.RowsDefaultCellStyle.BackColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
         }
+
+
+        private void dgv_SelectionChanged(object sender, System.EventArgs e)
+        {
+            //al suceder esto, debe lanzar un nuevo evento, exponiendo los datos, el id.
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            long idProductoProveedor = 0;
+            decimal precio = 0;
+            int idProveedor = 0;
+
+            foreach (DataGridViewRow item in dgv.SelectedRows) {
+                idProductoProveedor = (long)item.Cells[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Value;
+                precio = (decimal)item.Cells[3].Value;
+                idProveedor = 
+
+            }
+            IdProductoProveedor = idProductoProveedor;
+            Precio = precio;
+        }
+
+        public decimal Precio { get; set; }
+
+
+        // foo
+
+        [Description("IdProductoProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public long IdProductoProveedor
+        {
+            get {
+                long v = long.TryParse(txtIdProductoProveedor.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+            set {
+                txtIdProductoProveedor.Text = value.ToString();
+                OnProductoProveedorChanged(new ValueChangedEventArgs(value));
+
+                //esto no va, creo. Copiado de IdProducto solamente
+                //TODO: Ver. Tal vez conviene invocar este metodo desde afuera, o sea en el evento OnProductoChanged.
+                //CargarProductoProveedorList(value);
+            }
+        }
+        public int IdProveedor { get; set; }
+
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se selecciona otro ProductoProveedor.")]
+        public event ProductoChangedEventHandler ProductoProveedorChanged;
+
+        protected virtual void OnProductoProveedorChanged(ValueChangedEventArgs e)
+        {
+            ProductoProveedorChanged?.Invoke(this, e);
+        }
+
+
+
+
+
+
     }
 }

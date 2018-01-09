@@ -85,10 +85,7 @@ namespace Heimdall.UserControl
             f.Show();
         }
 
-        private void ucProveedorView_Load(object sender, EventArgs e)
-        {
-            SetControles();
-        }
+
 
     }
 

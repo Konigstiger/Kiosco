@@ -35,6 +35,7 @@
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdProductoProveedor = new System.Windows.Forms.TextBox();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.ucProveedorView1 = new Heimdall.UserControl.UcProveedorView();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).BeginInit();
             this.SuspendLayout();
@@ -120,7 +121,15 @@
             this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
             this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
             this.txtIdProductoProveedor.TabIndex = 127;
-            this.txtIdProductoProveedor.Visible = false;
+            // 
+            // txtIdProducto
+            // 
+            this.txtIdProducto.BackColor = System.Drawing.SystemColors.Info;
+            this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProducto.Location = new System.Drawing.Point(14, 40);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(18, 24);
+            this.txtIdProducto.TabIndex = 129;
             // 
             // ucProveedorView1
             // 
@@ -135,6 +144,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.txtIdProductoProveedor);
             this.Controls.Add(this.dtpFechaModificacion);
             this.Controls.Add(this.label1);
@@ -163,5 +173,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdProductoProveedor;
         private UcProveedorView ucProveedorView1;
+        private System.Windows.Forms.TextBox txtIdProducto;
     }
 }
