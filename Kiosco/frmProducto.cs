@@ -430,23 +430,69 @@ namespace Heimdall
         private void _ucProductoProveedorList1_ProductoProveedorChanged(object sender, ValueChangedEventArgs e)
         {
             //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
-            var idproductoproveedor = this._ucProductoProveedorList1.IdProductoProveedor;
-            var idproducto = this._ucProductoProveedorList1.IdProducto;
-            var idproveedor = this._ucProductoProveedorList1.IdProveedor;
-
-            
-            ucProductoProveedorEdit1.IdProducto = (long)idproducto;
+            var idproductoproveedor = _ucProductoProveedorList1.IdProductoProveedor;
             ucProductoProveedorEdit1.IdProductoProveedor = (long) idproductoproveedor;
-            ucProductoProveedorEdit1.IdProveedor = idproveedor;
-
-            //ucProductoProveedorEdit1.Precio = this._ucProductoProveedorList1.Precio;
-
-
+            ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
         }
 
         private void _ucProductoProveedorList1_ProductoChanged(object sender, ValueChangedEventArgs e)
         {
             //?
+        }
+
+        private void ucAbmToolBar2_ButtonClickUpdate(object sender, EventArgs e)
+        {
+            //primera fase: guardar lo que esté seleccionado.
+            GuardarOInsertarProductoProveedor();
+
+        }
+
+        private void GuardarOInsertarProductoProveedor()
+        {
+            // todo lo que esta aqui debajo es para tomar de referencia.
+            var xx = new ProductoProveedor();
+            xx.IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor;
+            xx.IdProducto = ucProductoProveedorEdit1.IdProducto;
+            xx.IdProveedor = ucProductoProveedorEdit1.IdProveedor;
+            xx.FechaModificacion = ucProductoProveedorEdit1.Fecha;
+            xx.Notas = ucProductoProveedorEdit1.Notas;
+            xx.PrecioProveedor = ucProductoProveedorEdit1.Precio;
+            xx.IdUnidad = 1;    //pendiente
+
+            //=====================================================================
+            if (ucProductoProveedorEdit1.Modo == ModoFormulario.Nuevo) {
+                xx.IdProductoProveedor = ProductoProveedorControlador.Insert(xx);
+
+                //var modelView = ProductoProveedorControlador.GetByPrimaryKeyView(xx.IdProductoProveedor);
+
+            } else {
+                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
+
+                if (xx.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                var productoProveedorNuevo = new ProductoProveedor();
+                productoProveedorNuevo.IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor;
+                productoProveedorNuevo.IdProducto = ucProductoProveedorEdit1.IdProducto;
+                productoProveedorNuevo.IdProveedor = ucProductoProveedorEdit1.IdProveedor;
+                productoProveedorNuevo.FechaModificacion = ucProductoProveedorEdit1.Fecha;
+                productoProveedorNuevo.Notas = ucProductoProveedorEdit1.Notas;
+                productoProveedorNuevo.PrecioProveedor = ucProductoProveedorEdit1.Precio;
+                productoProveedorNuevo.IdUnidad = 1; //pendiente
+
+
+                xx.IdProducto = ProductoProveedorControlador.Update(productoProveedorNuevo);
+            }
+
+            // pasar o mantener _modo Edicion
+            ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
+
+
+        }
+
+        private void ucAbmToolBar2_ButtonClickNew(object sender, EventArgs e)
+        {
+            ucProductoProveedorEdit1.Modo = ModoFormulario.Nuevo;
         }
     }
 }

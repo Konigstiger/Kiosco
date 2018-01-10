@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controlador;
+using Kiosco;
+using Model;
 
 namespace Heimdall.UserControl
 {
@@ -88,5 +91,21 @@ namespace Heimdall.UserControl
             set { txtNotas.Text = value; }
         }
 
+        public ModoFormulario Modo { get; set; } = ModoFormulario.Nuevo;
+
+        private void txtIdProductoProveedor_TextChanged(object sender, EventArgs e)
+        {
+            if (DesignMode)
+                return;
+            var id = Convert.ToInt64(txtIdProductoProveedor.Text.Trim());
+            var c = ProductoProveedorControlador.GetByPrimaryKey(id);
+
+            ucProveedorView1.IdProveedor = c.IdProveedor;
+            IdProducto = c.IdProducto;
+            nudPrecioCompra.Value = c.PrecioProveedor;
+            Util.CheckDateNullable(c.FechaModificacion, dtpFechaModificacion);
+            txtNotas.Text = c.Notas;
+
+        }
     }
 }

@@ -27,11 +27,14 @@ namespace Model
         {
             IdProductoProveedor = 0,
             IdProducto = 1,
-            Producto = 2,
-            Proveedor = 3,
-            PrecioProveedor = 4,
-            PrecioVenta = 5,
-            FechaModificacion = 6}
+            IdProveedor = 2,
+            Producto = 3,
+            Proveedor = 4,
+            PrecioProveedor = 5,
+            PrecioVenta = 6,
+            FechaModificacion = 7,
+            Notas = 8
+        }
 
     }
 }

@@ -121,6 +121,8 @@
             this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
             this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
             this.txtIdProductoProveedor.TabIndex = 127;
+            this.txtIdProductoProveedor.Visible = false;
+            this.txtIdProductoProveedor.TextChanged += new System.EventHandler(this.txtIdProductoProveedor_TextChanged);
             // 
             // txtIdProducto
             // 
@@ -130,6 +132,7 @@
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(18, 24);
             this.txtIdProducto.TabIndex = 129;
+            this.txtIdProducto.Visible = false;
             // 
             // ucProveedorView1
             // 

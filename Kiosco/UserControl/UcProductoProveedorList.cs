@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -19,9 +20,6 @@ namespace Heimdall.UserControl
             SetControles();
         }
 
-        //*//
-
-        //*//
 
         private void SetControles()
         {
@@ -29,7 +27,7 @@ namespace Heimdall.UserControl
         }
 
 
-        private const int ColCount = 5;
+        private const int ColCount = 7;
 
         private List<ProductoProveedorView> _origenDatos = null;
 
@@ -79,21 +77,24 @@ namespace Heimdall.UserControl
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
+            
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Width = 0;
             c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Visible = false;
             c[(int)ProductoProveedorView.GridColumn.IdProducto].Width = 0;
             c[(int)ProductoProveedorView.GridColumn.IdProducto].Visible = false;
+            c[(int)ProductoProveedorView.GridColumn.IdProveedor].Width = 0;
+            c[(int)ProductoProveedorView.GridColumn.IdProveedor].Visible = false;
+            
 
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProductoProveedor], "IdProductoProveedor", "IdProductoProveedor", 0);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProducto], "IdProducto", "IdProducto", 1);
-            //TODO: Agregar el IdProveedor aqui, asi se ahorran lecturas
+            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.IdProveedor], "IdProveedor", "IdProveedor", 2);
 
             //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
-            Util.SetColumn(c[2], "Proveedor", "Proveedor", 2);
-            Util.SetColumn(c[3], "PrecioProveedor", "Precio Proveedor", 3);
-            Util.SetColumn(c[4], "FechaModificacion", "Fecha de Modificacion", 4);
-            //Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "Precio Venta", 5);
-            dgv.Columns.AddRange(c);
+            Util.SetColumn(c[3], "Proveedor", "Proveedor", 3);
+            Util.SetColumn(c[4], "PrecioProveedor", "Precio Proveedor", 4);
+            Util.SetColumn(c[5], "FechaModificacion", "Fecha de Modificacion", 5);
+            Util.SetColumn(c[6], "Notas", "Notas", 6);dgv.Columns.AddRange(c);
 
 
             Util.SetColumnsReadOnly(dgv);
@@ -134,23 +135,18 @@ namespace Heimdall.UserControl
                 return;
 
             long idProductoProveedor = 0;
-            decimal precio = 0;
-            int idProveedor = 0;
 
             foreach (DataGridViewRow item in dgv.SelectedRows) {
                 idProductoProveedor = (long)item.Cells[(int)ProductoProveedorView.GridColumn.IdProductoProveedor].Value;
-                precio = (decimal)item.Cells[3].Value;
-                idProveedor = 
-
             }
+
             IdProductoProveedor = idProductoProveedor;
-            Precio = precio;
         }
 
         public decimal Precio { get; set; }
 
+        public DateTime? Fecha { get; set; }
 
-        // foo
 
         [Description("IdProductoProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -183,9 +179,6 @@ namespace Heimdall.UserControl
         {
             ProductoProveedorChanged?.Invoke(this, e);
         }
-
-
-
 
 
 
