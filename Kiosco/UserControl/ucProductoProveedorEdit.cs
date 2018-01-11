@@ -107,5 +107,23 @@ namespace Heimdall.UserControl
             txtNotas.Text = c.Notas;
 
         }
+
+        private void nudPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
+                e.KeyChar = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+            }
+        }
+
+        private void btnSetPrecioCosto_Click(object sender, EventArgs e)
+        {
+            //Producto p = new Producto();
+            //p.IdProducto = ucProductoView1.IdProducto;
+            //p = ProductoControlador.GetByPrimaryKey(p.IdProducto);
+            //p.PrecioCostoPromedio = PCP;
+            //ProductoControlador.Update(p);
+            //ucProductoView1.PrecioCosto = p.PrecioCostoPromedio;
+            //dgv.Focus();
+        }
     }
 }

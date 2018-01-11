@@ -55,7 +55,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 85);
+            this.label1.Location = new System.Drawing.Point(44, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 125;
@@ -69,6 +69,8 @@
             this.btnSetPrecioCosto.TabIndex = 124;
             this.btnSetPrecioCosto.Text = "Definir como Precio de Costo";
             this.btnSetPrecioCosto.UseVisualStyleBackColor = true;
+            this.btnSetPrecioCosto.Visible = false;
+            this.btnSetPrecioCosto.Click += new System.EventHandler(this.btnSetPrecioCosto_Click);
             // 
             // txtNotas
             // 
@@ -83,7 +85,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 115);
+            this.label7.Location = new System.Drawing.Point(46, 115);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 123;
@@ -102,12 +104,13 @@
             0,
             0,
             0});
+            this.nudPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecioCompra_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 48);
+            this.label3.Location = new System.Drawing.Point(43, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 16);
             this.label3.TabIndex = 121;

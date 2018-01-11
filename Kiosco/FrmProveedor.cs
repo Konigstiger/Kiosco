@@ -326,5 +326,10 @@ namespace Heimdall
             var f = new FrmProductoProveedor(ucProveedorEdit1.IdProveedor);
             f.Show();
         }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

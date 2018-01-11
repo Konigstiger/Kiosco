@@ -444,6 +444,9 @@ namespace Heimdall
         {
             //primera fase: guardar lo que esté seleccionado.
             GuardarOInsertarProductoProveedor();
+            //recargar list
+            _ucProductoProveedorList1.IdProducto = ucProductoProveedorEdit1.IdProducto;
+
 
         }
 

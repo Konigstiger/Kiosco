@@ -39,10 +39,10 @@
             // 
             this.btnAbmProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnAbmProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProveedor.Image")));
-            this.btnAbmProveedor.Location = new System.Drawing.Point(516, 4);
+            this.btnAbmProveedor.Location = new System.Drawing.Point(512, 8);
             this.btnAbmProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
-            this.btnAbmProveedor.Size = new System.Drawing.Size(30, 32);
+            this.btnAbmProveedor.Size = new System.Drawing.Size(25, 25);
             this.btnAbmProveedor.TabIndex = 125;
             this.btnAbmProveedor.UseVisualStyleBackColor = true;
             this.btnAbmProveedor.Click += new System.EventHandler(this.btnAbmProveedor_Click);
@@ -51,10 +51,10 @@
             // 
             this.btnSeleccionarProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSeleccionarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProveedor.Image")));
-            this.btnSeleccionarProveedor.Location = new System.Drawing.Point(481, 4);
+            this.btnSeleccionarProveedor.Location = new System.Drawing.Point(481, 7);
             this.btnSeleccionarProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSeleccionarProveedor.Name = "btnSeleccionarProveedor";
-            this.btnSeleccionarProveedor.Size = new System.Drawing.Size(30, 32);
+            this.btnSeleccionarProveedor.Size = new System.Drawing.Size(25, 25);
             this.btnSeleccionarProveedor.TabIndex = 124;
             this.btnSeleccionarProveedor.UseVisualStyleBackColor = true;
             this.btnSeleccionarProveedor.Click += new System.EventHandler(this.btnSeleccionarProveedor_Click);
@@ -100,7 +100,7 @@
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.label4);
             this.Name = "UcProveedorView";
-            this.Size = new System.Drawing.Size(550, 37);
+            this.Size = new System.Drawing.Size(543, 37);
             this.ResumeLayout(false);
             this.PerformLayout();
 

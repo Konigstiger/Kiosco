@@ -42,7 +42,7 @@ namespace Heimdall
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ucProveedorEdit1 = new UcProveedorEdit();
+            this.ucProveedorEdit1 = new Heimdall.UserControl.UcProveedorEdit();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -108,6 +108,7 @@ namespace Heimdall
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -165,6 +166,7 @@ namespace Heimdall
             this.ucProveedorEdit1.Email = "";
             this.ucProveedorEdit1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucProveedorEdit1.HorarioAtencion = "";
+            this.ucProveedorEdit1.IdEstadoProveedor = 0;
             this.ucProveedorEdit1.IdProveedor = 0;
             this.ucProveedorEdit1.IdRubro = 0;
             this.ucProveedorEdit1.Location = new System.Drawing.Point(12, 608);
