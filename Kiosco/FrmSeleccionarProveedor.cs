@@ -3,14 +3,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall;
+using Kiosco;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmSeleccionarProveedor : Form
     {
-
 
         public FrmSeleccionarProveedor()
         {
@@ -64,7 +63,7 @@ namespace Kiosco
             Util.SetColumnsReadOnly(dgv);
 
             var origenDatos = searchText.Equals("") ?
-                ProveedorControlador.GetAll() :
+                ProveedorControlador.GetAll_Activo() :
                 ProveedorControlador.GetAll_GetByDescripcion(searchText);
 
             var bindingList = new MySortableBindingList<ProveedorView>(origenDatos);

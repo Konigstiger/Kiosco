@@ -112,6 +112,8 @@ namespace Kiosco
 
         private void AplicarColorSegunEstado()
         {
+            /*
+
             //TODO: Hacer una enumeracion al menos, o meter en BD el color o estilo a usar.
             foreach (DataGridViewRow row in dgv.Rows)
             {
@@ -155,6 +157,7 @@ namespace Kiosco
                         break;
                 }
             }
+            */
         }
 
 

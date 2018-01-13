@@ -11,6 +11,11 @@ namespace Controlador
             return ProveedorData.GetAll();
         }
 
+        public static List<ProveedorView> GetAll_Activo()
+        {
+            return ProveedorData.GetAll_Activo();
+        }
+
         public static Proveedor GetByPrimaryKey(int id)
         {
             return ProveedorData.GetByPrimaryKey(id);

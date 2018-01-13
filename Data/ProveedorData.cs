@@ -33,6 +33,31 @@ namespace Data
             return list;
         }
 
+        public static List<ProveedorView> GetAll_Activo()
+        {
+            var list = new List<ProveedorView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Proveedor_GetAll_Activo", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new ProveedorView {
+                                IdProveedor = (int)rdr["IdProveedor"],
+                                RazonSocial = (string)rdr["RazonSocial"],
+                                Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
+                                Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
+                                Estado = (string)rdr["EstadoProveedor"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            };
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
 
         public static Proveedor GetByPrimaryKey(int id)
         {

@@ -496,6 +496,9 @@ namespace Heimdall
         private void ucAbmToolBar2_ButtonClickNew(object sender, EventArgs e)
         {
             ucProductoProveedorEdit1.Modo = ModoFormulario.Nuevo;
+            //test: esto es para que tenga el codigo de producto que realmente va,
+            // y no uno de un producto interior. Es un bug.
+            ucProductoProveedorEdit1.IdProducto = ucProductoEdit1.IdProducto;
         }
     }
 }

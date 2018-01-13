@@ -96,6 +96,11 @@
             this.nudPrecioCompra.DecimalPlaces = 2;
             this.nudPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.nudPrecioCompra.Location = new System.Drawing.Point(103, 46);
+            this.nudPrecioCompra.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(170, 24);
             this.nudPrecioCompra.TabIndex = 120;
@@ -122,20 +127,18 @@
             this.txtIdProductoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProductoProveedor.Location = new System.Drawing.Point(3, 3);
             this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
-            this.txtIdProductoProveedor.Size = new System.Drawing.Size(18, 24);
+            this.txtIdProductoProveedor.Size = new System.Drawing.Size(38, 24);
             this.txtIdProductoProveedor.TabIndex = 127;
-            this.txtIdProductoProveedor.Visible = false;
             this.txtIdProductoProveedor.TextChanged += new System.EventHandler(this.txtIdProductoProveedor_TextChanged);
             // 
             // txtIdProducto
             // 
             this.txtIdProducto.BackColor = System.Drawing.SystemColors.Info;
             this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProducto.Location = new System.Drawing.Point(14, 40);
+            this.txtIdProducto.Location = new System.Drawing.Point(3, 40);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(18, 24);
+            this.txtIdProducto.Size = new System.Drawing.Size(38, 24);
             this.txtIdProducto.TabIndex = 129;
-            this.txtIdProducto.Visible = false;
             // 
             // ucProveedorView1
             // 
