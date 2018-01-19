@@ -48,7 +48,7 @@ namespace CalendarDemo
                 {
                     lst = xml.Deserialize(s) as List<ItemInfo>;
                 }
-
+               
                 foreach (ItemInfo item in lst)
                 {
                     CalendarItem cal = new CalendarItem(calendar1, item.StartTime, item.EndTime, item.Text);

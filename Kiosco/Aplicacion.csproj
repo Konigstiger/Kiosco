@@ -131,12 +131,19 @@
     <Compile Include="FrmSeleccionarProductoProveedor.Designer.cs">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTableroPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTableroPedidos.Designer.cs">
+      <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemInfo.cs" />
     <Compile Include="UserControl\UcAbmToolBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -348,6 +355,9 @@
     <EmbeddedResource Include="FrmSeleccionarProductoProveedor.resx">
       <DependentUpon>FrmSeleccionarProductoProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTableroPedidos.resx">
+      <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -482,6 +492,10 @@
     <ProjectReference Include="..\Modelos\Model.csproj">
       <Project>{04064249-d5ad-48ba-aba5-52768724cd94}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar.csproj">
+      <Project>{25649f08-3046-4891-adb8-7ea787b57063}</Project>
+      <Name>System.Windows.Forms.Calendar</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,7 @@ namespace Kiosco
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnConsultaProducto = new System.Windows.Forms.Button();
+            this.btnTableroDemo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -160,11 +161,21 @@ namespace Kiosco
             this.btnConsultaProducto.Text = "Consulta de Productos";
             this.btnConsultaProducto.Click += new System.EventHandler(this.btnConsultaProducto_Click);
             // 
+            // btnTableroDemo
+            // 
+            this.btnTableroDemo.Location = new System.Drawing.Point(12, 12);
+            this.btnTableroDemo.Name = "btnTableroDemo";
+            this.btnTableroDemo.Size = new System.Drawing.Size(292, 58);
+            this.btnTableroDemo.TabIndex = 26;
+            this.btnTableroDemo.Text = "Tablero Demo";
+            this.btnTableroDemo.Click += new System.EventHandler(this.btnTableroDemo_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 961);
+            this.Controls.Add(this.btnTableroDemo);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnOpciones);
@@ -203,5 +214,6 @@ namespace Kiosco
         private System.Windows.Forms.Button btnOpciones;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.Button btnTableroDemo;
     }
 }

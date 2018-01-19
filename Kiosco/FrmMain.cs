@@ -118,5 +118,12 @@ namespace Kiosco
         {
 
         }
+
+
+        private void btnTableroDemo_Click(object sender, EventArgs e)
+        {
+            var f = new FrmTableroPedidos();
+            f.Show();
+        }
     }
 }
