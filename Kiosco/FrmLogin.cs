@@ -42,6 +42,7 @@ namespace Heimdall
 
             Program.UsuarioConectado = u;
 
+
             DialogResult = DialogResult.OK;
 
             //redirigir.
