@@ -1,4 +1,4 @@
-﻿namespace Kiosco
+﻿namespace Heimdall
 {
     partial class FrmPedido
     {
@@ -41,6 +41,7 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -60,10 +61,11 @@
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
+            this.tsbSearchClearAndPerform,
+            this.tsbVerArchivo});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1082, 31);
+            this.tsb.Size = new System.Drawing.Size(1182, 31);
             this.tsb.TabIndex = 35;
             this.tsb.Text = "toolStrip1";
             // 
@@ -139,6 +141,16 @@
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // tsbVerArchivo
+            // 
+            this.tsbVerArchivo.CheckOnClick = true;
+            this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
+            this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVerArchivo.Name = "tsbVerArchivo";
+            this.tsbVerArchivo.Size = new System.Drawing.Size(95, 28);
+            this.tsbVerArchivo.Text = "Ver Archivo";
+            this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
+            // 
             // dgv
             // 
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -167,7 +179,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1082, 484);
+            this.dgv.Size = new System.Drawing.Size(1182, 483);
             this.dgv.TabIndex = 34;
             this.dgv.TabStop = false;
             this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
@@ -191,21 +203,25 @@
             // ucPedido1
             // 
             this.ucPedido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ucPedido1.Archivado = false;
             this.ucPedido1.Descripcion = "";
-            this.ucPedido1.Fecha = new System.DateTime(2017, 6, 13, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 6, 13, 0, 0, 0, 0);
+            this.ucPedido1.EstaPago = false;
+            this.ucPedido1.Fecha = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
+            this.ucPedido1.Fiscal = false;
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
             this.ucPedido1.IdPedido = ((long)(0));
+            this.ucPedido1.IdPrioridad = 0;
             this.ucPedido1.IdProveedor = 0;
-            this.ucPedido1.Location = new System.Drawing.Point(0, 525);
+            this.ucPedido1.Location = new System.Drawing.Point(0, 524);
             this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucPedido1.Name = "ucPedido1";
             this.ucPedido1.Notas = "";
             this.ucPedido1.Proveedor = "";
             this.ucPedido1.ShowDetallePedido = true;
             this.ucPedido1.ShowEstadoPedido = true;
-            this.ucPedido1.Size = new System.Drawing.Size(1085, 174);
+            this.ucPedido1.Size = new System.Drawing.Size(1188, 174);
             this.ucPedido1.TabIndex = 36;
             this.ucPedido1.Total = new decimal(new int[] {
             0,
@@ -217,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 724);
+            this.ClientSize = new System.Drawing.Size(1182, 723);
             this.Controls.Add(this.ucPedido1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
@@ -249,7 +265,8 @@
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.ContextMenuStrip cms;
-        private UserControl.ucPedido ucPedido1;
+        private Kiosco.UserControl.ucPedido ucPedido1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStripButton tsbVerArchivo;
     }
 }

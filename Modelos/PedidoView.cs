@@ -29,6 +29,8 @@ namespace Model
         public string Notas { get; set; }
 
         public bool EstaPago { get; set; }
+        public bool Archivado { get; set; }
+        public bool Fiscal { get; set; }
 
         public bool Validate()
         {

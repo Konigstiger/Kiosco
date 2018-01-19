@@ -212,6 +212,29 @@ namespace Kiosco.UserControl
         }
 
 
+        [Description("Archivado."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool Archivado
+        {
+            get { return chkArchivado.Checked; }
+            set { chkArchivado.Checked = value; }
+        }
+
+
+        [Description("Fiscal."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool Fiscal
+        {
+            get { return chkFiscal.Checked; }
+            set { chkFiscal.Checked = value; }
+        }
+
         [Description("Prioridad."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -246,6 +269,8 @@ namespace Kiosco.UserControl
             IdEstadoPedido = p.IdEstadoPedido;
             Notas = p.Notas;
             EstaPago = p.EstaPago;
+            Archivado = p.Archivado;
+            Fiscal = p.Fiscal;
             IdPrioridad = p.IdPrioridad;
         }
 
@@ -288,9 +313,11 @@ namespace Kiosco.UserControl
             dtpHoraEntrega.Checked = false;
             dtpHoraEntrega.Value = DateTime.Now;
             chkEstaPago.Checked = false;
-
+            chkArchivado.Checked = false;
+            chkFiscal.Checked = false;
 
         }
+
 
         private void btnSeleccionarProveedor_Click(object sender, EventArgs e)
         {

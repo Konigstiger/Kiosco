@@ -27,6 +27,8 @@ namespace Data
                                 Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0,
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
                                 EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false,
+                                Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false,
+                                Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : true,
                                 IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3
                         };
 
@@ -40,7 +42,7 @@ namespace Data
         }
 
 
-        public static List<PedidoView> GetByParameters(string descripcion)
+        public static List<PedidoView> GetByParameters(string descripcion, bool incluirArchivo)
         {
             var list = new List<PedidoView>();
 
@@ -49,8 +51,10 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
+                    var p2 = new SqlParameter("IncluirArchivo", SqlDbType.Bit) { Value = incluirArchivo };
 
                     cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
@@ -65,6 +69,8 @@ namespace Data
                                 , Total = (decimal)rdr["Total"]
                                 , IdEstadoPedido = (int)rdr["IdEstadoPedido"]
                                 , EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false
+                                , Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false
+                                , Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : false
                                 , IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3
                                 , Prioridad = rdr["Prioridad"] != DBNull.Value ? (string)rdr["Prioridad"] : string.Empty
                         };
@@ -94,6 +100,9 @@ namespace Data
                     var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
                     var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = m.EstaPago };
                     var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int ) { Value = m.IdPrioridad };
+                    var p10 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p11 = new SqlParameter("Fiscal", SqlDbType.Bit) { Value = m.Fiscal };
+                    var p12 = new SqlParameter("Notas", SqlDbType.VarChar ) { Value = m.Notas };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -105,6 +114,9 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
+                    cmd.Parameters.Add(p10);
+                    cmd.Parameters.Add(p11);
+                    cmd.Parameters.Add(p12);
 
                     conn.Open();
                     m.IdPedido = (long)cmd.ExecuteScalar();
@@ -133,11 +145,12 @@ namespace Data
                             c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
                             c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
-                            //c.HoraEntrega = rdr["HoraEntrega"] != DBNull.Value ? (DateTime)rdr["HoraEntrega"] : DateTime.Today;
                             c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
-                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                             c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
+                            c.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
+                            c.Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : true;
                             c.IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3;
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
                 }
@@ -167,9 +180,12 @@ namespace Data
                     c.IdEstadoPedido = (int)rdr["IdEstadoPedido"];
                     c.FechaEntrega = rdr["FechaEntrega"] != DBNull.Value ? (DateTime)rdr["FechaEntrega"] : DateTime.Today;
                     c.Total = rdr["Total"] != DBNull.Value ? (decimal)rdr["Total"] : 0;
-                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                     c.EstaPago = rdr["EstaPago"] != DBNull.Value ? (bool)rdr["EstaPago"] : false;
+                    c.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
+                    c.Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : true;
                     c.IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3;
+                    c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+
                 }
 
             }
@@ -193,6 +209,8 @@ namespace Data
                     var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
                     var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = model.EstaPago };
                     var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = model.IdPrioridad };
+                    var p10 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = model.Archivado };
+                    var p11 = new SqlParameter("Fiscal", SqlDbType.Bit) { Value = model.Fiscal };
 
 
                     cmd.Parameters.Add(p0);
@@ -205,10 +223,11 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
+                    cmd.Parameters.Add(p10);
+                    cmd.Parameters.Add(p11);
 
                     conn.Open();
                     model.IdPedido = (long)cmd.ExecuteScalar();
-
 
                 }
             }
@@ -230,7 +249,6 @@ namespace Data
                     model.IdPedido = (int)cmd.ExecuteScalar();
                     return true;
                 }
-            }
-        }
+            }}
     }
 }

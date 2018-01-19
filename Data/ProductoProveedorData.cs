@@ -103,7 +103,7 @@ namespace Data
                     var p1 = new SqlParameter("IdProveedor", SqlDbType.Int) { Value = m.IdProveedor };
                     var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
                     var p3 = new SqlParameter("PrecioProveedor", SqlDbType.Decimal) { Value = m.PrecioProveedor };
-                    var p4 = new SqlParameter("FechaModificacion", SqlDbType.Date) {Value = m.FechaModificacion};
+                    var p4 = new SqlParameter("FechaModificacion", SqlDbType.Date) { Value = m.FechaModificacion };
                     var p5 = new SqlParameter("IdUnidad", SqlDbType.Decimal) { Value = m.IdUnidad };
                     var p6 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
@@ -144,7 +144,7 @@ namespace Data
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.PrecioProveedor = (decimal)rdr["PrecioProveedor"];
                             c.FechaModificacion = rdr["FechaModificacion"] != DBNull.Value
-                                ? (DateTime) rdr["FechaModificacion"]
+                                ? (DateTime)rdr["FechaModificacion"]
                                 : DateTime.MinValue;
                             c.IdUnidad = rdr["IdUnidad"] != DBNull.Value ? (int)rdr["IdUnidad"] : 0;
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";

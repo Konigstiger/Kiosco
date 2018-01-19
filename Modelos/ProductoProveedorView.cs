@@ -4,7 +4,6 @@ namespace Model
 {
     public class ProductoProveedorView: IEntidad
     {
-        //TODO: Completar esta clase, pensada para actuar con una Vista SP
         public long IdProductoProveedor { get; set; }
         public long IdProducto { get; set; }
         public string Proveedor { get; set; }

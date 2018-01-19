@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
 using System.Drawing;
-
 using System.Windows.Forms;
 using Controlador;
-using Heimdall;
+using Kiosco;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmPedido : Form, IAbmGeneral
     {
@@ -95,9 +93,11 @@ namespace Kiosco
 
             Util.SetColumnsReadOnly(dgv);
 
+            bool VerArchivo = tsbVerArchivo.Checked;
+
             _origenDatos = searchText.Equals("") ?
-                PedidoControlador.GetAll_GetByParameters("") :
-                PedidoControlador.GetAll_GetByParameters(searchText);
+                PedidoControlador.GetAll_GetByParameters("", VerArchivo) :
+                PedidoControlador.GetAll_GetByParameters(searchText, VerArchivo);
 
             var bindingList = new MySortableBindingList<PedidoView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -237,6 +237,8 @@ namespace Kiosco
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
                 Notas = ucPedido1.Notas,
                 EstaPago = ucPedido1.EstaPago,
+                Archivado = ucPedido1.Archivado,
+                Fiscal = ucPedido1.Fiscal,
                 IdPrioridad = ucPedido1.IdPrioridad
             };
 
@@ -270,7 +272,9 @@ namespace Kiosco
                     IdEstadoPedido = ucPedido1.IdEstadoPedido,
                     Notas = ucPedido1.Notas,
                     EstaPago = ucPedido1.EstaPago,
-                    IdPrioridad = ucPedido1.IdPrioridad
+                    IdPrioridad = ucPedido1.IdPrioridad,
+                    Archivado = ucPedido1.Archivado,
+                    Fiscal = ucPedido1.Fiscal,
                 };
 
                 m.IdPedido = PedidoControlador.Update(mNuevo);
@@ -427,6 +431,11 @@ namespace Kiosco
         {
             //asumo que cuando se lance este evento, es después del ordenamiento...
             AplicarColorSegunEstado();
+        }
+
+        private void tsbVerArchivo_Click(object sender, EventArgs e)
+        {
+            ExecuteSearch();
         }
     }
 }

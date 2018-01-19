@@ -33,7 +33,7 @@ namespace Heimdall
         private void FrmDemo_Load(object sender, EventArgs e)
         {
             //origenDatos = ProductoControlador.GetAllByDeposito_GetAll(1);
-            origenDatos = PedidoControlador.GetAll_GetByParameters("");
+            origenDatos = PedidoControlador.GetAll_GetByParameters("", true);
 
             //var source = new List<ProductoView>(origenDatos);
             var source = new List<PedidoView>(origenDatos);

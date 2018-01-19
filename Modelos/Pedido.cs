@@ -24,6 +24,8 @@ namespace Model
 
         public bool EstaPago { get; set; }
         public string Prioridad { get; set; }
+        public bool Archivado { get; set; }
+        public bool Fiscal { get; set; }
 
         public bool Validate()
         {

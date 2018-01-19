@@ -62,6 +62,7 @@
             this.olvColumn1.AspectName = "IdPedido";
             this.olvColumn1.Groupable = false;
             this.olvColumn1.Text = "IdPedido";
+            this.olvColumn1.Width = 62;
             // 
             // olvColumn3
             // 
