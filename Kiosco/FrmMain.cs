@@ -57,6 +57,8 @@ namespace Heimdall
                 btnRecaudacion.Enabled = false;
                 //...
             }
+
+            btnConsultaProducto.Focus();
         }
 
 
