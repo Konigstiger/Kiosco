@@ -28,6 +28,7 @@ namespace Heimdall
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -43,10 +44,15 @@ namespace Heimdall
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnConsultaProducto = new System.Windows.Forms.Button();
             this.btnTableroDemo = new System.Windows.Forms.Button();
+            this.ilMain = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // btnVenta
             // 
+            this.btnVenta.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenta.ImageIndex = 4;
+            this.btnVenta.ImageList = this.ilMain;
             this.btnVenta.Location = new System.Drawing.Point(81, 96);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(292, 58);
@@ -56,6 +62,10 @@ namespace Heimdall
             // 
             // btnVentas
             // 
+            this.btnVentas.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.ImageIndex = 3;
+            this.btnVentas.ImageList = this.ilMain;
             this.btnVentas.Location = new System.Drawing.Point(81, 165);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(292, 58);
@@ -65,6 +75,10 @@ namespace Heimdall
             // 
             // btnAbmProducto
             // 
+            this.btnAbmProducto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAbmProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbmProducto.ImageIndex = 0;
+            this.btnAbmProducto.ImageList = this.ilMain;
             this.btnAbmProducto.Location = new System.Drawing.Point(81, 234);
             this.btnAbmProducto.Name = "btnAbmProducto";
             this.btnAbmProducto.Size = new System.Drawing.Size(292, 58);
@@ -74,6 +88,10 @@ namespace Heimdall
             // 
             // btnAbmProveedor
             // 
+            this.btnAbmProveedor.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAbmProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbmProveedor.ImageIndex = 10;
+            this.btnAbmProveedor.ImageList = this.ilMain;
             this.btnAbmProveedor.Location = new System.Drawing.Point(81, 303);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
             this.btnAbmProveedor.Size = new System.Drawing.Size(292, 58);
@@ -83,6 +101,10 @@ namespace Heimdall
             // 
             // btnAbmMarca
             // 
+            this.btnAbmMarca.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAbmMarca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbmMarca.ImageIndex = 2;
+            this.btnAbmMarca.ImageList = this.ilMain;
             this.btnAbmMarca.Location = new System.Drawing.Point(81, 372);
             this.btnAbmMarca.Name = "btnAbmMarca";
             this.btnAbmMarca.Size = new System.Drawing.Size(292, 58);
@@ -92,6 +114,10 @@ namespace Heimdall
             // 
             // btnPedido
             // 
+            this.btnPedido.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPedido.ImageIndex = 1;
+            this.btnPedido.ImageList = this.ilMain;
             this.btnPedido.Location = new System.Drawing.Point(81, 441);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(292, 58);
@@ -101,6 +127,10 @@ namespace Heimdall
             // 
             // btnProductoProveedor
             // 
+            this.btnProductoProveedor.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnProductoProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductoProveedor.ImageIndex = 11;
+            this.btnProductoProveedor.ImageList = this.ilMain;
             this.btnProductoProveedor.Location = new System.Drawing.Point(81, 510);
             this.btnProductoProveedor.Name = "btnProductoProveedor";
             this.btnProductoProveedor.Size = new System.Drawing.Size(292, 58);
@@ -110,6 +140,10 @@ namespace Heimdall
             // 
             // btnEstadisticas
             // 
+            this.btnEstadisticas.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstadisticas.ImageIndex = 8;
+            this.btnEstadisticas.ImageList = this.ilMain;
             this.btnEstadisticas.Location = new System.Drawing.Point(81, 579);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(292, 58);
@@ -119,6 +153,10 @@ namespace Heimdall
             // 
             // btnRecaudacion
             // 
+            this.btnRecaudacion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecaudacion.ImageIndex = 9;
+            this.btnRecaudacion.ImageList = this.ilMain;
             this.btnRecaudacion.Location = new System.Drawing.Point(81, 648);
             this.btnRecaudacion.Name = "btnRecaudacion";
             this.btnRecaudacion.Size = new System.Drawing.Size(292, 58);
@@ -128,6 +166,10 @@ namespace Heimdall
             // 
             // btnOpciones
             // 
+            this.btnOpciones.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpciones.ImageIndex = 14;
+            this.btnOpciones.ImageList = this.ilMain;
             this.btnOpciones.Location = new System.Drawing.Point(81, 717);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(292, 58);
@@ -137,7 +179,11 @@ namespace Heimdall
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(81, 855);
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.ImageIndex = 13;
+            this.btnSalir.ImageList = this.ilMain;
+            this.btnSalir.Location = new System.Drawing.Point(81, 788);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(292, 58);
             this.btnSalir.TabIndex = 24;
@@ -146,14 +192,20 @@ namespace Heimdall
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(81, 786);
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(81, 866);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(292, 58);
             this.btnCerrarSesion.TabIndex = 25;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.Visible = false;
             // 
             // btnConsultaProducto
             // 
+            this.btnConsultaProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultaProducto.ImageIndex = 6;
+            this.btnConsultaProducto.ImageList = this.ilMain;
             this.btnConsultaProducto.Location = new System.Drawing.Point(81, 27);
             this.btnConsultaProducto.Name = "btnConsultaProducto";
             this.btnConsultaProducto.Size = new System.Drawing.Size(292, 58);
@@ -163,7 +215,7 @@ namespace Heimdall
             // 
             // btnTableroDemo
             // 
-            this.btnTableroDemo.Location = new System.Drawing.Point(12, 12);
+            this.btnTableroDemo.Location = new System.Drawing.Point(815, 12);
             this.btnTableroDemo.Name = "btnTableroDemo";
             this.btnTableroDemo.Size = new System.Drawing.Size(292, 58);
             this.btnTableroDemo.TabIndex = 26;
@@ -171,11 +223,31 @@ namespace Heimdall
             this.btnTableroDemo.Visible = false;
             this.btnTableroDemo.Click += new System.EventHandler(this.btnTableroDemo_Click);
             // 
+            // ilMain
+            // 
+            this.ilMain.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilMain.ImageStream")));
+            this.ilMain.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilMain.Images.SetKeyName(0, "package.png");
+            this.ilMain.Images.SetKeyName(1, "trucking.png");
+            this.ilMain.Images.SetKeyName(2, "cigarettes.png");
+            this.ilMain.Images.SetKeyName(3, "sale-report32.png");
+            this.ilMain.Images.SetKeyName(4, "dollar32.png");
+            this.ilMain.Images.SetKeyName(5, "coins.png");
+            this.ilMain.Images.SetKeyName(6, "barcode32-1.png");
+            this.ilMain.Images.SetKeyName(7, "checklist.png");
+            this.ilMain.Images.SetKeyName(8, "pie-chart.png");
+            this.ilMain.Images.SetKeyName(9, "safebox.png");
+            this.ilMain.Images.SetKeyName(10, "users.png");
+            this.ilMain.Images.SetKeyName(11, "shopping-cart.png");
+            this.ilMain.Images.SetKeyName(12, "login.png");
+            this.ilMain.Images.SetKeyName(13, "power32.png");
+            this.ilMain.Images.SetKeyName(14, "settings2.png");
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 961);
+            this.ClientSize = new System.Drawing.Size(1119, 825);
             this.Controls.Add(this.btnTableroDemo);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
@@ -216,5 +288,6 @@ namespace Heimdall
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnTableroDemo;
+        private System.Windows.Forms.ImageList ilMain;
     }
 }
