@@ -40,10 +40,16 @@ namespace Heimdall
                 Pwd = txtPwd.Text.Trim()
             };
 
-            Program.UsuarioConectado = u;
 
+            string user = u.Usr.ToLower();
+            string pwd = u.Pwd.ToLower();
 
-            DialogResult = DialogResult.OK;
+            if (user.Equals("admin") && pwd.ToLower().Equals("crazyfucker")) {
+
+                Program.UsuarioConectado = u;
+
+                DialogResult = DialogResult.OK;
+            }
 
             //redirigir.
             //Application.Run(new FrmMain());

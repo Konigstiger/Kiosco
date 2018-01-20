@@ -144,6 +144,7 @@
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="ItemInfo.cs" />
+    <Compile Include="Security.cs" />
     <Compile Include="UserControl\UcAbmToolBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,7 +362,6 @@
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UserControl\UcAbmToolBar.resx">
       <DependentUpon>UcAbmToolBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -466,16 +466,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Model.PedidoView.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
