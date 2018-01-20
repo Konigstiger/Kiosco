@@ -32,7 +32,7 @@ namespace Heimdall
             // 
             this.labTitulo.AutoSize = true;
             this.labTitulo.Font = new System.Drawing.Font("Teko", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTitulo.ForeColor = System.Drawing.Color.Orange;
+            this.labTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labTitulo.Location = new System.Drawing.Point(101, 24);
             this.labTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTitulo.Name = "labTitulo";
@@ -79,7 +79,7 @@ namespace Heimdall
             // 
             this.btnAceptar.Location = new System.Drawing.Point(191, 242);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(112, 31);
+            this.btnAceptar.Size = new System.Drawing.Size(112, 40);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -87,10 +87,11 @@ namespace Heimdall
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancelar.Location = new System.Drawing.Point(383, 242);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 31);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 40);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -98,7 +99,9 @@ namespace Heimdall
             // 
             // FrmLogin
             // 
-            this.ClientSize = new System.Drawing.Size(685, 329);
+            this.AcceptButton = this.btnAceptar;
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(673, 329);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.labelControl2);
@@ -107,13 +110,14 @@ namespace Heimdall
             this.Controls.Add(this.labTitulo);
             this.Controls.Add(this.txtPwd);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Seguridad";
+            this.Text = "Heimdall // Autenticación";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

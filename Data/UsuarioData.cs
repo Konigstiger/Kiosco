@@ -52,6 +52,7 @@ namespace Data
                     var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = c.Telefono };
                     var p7 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = c.Direccion };
                     var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = c.Notas };
+                    var p9 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = c.IdClaseUsuario };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -62,6 +63,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -72,14 +74,51 @@ namespace Data
         }
 
 
-        public static Usuario GetByPrimaryKey(int idUsuario)
+
+        public static void Update(Usuario u)
+        {
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Usuario_Update", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p0 = new SqlParameter("IdUsuario", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = u.Descripcion };
+                    var p2 = new SqlParameter("Usr", SqlDbType.VarChar) { Value = u.Usr };
+                    var p3 = new SqlParameter("Pwd", SqlDbType.VarChar) { Value = u.Pwd };
+                    var p4 = new SqlParameter("Apellido", SqlDbType.VarChar) { Value = u.Apellido };
+                    var p5 = new SqlParameter("Nombre", SqlDbType.VarChar) { Value = u.Nombre };
+                    var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = u.Telefono };
+                    var p7 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = u.Direccion };
+                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = u.Notas };
+                    var p9 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = u.IdClaseUsuario };
+
+                    cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
+                    cmd.Parameters.Add(p3);
+                    cmd.Parameters.Add(p4);
+                    cmd.Parameters.Add(p5);
+                    cmd.Parameters.Add(p6);
+                    cmd.Parameters.Add(p7);
+                    cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
+
+                    conn.Open();
+                    u.IdUsuario = (int)cmd.ExecuteScalar();
+                }
+            }
+
+            //return u.IdUsuario;
+        }
+
+        public static Usuario GetByPrimaryKey(Usuario u)
         {
             var c = new Usuario();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
                 using (var cmd = new SqlCommand("Usuario_GetByPrimaryKey", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = idUsuario };
+                    var p1 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = u.IdUsuario };
                     cmd.Parameters.Add(p1);
 
                     conn.Open();
@@ -102,15 +141,53 @@ namespace Data
         }
 
 
-        public static void Update(Usuario u)
-        {
-            throw new NotImplementedException();
-        }
 
 
         public static bool Delete(Usuario u)
         {
-            throw new NotImplementedException();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Usuario_Delete", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p0 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = u.IdUsuario };
+
+                    cmd.Parameters.Add(p0);
+
+                    conn.Open();
+                    u.IdUsuario = (int)cmd.ExecuteScalar();
+                    return true;
+                }
+            }
+        }
+
+        public static Usuario GetByUsr(Usuario u)
+        {
+            var c = new Usuario();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Usuario_GetByUsr", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("Usr", SqlDbType.VarChar) { Value = u.Usr};
+                    cmd.Parameters.Add(p1);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdUsuario = (int)rdr["IdUsuario"];
+                            c.Descripcion = rdr["Descripcion"] != DBNull.Value ? (string)rdr["Descripcion"] : "";
+                            c.Usr = (string)rdr["Usr"];
+                            c.Pwd = (string)rdr["Pwd"];
+                            c.Apellido = rdr["Apellido"] != DBNull.Value ? (string)rdr["Apellido"] : "";
+                            c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
+                            c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
+                            c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.IdClaseUsuario = (int)rdr["IdClaseUsuario"];
+                        }
+                    }
+                }
+            }
+            return c;
         }
     }
 }

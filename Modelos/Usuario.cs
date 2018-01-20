@@ -6,8 +6,6 @@ namespace Model
     {
         public const int IdUsuarioPredeterminado = 1;
 
-
-
         public int IdUsuario { get; set; }
 
         public string Usr { get; set; }
@@ -26,5 +24,7 @@ namespace Model
 
         public string Notas { get; set; }
 
+        public int IdClaseUsuario { get; set; }
+        public bool EsAdmin { get; set; }
     }
 }

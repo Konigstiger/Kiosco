@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using Heimdall;
+using Kiosco;
 using Kiosco.UI;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmMain : Form
     {
@@ -47,14 +47,15 @@ namespace Kiosco
             Util.CenterFormX(btnVenta, this);
             Util.CenterFormX(btnVentas, this);
             Util.CenterFormX(btnCerrarSesion, this);
-            
 
-            if (Program.UsuarioConectado.Usr != "Admin")
+
+            if (Program.UsuarioConectado.EsAdmin == false)
             {
                 btnAbmProveedor.Enabled = false;
                 btnProductoProveedor.Enabled = false;
                 btnEstadisticas.Enabled = false;
                 btnRecaudacion.Enabled = false;
+                //...
             }
         }
 

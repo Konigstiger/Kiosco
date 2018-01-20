@@ -1,5 +1,5 @@
 ﻿
-namespace Kiosco
+namespace Heimdall
 {
     partial class FrmMain
     {
@@ -168,6 +168,7 @@ namespace Kiosco
             this.btnTableroDemo.Size = new System.Drawing.Size(292, 58);
             this.btnTableroDemo.TabIndex = 26;
             this.btnTableroDemo.Text = "Tablero Demo";
+            this.btnTableroDemo.Visible = false;
             this.btnTableroDemo.Click += new System.EventHandler(this.btnTableroDemo_Click);
             // 
             // FrmMain

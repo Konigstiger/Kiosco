@@ -19,7 +19,10 @@ namespace Heimdall
         private void FrmProductoDetalle_Load(object sender, EventArgs e)
         {
             SetControles();
-
+            if (Program.UsuarioConectado.EsAdmin == false) {
+                labPrecioCosto.Visible = false;
+                txtPrecioCosto.Visible = false;
+            }
 
         }
 

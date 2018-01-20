@@ -44,7 +44,7 @@ namespace Heimdall
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labPrecioCosto = new System.Windows.Forms.Label();
             this.gbStock = new System.Windows.Forms.GroupBox();
             this.btnUpdateStock = new System.Windows.Forms.Button();
             this.nudStockActual = new System.Windows.Forms.NumericUpDown();
@@ -213,17 +213,17 @@ namespace Heimdall
             this.label7.TabIndex = 71;
             this.label7.Text = "Notas:";
             // 
-            // label6
+            // labPrecioCosto
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(131, 209);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 25);
-            this.label6.TabIndex = 70;
-            this.label6.Tag = "Costo Promedio";
-            this.label6.Text = "Costo:";
+            this.labPrecioCosto.AutoSize = true;
+            this.labPrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPrecioCosto.Location = new System.Drawing.Point(131, 209);
+            this.labPrecioCosto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labPrecioCosto.Name = "labPrecioCosto";
+            this.labPrecioCosto.Size = new System.Drawing.Size(74, 25);
+            this.labPrecioCosto.TabIndex = 70;
+            this.labPrecioCosto.Tag = "Costo Promedio";
+            this.labPrecioCosto.Text = "Costo:";
             // 
             // gbStock
             // 
@@ -425,10 +425,18 @@ namespace Heimdall
             // _ucProductoProveedorList1
             // 
             this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._ucProductoProveedorList1.Fecha = null;
             this._ucProductoProveedorList1.IdProducto = ((long)(0));
+            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
+            this._ucProductoProveedorList1.IdProveedor = 0;
             this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
             this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
+            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
             this._ucProductoProveedorList1.TabIndex = 87;
             // 
@@ -596,7 +604,7 @@ namespace Heimdall
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.txtNotas);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labPrecioCosto);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -648,7 +656,7 @@ namespace Heimdall
         private System.Windows.Forms.TextBox txtIdProducto;
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labPrecioCosto;
         private System.Windows.Forms.GroupBox gbStock;
         private System.Windows.Forms.Button btnUpdateStock;
         private System.Windows.Forms.NumericUpDown nudStockActual;

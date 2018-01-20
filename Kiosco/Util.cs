@@ -1,10 +1,24 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Heimdall
 {
     public static class Util
     {
+        public static void Shake(Form form)
+        {
+            var original = form.Location;
+            var rnd = new Random(1337);
+            const int shake_amplitude = 5;
+            for (int i = 0; i < 10; i++) {
+                form.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                System.Threading.Thread.Sleep(20);
+            }
+            form.Location = original;
+        }
+
+
         public static void CheckDateNullable(DateTime? d, DateTimePicker ctrl)
         {
             if (d == null || d == DateTime.MinValue) {

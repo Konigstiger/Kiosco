@@ -32,7 +32,13 @@ namespace Heimdall.UserControl
         public UcProductoEdit()
         {
             InitializeComponent();
+            if (Program.UsuarioConectado.EsAdmin == false)
+            {
+                labPrecioCosto.Visible = false;
+                nudPrecioCosto.Visible = false;
+            }
         }
+
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {

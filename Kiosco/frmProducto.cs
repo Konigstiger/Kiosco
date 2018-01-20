@@ -109,6 +109,10 @@ namespace Heimdall
             dgv.Columns.AddRange(c);
 
 
+            if (Program.UsuarioConectado.EsAdmin == false) {
+                c[(int)ProductoView.GridColumn.Ganancia].Visible = false;
+            }
+
             Util.SetColumnsReadOnly(dgv);
 
             var idDeposito = 1; //Deposito en negocio

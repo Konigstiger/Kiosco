@@ -13,13 +13,16 @@ namespace Controlador
             return UsuarioData.GetAll();
         }
 
-        public static Usuario GetByPrimaryKey(int idUsuario)
+        public static Usuario GetByPrimaryKey(Usuario u)
         {
-            return UsuarioData.GetByPrimaryKey(idUsuario);
+            return UsuarioData.GetByPrimaryKey(u);
         }
 
+        public static Usuario GetByUsr(Usuario u)
+        {
+            return UsuarioData.GetByUsr(u);
+        }
 
-        
         public static int Insert(Usuario c)
         {
             var idUsuario = UsuarioData.Insert(c);

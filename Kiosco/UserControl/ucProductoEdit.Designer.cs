@@ -36,7 +36,7 @@
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.nudPrecioCosto = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labPrecioCosto = new System.Windows.Forms.Label();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.gbStock = new System.Windows.Forms.GroupBox();
             this.btnUpdateStock = new System.Windows.Forms.Button();
@@ -157,16 +157,16 @@
             this.nudPrecioCosto.Enter += new System.EventHandler(this.nudPrecioCosto_Enter);
             this.nudPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecioCosto_KeyPress);
             // 
-            // label6
+            // labPrecioCosto
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(73, 79);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 18);
-            this.label6.TabIndex = 68;
-            this.label6.Tag = "Costo Promedio";
-            this.label6.Text = "Costo:";
+            this.labPrecioCosto.AutoSize = true;
+            this.labPrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPrecioCosto.Location = new System.Drawing.Point(73, 79);
+            this.labPrecioCosto.Name = "labPrecioCosto";
+            this.labPrecioCosto.Size = new System.Drawing.Size(53, 18);
+            this.labPrecioCosto.TabIndex = 68;
+            this.labPrecioCosto.Tag = "Costo Promedio";
+            this.labPrecioCosto.Text = "Costo:";
             // 
             // nudPrecio
             // 
@@ -426,7 +426,7 @@
             this.Controls.Add(this.txtNotas);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudPrecioCosto);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labPrecioCosto);
             this.Controls.Add(this.nudPrecio);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.cboRubro);
@@ -466,7 +466,7 @@
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nudPrecioCosto;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labPrecioCosto;
         private System.Windows.Forms.NumericUpDown nudPrecio;
         private System.Windows.Forms.GroupBox gbStock;
         private System.Windows.Forms.Button btnUpdateStock;

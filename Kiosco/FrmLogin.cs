@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Kiosco;
 using Model;
@@ -40,28 +41,17 @@ namespace Heimdall
                 Pwd = txtPwd.Text.Trim()
             };
 
-
-            string user = u.Usr.ToLower();
-            string pwd = u.Pwd.ToLower();
-
-            if (user.Equals("admin") && pwd.ToLower().Equals("crazyfucker")) {
-
+            if (Security.ValidarUsuario(u)) { 
                 Program.UsuarioConectado = u;
-
+                Program.UsuarioConectado.EsAdmin = Security.EsAdmin(u);
                 DialogResult = DialogResult.OK;
             }
-
-            //redirigir.
-            //Application.Run(new FrmMain());
-
-            //this.Close();
-
-            //validar con metodo de ctrl
-            //if(!u.Usr.Equals("Admin"))
-
-            //var snapshot = cameraControl1.TakeSnapshot();
-            //snapshot.Save();
+            else
+            {
+                Util.Shake(this);
+            }
 
         }
+
     }
 }

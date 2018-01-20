@@ -48,7 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Kiosco.Program</StartupObject>
+    <StartupObject>Heimdall.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Helmet.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -508,6 +511,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\barcode_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Helmet.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
