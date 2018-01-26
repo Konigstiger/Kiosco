@@ -30,7 +30,7 @@ namespace Model
 
         public bool Validate()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

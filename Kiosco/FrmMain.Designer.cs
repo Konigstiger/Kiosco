@@ -45,6 +45,7 @@ namespace Heimdall
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnConsultaProducto = new System.Windows.Forms.Button();
             this.btnTableroDemo = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -203,7 +204,7 @@ namespace Heimdall
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.ImageIndex = 13;
             this.btnSalir.ImageList = this.ilMain;
-            this.btnSalir.Location = new System.Drawing.Point(81, 786);
+            this.btnSalir.Location = new System.Drawing.Point(81, 854);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(292, 58);
             this.btnSalir.TabIndex = 11;
@@ -213,7 +214,7 @@ namespace Heimdall
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCerrarSesion.Location = new System.Drawing.Point(81, 855);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(81, 928);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(292, 58);
             this.btnCerrarSesion.TabIndex = 25;
@@ -243,11 +244,24 @@ namespace Heimdall
             this.btnTableroDemo.Visible = false;
             this.btnTableroDemo.Click += new System.EventHandler(this.btnTableroDemo_Click);
             // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(81, 785);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(292, 58);
+            this.btnUsuarios.TabIndex = 27;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 825);
+            this.ClientSize = new System.Drawing.Size(1119, 1053);
+            this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnTableroDemo);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
@@ -289,5 +303,6 @@ namespace Heimdall
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnTableroDemo;
         private System.Windows.Forms.ImageList ilMain;
+        private System.Windows.Forms.Button btnUsuarios;
     }
 }

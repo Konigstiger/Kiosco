@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall.UserControl;
 using Model;
 
 namespace Heimdall
@@ -14,8 +13,8 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 9;
-        private bool busquedaActiva = false;
+        private const int colCount = 5;
+        //private bool busquedaActiva = false;
 
         private List<UsuarioView> origenDatos = null;
 
@@ -26,17 +25,19 @@ namespace Heimdall
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
-
+            LimpiarControles();
+            _modo = ModoFormulario.Nuevo;
+            ucUsuarioEdit1.Focus();
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
-
+            GuardarOInsertar();
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
-
+            Eliminar();
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace Heimdall
             Util.SetColumn(c[(int)UsuarioView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)UsuarioView.GridColumn.Usr], "Usr", "Usr", 2);
             Util.SetColumn(c[(int)UsuarioView.GridColumn.ClaseUsuario], "ClaseUsuario", "Clase", 3);
-            Util.SetColumn(c[(int)UsuarioView.GridColumn.Estado], "Estado", "Estado", 4);
+            Util.SetColumn(c[(int)UsuarioView.GridColumn.Estado], "EstadoUsuario", "Estado", 4);
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);
@@ -190,7 +191,22 @@ namespace Heimdall
 
         public void LimpiarControles()
         {
-            throw new NotImplementedException();
+            ucUsuarioEdit1.LimpiarControles();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt32(dgv.SelectedRows[0].Cells[(int)UsuarioView.GridColumn.IdUsuario].Value.ToString());
+
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucUsuarioEdit1.IdUsuario = id;
         }
     }
 }

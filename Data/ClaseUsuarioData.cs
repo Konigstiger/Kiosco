@@ -6,22 +6,21 @@ using Model;
 
 namespace Data
 {
-    public class RubroData
+    public class ClaseUsuarioData
     {
-        public static List<RubroView> GetAll()
+        public static List<ClaseUsuarioView> GetAll()
         {
-            var list = new List<RubroView>();
+            var list = new List<ClaseUsuarioView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
-                using (var cmd = new SqlCommand("Rubro_GetAll", conn)) {
+                using (var cmd = new SqlCommand("ClaseUsuario_GetAll", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new RubroView {
-                                IdRubro = (int)rdr["IdRubro"],
+                            var p = new ClaseUsuarioView {
+                                IdClaseUsuario = (int)rdr["IdClaseUsuario"],
                                 Descripcion = (string)rdr["Descripcion"]
                             };
-                            // Obtener los resultados de cada columna
                             list.Add(p);
                         }
                     }
@@ -29,16 +28,15 @@ namespace Data
             }
             return list;
         }
+        
 
-
-
-        public static int Insert(Rubro c)
+        public static int Insert(ClaseUsuario c)
         {
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
-                using (var cmd = new SqlCommand("Rubro_Insert", conn)) {
+                using (var cmd = new SqlCommand("ClaseUsuario_Insert", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p0 = new SqlParameter("IdRubro", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                    var p0 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Direction = ParameterDirection.Output };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = c.Descripcion };
 
                     cmd.Parameters.Add(p0);
@@ -46,27 +44,27 @@ namespace Data
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    c.IdRubro = (int)p0.Value;
+                    c.IdClaseUsuario = (int)p0.Value;
                 }
             }
-            return c.IdRubro;
+            return c.IdClaseUsuario;
         }
 
 
-        public static Rubro GetByPrimaryKey(int idRubro)
+        public static ClaseUsuario GetByPrimaryKey(int idClaseUsuario)
         {
-            var c = new Rubro();
+            var c = new ClaseUsuario();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
-                using (var cmd = new SqlCommand("Rubro_GetByPrimaryKey", conn)) {
+                using (var cmd = new SqlCommand("ClaseUsuario_GetByPrimaryKey", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = idRubro };
+                    var p1 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = idClaseUsuario };
                     cmd.Parameters.Add(p1);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            c.IdRubro = (int)rdr["IdRubro"];
+                            c.IdClaseUsuario = (int)rdr["IdClaseUsuario"];
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -76,12 +74,12 @@ namespace Data
             return c;
         }
 
-        public static bool Delete(Rubro rubro)
+        public static void Update(ClaseUsuario ClaseUsuario)
         {
             throw new NotImplementedException();
         }
 
-        public static void Update(Rubro rubro)
+        public static bool Delete(ClaseUsuario ClaseUsuario)
         {
             throw new NotImplementedException();
         }

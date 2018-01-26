@@ -194,19 +194,19 @@ namespace Heimdall.UserControl
 
         private void CargarControles()
         {
-            CargarRubro();
+            CargarClaseUsuario();
             CargarEstadoUsuario();
         }
 
-        private void CargarRubro()
+        private void CargarClaseUsuario()
         {
             if (DesignMode)
                 return;
 
             cboClaseUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
-            var list = RubroControlador.GetAll();
+            var list = ClaseUsuarioControlador.GetAll();
             cboClaseUsuario.DataSource = list;
-            cboClaseUsuario.ValueMember = "IdRubro";
+            cboClaseUsuario.ValueMember = "IdClaseUsuario";
             cboClaseUsuario.DisplayMember = "Descripcion";
         }
 

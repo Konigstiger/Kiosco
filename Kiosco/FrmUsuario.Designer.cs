@@ -154,20 +154,25 @@
             this.dgv.Size = new System.Drawing.Size(1181, 418);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucUsuarioEdit1
             // 
+            this.ucUsuarioEdit1.Descripcion = "";
             this.ucUsuarioEdit1.Email = "";
             this.ucUsuarioEdit1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucUsuarioEdit1.IdClaseUsuario = 0;
+            this.ucUsuarioEdit1.IdEstadoUsuario = 0;
             this.ucUsuarioEdit1.IdUsuario = 0;
             this.ucUsuarioEdit1.Location = new System.Drawing.Point(0, 455);
             this.ucUsuarioEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucUsuarioEdit1.Name = "ucUsuarioEdit1";
             this.ucUsuarioEdit1.Notas = "";
-            this.ucUsuarioEdit1.Descripcion = "";
+            this.ucUsuarioEdit1.Pwd = "";
             this.ucUsuarioEdit1.Size = new System.Drawing.Size(1171, 216);
             this.ucUsuarioEdit1.TabIndex = 26;
             this.ucUsuarioEdit1.Telefono = "";
+            this.ucUsuarioEdit1.Usr = "";
             // 
             // FrmUsuario
             // 

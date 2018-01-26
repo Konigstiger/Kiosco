@@ -25,8 +25,9 @@ namespace Data
                                 Apellido = rdr["Apellido"] != DBNull.Value ? (string)rdr["Apellido"] : "",
                                 Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "",
                                 Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
-                                Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
+                                ClaseUsuario = rdr["ClaseUsuario"] != DBNull.Value ? (string)rdr["ClaseUsuario"] : "",
+                                EstadoUsuario = rdr["EstadoUsuario"] != DBNull.Value ? (string)rdr["EstadoUsuario"] : ""
                             };
                             list.Add(p);
                         }

@@ -18,21 +18,13 @@ namespace Controlador
             return RubroData.GetByPrimaryKey(idRubro);
         }
 
-
-        public static List<RubroView> SearchByParameters(string nombre)
-        {
-            return RubroData.SearchByParameters(nombre);
-
-        }
-
         
         public static int Insert(Rubro c)
         {
             var idRubro = RubroData.Insert(c);
             return idRubro;
         }
-
-        /*
+        
 
         public static bool Delete(Rubro c)
         {
@@ -43,7 +35,7 @@ namespace Controlador
         {
             RubroData.Update(c);
         }
-        */
+        
 
     }
 }

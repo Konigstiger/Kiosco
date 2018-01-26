@@ -6,10 +6,13 @@ namespace Model
     {
 
         public int IdUsuario { get; set; }
+        public int IdClaseUsuario { get; set; }
 
         public string Usr { get; set; }
 
         public string Descripcion { get; set; }
+        public string ClaseUsuario { get; set; }
+        public string EstadoUsuario { get; set; }
 
         public string Pwd { get; set; }
 

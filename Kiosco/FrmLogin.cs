@@ -23,6 +23,9 @@ namespace Heimdall
             txtUser.Text = @"Admin";
 
             Util.CenterFormX(labTitulo, this);
+
+            txtUser.Text = "Admin";
+            txtPwd.Text = "Crazyfucker";
         }
 
 
