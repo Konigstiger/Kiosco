@@ -4,10 +4,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmMarca : Form, IAbmGeneral
     {

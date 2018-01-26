@@ -1,4 +1,4 @@
-﻿namespace Kiosco.UI
+﻿namespace Heimdall
 {
     partial class frmOpciones
     {

@@ -1,6 +1,6 @@
 ﻿using Heimdall.UserControl;
 
-namespace Kiosco
+namespace Heimdall
 {
     partial class FrmPedidoDetalle
     {
@@ -43,8 +43,8 @@ namespace Kiosco
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ucPedido1 = new Kiosco.UserControl.ucPedido();
-            this.ucPedidoDetalle1 = new Kiosco.UcPedidoDetalle();
+            this.ucPedido1 = new ucPedido();
+            this.ucPedidoDetalle1 = new UcPedidoDetalle();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -262,7 +262,7 @@ namespace Kiosco
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private UcPedidoDetalle ucPedidoDetalle1;
-        private UserControl.ucPedido ucPedido1;
+        private ucPedido ucPedido1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip cms;
     }

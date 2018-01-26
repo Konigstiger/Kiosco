@@ -50,9 +50,8 @@ namespace Data
                     var p4 = new SqlParameter("Apellido", SqlDbType.VarChar) { Value = c.Apellido };
                     var p5 = new SqlParameter("Nombre", SqlDbType.VarChar) { Value = c.Nombre };
                     var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = c.Telefono };
-                    var p7 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = c.Direccion };
-                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = c.Notas };
-                    var p9 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = c.IdClaseUsuario };
+                    var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = c.Notas };
+                    var p8 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = c.IdClaseUsuario };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -63,7 +62,6 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
-                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -88,9 +86,8 @@ namespace Data
                     var p4 = new SqlParameter("Apellido", SqlDbType.VarChar) { Value = u.Apellido };
                     var p5 = new SqlParameter("Nombre", SqlDbType.VarChar) { Value = u.Nombre };
                     var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = u.Telefono };
-                    var p7 = new SqlParameter("Direccion", SqlDbType.VarChar) { Value = u.Direccion };
-                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = u.Notas };
-                    var p9 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = u.IdClaseUsuario };
+                    var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = u.Notas };
+                    var p8 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = u.IdClaseUsuario };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -101,7 +98,6 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
-                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     u.IdUsuario = (int)cmd.ExecuteScalar();
@@ -131,7 +127,6 @@ namespace Data
                             c.Apellido = rdr["Apellido"] != DBNull.Value ? (string)rdr["Apellido"] : "";
                             c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
                             c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
-                            c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
@@ -180,9 +175,41 @@ namespace Data
                             c.Apellido = rdr["Apellido"] != DBNull.Value ? (string)rdr["Apellido"] : "";
                             c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
                             c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
-                            c.Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "";
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                             c.IdClaseUsuario = (int)rdr["IdClaseUsuario"];
+                        }
+                    }
+                }
+            }
+            return c;
+        }
+
+        public static List<UsuarioView> GetAll_ByUsr()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static UsuarioView GetByPrimaryKeyView(Usuario u)
+        {
+            var c = new UsuarioView();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Usuario_GetByPrimaryKey", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("IdUsuario", SqlDbType.Int) { Value = u.IdUsuario };
+                    cmd.Parameters.Add(p1);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            c.IdUsuario = (int)rdr["IdUsuario"];
+                            c.Descripcion = rdr["Descripcion"] != DBNull.Value ? (string)rdr["Descripcion"] : "";
+                            c.Usr = (string)rdr["Usr"];
+                            c.Pwd = (string)rdr["Pwd"];
+                            c.Apellido = rdr["Apellido"] != DBNull.Value ? (string)rdr["Apellido"] : "";
+                            c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
+                            c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
                 }

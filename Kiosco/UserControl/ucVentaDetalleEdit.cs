@@ -4,8 +4,6 @@ using System.ComponentModel;
 
 using System.Windows.Forms;
 using Controlador;
-using Kiosco;
-using Kiosco.UserControl;
 using Model;
 
 namespace Heimdall.UserControl

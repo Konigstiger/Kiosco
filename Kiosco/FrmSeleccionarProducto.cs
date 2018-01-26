@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
-using Kiosco;
 using Model;
 
 namespace Heimdall

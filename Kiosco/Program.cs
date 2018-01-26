@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Kiosco;
 using Model;
 
 namespace Heimdall

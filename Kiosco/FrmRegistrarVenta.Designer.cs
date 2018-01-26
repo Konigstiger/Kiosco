@@ -1,4 +1,6 @@
-﻿namespace Kiosco
+﻿using Heimdall.UserControl;
+
+namespace Heimdall
 {
     partial class FrmRegistrarVenta
     {
@@ -41,7 +43,7 @@
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnVender = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ucNotification1 = new Kiosco.UcNotification();
+            this.ucNotification1 = new UcNotification();
             this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.ucVentaDetalleEdit1 = new Heimdall.UserControl.UcVentaDetalleEdit();
             this.tsb.SuspendLayout();

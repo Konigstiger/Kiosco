@@ -1,13 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Forms;
 using Controlador;
-using Heimdall;
-using Heimdall.UserControl;
-using static System.Globalization.CultureInfo;
 
-
-namespace Kiosco.UserControl
+namespace Heimdall.UserControl
 {
     public partial class ucPedido : System.Windows.Forms.UserControl, ISelectorProveedor
     {
@@ -398,7 +395,7 @@ namespace Kiosco.UserControl
         private void nudImporte_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
-                e.KeyChar = CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+                e.KeyChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
             }
         }
     }

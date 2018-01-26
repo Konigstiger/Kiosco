@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Model;
 
-namespace Kiosco.View
+namespace Heimdall.View
 {
     public interface IPedidoView
     {

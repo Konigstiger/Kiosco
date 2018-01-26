@@ -1,4 +1,4 @@
-﻿namespace Kiosco.View
+﻿namespace Heimdall.View
 {
     partial class PedidoView
     {

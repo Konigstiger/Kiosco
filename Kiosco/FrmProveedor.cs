@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Kiosco;
 using Model;
 
 namespace Heimdall

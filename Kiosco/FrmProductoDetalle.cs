@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Kiosco;
+using Heimdall.UserControl;
 using Model;
 
 namespace Heimdall
@@ -371,6 +371,72 @@ namespace Heimdall
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
             nudPrecio.Value = Convert.ToDecimal(txtPrecio.Text.Trim());
+        }
+
+        private void btnMProducto_Click(object sender, EventArgs e)
+        {
+            this.ucProductoEdit1.IdProducto = this.IdProducto;
+            ucProductoEdit1.Visible = true;
+            btnGuardar.Visible = true;
+            ucProductoEdit1.BringToFront();
+            btnGuardar.BringToFront();
+
+        }
+
+
+
+        public void GuardarOInsertar()
+        {
+            var idUsuarioActual = Program.UsuarioConectado.IdUsuario;
+
+            var m = new Producto {
+                IdProducto = -1,
+                CodigoBarras = ucProductoEdit1.CodigoBarras,
+                Descripcion = ucProductoEdit1.Descripcion,
+                Capacidad = ucProductoEdit1.Capacidad,
+                PrecioVenta = ucProductoEdit1.PrecioVenta,
+                StockMinimo = ucProductoEdit1.StockMinimo,
+                StockMaximo = ucProductoEdit1.StockMaximo,
+                SoloAdultos = ucProductoEdit1.SoloAdultos,
+                PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
+                IdMarca = ucProductoEdit1.IdMarca,
+                IdRubro = ucProductoEdit1.IdRubro,
+                IdUnidad = ucProductoEdit1.IdUnidad,
+                Notas = ucProductoEdit1.Notas
+            };
+            //=====================================================================
+                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
+
+                if (m.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                var productoNuevo = new Producto {
+                    IdProducto = ucProductoEdit1.IdProducto,
+                    CodigoBarras = ucProductoEdit1.CodigoBarras,
+                    Descripcion = ucProductoEdit1.Descripcion,
+                    Capacidad = ucProductoEdit1.Capacidad,
+                    PrecioVenta = ucProductoEdit1.PrecioVenta,
+                    StockMinimo = ucProductoEdit1.StockMinimo,
+                    StockMaximo = ucProductoEdit1.StockMaximo,
+                    SoloAdultos = ucProductoEdit1.SoloAdultos,
+                    PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
+                    IdMarca = ucProductoEdit1.IdMarca,
+                    IdRubro = ucProductoEdit1.IdRubro,
+                    IdUnidad = ucProductoEdit1.IdUnidad,
+                    Notas = ucProductoEdit1.Notas
+                };
+
+                m.IdProducto = ProductoControlador.Update(productoNuevo);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            GuardarOInsertar();
+            //actualizar parte grafica de controles estaticos.
+            this.IdProducto = ucProductoEdit1.IdProducto;
+
+            ucProductoEdit1.Visible = false;
+            btnGuardar.Visible = false;
         }
     }
 }

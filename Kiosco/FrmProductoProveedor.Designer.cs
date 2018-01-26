@@ -1,6 +1,6 @@
 ﻿using Heimdall.UserControl;
 
-namespace Kiosco
+namespace Heimdall
 {
     partial class FrmProductoProveedor
     {

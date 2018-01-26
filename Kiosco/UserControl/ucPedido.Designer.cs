@@ -1,4 +1,4 @@
-﻿namespace Kiosco.UserControl
+﻿namespace Heimdall.UserControl
 {
     partial class ucPedido
     {

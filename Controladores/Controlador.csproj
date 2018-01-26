@@ -50,6 +50,7 @@
     <Compile Include="ClienteControlador.cs" />
     <Compile Include="PrioridadControlador.cs" />
     <Compile Include="EstadoProveedorControlador.cs" />
+    <Compile Include="EstadoUsuarioControlador.cs" />
     <Compile Include="UsuarioControlador.cs" />
     <Compile Include="UnidadControlador.cs" />
     <Compile Include="StockControlador.cs" />

@@ -1,8 +1,6 @@
-﻿using Heimdall.UserControl;
-
-namespace Heimdall
+﻿namespace Heimdall
 {
-    partial class FrmPedido
+    partial class FrmUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +27,9 @@ namespace Heimdall
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedido));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
@@ -43,11 +39,8 @@ namespace Heimdall
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucPedido1 = new ucPedido();
+            this.ucUsuarioEdit1 = new Heimdall.UserControl.UcUsuarioEdit();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -63,12 +56,11 @@ namespace Heimdall
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform,
-            this.tsbVerArchivo});
+            this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1182, 31);
-            this.tsb.TabIndex = 35;
+            this.tsb.Size = new System.Drawing.Size(1193, 31);
+            this.tsb.TabIndex = 25;
             this.tsb.Text = "toolStrip1";
             // 
             // tsbNew
@@ -111,7 +103,6 @@ namespace Heimdall
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(79, 28);
             this.tsbSearch.Text = "Buscar...";
-            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // tsbSearchTextBox
             // 
@@ -121,7 +112,6 @@ namespace Heimdall
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
             this.tsbSearchTextBox.Size = new System.Drawing.Size(200, 31);
             this.tsbSearchTextBox.Visible = false;
-            this.tsbSearchTextBox.Leave += new System.EventHandler(this.tsbSearchTextBox_Leave);
             // 
             // tsbSearchPerform
             // 
@@ -131,7 +121,6 @@ namespace Heimdall
             this.tsbSearchPerform.Name = "tsbSearchPerform";
             this.tsbSearchPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchPerform.Visible = false;
-            this.tsbSearchPerform.Click += new System.EventHandler(this.tsbSearchPerform_Click);
             // 
             // tsbSearchClearAndPerform
             // 
@@ -141,111 +130,58 @@ namespace Heimdall
             this.tsbSearchClearAndPerform.Name = "tsbSearchClearAndPerform";
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
-            this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
-            // 
-            // tsbVerArchivo
-            // 
-            this.tsbVerArchivo.CheckOnClick = true;
-            this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
-            this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbVerArchivo.Name = "tsbVerArchivo";
-            this.tsbVerArchivo.Size = new System.Drawing.Size(95, 28);
-            this.tsbVerArchivo.Text = "Ver Archivo";
-            this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
             // dgv
             // 
             this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.Location = new System.Drawing.Point(0, 34);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1182, 483);
-            this.dgv.TabIndex = 34;
+            this.dgv.Size = new System.Drawing.Size(1181, 418);
+            this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
-            this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
-            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
-            this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
-            this.dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseDown);
             // 
-            // cms
+            // ucUsuarioEdit1
             // 
-            this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(61, 4);
-            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
+            this.ucUsuarioEdit1.Email = "";
+            this.ucUsuarioEdit1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucUsuarioEdit1.IdUsuario = 0;
+            this.ucUsuarioEdit1.Location = new System.Drawing.Point(0, 455);
+            this.ucUsuarioEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucUsuarioEdit1.Name = "ucUsuarioEdit1";
+            this.ucUsuarioEdit1.Notas = "";
+            this.ucUsuarioEdit1.Descripcion = "";
+            this.ucUsuarioEdit1.Size = new System.Drawing.Size(1171, 216);
+            this.ucUsuarioEdit1.TabIndex = 26;
+            this.ucUsuarioEdit1.Telefono = "";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "shopping-cart.png");
-            this.imageList1.Images.SetKeyName(1, "package.png");
-            // 
-            // ucPedido1
-            // 
-            this.ucPedido1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ucPedido1.Archivado = false;
-            this.ucPedido1.Descripcion = "";
-            this.ucPedido1.EstaPago = false;
-            this.ucPedido1.Fecha = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
-            this.ucPedido1.Fiscal = false;
-            this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.ucPedido1.IdEstadoPedido = 0;
-            this.ucPedido1.IdPedido = ((long)(0));
-            this.ucPedido1.IdPrioridad = 0;
-            this.ucPedido1.IdProveedor = 0;
-            this.ucPedido1.Location = new System.Drawing.Point(0, 524);
-            this.ucPedido1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucPedido1.Name = "ucPedido1";
-            this.ucPedido1.Notas = "";
-            this.ucPedido1.Proveedor = "";
-            this.ucPedido1.ShowDetallePedido = true;
-            this.ucPedido1.ShowEstadoPedido = true;
-            this.ucPedido1.Size = new System.Drawing.Size(1188, 174);
-            this.ucPedido1.TabIndex = 36;
-            this.ucPedido1.Total = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            // 
-            // FrmPedido
+            // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 723);
-            this.Controls.Add(this.ucPedido1);
+            this.ClientSize = new System.Drawing.Size(1193, 675);
+            this.Controls.Add(this.ucUsuarioEdit1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmPedido";
+            this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pedidos a Provedores";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmPedido_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPedido_KeyDown);
+            this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.FrmUsuario_Load);
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -266,9 +202,6 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.ContextMenuStrip cms;
-        private ucPedido ucPedido1;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ToolStripButton tsbVerArchivo;
+        private UserControl.UcUsuarioEdit ucUsuarioEdit1;
     }
 }

@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaseUsuario.cs" />
+    <Compile Include="EstadoUsuario.cs" />
     <Compile Include="EstadoPedidoView.cs" />
     <Compile Include="EstadoPedido.cs" />
+    <Compile Include="ClaseUsuarioView.cs" />
     <Compile Include="Prioridad.cs" />
     <Compile Include="RecaudacionView.cs" />
     <Compile Include="Recaudacion.cs" />
@@ -59,6 +62,7 @@
     <Compile Include="PrioridadView.cs" />
     <Compile Include="EstadoProveedorView.cs" />
     <Compile Include="EstadoProveedor.cs" />
+    <Compile Include="EstadoUsuarioView.cs" />
     <Compile Include="UnidadView.cs" />
     <Compile Include="Unidad.cs" />
     <Compile Include="UsuarioView.cs" />

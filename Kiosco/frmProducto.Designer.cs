@@ -269,7 +269,7 @@ namespace Heimdall
             this.ucProductoProveedorEdit1.Fecha = new System.DateTime(2018, 1, 9, 15, 37, 10, 842);
             this.ucProductoProveedorEdit1.IdProveedor = 0;
             this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(929, 155);
-            this.ucProductoProveedorEdit1.Modo = Kiosco.ModoFormulario.Nuevo;
+            this.ucProductoProveedorEdit1.Modo = ModoFormulario.Nuevo;
             this.ucProductoProveedorEdit1.Name = "ucProductoProveedorEdit1";
             this.ucProductoProveedorEdit1.Notas = "";
             this.ucProductoProveedorEdit1.Precio = new decimal(new int[] {

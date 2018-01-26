@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Controlador;
-using Kiosco;
+
 
 namespace Heimdall.UserControl
 {

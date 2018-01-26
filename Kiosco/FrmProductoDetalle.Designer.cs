@@ -1,5 +1,4 @@
 ﻿using Heimdall.UserControl;
-using Kiosco;
 
 namespace Heimdall
 {
@@ -73,8 +72,11 @@ namespace Heimdall
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
-            this.ucNotification2 = new Kiosco.UcNotification();
-            this.ucNotification = new Kiosco.UcNotification();
+            this.ucNotification2 = new UcNotification();
+            this.ucNotification = new UcNotification();
+            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
+            this.btnMProducto = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
@@ -576,11 +578,70 @@ namespace Heimdall
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
+            // ucProductoEdit1
+            // 
+            this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucProductoEdit1.Capacidad = 1;
+            this.ucProductoEdit1.CodigoBarras = "";
+            this.ucProductoEdit1.Descripcion = "";
+            this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucProductoEdit1.IdMarca = 0;
+            this.ucProductoEdit1.IdProducto = ((long)(0));
+            this.ucProductoEdit1.IdRubro = 0;
+            this.ucProductoEdit1.IdUnidad = 0;
+            this.ucProductoEdit1.Location = new System.Drawing.Point(73, 53);
+            this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProductoEdit1.Name = "ucProductoEdit1";
+            this.ucProductoEdit1.Notas = "";
+            this.ucProductoEdit1.PrecioCosto = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoEdit1.PrecioVenta = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoEdit1.Size = new System.Drawing.Size(912, 343);
+            this.ucProductoEdit1.SoloAdultos = false;
+            this.ucProductoEdit1.StockActual = 0;
+            this.ucProductoEdit1.StockMaximo = 0;
+            this.ucProductoEdit1.StockMinimo = 0;
+            this.ucProductoEdit1.TabIndex = 96;
+            this.ucProductoEdit1.Visible = false;
+            // 
+            // btnMProducto
+            // 
+            this.btnMProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnMProducto.Image")));
+            this.btnMProducto.Location = new System.Drawing.Point(474, 61);
+            this.btnMProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMProducto.Name = "btnMProducto";
+            this.btnMProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnMProducto.TabIndex = 97;
+            this.btnMProducto.UseVisualStyleBackColor = true;
+            this.btnMProducto.Click += new System.EventHandler(this.btnMProducto_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(223, 313);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(139, 48);
+            this.btnGuardar.TabIndex = 98;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.btnSeleccionarProducto);
             this.Controls.Add(this.ucNotification2);
             this.Controls.Add(this.nudImporte);
@@ -616,6 +677,7 @@ namespace Heimdall
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucNotification);
             this.Controls.Add(this.tsb);
+            this.Controls.Add(this.btnMProducto);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -686,5 +748,8 @@ namespace Heimdall
         private UcNotification ucNotification2;
         private System.Windows.Forms.TabPage tpPromociones;
         private System.Windows.Forms.Button btnSeleccionarProducto;
+        private UcProductoEdit ucProductoEdit1;
+        private System.Windows.Forms.Button btnMProducto;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-
 using Controlador;
-using Heimdall;
 using Heimdall.UserControl;
 using Model;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmPedidoDetalle : Form, ISelectorProducto
     {

@@ -1,4 +1,4 @@
-﻿namespace Kiosco
+﻿namespace Heimdall.UserControl
 {
     partial class UcNotification
     {

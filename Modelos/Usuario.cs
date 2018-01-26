@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Usuario
+    public class Usuario: IEntidad
     {
         public const int IdUsuarioPredeterminado = 1;
 
@@ -18,13 +18,19 @@ namespace Model
 
         public string Nombre { get; set; }
 
-        public string Direccion { get; set; }
-
         public string Telefono { get; set; }
 
         public string Notas { get; set; }
 
         public int IdClaseUsuario { get; set; }
+
+        public int IdEstadoUsuario { get; set; }
+
         public bool EsAdmin { get; set; }
+
+        public bool Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

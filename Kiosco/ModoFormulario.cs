@@ -1,4 +1,4 @@
-namespace Kiosco
+namespace Heimdall
 {
     public enum ModoFormulario
     {

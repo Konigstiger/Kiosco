@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
-using Kiosco;
 using Model;
 
 namespace Heimdall
@@ -196,7 +195,7 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
+            var idUsuarioActual = Program.UsuarioConectado.IdUsuario;
 
             var m = new Producto {
                 IdProducto = -1,

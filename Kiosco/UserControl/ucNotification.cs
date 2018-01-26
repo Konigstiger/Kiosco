@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Kiosco
+namespace Heimdall.UserControl
 {
     public partial class UcNotification : System.Windows.Forms.UserControl
     {

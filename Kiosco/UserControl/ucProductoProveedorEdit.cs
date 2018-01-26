@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
-using Kiosco;
 using Model;
 
 namespace Heimdall.UserControl

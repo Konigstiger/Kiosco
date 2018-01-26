@@ -5,9 +5,10 @@ using Controlador;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Model;
+
 //using Brushes = System.Drawing.Brushes;
 
-namespace Kiosco
+namespace Heimdall
 {
     public partial class FrmEstadisticas : Form
     {

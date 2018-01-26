@@ -13,6 +13,12 @@ namespace Controlador
             return UsuarioData.GetAll();
         }
 
+        public static List<UsuarioView> GetAll_ByUsr()
+        {
+            return UsuarioData.GetAll_ByUsr();
+        }
+
+
         public static Usuario GetByPrimaryKey(Usuario u)
         {
             return UsuarioData.GetByPrimaryKey(u);
@@ -40,8 +46,12 @@ namespace Controlador
         {
             UsuarioData.Update(c);
         }
-        
 
+
+        public static UsuarioView GetByPrimaryKeyView(Usuario c)
+        {
+            return UsuarioData.GetByPrimaryKeyView(c);
+        }
     }
 }
 

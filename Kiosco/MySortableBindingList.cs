@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel;
+using System.Linq;
 using System.Linq.Expressions;
 
-namespace Kiosco
+namespace Heimdall
 {
     public class MySortableBindingList<T> : BindingList<T>
     {
