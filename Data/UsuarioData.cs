@@ -53,6 +53,7 @@ namespace Data
                     var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = c.Telefono };
                     var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = c.Notas };
                     var p8 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = c.IdClaseUsuario };
+                    var p9 = new SqlParameter("IdEstadoUsuario", SqlDbType.Int) { Value = c.IdEstadoUsuario };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -63,6 +64,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -89,6 +91,7 @@ namespace Data
                     var p6 = new SqlParameter("Telefono", SqlDbType.VarChar) { Value = u.Telefono };
                     var p7 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = u.Notas };
                     var p8 = new SqlParameter("IdClaseUsuario", SqlDbType.Int) { Value = u.IdClaseUsuario };
+                    var p9 = new SqlParameter("IdEstadoUsuario", SqlDbType.Int) { Value = u.IdEstadoUsuario };
 
                     cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -99,6 +102,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     u.IdUsuario = (int)cmd.ExecuteScalar();
@@ -129,6 +133,9 @@ namespace Data
                             c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
                             c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.IdClaseUsuario = rdr["IdClaseUsuario"] != DBNull.Value ? (int)rdr["IdClaseUsuario"] : 0;
+                            c.IdEstadoUsuario = rdr["IdEstadoUsuario"] != DBNull.Value ? (int)rdr["IdEstadoUsuario"] : 0;
+                            
                         }
                     }
                 }
@@ -177,7 +184,8 @@ namespace Data
                             c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
                             c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
-                            c.IdClaseUsuario = (int)rdr["IdClaseUsuario"];
+                            c.IdClaseUsuario = rdr["IdClaseUsuario"] != DBNull.Value ? (int)rdr["IdClaseUsuario"] : 0;
+                            c.IdEstadoUsuario = rdr["IdEstadoUsuario"] != DBNull.Value ? (int)rdr["IdEstadoUsuario"] : 0;
                         }
                     }
                 }
@@ -211,6 +219,8 @@ namespace Data
                             c.Nombre = rdr["Nombre"] != DBNull.Value ? (string)rdr["Nombre"] : "";
                             c.Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "";
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.IdClaseUsuario = rdr["IdClaseUsuario"] != DBNull.Value ? (int)rdr["IdClaseUsuario"] : 0;
+                            c.IdEstadoUsuario = rdr["IdEstadoUsuario"] != DBNull.Value ? (int)rdr["IdEstadoUsuario"] : 0;
                         }
                     }
                 }

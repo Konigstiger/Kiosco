@@ -167,8 +167,7 @@ namespace Heimdall.UserControl
 
             int v;
             var id = int.TryParse(txtIdUsuario.Text.Trim(), out v) ? v : 0;
-            var u = new Usuario();
-            u.IdUsuario = id;
+            var u = new Usuario {IdUsuario = id};
 
             var c = UsuarioControlador.GetByPrimaryKey(u);
 

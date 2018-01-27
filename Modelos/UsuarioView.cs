@@ -25,6 +25,7 @@ namespace Model
         public string Telefono { get; set; }
 
         public string Notas { get; set; }
+        public int IdEstadoUsuario { get; set; }
 
         public enum GridColumn
         {
