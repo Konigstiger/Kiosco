@@ -92,11 +92,11 @@ namespace Heimdall
 
             Util.SetColumnsReadOnly(dgv);
 
-            bool VerArchivo = tsbVerArchivo.Checked;
+            bool modoArchivo = !tsbVerArchivo.Checked;
 
             _origenDatos = searchText.Equals("") ?
-                PedidoControlador.GetAll_GetByParameters("", VerArchivo) :
-                PedidoControlador.GetAll_GetByParameters(searchText, VerArchivo);
+                PedidoControlador.GetAll_GetByParameters("", modoArchivo) :
+                PedidoControlador.GetAll_GetByParameters(searchText, modoArchivo);
 
             var bindingList = new MySortableBindingList<PedidoView>(_origenDatos);
             var source = new BindingSource(bindingList, null);

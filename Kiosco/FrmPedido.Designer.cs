@@ -47,7 +47,7 @@ namespace Heimdall
             this.dgv = new System.Windows.Forms.DataGridView();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.ucPedido1 = new ucPedido();
+            this.ucPedido1 = new Heimdall.UserControl.ucPedido();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -149,8 +149,8 @@ namespace Heimdall
             this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
             this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVerArchivo.Name = "tsbVerArchivo";
-            this.tsbVerArchivo.Size = new System.Drawing.Size(95, 28);
-            this.tsbVerArchivo.Text = "Ver Archivo";
+            this.tsbVerArchivo.Size = new System.Drawing.Size(76, 28);
+            this.tsbVerArchivo.Text = "Archivo";
             this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
             // dgv
@@ -208,8 +208,8 @@ namespace Heimdall
             this.ucPedido1.Archivado = false;
             this.ucPedido1.Descripcion = "";
             this.ucPedido1.EstaPago = false;
-            this.ucPedido1.Fecha = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2018, 1, 18, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2018, 1, 28, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2018, 1, 28, 0, 0, 0, 0);
             this.ucPedido1.Fiscal = false;
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;

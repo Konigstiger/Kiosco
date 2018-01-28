@@ -19,9 +19,9 @@ namespace Controlador
         }
 
 
-        public static List<PedidoView> SearchByParameters(string nombre, bool incluirArchivo)
+        public static List<PedidoView> SearchByParameters(string nombre, bool modoArchivo)
         {
-            return PedidoData.GetByParameters(nombre, incluirArchivo);
+            return PedidoData.GetByParameters(nombre, modoArchivo);
 
         }
 
@@ -33,9 +33,9 @@ namespace Controlador
         }
 
 
-        public static List<PedidoView> GetAll_GetByParameters(string searchText, bool incluirArchivo)
+        public static List<PedidoView> GetAll_GetByParameters(string searchText, bool modoArchivo)
         {
-            return PedidoData.GetByParameters(searchText, incluirArchivo);
+            return PedidoData.GetByParameters(searchText, modoArchivo);
         }
 
         public static PedidoView GetByPrimaryKeyView(long idPedido)

@@ -42,7 +42,7 @@ namespace Data
         }
 
 
-        public static List<PedidoView> GetByParameters(string descripcion, bool incluirArchivo)
+        public static List<PedidoView> GetByParameters(string descripcion, bool modoArchivo)
         {
             var list = new List<PedidoView>();
 
@@ -51,7 +51,7 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
-                    var p2 = new SqlParameter("IncluirArchivo", SqlDbType.Bit) { Value = incluirArchivo };
+                    var p2 = new SqlParameter("ModoArchivo", SqlDbType.Bit) { Value = modoArchivo };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
