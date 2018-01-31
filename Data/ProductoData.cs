@@ -295,7 +295,7 @@ namespace Data
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.PrecioVenta = (decimal)rdr["PrecioVenta"];
-                            c.PrecioVentaPremium = (decimal)rdr["PrecioVentaPremium"];
+                            c.PrecioVentaPremium = rdr["PrecioVentaPremium"] != DBNull.Value ? (decimal)rdr["PrecioVentaPremium"] : 0;
                             c.PrecioCostoPromedio = (decimal)rdr["PrecioCostoPromedio"];
                             c.IdRubro = (int)rdr["IdRubro"];
                             c.IdMarca = (int)rdr["IdMarca"];
@@ -330,7 +330,7 @@ namespace Data
                     var p7 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
                     var p8 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
                     var p9 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
-                    var p10= new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
+                    var p10 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
                     var p11 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
                     var p12 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
@@ -364,7 +364,7 @@ namespace Data
                     var p0 = new SqlParameter("IdProducto", SqlDbType.VarChar) { Value = model.IdProducto };
                     var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
                     var p2 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
-                    var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad};
+                    var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad };
 
                     var p4 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
                     var p5 = new SqlParameter("PrecioVentaPremium", SqlDbType.Decimal) { Value = model.PrecioVentaPremium };
@@ -374,7 +374,7 @@ namespace Data
                     var p7 = new SqlParameter("IdRubro", SqlDbType.Int) { Value = model.IdRubro };
                     var p8 = new SqlParameter("IdMarca", SqlDbType.Int) { Value = model.IdMarca };
                     var p9 = new SqlParameter("SoloAdultos", SqlDbType.Bit) { Value = model.SoloAdultos };
-                    var p10= new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
+                    var p10 = new SqlParameter("StockMinimo", SqlDbType.Int) { Value = model.StockMinimo };
                     var p11 = new SqlParameter("StockMaximo", SqlDbType.Int) { Value = model.StockMaximo };
                     var p12 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = model.Notas };
 
