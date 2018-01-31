@@ -19,8 +19,8 @@ namespace Heimdall
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -34,14 +34,12 @@ namespace Heimdall
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
-            this.ucAbmToolBar2 = new Heimdall.UserControl.UcAbmToolBar();
-            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.ucProductoProveedorEdit1 = new Heimdall.UserControl.UcProductoProveedorEdit();
+            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
+            this.ucAbmToolBar2 = new Heimdall.UserControl.UcAbmToolBar();
+            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -50,21 +48,21 @@ namespace Heimdall
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.Location = new System.Drawing.Point(0, 34);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1644, 548);
+            this.dgv.Size = new System.Drawing.Size(1650, 598);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -85,7 +83,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1656, 31);
+            this.tsb.Size = new System.Drawing.Size(1662, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -179,39 +177,73 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "trolley.png");
             this.imageList1.Images.SetKeyName(5, "package.png");
             // 
-            // tableLayoutPanel1
+            // ucProductoProveedorEdit1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.ucProductoEdit1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ucAbmToolBar2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this._ucProductoProveedorList1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ucProductoProveedorEdit1, 1, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 588);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1656, 340);
-            this.tableLayoutPanel1.TabIndex = 91;
+            this.ucProductoProveedorEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ucProductoProveedorEdit1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucProductoProveedorEdit1.Fecha = new System.DateTime(2018, 1, 9, 15, 37, 10, 842);
+            this.ucProductoProveedorEdit1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucProductoProveedorEdit1.IdProducto = ((long)(0));
+            this.ucProductoProveedorEdit1.IdProductoProveedor = ((long)(0));
+            this.ucProductoProveedorEdit1.IdProveedor = 0;
+            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(769, 784);
+            this.ucProductoProveedorEdit1.Modo = Heimdall.ModoFormulario.Nuevo;
+            this.ucProductoProveedorEdit1.Name = "ucProductoProveedorEdit1";
+            this.ucProductoProveedorEdit1.Notas = "";
+            this.ucProductoProveedorEdit1.Precio = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(811, 140);
+            this.ucProductoProveedorEdit1.TabIndex = 93;
+            // 
+            // _ucProductoProveedorList1
+            // 
+            this._ucProductoProveedorList1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._ucProductoProveedorList1.BackColor = System.Drawing.Color.White;
+            this._ucProductoProveedorList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._ucProductoProveedorList1.Fecha = null;
+            this._ucProductoProveedorList1.IdProducto = ((long)(0));
+            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
+            this._ucProductoProveedorList1.IdProveedor = 0;
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(769, 673);
+            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
+            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(811, 107);
+            this._ucProductoProveedorList1.TabIndex = 91;
+            this._ucProductoProveedorList1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoChanged);
+            this._ucProductoProveedorList1.ProductoProveedorChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoProveedorChanged);
+            // 
+            // ucAbmToolBar2
+            // 
+            this.ucAbmToolBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ucAbmToolBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucAbmToolBar2.Location = new System.Drawing.Point(769, 637);
+            this.ucAbmToolBar2.Name = "ucAbmToolBar2";
+            this.ucAbmToolBar2.Size = new System.Drawing.Size(811, 32);
+            this.ucAbmToolBar2.TabIndex = 95;
+            this.ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
+            this.ucAbmToolBar2.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar2_ButtonClickUpdate);
             // 
             // ucProductoEdit1
             // 
+            this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucProductoEdit1.Capacidad = 1;
             this.ucProductoEdit1.CodigoBarras = "";
             this.ucProductoEdit1.Descripcion = "";
-            this.ucProductoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucProductoEdit1.IdMarca = 0;
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(3, 4);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(0, 639);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
@@ -225,67 +257,22 @@ namespace Heimdall
             0,
             0,
             0});
-            this.tableLayoutPanel1.SetRowSpan(this.ucProductoEdit1, 3);
-            this.ucProductoEdit1.Size = new System.Drawing.Size(920, 332);
+            this.ucProductoEdit1.Size = new System.Drawing.Size(758, 285);
             this.ucProductoEdit1.SoloAdultos = false;
             this.ucProductoEdit1.StockActual = 0;
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
-            this.ucProductoEdit1.TabIndex = 92;
-            // 
-            // ucAbmToolBar2
-            // 
-            this.ucAbmToolBar2.Location = new System.Drawing.Point(929, 3);
-            this.ucAbmToolBar2.Name = "ucAbmToolBar2";
-            this.ucAbmToolBar2.Size = new System.Drawing.Size(763, 32);
-            this.ucAbmToolBar2.TabIndex = 95;
-            this.ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
-            this.ucAbmToolBar2.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar2_ButtonClickUpdate);
-            // 
-            // _ucProductoProveedorList1
-            // 
-            this._ucProductoProveedorList1.BackColor = System.Drawing.Color.White;
-            this._ucProductoProveedorList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._ucProductoProveedorList1.Fecha = null;
-            this._ucProductoProveedorList1.IdProducto = ((long)(0));
-            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
-            this._ucProductoProveedorList1.IdProveedor = 0;
-            this._ucProductoProveedorList1.Location = new System.Drawing.Point(935, 50);
-            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(9, 12, 9, 12);
-            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
-            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(709, 90);
-            this._ucProductoProveedorList1.TabIndex = 91;
-            this._ucProductoProveedorList1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoChanged);
-            this._ucProductoProveedorList1.ProductoProveedorChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoProveedorChanged);
-            // 
-            // ucProductoProveedorEdit1
-            // 
-            this.ucProductoProveedorEdit1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ucProductoProveedorEdit1.Fecha = new System.DateTime(2018, 1, 9, 15, 37, 10, 842);
-            this.ucProductoProveedorEdit1.IdProveedor = 0;
-            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(929, 155);
-            this.ucProductoProveedorEdit1.Modo = ModoFormulario.Nuevo;
-            this.ucProductoProveedorEdit1.Name = "ucProductoProveedorEdit1";
-            this.ucProductoProveedorEdit1.Notas = "";
-            this.ucProductoProveedorEdit1.Precio = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(715, 180);
-            this.ucProductoProveedorEdit1.TabIndex = 93;
+            this.ucProductoEdit1.TabIndex = 93;
             // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1656, 928);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1662, 929);
+            this.Controls.Add(this.ucProductoProveedorEdit1);
+            this.Controls.Add(this._ucProductoProveedorList1);
+            this.Controls.Add(this.ucAbmToolBar2);
+            this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -301,7 +288,6 @@ namespace Heimdall
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,11 +307,10 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private UcProductoProveedorList _ucProductoProveedorList1;
-        private UcProductoEdit ucProductoEdit1;
         private UcProductoProveedorEdit ucProductoProveedorEdit1;
         private UcAbmToolBar ucAbmToolBar2;
+        private UcProductoEdit ucProductoEdit1;
     }
 }
 

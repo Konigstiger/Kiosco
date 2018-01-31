@@ -44,18 +44,18 @@
             // 
             this.dtpFechaModificacion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpFechaModificacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaModificacion.Location = new System.Drawing.Point(103, 77);
+            this.dtpFechaModificacion.Location = new System.Drawing.Point(103, 74);
             this.dtpFechaModificacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaModificacion.Name = "dtpFechaModificacion";
             this.dtpFechaModificacion.ShowCheckBox = true;
-            this.dtpFechaModificacion.Size = new System.Drawing.Size(170, 25);
+            this.dtpFechaModificacion.Size = new System.Drawing.Size(140, 25);
             this.dtpFechaModificacion.TabIndex = 126;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 85);
+            this.label1.Location = new System.Drawing.Point(44, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 125;
@@ -75,7 +75,7 @@
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(103, 110);
+            this.txtNotas.Location = new System.Drawing.Point(103, 103);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNotas.Name = "txtNotas";
             this.txtNotas.Size = new System.Drawing.Size(370, 25);
@@ -85,7 +85,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(46, 115);
+            this.label7.Location = new System.Drawing.Point(46, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 123;
@@ -102,7 +102,7 @@
             0,
             0});
             this.nudPrecioCompra.Name = "nudPrecioCompra";
-            this.nudPrecioCompra.Size = new System.Drawing.Size(170, 24);
+            this.nudPrecioCompra.Size = new System.Drawing.Size(140, 24);
             this.nudPrecioCompra.TabIndex = 120;
             this.nudPrecioCompra.Value = new decimal(new int[] {
             1,
@@ -136,9 +136,9 @@
             // 
             this.txtIdProducto.BackColor = System.Drawing.SystemColors.Info;
             this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProducto.Location = new System.Drawing.Point(3, 40);
+            this.txtIdProducto.Location = new System.Drawing.Point(16, 40);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(38, 24);
+            this.txtIdProducto.Size = new System.Drawing.Size(18, 24);
             this.txtIdProducto.TabIndex = 129;
             this.txtIdProducto.Visible = false;
             // 
@@ -165,8 +165,9 @@
             this.Controls.Add(this.nudPrecioCompra);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ucProveedorView1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcProductoProveedorEdit";
-            this.Size = new System.Drawing.Size(552, 140);
+            this.Size = new System.Drawing.Size(552, 134);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

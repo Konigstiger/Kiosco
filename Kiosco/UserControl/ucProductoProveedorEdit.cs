@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
-using Model;
 
 namespace Heimdall.UserControl
 {
@@ -38,7 +31,10 @@ namespace Heimdall.UserControl
         [Bindable(true)]
         public long IdProducto
         {
-            get { return Convert.ToInt64(txtIdProducto.Text.Trim()); }
+            get {
+                long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
             set { txtIdProducto.Text = value.ToString(); }
         }
 
@@ -50,7 +46,11 @@ namespace Heimdall.UserControl
         [Bindable(true)]
         public long IdProductoProveedor
         {
-            get { return Convert.ToInt64(txtIdProductoProveedor.Text.Trim()); }
+            get {
+                long v = long.TryParse(txtIdProductoProveedor.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+
             set { txtIdProductoProveedor.Text = value.ToString(); }
         }
 
