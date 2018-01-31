@@ -59,7 +59,7 @@
             this.nudCapacidad = new System.Windows.Forms.NumericUpDown();
             this.btnAbmMarca = new System.Windows.Forms.Button();
             this.btnSeleccionarMarca = new System.Windows.Forms.Button();
-            this.nudPrecioPremium = new System.Windows.Forms.NumericUpDown();
+            this.nudPrecioVentaPremium = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMaximo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioPremium)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVentaPremium)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMarca
@@ -424,16 +424,16 @@
             this.btnSeleccionarMarca.UseVisualStyleBackColor = true;
             this.btnSeleccionarMarca.Click += new System.EventHandler(this.btnSeleccionarMarca_Click);
             // 
-            // nudPrecioPremium
+            // nudPrecioVentaPremium
             // 
-            this.nudPrecioPremium.DecimalPlaces = 2;
-            this.nudPrecioPremium.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.nudPrecioPremium.Location = new System.Drawing.Point(406, 71);
-            this.nudPrecioPremium.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.nudPrecioPremium.Name = "nudPrecioPremium";
-            this.nudPrecioPremium.Size = new System.Drawing.Size(181, 24);
-            this.nudPrecioPremium.TabIndex = 80;
-            this.nudPrecioPremium.Value = new decimal(new int[] {
+            this.nudPrecioVentaPremium.DecimalPlaces = 2;
+            this.nudPrecioVentaPremium.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.nudPrecioVentaPremium.Location = new System.Drawing.Point(406, 71);
+            this.nudPrecioVentaPremium.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.nudPrecioVentaPremium.Name = "nudPrecioVentaPremium";
+            this.nudPrecioVentaPremium.Size = new System.Drawing.Size(181, 24);
+            this.nudPrecioVentaPremium.TabIndex = 80;
+            this.nudPrecioVentaPremium.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -455,7 +455,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.nudPrecioPremium);
+            this.Controls.Add(this.nudPrecioVentaPremium);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nudCapacidad);
             this.Controls.Add(this.label11);
@@ -494,7 +494,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMaximo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioPremium)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVentaPremium)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,7 +533,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown nudCapacidad;
-        private System.Windows.Forms.NumericUpDown nudPrecioPremium;
+        private System.Windows.Forms.NumericUpDown nudPrecioVentaPremium;
         private System.Windows.Forms.Label label6;
     }
 }

@@ -48,6 +48,7 @@ namespace Model
         public int? IdUnidad { get; set; }
 
         public string Notas { get; set; }
+        public decimal PrecioVentaPremium { get; set; }
 
 
         public bool Validate()

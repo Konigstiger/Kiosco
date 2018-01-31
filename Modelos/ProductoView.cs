@@ -33,6 +33,7 @@ namespace Model
         public string Ganancia { get; set; }
 
         public string Notas { get; set; }
+        public decimal PrecioVentaPremium { get; set; }
 
 
         public enum GridColumn

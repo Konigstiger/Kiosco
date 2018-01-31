@@ -169,6 +169,18 @@ namespace Heimdall.UserControl
             set { nudPrecio.Value = value; }
         }
 
+        [Description("PrecioVentaPremium."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public decimal PrecioVentaPremium
+        {
+            get { return nudPrecioVentaPremium.Value; }
+            set { nudPrecioVentaPremium.Value = value; }
+        }
+
+
         [Description("PrecioCosto."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -311,6 +323,7 @@ namespace Heimdall.UserControl
             txtDescripcion.Text = c.Descripcion;
             nudCapacidad.Value = c.Capacidad;
             nudPrecio.Value = c.PrecioVenta;
+            nudPrecioVentaPremium.Value = c.PrecioVentaPremium;
             nudStockMinimo.Value = c.StockMinimo;
             nudStockMaximo.Value = c.StockMaximo;
             chkSoloAdultos.Checked = c.SoloAdultos ?? false;
@@ -356,6 +369,7 @@ namespace Heimdall.UserControl
             txtCodigoBarras.Clear();
             txtDescripcion.Clear();
             nudPrecio.Value = 0;
+            nudPrecioVentaPremium.Value = 0;
             nudPrecioCosto.Value = 0;
             nudStockMaximo.Value = 0;
             nudStockMinimo.Value = 0;
@@ -411,15 +425,13 @@ namespace Heimdall.UserControl
             txtCodigoBarras.MaxLength = 13;
 
             Util.SetNumericBounds(nudPrecio);
+            Util.SetNumericBounds(nudPrecioVentaPremium);
             Util.SetNumericBounds(nudPrecioCosto);
-            nudStockActual.Minimum = 0;
-            nudStockActual.Maximum = 9999;
-            nudStockMaximo.Minimum = 0;
-            nudStockMaximo.Maximum = 9999;
-            nudStockMinimo.Minimum = 0;
-            nudStockMinimo.Maximum = 9999;
-            nudCapacidad.Minimum = 0;
-            nudCapacidad.Maximum = 9999;
+            Util.SetNumericBounds(nudStockActual);
+            Util.SetNumericBounds(nudStockMaximo);
+            Util.SetNumericBounds(nudStockMinimo);
+            Util.SetNumericBounds(nudCapacidad);
+            Util.SetNumericBounds(nudStockActual);
             nudStockActual.Increment = 1;
             nudStockMaximo.Increment = 1;
             nudStockMinimo.Increment = 1;
@@ -429,6 +441,7 @@ namespace Heimdall.UserControl
             txtDescripcion.MaxLength = 255;
             txtNotas.MaxLength = 255;
         }
+
 
         private void txtCodigoBarras_TextChanged(object sender, EventArgs e)
         {
