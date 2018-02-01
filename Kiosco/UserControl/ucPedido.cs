@@ -6,7 +6,7 @@ using Controlador;
 
 namespace Heimdall.UserControl
 {
-    public partial class ucPedido : System.Windows.Forms.UserControl, ISelectorProveedor
+    public partial class UcPedido : System.Windows.Forms.UserControl, ISelectorProveedor
     {
         private bool _flagReady = false;
 
@@ -182,6 +182,30 @@ namespace Heimdall.UserControl
         }
 
 
+        [Description("HoraEntrega."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string HoraEntrega => cboHoraEntrega.Text.Trim();
+
+
+        [Description("IdHoraEntrega. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdHoraEntrega
+        {
+            get {
+                int v = int.TryParse(cboHoraEntrega.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboHoraEntrega.SelectedValue = value; }
+        }
+
+
+
         [Description("IdPrioridad. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -239,7 +263,7 @@ namespace Heimdall.UserControl
         [Bindable(true)]
         public string Prioridad => cboPrioridad.Text.Trim();
 
-        public ucPedido()
+        public UcPedido()
         {
             if (DesignMode)
                 return;
@@ -257,6 +281,7 @@ namespace Heimdall.UserControl
 
             CargarEstadoPedido();
             CargarPrioridad();
+            CargarHoraEntrega();
 
             Descripcion = p.Descripcion;
             Util.CheckDateNullable(p.Fecha, dtpFecha);
@@ -269,6 +294,8 @@ namespace Heimdall.UserControl
             Archivado = p.Archivado;
             Fiscal = p.Fiscal;
             IdPrioridad = p.IdPrioridad;
+            IdHoraEntrega = p.IdHoraEntrega;
+
         }
 
 
@@ -307,8 +334,6 @@ namespace Heimdall.UserControl
             dtpFecha.Checked = true;
             dtpFechaEntrega.Value = DateTime.Today;
             dtpFechaEntrega.Checked = false;
-            dtpHoraEntrega.Checked = false;
-            dtpHoraEntrega.Value = DateTime.Now;
             chkEstaPago.Checked = false;
             chkArchivado.Checked = false;
             chkFiscal.Checked = false;
@@ -347,6 +372,18 @@ namespace Heimdall.UserControl
         }
 
 
+        private void CargarHoraEntrega()
+        {
+            if (_flagReady) {
+                cboHoraEntrega.DropDownStyle = ComboBoxStyle.DropDownList;
+                var list = HoraEntregaControlador.GetAll();
+                cboHoraEntrega.DataSource = list;
+                cboHoraEntrega.ValueMember = "IdHoraEntrega";
+                cboHoraEntrega.DisplayMember = "Descripcion";
+            }
+        }
+
+
         private void ucPedido_Load(object sender, EventArgs e)
         {
             _flagReady = true;
@@ -380,7 +417,7 @@ namespace Heimdall.UserControl
             txtNotas.Clear();
             dtpFecha.Value = DateTime.Today;
             dtpFechaEntrega.Value = DateTime.Today;
-            dtpHoraEntrega.Value = DateTime.Now;
+            cboHoraEntrega.SelectedValue = 1;
             cboEstadoPedido.SelectedValue = 1;
             chkEstaPago.Checked = false;
         }

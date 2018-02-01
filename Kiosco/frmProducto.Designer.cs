@@ -189,7 +189,7 @@ namespace Heimdall
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(12, 637);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(1, 637);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
             this.ucProductoEdit1.PrecioCosto = new decimal(new int[] {
@@ -207,7 +207,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoEdit1.Size = new System.Drawing.Size(829, 286);
+            this.ucProductoEdit1.Size = new System.Drawing.Size(840, 286);
             this.ucProductoEdit1.SoloAdultos = false;
             this.ucProductoEdit1.StockActual = 0;
             this.ucProductoEdit1.StockMaximo = 0;
@@ -218,12 +218,13 @@ namespace Heimdall
             // 
             this.ucProductoProveedorEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucProductoProveedorEdit1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucProductoProveedorEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucProductoProveedorEdit1.Fecha = new System.DateTime(2018, 1, 9, 15, 37, 10, 842);
             this.ucProductoProveedorEdit1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucProductoProveedorEdit1.IdProducto = ((long)(0));
             this.ucProductoProveedorEdit1.IdProductoProveedor = ((long)(0));
             this.ucProductoProveedorEdit1.IdProveedor = 0;
-            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(847, 783);
+            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(847, 784);
             this.ucProductoProveedorEdit1.Modo = Heimdall.ModoFormulario.Nuevo;
             this.ucProductoProveedorEdit1.Name = "ucProductoProveedorEdit1";
             this.ucProductoProveedorEdit1.Notas = "";
@@ -232,19 +233,18 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(803, 140);
+            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(803, 139);
             this.ucProductoProveedorEdit1.TabIndex = 93;
             // 
             // _ucProductoProveedorList1
             // 
             this._ucProductoProveedorList1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._ucProductoProveedorList1.BackColor = System.Drawing.Color.White;
-            this._ucProductoProveedorList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._ucProductoProveedorList1.Fecha = null;
             this._ucProductoProveedorList1.IdProducto = ((long)(0));
             this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
             this._ucProductoProveedorList1.IdProveedor = 0;
-            this._ucProductoProveedorList1.Location = new System.Drawing.Point(847, 673);
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(847, 674);
             this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
             this._ucProductoProveedorList1.Precio = new decimal(new int[] {
@@ -252,7 +252,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(803, 107);
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(803, 106);
             this._ucProductoProveedorList1.TabIndex = 91;
             this._ucProductoProveedorList1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoChanged);
             this._ucProductoProveedorList1.ProductoProveedorChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoProveedorChanged);

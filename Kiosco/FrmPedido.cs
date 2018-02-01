@@ -238,7 +238,8 @@ namespace Heimdall
                 EstaPago = ucPedido1.EstaPago,
                 Archivado = ucPedido1.Archivado,
                 Fiscal = ucPedido1.Fiscal,
-                IdPrioridad = ucPedido1.IdPrioridad
+                IdPrioridad = ucPedido1.IdPrioridad,
+                IdHoraEntrega = ucPedido1.IdHoraEntrega
             };
 
             //=====================================================================
@@ -274,6 +275,7 @@ namespace Heimdall
                     IdPrioridad = ucPedido1.IdPrioridad,
                     Archivado = ucPedido1.Archivado,
                     Fiscal = ucPedido1.Fiscal,
+                    IdHoraEntrega = ucPedido1.IdHoraEntrega
                 };
 
                 m.IdPedido = PedidoControlador.Update(mNuevo);

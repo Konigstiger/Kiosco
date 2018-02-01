@@ -52,6 +52,7 @@
     <Compile Include="EstadoProveedorControlador.cs" />
     <Compile Include="EstadoUsuarioControlador.cs" />
     <Compile Include="ClaseUsuarioControlador.cs" />
+    <Compile Include="HoraEntregaControlador.cs" />
     <Compile Include="UsuarioControlador.cs" />
     <Compile Include="UnidadControlador.cs" />
     <Compile Include="StockControlador.cs" />

@@ -43,7 +43,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ucPedido1 = new ucPedido();
+            this.ucPedido1 = new UcPedido();
             this.ucPedidoDetalle1 = new UcPedidoDetalle();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
@@ -262,7 +262,7 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripButton tsbSearch;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private UcPedidoDetalle ucPedidoDetalle1;
-        private ucPedido ucPedido1;
+        private UcPedido ucPedido1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip cms;
     }

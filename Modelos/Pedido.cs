@@ -11,12 +11,12 @@ namespace Model
 
         public int IdEstadoPedido { get; set; }
         public int IdPrioridad { get; set; }
+        public int IdHoraEntrega { get; set; }
+        
 
         public DateTime? Fecha { get; set; }
 
         public DateTime? FechaEntrega { get; set; }
-
-        public DateTime? HoraEntrega { get; set; }
 
         public decimal Total { get; set; }
 

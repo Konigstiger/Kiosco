@@ -63,6 +63,8 @@
     <Compile Include="EstadoProveedorView.cs" />
     <Compile Include="EstadoProveedor.cs" />
     <Compile Include="EstadoUsuarioView.cs" />
+    <Compile Include="HoraEntrega.cs" />
+    <Compile Include="HoraEntregaView.cs" />
     <Compile Include="UnidadView.cs" />
     <Compile Include="Unidad.cs" />
     <Compile Include="UsuarioView.cs" />

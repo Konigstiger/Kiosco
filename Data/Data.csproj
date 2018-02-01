@@ -55,6 +55,7 @@
     <Compile Include="EstadoProveedorData.cs" />
     <Compile Include="EstadoUsuarioData.cs" />
     <Compile Include="ClaseUsuarioData.cs" />
+    <Compile Include="HoraEntregaData.cs" />
     <Compile Include="UsuarioData.cs" />
     <Compile Include="UnidadData.cs" />
     <Compile Include="StockData.cs" />

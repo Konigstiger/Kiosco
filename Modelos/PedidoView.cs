@@ -15,6 +15,7 @@ namespace Model
 
         public int IdEstadoPedido { get; set; }
         public int IdPrioridad { get; set; }
+        public int IdHoraEntrega { get; set; }
 
         public string Estado { get; set; }
 

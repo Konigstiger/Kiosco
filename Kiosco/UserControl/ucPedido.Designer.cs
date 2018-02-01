@@ -1,6 +1,6 @@
 ﻿namespace Heimdall.UserControl
 {
-    partial class ucPedido
+    partial class UcPedido
     {
         /// <summary> 
         /// Required designer variable.
@@ -27,11 +27,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucPedido));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPedido));
             this.label5 = new System.Windows.Forms.Label();
             this.nudImporte = new System.Windows.Forms.NumericUpDown();
-            this.dtpHoraEntrega = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.dtpFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +45,7 @@
             this.btnAbmProveedor = new System.Windows.Forms.Button();
             this.btnSeleccionarProveedor = new System.Windows.Forms.Button();
             this.panelEstadoyDetalles = new System.Windows.Forms.Panel();
+            this.chkArchivado = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnVerPedidoDetalle = new System.Windows.Forms.Button();
             this.cboPrioridad = new System.Windows.Forms.ComboBox();
@@ -54,7 +53,8 @@
             this.cboEstadoPedido = new System.Windows.Forms.ComboBox();
             this.chkEstaPago = new System.Windows.Forms.CheckBox();
             this.chkFiscal = new System.Windows.Forms.CheckBox();
-            this.chkArchivado = new System.Windows.Forms.CheckBox();
+            this.cboHoraEntrega = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
             this.panelEstadoyDetalles.SuspendLayout();
             this.SuspendLayout();
@@ -87,28 +87,6 @@
             this.nudImporte.TabStop = false;
             this.nudImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudImporte_KeyPress);
             // 
-            // dtpHoraEntrega
-            // 
-            this.dtpHoraEntrega.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpHoraEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrega.Location = new System.Drawing.Point(553, 107);
-            this.dtpHoraEntrega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dtpHoraEntrega.Name = "dtpHoraEntrega";
-            this.dtpHoraEntrega.ShowCheckBox = true;
-            this.dtpHoraEntrega.ShowUpDown = true;
-            this.dtpHoraEntrega.Size = new System.Drawing.Size(150, 25);
-            this.dtpHoraEntrega.TabIndex = 110;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(454, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 19);
-            this.label3.TabIndex = 109;
-            this.label3.Text = "Hora Entrega:";
-            // 
             // dtpFechaEntrega
             // 
             this.dtpFechaEntrega.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -117,7 +95,7 @@
             this.dtpFechaEntrega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaEntrega.Name = "dtpFechaEntrega";
             this.dtpFechaEntrega.ShowCheckBox = true;
-            this.dtpFechaEntrega.Size = new System.Drawing.Size(170, 25);
+            this.dtpFechaEntrega.Size = new System.Drawing.Size(146, 25);
             this.dtpFechaEntrega.TabIndex = 108;
             // 
             // label2
@@ -138,7 +116,7 @@
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.ShowCheckBox = true;
-            this.dtpFecha.Size = new System.Drawing.Size(170, 25);
+            this.dtpFecha.Size = new System.Drawing.Size(146, 25);
             this.dtpFecha.TabIndex = 106;
             // 
             // label1
@@ -166,7 +144,7 @@
             // txtIdProveedor
             // 
             this.txtIdProveedor.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtIdProveedor.Location = new System.Drawing.Point(711, 44);
+            this.txtIdProveedor.Location = new System.Drawing.Point(14, 41);
             this.txtIdProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIdProveedor.Name = "txtIdProveedor";
             this.txtIdProveedor.Size = new System.Drawing.Size(15, 25);
@@ -270,6 +248,16 @@
             this.panelEstadoyDetalles.Size = new System.Drawing.Size(453, 149);
             this.panelEstadoyDetalles.TabIndex = 123;
             // 
+            // chkArchivado
+            // 
+            this.chkArchivado.AutoSize = true;
+            this.chkArchivado.Location = new System.Drawing.Point(347, 19);
+            this.chkArchivado.Name = "chkArchivado";
+            this.chkArchivado.Size = new System.Drawing.Size(101, 23);
+            this.chkArchivado.TabIndex = 126;
+            this.chkArchivado.Text = "¿Archivado?";
+            this.chkArchivado.UseVisualStyleBackColor = true;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -344,20 +332,33 @@
             this.chkFiscal.Text = "¿Fiscal?";
             this.chkFiscal.UseVisualStyleBackColor = true;
             // 
-            // chkArchivado
+            // cboHoraEntrega
             // 
-            this.chkArchivado.AutoSize = true;
-            this.chkArchivado.Location = new System.Drawing.Point(347, 19);
-            this.chkArchivado.Name = "chkArchivado";
-            this.chkArchivado.Size = new System.Drawing.Size(101, 23);
-            this.chkArchivado.TabIndex = 126;
-            this.chkArchivado.Text = "¿Archivado?";
-            this.chkArchivado.UseVisualStyleBackColor = true;
+            this.cboHoraEntrega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHoraEntrega.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboHoraEntrega.FormattingEnabled = true;
+            this.cboHoraEntrega.Location = new System.Drawing.Point(552, 107);
+            this.cboHoraEntrega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboHoraEntrega.Name = "cboHoraEntrega";
+            this.cboHoraEntrega.Size = new System.Drawing.Size(151, 25);
+            this.cboHoraEntrega.TabIndex = 126;
             // 
-            // ucPedido
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.Location = new System.Drawing.Point(454, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 19);
+            this.label10.TabIndex = 127;
+            this.label10.Text = "Hora Entrega:";
+            // 
+            // UcPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cboHoraEntrega);
             this.Controls.Add(this.chkFiscal);
             this.Controls.Add(this.chkEstaPago);
             this.Controls.Add(this.panelEstadoyDetalles);
@@ -369,8 +370,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.nudImporte);
-            this.Controls.Add(this.dtpHoraEntrega);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFechaEntrega);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpFecha);
@@ -381,8 +380,8 @@
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "ucPedido";
-            this.Size = new System.Drawing.Size(1182, 174);
+            this.Name = "UcPedido";
+            this.Size = new System.Drawing.Size(1182, 169);
             this.Load += new System.EventHandler(this.ucPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
             this.panelEstadoyDetalles.ResumeLayout(false);
@@ -396,8 +395,6 @@
 
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudImporte;
-        private System.Windows.Forms.DateTimePicker dtpHoraEntrega;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFechaEntrega;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpFecha;
@@ -421,5 +418,7 @@
         private System.Windows.Forms.ComboBox cboPrioridad;
         private System.Windows.Forms.CheckBox chkFiscal;
         private System.Windows.Forms.CheckBox chkArchivado;
+        private System.Windows.Forms.ComboBox cboHoraEntrega;
+        private System.Windows.Forms.Label label10;
     }
 }
