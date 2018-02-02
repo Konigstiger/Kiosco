@@ -385,7 +385,6 @@ namespace Heimdall
             if (!Util.ConfirmarEliminar())
                 return;
 
-            //crear objeto cascara
             var m = new Producto { IdProducto = ucProductoEdit1.IdProducto };
 
             var result = ProductoControlador.Delete(m);
@@ -504,6 +503,24 @@ namespace Heimdall
             //test: esto es para que tenga el codigo de producto que realmente va,
             // y no uno de un producto interior. Es un bug.
             ucProductoProveedorEdit1.IdProducto = ucProductoEdit1.IdProducto;
+        }
+
+        private void ucAbmToolBar2_ButtonClickDelete(object sender, EventArgs e)
+        {
+            EliminarProductoProveedor();
+        }
+
+        private void EliminarProductoProveedor()
+        {
+            if (!Util.ConfirmarEliminar())
+                return;
+
+            var m = new ProductoProveedor { IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor };
+
+            var result = ProductoProveedorControlador.Delete(m);
+
+            // esto deberia ocasionar un refresh limpio.
+            _ucProductoProveedorList1.CargarProductoProveedorList(ucProductoProveedorEdit1.IdProducto);
         }
     }
 }

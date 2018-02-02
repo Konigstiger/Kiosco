@@ -62,7 +62,7 @@ namespace Heimdall.UserControl
         }
 
 
-        private void CargarProductoProveedorList(long idProducto)
+        public void CargarProductoProveedorList(long idProducto)
         {
             if (DesignMode)
                 return;

@@ -267,6 +267,7 @@ namespace Heimdall
             this.ucAbmToolBar2.TabIndex = 95;
             this.ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
             this.ucAbmToolBar2.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar2_ButtonClickUpdate);
+            this.ucAbmToolBar2.ButtonClickDelete += new System.EventHandler(this.ucAbmToolBar2_ButtonClickDelete);
             // 
             // FrmProducto
             // 
