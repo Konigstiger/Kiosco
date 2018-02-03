@@ -72,11 +72,13 @@ namespace Heimdall
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
-            this.ucNotification2 = new UcNotification();
-            this.ucNotification = new UcNotification();
-            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             this.btnMProducto = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtPrecioPremium = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
+            this.ucNotification2 = new Heimdall.UserControl.UcNotification();
+            this.ucNotification = new Heimdall.UserControl.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockActual)).BeginInit();
@@ -135,7 +137,7 @@ namespace Heimdall
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(224, 156);
+            this.txtPrecio.Location = new System.Drawing.Point(224, 159);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(138, 31);
@@ -554,6 +556,88 @@ namespace Heimdall
             this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
             this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
             // 
+            // btnMProducto
+            // 
+            this.btnMProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnMProducto.Image")));
+            this.btnMProducto.Location = new System.Drawing.Point(474, 61);
+            this.btnMProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMProducto.Name = "btnMProducto";
+            this.btnMProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnMProducto.TabIndex = 97;
+            this.btnMProducto.UseVisualStyleBackColor = true;
+            this.btnMProducto.Click += new System.EventHandler(this.btnMProducto_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(851, 561);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(139, 48);
+            this.btnGuardar.TabIndex = 98;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtPrecioPremium
+            // 
+            this.txtPrecioPremium.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioPremium.Location = new System.Drawing.Point(650, 159);
+            this.txtPrecioPremium.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPrecioPremium.Name = "txtPrecioPremium";
+            this.txtPrecioPremium.Size = new System.Drawing.Size(138, 31);
+            this.txtPrecioPremium.TabIndex = 100;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(540, 159);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 25);
+            this.label6.TabIndex = 99;
+            this.label6.Text = "Premium:";
+            // 
+            // ucProductoEdit1
+            // 
+            this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucProductoEdit1.Capacidad = 1;
+            this.ucProductoEdit1.CodigoBarras = "";
+            this.ucProductoEdit1.Descripcion = "";
+            this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucProductoEdit1.IdMarca = 0;
+            this.ucProductoEdit1.IdProducto = ((long)(0));
+            this.ucProductoEdit1.IdRubro = 0;
+            this.ucProductoEdit1.IdUnidad = 0;
+            this.ucProductoEdit1.Location = new System.Drawing.Point(827, 275);
+            this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucProductoEdit1.Name = "ucProductoEdit1";
+            this.ucProductoEdit1.Notas = "";
+            this.ucProductoEdit1.PrecioCosto = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoEdit1.PrecioVenta = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoEdit1.PrecioVentaPremium = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ucProductoEdit1.Size = new System.Drawing.Size(912, 343);
+            this.ucProductoEdit1.SoloAdultos = false;
+            this.ucProductoEdit1.StockActual = 0;
+            this.ucProductoEdit1.StockMaximo = 0;
+            this.ucProductoEdit1.StockMinimo = 0;
+            this.ucProductoEdit1.TabIndex = 96;
+            this.ucProductoEdit1.Visible = false;
+            // 
             // ucNotification2
             // 
             this.ucNotification2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -578,68 +662,13 @@ namespace Heimdall
             this.ucNotification.Text = "[Mensaje]";
             this.ucNotification.Visible = false;
             // 
-            // ucProductoEdit1
-            // 
-            this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucProductoEdit1.Capacidad = 1;
-            this.ucProductoEdit1.CodigoBarras = "";
-            this.ucProductoEdit1.Descripcion = "";
-            this.ucProductoEdit1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucProductoEdit1.IdMarca = 0;
-            this.ucProductoEdit1.IdProducto = ((long)(0));
-            this.ucProductoEdit1.IdRubro = 0;
-            this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(73, 53);
-            this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ucProductoEdit1.Name = "ucProductoEdit1";
-            this.ucProductoEdit1.Notas = "";
-            this.ucProductoEdit1.PrecioCosto = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ucProductoEdit1.PrecioVenta = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ucProductoEdit1.Size = new System.Drawing.Size(912, 343);
-            this.ucProductoEdit1.SoloAdultos = false;
-            this.ucProductoEdit1.StockActual = 0;
-            this.ucProductoEdit1.StockMaximo = 0;
-            this.ucProductoEdit1.StockMinimo = 0;
-            this.ucProductoEdit1.TabIndex = 96;
-            this.ucProductoEdit1.Visible = false;
-            // 
-            // btnMProducto
-            // 
-            this.btnMProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnMProducto.Image")));
-            this.btnMProducto.Location = new System.Drawing.Point(474, 61);
-            this.btnMProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMProducto.Name = "btnMProducto";
-            this.btnMProducto.Size = new System.Drawing.Size(25, 25);
-            this.btnMProducto.TabIndex = 97;
-            this.btnMProducto.UseVisualStyleBackColor = true;
-            this.btnMProducto.Click += new System.EventHandler(this.btnMProducto_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(223, 313);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(139, 48);
-            this.btnGuardar.TabIndex = 98;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Visible = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // FrmProductoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
+            this.Controls.Add(this.txtPrecioPremium);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.btnSeleccionarProducto);
@@ -751,5 +780,7 @@ namespace Heimdall
         private UcProductoEdit ucProductoEdit1;
         private System.Windows.Forms.Button btnMProducto;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txtPrecioPremium;
+        private System.Windows.Forms.Label label6;
     }
 }

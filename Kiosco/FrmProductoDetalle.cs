@@ -136,7 +136,10 @@ namespace Heimdall
             //esto sirve en ambos casos.
             txtDescripcion.Text = p.Descripcion;
             txtPrecio.Text = p.PrecioVenta.ToString();
+            txtPrecioPremium.Text = p.PrecioVentaPremium.ToString();
             txtPrecioCosto.Text = p.PrecioCostoPromedio.ToString();
+
+            //TODO: Continuar aqui con el resaltado segun la hora.            
 
             txtIdRubro.Text = p.IdRubro.ToString();
             txtIdMarca.Text = p.IdMarca.ToString();

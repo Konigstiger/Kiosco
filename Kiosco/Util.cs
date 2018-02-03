@@ -6,6 +6,9 @@ namespace Heimdall
 {
     public static class Util
     {
+
+
+
         public static void Shake(Form form)
         {
             var original = form.Location;
@@ -17,6 +20,9 @@ namespace Heimdall
             }
             form.Location = original;
         }
+
+        //public static 
+
 
 
         public static void CheckDateNullable(DateTime? d, DateTimePicker ctrl)
