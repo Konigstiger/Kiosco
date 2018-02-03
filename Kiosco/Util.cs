@@ -21,8 +21,14 @@ namespace Heimdall
             form.Location = original;
         }
 
-        //public static 
 
+        public static bool CheckCurrentTimeInterval(TimeSpan start, TimeSpan end)
+        {
+            //TimeSpan start = new TimeSpan(10, 0, 0); //10 o'clock
+            //TimeSpan end = new TimeSpan(12, 0, 0); //12 o'clock
+            var now = DateTime.Now.TimeOfDay;
+            return (now > start) && (now < end);
+        }
 
 
         public static void CheckDateNullable(DateTime? d, DateTimePicker ctrl)

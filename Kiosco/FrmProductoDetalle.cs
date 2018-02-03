@@ -137,6 +137,22 @@ namespace Heimdall
             txtDescripcion.Text = p.Descripcion;
             txtPrecio.Text = p.PrecioVenta.ToString();
             txtPrecioPremium.Text = p.PrecioVentaPremium.ToString();
+
+
+            TimeSpan a = new TimeSpan(00,00,00);
+            TimeSpan b = new TimeSpan(08,00,00);
+
+            if (Util.CheckCurrentTimeInterval(a, b)) {
+                // esta en horario premium
+                txtPrecioPremium.ForeColor = Color.Red;
+                txtPrecio.ForeColor = Color.Black;
+            }
+            else {
+                txtPrecioPremium.ForeColor = Color.Black;
+                txtPrecio.ForeColor = Color.Red;
+            }
+
+
             txtPrecioCosto.Text = p.PrecioCostoPromedio.ToString();
 
             //TODO: Continuar aqui con el resaltado segun la hora.            
