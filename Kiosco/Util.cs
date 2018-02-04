@@ -6,16 +6,13 @@ namespace Heimdall
 {
     public static class Util
     {
-
-
-
         public static void Shake(Form form)
         {
             var original = form.Location;
             var rnd = new Random(1337);
-            const int shake_amplitude = 5;
-            for (int i = 0; i < 10; i++) {
-                form.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+            const int shakeAmplitude = 5;
+            for (var i = 0; i < 10; i++) {
+                form.Location = new Point(original.X + rnd.Next(-shakeAmplitude, shakeAmplitude), original.Y + rnd.Next(-shakeAmplitude, shakeAmplitude));
                 System.Threading.Thread.Sleep(20);
             }
             form.Location = original;
@@ -59,15 +56,6 @@ namespace Heimdall
         public static bool ConfirmarEliminar()
         {
             var confirmResult = MessageBox.Show("¿Está seguro que desea eliminar este registro?",
-                                     "Confirmar Eliminar",
-                                     MessageBoxButtons.YesNo);
-
-            return confirmResult == DialogResult.Yes;
-        }
-
-        public static bool ConfirmarLimpiarPedido()
-        {
-            var confirmResult = MessageBox.Show("Proveedor Cambiado. Se eliminarán los productos ingresados. ¿Está seguro?",
                                      "Confirmar Eliminar",
                                      MessageBoxButtons.YesNo);
 

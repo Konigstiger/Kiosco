@@ -11,10 +11,16 @@ namespace Heimdall
 {
     public partial class FrmProductoDetalle : Form, ISelectorProducto
     {
+        //private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        //Esta lista esta pensada para contener todos los objetos consultados, hasta que se resetee.
+        List<Producto> _list = new List<Producto>();
+
         public FrmProductoDetalle()
         {
             InitializeComponent();
         }
+
 
         private void FrmProductoDetalle_Load(object sender, EventArgs e)
         {
@@ -23,7 +29,6 @@ namespace Heimdall
                 labPrecioCosto.Visible = false;
                 txtPrecioCosto.Visible = false;
             }
-
         }
 
 
@@ -38,6 +43,7 @@ namespace Heimdall
             txtRubroDescripcion.Enabled = false;
             txtNotas.Enabled = false;
             txtPrecio.Enabled = false;
+            txtPrecioPremium.Enabled = false;
             txtPrecioCosto.Enabled = false;
 
             //TODO: CUIDADO CON ESTO. EXPERIMENTAL
@@ -67,8 +73,9 @@ namespace Heimdall
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             LimpiarControles();
-            list.Clear();
+            _list.Clear();
         }
+
 
         private void LimpiarControles()
         {
@@ -98,10 +105,6 @@ namespace Heimdall
         }
 
 
-        //private static Logger logger = LogManager.GetCurrentClassLogger();
-
-        //Esta lista esta pensada para contener todos los objetos consultados, hasta que se resetee.
-        List<Producto> list = new List<Producto>();
 
         private void VerificarProducto()
         {
@@ -128,9 +131,8 @@ namespace Heimdall
 
             ucNotification.Ocultar();
 
-            if (productoEncontrado)
-            {
-                list.Add(p);
+            if (productoEncontrado) {
+                _list.Add(p);
             }
 
             //esto sirve en ambos casos.
@@ -138,18 +140,19 @@ namespace Heimdall
             txtPrecio.Text = p.PrecioVenta.ToString();
             txtPrecioPremium.Text = p.PrecioVentaPremium.ToString();
 
-
-            TimeSpan a = new TimeSpan(00,00,00);
-            TimeSpan b = new TimeSpan(08,00,00);
+            //TODO: Parametrizar este intervalo de tiempo en Opciones o lugar similar.
+            var a = new TimeSpan(00, 00, 00);
+            var b = new TimeSpan(08, 00, 00);
 
             if (Util.CheckCurrentTimeInterval(a, b)) {
                 // esta en horario premium
-                txtPrecioPremium.ForeColor = Color.Red;
-                txtPrecio.ForeColor = Color.Black;
-            }
-            else {
-                txtPrecioPremium.ForeColor = Color.Black;
-                txtPrecio.ForeColor = Color.Red;
+                txtPrecioPremium.Enabled = true;
+                txtPrecio.Enabled = true;
+                txtPrecioPremium.BackColor = Color.LightCoral;
+                txtPrecio.BackColor = Color.Azure;
+            } else {
+                txtPrecioPremium.BackColor = Color.Azure;
+                txtPrecio.BackColor = Color.LightCoral;
             }
 
 
@@ -197,7 +200,7 @@ namespace Heimdall
             VenderProducto(Convert.ToInt64(txtIdProducto.Text), (int)nudCantidadVenta.Value);
 
             //TODO: encapsular.
-            ucNotification2.Text ="Venta registrada con Exito.";
+            ucNotification2.Text = "Venta registrada con Exito.";
             ucNotification2.BackColor = Color.LightGreen;
             ucNotification2.Ocultar();
 
@@ -280,7 +283,7 @@ namespace Heimdall
                 Cantidad = cantidad,
                 PrecioUnitario = precioUnitario,
                 Importe = importe,
-                Ganancia = p.PrecioVenta - p.PrecioCostoPromedio, 
+                Ganancia = p.PrecioVenta - p.PrecioCostoPromedio,
                 IdMovimientoProducto = mp.IdMovimientoProducto,
                 IdProducto = mp.IdProducto
             };
@@ -424,28 +427,28 @@ namespace Heimdall
                 Notas = ucProductoEdit1.Notas
             };
             //=====================================================================
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
+            //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
 
-                if (m.Validate().Equals(false))
-                    throw new Exception("Errores en validacion!");
+            if (m.Validate().Equals(false))
+                throw new Exception("Errores en validacion!");
 
-                var productoNuevo = new Producto {
-                    IdProducto = ucProductoEdit1.IdProducto,
-                    CodigoBarras = ucProductoEdit1.CodigoBarras,
-                    Descripcion = ucProductoEdit1.Descripcion,
-                    Capacidad = ucProductoEdit1.Capacidad,
-                    PrecioVenta = ucProductoEdit1.PrecioVenta,
-                    StockMinimo = ucProductoEdit1.StockMinimo,
-                    StockMaximo = ucProductoEdit1.StockMaximo,
-                    SoloAdultos = ucProductoEdit1.SoloAdultos,
-                    PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
-                    IdMarca = ucProductoEdit1.IdMarca,
-                    IdRubro = ucProductoEdit1.IdRubro,
-                    IdUnidad = ucProductoEdit1.IdUnidad,
-                    Notas = ucProductoEdit1.Notas
-                };
+            var productoNuevo = new Producto {
+                IdProducto = ucProductoEdit1.IdProducto,
+                CodigoBarras = ucProductoEdit1.CodigoBarras,
+                Descripcion = ucProductoEdit1.Descripcion,
+                Capacidad = ucProductoEdit1.Capacidad,
+                PrecioVenta = ucProductoEdit1.PrecioVenta,
+                StockMinimo = ucProductoEdit1.StockMinimo,
+                StockMaximo = ucProductoEdit1.StockMaximo,
+                SoloAdultos = ucProductoEdit1.SoloAdultos,
+                PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
+                IdMarca = ucProductoEdit1.IdMarca,
+                IdRubro = ucProductoEdit1.IdRubro,
+                IdUnidad = ucProductoEdit1.IdUnidad,
+                Notas = ucProductoEdit1.Notas
+            };
 
-                m.IdProducto = ProductoControlador.Update(productoNuevo);
+            m.IdProducto = ProductoControlador.Update(productoNuevo);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

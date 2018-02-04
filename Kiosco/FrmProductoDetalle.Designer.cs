@@ -62,7 +62,6 @@ namespace Heimdall
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
-            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
@@ -78,6 +77,7 @@ namespace Heimdall
             this.label6 = new System.Windows.Forms.Label();
             this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             this.ucNotification2 = new Heimdall.UserControl.UcNotification();
+            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.ucNotification = new Heimdall.UserControl.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
@@ -116,11 +116,11 @@ namespace Heimdall
             // chkRequiereEnvase
             // 
             this.chkRequiereEnvase.AutoSize = true;
-            this.chkRequiereEnvase.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRequiereEnvase.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.chkRequiereEnvase.Location = new System.Drawing.Point(931, 142);
             this.chkRequiereEnvase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkRequiereEnvase.Name = "chkRequiereEnvase";
-            this.chkRequiereEnvase.Size = new System.Drawing.Size(173, 28);
+            this.chkRequiereEnvase.Size = new System.Drawing.Size(168, 29);
             this.chkRequiereEnvase.TabIndex = 79;
             this.chkRequiereEnvase.Text = "Requiere envase";
             this.chkRequiereEnvase.UseVisualStyleBackColor = true;
@@ -209,22 +209,22 @@ namespace Heimdall
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label7.Location = new System.Drawing.Point(131, 356);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 25);
+            this.label7.Size = new System.Drawing.Size(65, 25);
             this.label7.TabIndex = 71;
             this.label7.Text = "Notas:";
             // 
             // labPrecioCosto
             // 
             this.labPrecioCosto.AutoSize = true;
-            this.labPrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPrecioCosto.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.labPrecioCosto.Location = new System.Drawing.Point(131, 209);
             this.labPrecioCosto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labPrecioCosto.Name = "labPrecioCosto";
-            this.labPrecioCosto.Size = new System.Drawing.Size(74, 25);
+            this.labPrecioCosto.Size = new System.Drawing.Size(64, 25);
             this.labPrecioCosto.TabIndex = 70;
             this.labPrecioCosto.Tag = "Costo Promedio";
             this.labPrecioCosto.Text = "Costo:";
@@ -234,7 +234,7 @@ namespace Heimdall
             this.gbStock.Controls.Add(this.btnUpdateStock);
             this.gbStock.Controls.Add(this.nudStockActual);
             this.gbStock.Controls.Add(this.labStockActual);
-            this.gbStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.gbStock.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.gbStock.Location = new System.Drawing.Point(931, 255);
             this.gbStock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbStock.Name = "gbStock";
@@ -257,54 +257,54 @@ namespace Heimdall
             // 
             // nudStockActual
             // 
-            this.nudStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.nudStockActual.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nudStockActual.Location = new System.Drawing.Point(179, 54);
             this.nudStockActual.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudStockActual.Name = "nudStockActual";
-            this.nudStockActual.Size = new System.Drawing.Size(118, 31);
+            this.nudStockActual.Size = new System.Drawing.Size(118, 33);
             this.nudStockActual.TabIndex = 24;
             // 
             // labStockActual
             // 
             this.labStockActual.AutoSize = true;
-            this.labStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.labStockActual.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.labStockActual.Location = new System.Drawing.Point(27, 56);
             this.labStockActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labStockActual.Name = "labStockActual";
-            this.labStockActual.Size = new System.Drawing.Size(138, 25);
+            this.labStockActual.Size = new System.Drawing.Size(118, 25);
             this.labStockActual.TabIndex = 25;
             this.labStockActual.Text = "Stock Actual:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label5.Location = new System.Drawing.Point(129, 307);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 25);
+            this.label5.Size = new System.Drawing.Size(67, 25);
             this.label5.TabIndex = 68;
             this.label5.Text = "Rubro:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label4.Location = new System.Drawing.Point(127, 258);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 25);
+            this.label4.Size = new System.Drawing.Size(69, 25);
             this.label4.TabIndex = 67;
             this.label4.Text = "Marca:";
             // 
             // chkSoloAdultos
             // 
             this.chkSoloAdultos.AutoSize = true;
-            this.chkSoloAdultos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSoloAdultos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.chkSoloAdultos.Location = new System.Drawing.Point(931, 104);
             this.chkSoloAdultos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkSoloAdultos.Name = "chkSoloAdultos";
-            this.chkSoloAdultos.Size = new System.Drawing.Size(177, 28);
+            this.chkSoloAdultos.Size = new System.Drawing.Size(180, 29);
             this.chkSoloAdultos.TabIndex = 65;
             this.chkSoloAdultos.Text = "Solo para Adultos";
             this.chkSoloAdultos.UseVisualStyleBackColor = true;
@@ -312,11 +312,11 @@ namespace Heimdall
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label3.Location = new System.Drawing.Point(126, 159);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 25);
+            this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 66;
             this.label3.Text = "Precio:";
             // 
@@ -332,11 +332,11 @@ namespace Heimdall
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label2.Location = new System.Drawing.Point(74, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 25);
+            this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 63;
             this.label2.Text = "Descripción:";
             // 
@@ -353,11 +353,11 @@ namespace Heimdall
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(119, 61);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 25);
+            this.label1.Size = new System.Drawing.Size(77, 25);
             this.label1.TabIndex = 62;
             this.label1.Text = "Código:";
             // 
@@ -425,24 +425,6 @@ namespace Heimdall
             this.tpProveedores.TabIndex = 0;
             this.tpProveedores.Text = "Proveedores";
             this.tpProveedores.UseVisualStyleBackColor = true;
-            // 
-            // _ucProductoProveedorList1
-            // 
-            this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._ucProductoProveedorList1.Fecha = null;
-            this._ucProductoProveedorList1.IdProducto = ((long)(0));
-            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
-            this._ucProductoProveedorList1.IdProveedor = 0;
-            this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
-            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
-            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
-            this._ucProductoProveedorList1.TabIndex = 87;
             // 
             // tpPromociones
             // 
@@ -549,9 +531,9 @@ namespace Heimdall
             // btnSeleccionarProducto
             // 
             this.btnSeleccionarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProducto.Image")));
-            this.btnSeleccionarProducto.Location = new System.Drawing.Point(443, 61);
+            this.btnSeleccionarProducto.Location = new System.Drawing.Point(443, 58);
             this.btnSeleccionarProducto.Name = "btnSeleccionarProducto";
-            this.btnSeleccionarProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnSeleccionarProducto.Size = new System.Drawing.Size(32, 31);
             this.btnSeleccionarProducto.TabIndex = 95;
             this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
             this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
@@ -559,10 +541,10 @@ namespace Heimdall
             // btnMProducto
             // 
             this.btnMProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnMProducto.Image")));
-            this.btnMProducto.Location = new System.Drawing.Point(474, 61);
+            this.btnMProducto.Location = new System.Drawing.Point(480, 58);
             this.btnMProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMProducto.Name = "btnMProducto";
-            this.btnMProducto.Size = new System.Drawing.Size(25, 25);
+            this.btnMProducto.Size = new System.Drawing.Size(30, 31);
             this.btnMProducto.TabIndex = 97;
             this.btnMProducto.UseVisualStyleBackColor = true;
             this.btnMProducto.Click += new System.EventHandler(this.btnMProducto_Click);
@@ -571,7 +553,7 @@ namespace Heimdall
             // 
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(851, 561);
+            this.btnGuardar.Location = new System.Drawing.Point(187, 333);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(139, 48);
             this.btnGuardar.TabIndex = 98;
@@ -592,11 +574,11 @@ namespace Heimdall
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label6.Location = new System.Drawing.Point(540, 159);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 25);
+            this.label6.Size = new System.Drawing.Size(92, 25);
             this.label6.TabIndex = 99;
             this.label6.Text = "Premium:";
             // 
@@ -611,7 +593,7 @@ namespace Heimdall
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(827, 275);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(73, 53);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
@@ -630,7 +612,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoEdit1.Size = new System.Drawing.Size(912, 343);
+            this.ucProductoEdit1.Size = new System.Drawing.Size(811, 343);
             this.ucProductoEdit1.SoloAdultos = false;
             this.ucProductoEdit1.StockActual = 0;
             this.ucProductoEdit1.StockMaximo = 0;
@@ -650,6 +632,24 @@ namespace Heimdall
             this.ucNotification2.Text = "[Mensaje]";
             this.ucNotification2.Visible = false;
             // 
+            // _ucProductoProveedorList1
+            // 
+            this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._ucProductoProveedorList1.Fecha = null;
+            this._ucProductoProveedorList1.IdProducto = ((long)(0));
+            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
+            this._ucProductoProveedorList1.IdProveedor = 0;
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
+            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this._ucProductoProveedorList1.TabIndex = 87;
+            // 
             // ucNotification
             // 
             this.ucNotification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -667,10 +667,10 @@ namespace Heimdall
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 945);
-            this.Controls.Add(this.txtPrecioPremium);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.ucProductoEdit1);
+            this.Controls.Add(this.txtPrecioPremium);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSeleccionarProducto);
             this.Controls.Add(this.ucNotification2);
             this.Controls.Add(this.nudImporte);
