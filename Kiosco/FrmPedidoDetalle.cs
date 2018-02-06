@@ -238,7 +238,8 @@ namespace Heimdall
                 FechaEntrega = ucPedido1.FechaEntrega,
                 IdEstadoPedido = ucPedido1.IdEstadoPedido,
                 Notas = ucPedido1.Notas,
-                IdPrioridad = ucPedido1.IdPrioridad
+                IdPrioridad = ucPedido1.IdPrioridad,
+                IdHoraEntrega = ucPedido1.IdHoraEntrega
             };
 
             mNuevo.IdPedido = PedidoControlador.Update(mNuevo);
