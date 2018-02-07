@@ -411,7 +411,7 @@ namespace Data
                     cmd.Parameters.Add(p0);
 
                     conn.Open();
-                    model.IdProducto = (long)cmd.ExecuteScalar();
+                    cmd.ExecuteScalar();
                     return true;
                 }
             }

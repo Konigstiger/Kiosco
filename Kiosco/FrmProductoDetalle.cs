@@ -460,5 +460,13 @@ namespace Heimdall
             ucProductoEdit1.Visible = false;
             btnGuardar.Visible = false;
         }
+
+        private void txtCodigoBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //e.Handled = (e.KeyChar == (char)Keys.Space);
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
+                e.Handled = true;
+            }
+        }
     }
 }

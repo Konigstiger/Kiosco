@@ -20,7 +20,8 @@ namespace Heimdall
         private void SetControles()
         {
             txtUser.Focus();
-            txtUser.Text = @"Admin";
+            //txtUser.Text = @"Admin";
+            txtUser.Text = @"Operador";
 
             Util.CenterFormX(labTitulo, this);
 

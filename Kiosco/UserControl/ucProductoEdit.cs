@@ -88,6 +88,7 @@ namespace Heimdall.UserControl
         {
             if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
                 e.KeyChar = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+                //e.Handled = true;
             }
         }
 

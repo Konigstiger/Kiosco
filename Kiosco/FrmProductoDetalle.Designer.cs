@@ -62,6 +62,7 @@ namespace Heimdall
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpProveedores = new System.Windows.Forms.TabPage();
+            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nudCantidadVenta = new System.Windows.Forms.NumericUpDown();
@@ -77,7 +78,6 @@ namespace Heimdall
             this.label6 = new System.Windows.Forms.Label();
             this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             this.ucNotification2 = new Heimdall.UserControl.UcNotification();
-            this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
             this.ucNotification = new Heimdall.UserControl.UcNotification();
             this.tsb.SuspendLayout();
             this.gbStock.SuspendLayout();
@@ -349,6 +349,7 @@ namespace Heimdall
             this.txtCodigoBarras.Size = new System.Drawing.Size(212, 31);
             this.txtCodigoBarras.TabIndex = 60;
             this.txtCodigoBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarras_KeyDown);
+            this.txtCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarras_KeyPress);
             // 
             // label1
             // 
@@ -425,6 +426,24 @@ namespace Heimdall
             this.tpProveedores.TabIndex = 0;
             this.tpProveedores.Text = "Proveedores";
             this.tpProveedores.UseVisualStyleBackColor = true;
+            // 
+            // _ucProductoProveedorList1
+            // 
+            this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._ucProductoProveedorList1.Fecha = null;
+            this._ucProductoProveedorList1.IdProducto = ((long)(0));
+            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
+            this._ucProductoProveedorList1.IdProveedor = 0;
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
+            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
+            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
+            this._ucProductoProveedorList1.TabIndex = 87;
             // 
             // tpPromociones
             // 
@@ -593,7 +612,7 @@ namespace Heimdall
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(73, 53);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(821, 58);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
@@ -631,24 +650,6 @@ namespace Heimdall
             this.ucNotification2.TabIndex = 94;
             this.ucNotification2.Text = "[Mensaje]";
             this.ucNotification2.Visible = false;
-            // 
-            // _ucProductoProveedorList1
-            // 
-            this._ucProductoProveedorList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._ucProductoProveedorList1.Fecha = null;
-            this._ucProductoProveedorList1.IdProducto = ((long)(0));
-            this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
-            this._ucProductoProveedorList1.IdProveedor = 0;
-            this._ucProductoProveedorList1.Location = new System.Drawing.Point(3, 3);
-            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
-            this._ucProductoProveedorList1.Precio = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(697, 163);
-            this._ucProductoProveedorList1.TabIndex = 87;
             // 
             // ucNotification
             // 

@@ -79,7 +79,7 @@ namespace Heimdall
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Producto], "Producto", "Producto", 2);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.Proveedor], "Proveedor", "Proveedor", 3);
             Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioProveedor], "PrecioProveedor", "PrecioProveedor", 4);
-            Util.SetColumn(c[(int)ProductoProveedorView.GridColumn.PrecioVenta], "PrecioVenta", "PrecioVenta", 5);
+            Util.SetColumn(c[5], "PrecioVenta", "PrecioVenta", 5);
             dgv.Columns.AddRange(c);
 
             Util.SetColumnsReadOnly(dgv);

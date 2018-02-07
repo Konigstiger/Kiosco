@@ -47,7 +47,6 @@ namespace Heimdall
             this.txtPwd.PasswordChar = '•';
             this.txtPwd.Size = new System.Drawing.Size(304, 29);
             this.txtPwd.TabIndex = 2;
-            this.txtPwd.Text = "crazyfucker";
             // 
             // txtUser
             // 
