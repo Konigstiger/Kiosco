@@ -382,12 +382,15 @@ namespace Heimdall
 
         public void Eliminar()
         {
+            //TODO: Hay algun bug al eliminar en esta subrutina. Ejecutar tests y verificar.
+            //Tener presente que se deberia usar Rhino Mocks para hacer pruebas mas avanzadas.
+
             if (!Util.ConfirmarEliminar())
                 return;
 
             var m = new Producto { IdProducto = ucProductoEdit1.IdProducto };
 
-            var result = ProductoControlador.Delete(m);
+            ProductoControlador.Delete(m);
 
             // Ahora eliminar el registro de Stock.
             var s = new Stock { IdProducto = m.IdProducto };
