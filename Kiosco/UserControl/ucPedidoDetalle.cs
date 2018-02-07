@@ -14,11 +14,13 @@ namespace Heimdall.UserControl
             InitializeComponent();
         }
 
+
         private void ucPedidoDetalle_Load(object sender, EventArgs e)
         {
             SetControles();
             CargarControles();
         }
+
 
         public void SetControles()
         {
@@ -31,6 +33,7 @@ namespace Heimdall.UserControl
         {
             CargarUnidad();
         }
+
 
         private void CargarUnidad()
         {
@@ -168,6 +171,22 @@ namespace Heimdall.UserControl
                 return v;
             }
             set { txtIdPedidoDetalle.Text = value.ToString(); }
+        }
+
+
+        [Description("IdProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public long IdProveedor
+        {
+            //TODO: ADAPTAR PARA QUE TOME EL PRECIO DEL PROVEEDOR
+            get {
+                long v = long.TryParse(txtIdProveedor.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+            set { txtIdProveedor.Text = value.ToString(); }
         }
 
 

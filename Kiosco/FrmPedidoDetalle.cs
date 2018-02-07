@@ -333,6 +333,8 @@ namespace Heimdall
         private void ucPedido1_ProveedorChanged(object sender, ValueChangedEventArgs e)
         {
             CargarGrilla(tsbSearchTextBox.Text);
+            //asociar el IdProveedor con su propiedad en el control de edicion
+            this.ucPedidoDetalle1.IdProveedor = ucPedido1.IdProveedor;
         }
 
 
