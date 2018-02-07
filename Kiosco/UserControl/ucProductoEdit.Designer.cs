@@ -430,8 +430,6 @@
             0,
             0,
             0});
-            this.nudPrecioVentaPremium.Enter += new System.EventHandler(this.nudPrecioVentaPremium_Enter);
-            this.nudPrecioVentaPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecioVentaPremium_KeyPress);
             // 
             // label6
             // 

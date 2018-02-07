@@ -51,7 +51,7 @@
     <StartupObject>Heimdall.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Helmet.ico</ApplicationIcon>
+    <ApplicationIcon>Helmet.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -269,11 +269,11 @@
     <Compile Include="UserControl\UcPrecioGananciaEdit.Designer.cs">
       <DependentUpon>UcPrecioGananciaEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UcProductoEdit.cs">
+    <Compile Include="UserControl\ucProductoEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\UcProductoEdit.Designer.cs">
-      <DependentUpon>UcProductoEdit.cs</DependentUpon>
+    <Compile Include="UserControl\ucProductoEdit.Designer.cs">
+      <DependentUpon>ucProductoEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ucProductoProveedorEdit.cs">
       <SubType>UserControl</SubType>
@@ -453,8 +453,8 @@
     <EmbeddedResource Include="UserControl\UcPrecioGananciaEdit.resx">
       <DependentUpon>UcPrecioGananciaEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\UcProductoEdit.resx">
-      <DependentUpon>UcProductoEdit.cs</DependentUpon>
+    <EmbeddedResource Include="UserControl\ucProductoEdit.resx">
+      <DependentUpon>ucProductoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProductoProveedorEdit.resx">
       <DependentUpon>ucProductoProveedorEdit.cs</DependentUpon>
@@ -531,7 +531,7 @@
     <None Include="Resources\barcode_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Helmet.ico" />
+    <Content Include="Helmet.ico" />
     <None Include="Resources\save16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -453,18 +453,5 @@ namespace Heimdall.UserControl
             if (e.KeyCode == Keys.Enter)
                 e.SuppressKeyPress = true;
         }
-
-        private void nudPrecioVentaPremium_Enter(object sender, EventArgs e)
-        {
-            var valor = nudPrecioVentaPremium.Value.ToString();
-            nudPrecioVentaPremium.Select(0, valor.Length);
-        }
-
-        private void nudPrecioVentaPremium_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
-                e.KeyChar = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
-            }
-        }
     }
 }
