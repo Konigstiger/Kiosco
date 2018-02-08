@@ -148,11 +148,11 @@ namespace Heimdall
                 // esta en horario premium
                 txtPrecioPremium.Enabled = true;
                 txtPrecio.Enabled = true;
-                txtPrecioPremium.BackColor = Color.LightCoral;
+                txtPrecioPremium.BackColor = Color.Khaki;
                 txtPrecio.BackColor = Color.Azure;
             } else {
                 txtPrecioPremium.BackColor = Color.Azure;
-                txtPrecio.BackColor = Color.LightCoral;
+                txtPrecio.BackColor = Color.Khaki;
             }
 
 

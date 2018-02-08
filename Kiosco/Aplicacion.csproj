@@ -287,6 +287,12 @@
     <Compile Include="UserControl\ucProductoView.Designer.cs">
       <DependentUpon>ucProductoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\UcTurnoEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcTurnoEdit.Designer.cs">
+      <DependentUpon>UcTurnoEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UcUsuarioEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -461,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucProductoView.resx">
       <DependentUpon>ucProductoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UcTurnoEdit.resx">
+      <DependentUpon>UcTurnoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UcUsuarioEdit.resx">
       <DependentUpon>UcUsuarioEdit.cs</DependentUpon>
