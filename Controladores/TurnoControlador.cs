@@ -13,7 +13,7 @@ namespace Controlador
             return TurnoData.GetAll();
         }
 
-        public static Turno GetByPrimaryKey(int idTurno)
+        public static Turno GetByPrimaryKey(long idTurno)
         {
             return TurnoData.GetByPrimaryKey(idTurno);
         }

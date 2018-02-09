@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Controlador;
 
 namespace Heimdall.UserControl
@@ -92,7 +85,7 @@ namespace Heimdall.UserControl
             set { dtpHoraFin.Value = value; }
         }
 
-        
+
         [Description("Descripcion."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
@@ -145,22 +138,24 @@ namespace Heimdall.UserControl
         {
             if (DesignMode)
                 return;
-            /*
+
+            decimal valorHora = 35;
+
             var p = TurnoControlador.GetByPrimaryKey(idTurno);
 
+            //IdTurno = p.IdTurno;
             Descripcion = p.Descripcion;
             Util.CheckDateNullable(p.Fecha, dtpFecha);
-            Util.CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
-            Total = p.Total;
-            IdProveedor = p.IdProveedor;
-            IdEstadoTurno = p.IdEstadoTurno;
+            CantidadHoras = p.CantidadHoras;
+            HoraInicio = p.HoraInicio;
+            HoraFin = p.HoraFin;
+            Monto = valorHora * CantidadHoras;
+
+
+            this.IdPagoEmpleado = 1;
             Notas = p.Notas;
-            EstaPago = p.EstaPago;
-            Archivado = p.Archivado;
-            Fiscal = p.Fiscal;
-            IdPrioridad = p.IdPrioridad;
-            IdHoraEntrega = p.IdHoraEntrega;
-            */
+
+
         }
 
         private void UcTurnoEdit_Load(object sender, EventArgs e)

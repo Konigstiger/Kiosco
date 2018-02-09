@@ -4,7 +4,7 @@ namespace Model
 {
     public class TurnoView: IEntidad
     {
-        public int IdTurno { get; set; }
+        public long IdTurno { get; set; }
 
         public string Descripcion { get; set; }
 

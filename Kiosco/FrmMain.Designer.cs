@@ -46,6 +46,7 @@ namespace Heimdall
             this.btnConsultaProducto = new System.Windows.Forms.Button();
             this.btnTableroDemo = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnTurno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -54,7 +55,7 @@ namespace Heimdall
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVenta.ImageIndex = 4;
             this.btnVenta.ImageList = this.ilMain;
-            this.btnVenta.Location = new System.Drawing.Point(81, 234);
+            this.btnVenta.Location = new System.Drawing.Point(81, 231);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(292, 58);
             this.btnVenta.TabIndex = 3;
@@ -87,7 +88,7 @@ namespace Heimdall
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.ImageIndex = 3;
             this.btnVentas.ImageList = this.ilMain;
-            this.btnVentas.Location = new System.Drawing.Point(81, 303);
+            this.btnVentas.Location = new System.Drawing.Point(81, 299);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(292, 58);
             this.btnVentas.TabIndex = 4;
@@ -100,7 +101,7 @@ namespace Heimdall
             this.btnAbmProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbmProducto.ImageIndex = 0;
             this.btnAbmProducto.ImageList = this.ilMain;
-            this.btnAbmProducto.Location = new System.Drawing.Point(81, 96);
+            this.btnAbmProducto.Location = new System.Drawing.Point(81, 95);
             this.btnAbmProducto.Name = "btnAbmProducto";
             this.btnAbmProducto.Size = new System.Drawing.Size(292, 58);
             this.btnAbmProducto.TabIndex = 1;
@@ -113,7 +114,7 @@ namespace Heimdall
             this.btnAbmProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbmProveedor.ImageIndex = 10;
             this.btnAbmProveedor.ImageList = this.ilMain;
-            this.btnAbmProveedor.Location = new System.Drawing.Point(81, 372);
+            this.btnAbmProveedor.Location = new System.Drawing.Point(81, 367);
             this.btnAbmProveedor.Name = "btnAbmProveedor";
             this.btnAbmProveedor.Size = new System.Drawing.Size(292, 58);
             this.btnAbmProveedor.TabIndex = 5;
@@ -126,7 +127,7 @@ namespace Heimdall
             this.btnAbmMarca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbmMarca.ImageIndex = 2;
             this.btnAbmMarca.ImageList = this.ilMain;
-            this.btnAbmMarca.Location = new System.Drawing.Point(81, 441);
+            this.btnAbmMarca.Location = new System.Drawing.Point(81, 435);
             this.btnAbmMarca.Name = "btnAbmMarca";
             this.btnAbmMarca.Size = new System.Drawing.Size(292, 58);
             this.btnAbmMarca.TabIndex = 6;
@@ -139,7 +140,7 @@ namespace Heimdall
             this.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedido.ImageIndex = 1;
             this.btnPedido.ImageList = this.ilMain;
-            this.btnPedido.Location = new System.Drawing.Point(81, 165);
+            this.btnPedido.Location = new System.Drawing.Point(81, 163);
             this.btnPedido.Name = "btnPedido";
             this.btnPedido.Size = new System.Drawing.Size(292, 58);
             this.btnPedido.TabIndex = 2;
@@ -152,7 +153,7 @@ namespace Heimdall
             this.btnProductoProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductoProveedor.ImageIndex = 11;
             this.btnProductoProveedor.ImageList = this.ilMain;
-            this.btnProductoProveedor.Location = new System.Drawing.Point(81, 510);
+            this.btnProductoProveedor.Location = new System.Drawing.Point(81, 503);
             this.btnProductoProveedor.Name = "btnProductoProveedor";
             this.btnProductoProveedor.Size = new System.Drawing.Size(292, 58);
             this.btnProductoProveedor.TabIndex = 7;
@@ -165,7 +166,7 @@ namespace Heimdall
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstadisticas.ImageIndex = 8;
             this.btnEstadisticas.ImageList = this.ilMain;
-            this.btnEstadisticas.Location = new System.Drawing.Point(81, 579);
+            this.btnEstadisticas.Location = new System.Drawing.Point(81, 571);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(292, 58);
             this.btnEstadisticas.TabIndex = 8;
@@ -178,7 +179,7 @@ namespace Heimdall
             this.btnRecaudacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecaudacion.ImageIndex = 9;
             this.btnRecaudacion.ImageList = this.ilMain;
-            this.btnRecaudacion.Location = new System.Drawing.Point(81, 648);
+            this.btnRecaudacion.Location = new System.Drawing.Point(81, 639);
             this.btnRecaudacion.Name = "btnRecaudacion";
             this.btnRecaudacion.Size = new System.Drawing.Size(292, 58);
             this.btnRecaudacion.TabIndex = 9;
@@ -191,7 +192,7 @@ namespace Heimdall
             this.btnOpciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOpciones.ImageIndex = 14;
             this.btnOpciones.ImageList = this.ilMain;
-            this.btnOpciones.Location = new System.Drawing.Point(81, 717);
+            this.btnOpciones.Location = new System.Drawing.Point(81, 707);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(292, 58);
             this.btnOpciones.TabIndex = 10;
@@ -204,7 +205,7 @@ namespace Heimdall
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.ImageIndex = 13;
             this.btnSalir.ImageList = this.ilMain;
-            this.btnSalir.Location = new System.Drawing.Point(81, 854);
+            this.btnSalir.Location = new System.Drawing.Point(81, 911);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(292, 58);
             this.btnSalir.TabIndex = 11;
@@ -214,7 +215,7 @@ namespace Heimdall
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCerrarSesion.Location = new System.Drawing.Point(81, 928);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(456, 921);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(292, 58);
             this.btnCerrarSesion.TabIndex = 25;
@@ -249,18 +250,31 @@ namespace Heimdall
             this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(81, 785);
+            this.btnUsuarios.Location = new System.Drawing.Point(81, 775);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(292, 58);
             this.btnUsuarios.TabIndex = 27;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
+            // btnTurno
+            // 
+            this.btnTurno.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnTurno.Image = ((System.Drawing.Image)(resources.GetObject("btnTurno.Image")));
+            this.btnTurno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTurno.Location = new System.Drawing.Point(81, 843);
+            this.btnTurno.Name = "btnTurno";
+            this.btnTurno.Size = new System.Drawing.Size(292, 58);
+            this.btnTurno.TabIndex = 28;
+            this.btnTurno.Text = "Turnos de Trabajo";
+            this.btnTurno.Click += new System.EventHandler(this.btnTurno_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 1053);
+            this.Controls.Add(this.btnTurno);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnTableroDemo);
             this.Controls.Add(this.btnCerrarSesion);
@@ -304,5 +318,6 @@ namespace Heimdall
         private System.Windows.Forms.Button btnTableroDemo;
         private System.Windows.Forms.ImageList ilMain;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Button btnTurno;
     }
 }

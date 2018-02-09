@@ -20,8 +20,10 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new TurnoView {
-                                IdTurno = (int)rdr["IdTurno"],
+                                IdTurno = (long)rdr["IdTurno"],
                                 Descripcion = (string)rdr["Descripcion"],
+                                Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
+                                CantidadHoras = (decimal)rdr["CantidadHoras"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
@@ -48,7 +50,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new TurnoView {
-                                IdTurno = (int)rdr["IdTurno"],
+                                IdTurno = (long)rdr["IdTurno"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
@@ -70,8 +72,8 @@ namespace Data
                     var p0 = new SqlParameter("IdTurno", SqlDbType.BigInt) { Direction = ParameterDirection.Output };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
                     var p2 = new SqlParameter("Fecha", SqlDbType.Date) { Value = m.Fecha };
-                    var p3 = new SqlParameter("HoraInicio", SqlDbType.Time) { Value = m.HoraInicio };
-                    var p4 = new SqlParameter("HoraFin", SqlDbType.Time) { Value = m.HoraFin };
+                    var p3 = new SqlParameter("HoraInicio", SqlDbType.DateTime) { Value = m.HoraInicio };
+                    var p4 = new SqlParameter("HoraFin", SqlDbType.DateTime) { Value = m.HoraFin };
                     var p5 = new SqlParameter("CantidadHoras", SqlDbType.Decimal) { Value = m.CantidadHoras };
                     var p6 = new SqlParameter("IdPagoEmpleado", SqlDbType.BigInt) { Value = m.IdPagoEmpleado };
                     var p7 = new SqlParameter("Monto", SqlDbType.Decimal) { Value = m.Monto };
@@ -96,7 +98,7 @@ namespace Data
         }
 
 
-        public static Turno GetByPrimaryKey(int idTurno)
+        public static Turno GetByPrimaryKey(long idTurno)
         {
             var c = new Turno();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
@@ -109,8 +111,13 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            c.IdTurno = (int)rdr["IdTurno"];
+                            c.IdTurno = (long)rdr["IdTurno"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.Fecha = (DateTime)rdr["Fecha"];
+                            c.HoraInicio = (DateTime)rdr["HoraInicio"];
+                            c.HoraFin= (DateTime)rdr["HoraFin"];
+                            c.CantidadHoras = (decimal)rdr["CantidadHoras"];
+
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
                     }
@@ -134,7 +141,7 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            c.IdTurno = (int)rdr["IdTurno"];
+                            c.IdTurno = (long)rdr["IdTurno"];
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         }
@@ -154,8 +161,8 @@ namespace Data
                     var p0 = new SqlParameter("IdTurno", SqlDbType.VarChar) { Value = model.IdTurno };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
                     var p2 = new SqlParameter("Fecha", SqlDbType.Date) { Value = model.Fecha };
-                    var p3 = new SqlParameter("HoraInicio", SqlDbType.Time) { Value = model.HoraInicio };
-                    var p4 = new SqlParameter("HoraFin", SqlDbType.Time) { Value = model.HoraFin };
+                    var p3 = new SqlParameter("HoraInicio", SqlDbType.DateTime) { Value = model.HoraInicio };
+                    var p4 = new SqlParameter("HoraFin", SqlDbType.DateTime) { Value = model.HoraFin };
                     var p5 = new SqlParameter("CantidadHoras", SqlDbType.Decimal) { Value = model.CantidadHoras };
                     var p6 = new SqlParameter("IdPagoEmpleado", SqlDbType.BigInt) { Value = model.IdPagoEmpleado };
                     var p7 = new SqlParameter("Monto", SqlDbType.Decimal ) { Value = model.Monto };

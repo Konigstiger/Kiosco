@@ -29,15 +29,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTurno));
             this.tsb = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.dgv = new System.Windows.Forms.DataGridView();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSearch = new System.Windows.Forms.ToolStripButton();
+            this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.ucTurnoEdit1 = new Heimdall.UserControl.UcTurnoEdit();
             this.tsb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -60,32 +60,6 @@
             this.tsb.Size = new System.Drawing.Size(1149, 31);
             this.tsb.TabIndex = 34;
             this.tsb.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // tsbSearchTextBox
-            // 
-            this.tsbSearchTextBox.Name = "tsbSearchTextBox";
-            this.tsbSearchTextBox.Size = new System.Drawing.Size(116, 31);
-            this.tsbSearchTextBox.Visible = false;
-            // 
-            // dgv
-            // 
-            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 34);
-            this.dgv.MultiSelect = false;
-            this.dgv.Name = "dgv";
-            this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1125, 494);
-            this.dgv.TabIndex = 33;
-            this.dgv.TabStop = false;
             // 
             // tsbNew
             // 
@@ -111,6 +85,11 @@
             this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
             // tsbSearch
             // 
             this.tsbSearch.CheckOnClick = true;
@@ -119,6 +98,12 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(79, 28);
             this.tsbSearch.Text = "Buscar...";
+            // 
+            // tsbSearchTextBox
+            // 
+            this.tsbSearchTextBox.Name = "tsbSearchTextBox";
+            this.tsbSearchTextBox.Size = new System.Drawing.Size(116, 31);
+            this.tsbSearchTextBox.Visible = false;
             // 
             // tsbSearchPerform
             // 
@@ -138,8 +123,25 @@
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
             // 
+            // dgv
+            // 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(12, 34);
+            this.dgv.MultiSelect = false;
+            this.dgv.Name = "dgv";
+            this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(1125, 494);
+            this.dgv.TabIndex = 33;
+            this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
+            // 
             // ucTurnoEdit1
             // 
+            this.ucTurnoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucTurnoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucTurnoEdit1.CantidadHoras = new decimal(new int[] {
             1,
@@ -147,8 +149,10 @@
             0,
             0});
             this.ucTurnoEdit1.Descripcion = "";
-            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 8, 0, 0, 0, 0);
+            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 9, 0, 0, 0, 0);
             this.ucTurnoEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ucTurnoEdit1.HoraFin = new System.DateTime(2018, 2, 9, 0, 1, 44, 923);
+            this.ucTurnoEdit1.HoraInicio = new System.DateTime(2018, 2, 9, 0, 1, 44, 925);
             this.ucTurnoEdit1.IdPagoEmpleado = ((long)(0));
             this.ucTurnoEdit1.IdTurno = ((long)(0));
             this.ucTurnoEdit1.Location = new System.Drawing.Point(12, 535);
@@ -167,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 747);
+            this.ClientSize = new System.Drawing.Size(1149, 750);
             this.Controls.Add(this.ucTurnoEdit1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);

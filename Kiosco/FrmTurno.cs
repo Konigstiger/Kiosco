@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -17,7 +12,7 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 3;
+        private const int colCount = 5;
 
         private List<TurnoView> origenDatos = null;
 
@@ -82,7 +77,8 @@ namespace Heimdall
             Util.SetColumn(c[(int)TurnoView.GridColumn.IdTurno], "IdTurno", "IdTurno", 0);
             Util.SetColumn(c[(int)TurnoView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)TurnoView.GridColumn.Fecha], "Fecha", "Fecha", 2);
-            Util.SetColumn(c[(int)TurnoView.GridColumn.Notas], "Notas", "Notas", 3);
+            Util.SetColumn(c[(int)TurnoView.GridColumn.CantidadHoras], "CantidadHoras", "Horas", 3);
+            Util.SetColumn(c[(int)TurnoView.GridColumn.Notas], "Notas", "Notas", 4);
             dgv.Columns.AddRange(c);
 
 
@@ -92,11 +88,9 @@ namespace Heimdall
                 TurnoControlador.GetAll() :
                 TurnoControlador.GetAll_GetByDescripcion(searchText);
 
-
             var bindingList = new MySortableBindingList<TurnoView>(origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
-
 
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
@@ -120,6 +114,21 @@ namespace Heimdall
         public void LimpiarControles()
         {
             ucTurnoEdit1.Clear();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)MarcaView.GridColumn.IdMarca].Value.ToString());
+
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucTurnoEdit1.IdTurno = id;
         }
     }
 }

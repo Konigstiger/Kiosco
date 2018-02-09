@@ -222,6 +222,7 @@
             this.txtIdPagoEmpleado.Size = new System.Drawing.Size(16, 27);
             this.txtIdPagoEmpleado.TabIndex = 119;
             this.txtIdPagoEmpleado.Text = "0";
+            this.txtIdPagoEmpleado.Visible = false;
             // 
             // UcTurnoEdit
             // 
@@ -246,7 +247,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcTurnoEdit";
-            this.Size = new System.Drawing.Size(535, 211);
+            this.Size = new System.Drawing.Size(535, 203);
             this.Load += new System.EventHandler(this.UcTurnoEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadHoras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();

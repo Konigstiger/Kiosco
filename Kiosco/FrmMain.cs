@@ -46,6 +46,7 @@ namespace Heimdall
             Util.CenterFormX(btnVentas, this);
             Util.CenterFormX(btnCerrarSesion, this);
             Util.CenterFormX(btnUsuarios, this);
+            Util.CenterFormX(btnTurno, this);
 
 
             if (Program.UsuarioConectado.EsAdmin == false)
@@ -126,6 +127,12 @@ namespace Heimdall
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             var f = new FrmUsuario();
+            f.Show();
+        }
+
+        private void btnTurno_Click(object sender, EventArgs e)
+        {
+            var f = new FrmTurno();
             f.Show();
         }
     }
