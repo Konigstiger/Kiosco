@@ -32,18 +32,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
+            this.nudCantidadHoras = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.nudImporte = new System.Windows.Forms.NumericUpDown();
+            this.nudMonto = new System.Windows.Forms.NumericUpDown();
             this.txtNotas = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).BeginInit();
+            this.txtIdPagoEmpleado = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadHoras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdTurno
@@ -95,15 +96,15 @@
             this.label1.TabIndex = 107;
             this.label1.Text = "Fecha:";
             // 
-            // dateTimePicker1
+            // dtpHoraInicio
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(120, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(128, 25);
-            this.dateTimePicker1.TabIndex = 110;
+            this.dtpHoraInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicio.Location = new System.Drawing.Point(120, 76);
+            this.dtpHoraInicio.Name = "dtpHoraInicio";
+            this.dtpHoraInicio.ShowCheckBox = true;
+            this.dtpHoraInicio.Size = new System.Drawing.Size(128, 25);
+            this.dtpHoraInicio.TabIndex = 110;
             // 
             // label3
             // 
@@ -115,15 +116,15 @@
             this.label3.TabIndex = 109;
             this.label3.Text = "Hora Inicio:";
             // 
-            // dateTimePicker2
+            // dtpHoraFin
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(385, 75);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowCheckBox = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(128, 25);
-            this.dateTimePicker2.TabIndex = 112;
+            this.dtpHoraFin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFin.Location = new System.Drawing.Point(385, 75);
+            this.dtpHoraFin.Name = "dtpHoraFin";
+            this.dtpHoraFin.ShowCheckBox = true;
+            this.dtpHoraFin.Size = new System.Drawing.Size(128, 25);
+            this.dtpHoraFin.TabIndex = 112;
             // 
             // label4
             // 
@@ -135,21 +136,22 @@
             this.label4.TabIndex = 111;
             this.label4.Text = "Hora Fin:";
             // 
-            // nudCantidad
+            // nudCantidadHoras
             // 
-            this.nudCantidad.BackColor = System.Drawing.Color.White;
-            this.nudCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudCantidad.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudCantidad.Location = new System.Drawing.Point(120, 107);
-            this.nudCantidad.Maximum = new decimal(new int[] {
-            100000,
+            this.nudCantidadHoras.BackColor = System.Drawing.Color.White;
+            this.nudCantidadHoras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudCantidadHoras.DecimalPlaces = 2;
+            this.nudCantidadHoras.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.nudCantidadHoras.Location = new System.Drawing.Point(120, 107);
+            this.nudCantidadHoras.Maximum = new decimal(new int[] {
+            99,
             0,
             0,
             0});
-            this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(71, 25);
-            this.nudCantidad.TabIndex = 113;
-            this.nudCantidad.Value = new decimal(new int[] {
+            this.nudCantidadHoras.Name = "nudCantidadHoras";
+            this.nudCantidadHoras.Size = new System.Drawing.Size(68, 25);
+            this.nudCantidadHoras.TabIndex = 113;
+            this.nudCantidadHoras.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -175,22 +177,22 @@
             this.label6.TabIndex = 116;
             this.label6.Text = "Monto:";
             // 
-            // nudImporte
+            // nudMonto
             // 
-            this.nudImporte.BackColor = System.Drawing.SystemColors.Menu;
-            this.nudImporte.DecimalPlaces = 2;
-            this.nudImporte.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudImporte.Location = new System.Drawing.Point(120, 138);
-            this.nudImporte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.nudImporte.Maximum = new decimal(new int[] {
+            this.nudMonto.BackColor = System.Drawing.SystemColors.Menu;
+            this.nudMonto.DecimalPlaces = 2;
+            this.nudMonto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.nudMonto.Location = new System.Drawing.Point(120, 138);
+            this.nudMonto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudMonto.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.nudImporte.Name = "nudImporte";
-            this.nudImporte.Size = new System.Drawing.Size(128, 25);
-            this.nudImporte.TabIndex = 115;
-            this.nudImporte.TabStop = false;
+            this.nudMonto.Name = "nudMonto";
+            this.nudMonto.Size = new System.Drawing.Size(128, 25);
+            this.nudMonto.TabIndex = 115;
+            this.nudMonto.TabStop = false;
             // 
             // txtNotas
             // 
@@ -211,19 +213,30 @@
             this.label7.TabIndex = 118;
             this.label7.Text = "Notas:";
             // 
+            // txtIdPagoEmpleado
+            // 
+            this.txtIdPagoEmpleado.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.txtIdPagoEmpleado.Location = new System.Drawing.Point(11, 39);
+            this.txtIdPagoEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdPagoEmpleado.Name = "txtIdPagoEmpleado";
+            this.txtIdPagoEmpleado.Size = new System.Drawing.Size(16, 27);
+            this.txtIdPagoEmpleado.TabIndex = 119;
+            this.txtIdPagoEmpleado.Text = "0";
+            // 
             // UcTurnoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtIdPagoEmpleado);
             this.Controls.Add(this.txtNotas);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.nudImporte);
+            this.Controls.Add(this.nudMonto);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.nudCantidad);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.nudCantidadHoras);
+            this.Controls.Add(this.dtpHoraFin);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpHoraInicio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label1);
@@ -231,11 +244,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdTurno);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcTurnoEdit";
             this.Size = new System.Drawing.Size(535, 211);
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudImporte)).EndInit();
+            this.Load += new System.EventHandler(this.UcTurnoEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadHoras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,15 +262,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpHoraInicio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpHoraFin;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown nudCantidad;
+        private System.Windows.Forms.NumericUpDown nudCantidadHoras;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown nudImporte;
+        private System.Windows.Forms.NumericUpDown nudMonto;
         private System.Windows.Forms.TextBox txtNotas;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtIdPagoEmpleado;
     }
 }

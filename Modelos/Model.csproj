@@ -67,6 +67,7 @@
     <Compile Include="HoraEntregaView.cs" />
     <Compile Include="Consumo.cs" />
     <Compile Include="PagoEmpleado.cs" />
+    <Compile Include="TurnoView.cs" />
     <Compile Include="Turno.cs" />
     <Compile Include="UnidadView.cs" />
     <Compile Include="Unidad.cs" />

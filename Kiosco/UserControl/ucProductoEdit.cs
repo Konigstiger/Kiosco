@@ -362,11 +362,6 @@ namespace Heimdall.UserControl
 
         public void Clear()
         {
-            LimpiarControles();
-        }
-
-        public void LimpiarControles()
-        {
             txtCodigoBarras.Clear();
             txtDescripcion.Clear();
             nudPrecio.Value = 0;

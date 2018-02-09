@@ -140,6 +140,12 @@
     <Compile Include="FrmTableroPedidos.Designer.cs">
       <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTurno.Designer.cs">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,12 @@
       <DependentUpon>FrmRegistrarVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="IPedidoDetalle.cs" />
+    <Compile Include="UserControl\UcConsumoEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UcConsumoEdit.Designer.cs">
+      <DependentUpon>UcConsumoEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UcFiltroProducto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -380,6 +392,9 @@
     <EmbeddedResource Include="FrmTableroPedidos.resx">
       <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTurno.resx">
+      <DependentUpon>FrmTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +456,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControl\UcConsumoEdit.resx">
+      <DependentUpon>UcConsumoEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UcFiltroProducto.resx">
       <DependentUpon>UcFiltroProducto.cs</DependentUpon>
     </EmbeddedResource>

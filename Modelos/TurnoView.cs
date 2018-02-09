@@ -2,9 +2,9 @@
 
 namespace Model
 {
-    public class Turno: IEntidad
+    public class TurnoView: IEntidad
     {
-        public long IdTurno { get; set; }
+        public int IdTurno { get; set; }
 
         public string Descripcion { get; set; }
 
@@ -21,6 +21,15 @@ namespace Model
         public decimal Monto { get; set; }
 
         public string Notas { get; set; }
+
+        public enum GridColumn
+        {
+            IdTurno = 0,
+            Descripcion = 1,
+            Fecha = 2,
+            CantidadHoras = 3,
+            Notas = 4
+        }
 
         public bool Validate()
         {

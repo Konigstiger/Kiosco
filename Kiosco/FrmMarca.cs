@@ -237,7 +237,6 @@ namespace Heimdall
             if (!Util.ConfirmarEliminar())
                 return;
 
-            //crear objeto cascara
             var m = new Marca { IdMarca = Convert.ToInt32(txtIdMarca.Text.Trim()) };
 
             var result = MarcaControlador.Delete(m);
