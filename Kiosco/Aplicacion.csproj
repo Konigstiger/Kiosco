@@ -98,6 +98,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
