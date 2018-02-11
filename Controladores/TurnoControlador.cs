@@ -38,7 +38,7 @@ namespace Controlador
             return TurnoData.SearchByParameters(searchText);
         }
 
-        public static TurnoView GetByPrimaryKeyView(int idTurno)
+        public static TurnoView GetByPrimaryKeyView(long idTurno)
         {
             return TurnoData.GetByPrimaryKeyView(idTurno);
         }

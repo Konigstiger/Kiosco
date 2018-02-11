@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
@@ -96,20 +97,108 @@ namespace Heimdall
             dgv.RowHeadersVisible = false;
         }
 
+
         public void ExecuteSearch()
         {
             throw new NotImplementedException();
         }
 
+
         public void GuardarOInsertar()
         {
-            throw new NotImplementedException();
+            //NOTA: ESTO NO ESTA LISTO EN ABSOLUTO> HAY QUE HACERLO ORDENADO Y PROLIJO.
+
+            /*
+            var m = new Turno {
+                IdTurno = -1,
+                Descripcion = ucTurnoEdit1.Descripcion,
+                Fecha = ucTurnoEdit1.Fecha,
+                HoraInicio = ucTurnoEdit1.HoraInicio,
+                HoraFin = ucTurnoEdit1.HoraFin,
+                CantidadHoras = ucTurnoEdit1.CantidadHoras,
+                IdPagoEmpleado = -1,
+                Monto = ucTurnoEdit1.Monto,
+                Notas = ucTurnoEdit1.Notas
+            };
+            //=====================================================================
+            if (_modo == ModoFormulario.Nuevo) {
+                m.IdTurno = TurnoControlador.Insert(m);
+
+                var modelView = TurnoControlador.GetByPrimaryKeyView(m.IdTurno);
+
+                //modificar el origen de datos
+                origenDatos.Add(modelView);
+
+                var bindingList = new BindingList<TurnoView>(origenDatos);
+                var source = new BindingSource(bindingList, null);
+                dgv.DataSource = source;
+
+                //Calcular _rowIndex
+                _rowIndex = dgv.Rows.Count - 1;
+
+            } else {
+                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
+
+                if (m.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                var turnoNuevo = new Turno {
+                    IdTurno = -1,
+                    Descripcion = ucTurnoEdit1.Descripcion,
+                    Fecha = ucTurnoEdit1.Fecha,
+                    HoraInicio = ucTurnoEdit1.HoraInicio,
+                    HoraFin = ucTurnoEdit1.HoraFin,
+                    CantidadHoras = ucTurnoEdit1.CantidadHoras,
+                    IdPagoEmpleado = -1,
+                    Monto = ucTurnoEdit1.Monto,
+                    Notas = ucTurnoEdit1.Notas
+                };
+
+                m.IdTurno = TurnoControlador.Update(turnoNuevo);
+
+                // pasar o mantener _modo Edicion
+                _modo = ModoFormulario.Edicion;
+
+                //********************
+                //TODO: Revisar esto!
+                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = m.Descripcion;
+                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = m.Notas;
+                //********************
+
+                //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+                dgv.Rows[_rowIndex].Selected = true;
+            }
+
+            // pasar o mantener _modo Edicion
+            _modo = ModoFormulario.Edicion;
+
+            //********************
+            //meter en subrutina
+            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = m.Notas;
+            //********************
+
+            //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+            dgv.Rows[_rowIndex].Selected = true;
+            */
         }
+
 
         public void Eliminar()
         {
-            throw new NotImplementedException();
+            if (!Util.ConfirmarEliminar())
+                return;
+
+            var m = new Turno { IdTurno = ucTurnoEdit1.IdTurno };
+
+            TurnoControlador.Delete(m);
+
+            // Remover visualmente el registro del producto.
+            dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+
+            LimpiarControles();
         }
+
 
         public void LimpiarControles()
         {
@@ -129,6 +218,23 @@ namespace Heimdall
             _rowIndex = dgv.SelectedRows[0].Index;
 
             ucTurnoEdit1.IdTurno = id;
+        }
+
+        private void tsbNew_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            _modo = ModoFormulario.Nuevo;
+            ucTurnoEdit1.Focus();
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            GuardarOInsertar();
         }
     }
 }

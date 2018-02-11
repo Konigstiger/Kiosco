@@ -68,6 +68,7 @@
             this.tsbNew.Name = "tsbNew";
             this.tsbNew.Size = new System.Drawing.Size(70, 28);
             this.tsbNew.Text = "Nuevo";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
             // tsbSave
             // 
@@ -76,6 +77,7 @@
             this.tsbSave.Name = "tsbSave";
             this.tsbSave.Size = new System.Drawing.Size(77, 28);
             this.tsbSave.Text = "Guardar";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbDelete
             // 
@@ -84,6 +86,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -149,7 +152,7 @@
             0,
             0});
             this.ucTurnoEdit1.Descripcion = "";
-            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 9, 0, 0, 0, 0);
+            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 11, 0, 0, 0, 0);
             this.ucTurnoEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucTurnoEdit1.HoraFin = new System.DateTime(2018, 2, 9, 0, 1, 44, 923);
             this.ucTurnoEdit1.HoraInicio = new System.DateTime(2018, 2, 9, 0, 1, 44, 925);

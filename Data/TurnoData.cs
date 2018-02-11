@@ -128,7 +128,7 @@ namespace Data
         }
 
 
-        public static TurnoView GetByPrimaryKeyView(int idTurno)
+        public static TurnoView GetByPrimaryKeyView(long idTurno)
         {
             var c = new TurnoView();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {

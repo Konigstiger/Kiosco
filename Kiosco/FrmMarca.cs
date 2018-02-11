@@ -169,8 +169,6 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
-
             var m = new Marca {
                 IdMarca = -1,
                 Descripcion = txtDescripcion.Text.Trim(),
