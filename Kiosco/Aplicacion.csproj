@@ -51,7 +51,7 @@
     <StartupObject>Heimdall.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Helmet.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Helmet.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -568,7 +568,7 @@
     <None Include="Resources\barcode_32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Helmet.ico" />
+    <Content Include="Resources\Helmet.ico" />
     <None Include="Resources\save16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
