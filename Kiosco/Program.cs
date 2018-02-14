@@ -18,7 +18,7 @@ namespace Heimdall
             //desactivo esto para que tome colores oscuros. En teoria.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-    
+
             DialogResult result;
             using (var loginForm = new FrmLogin())
                 result = loginForm.ShowDialog();

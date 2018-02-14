@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -106,6 +107,8 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
+            
+
             //NOTA: ESTO NO ESTA LISTO EN ABSOLUTO> HAY QUE HACERLO ORDENADO Y PROLIJO.
 
             /*
