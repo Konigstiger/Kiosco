@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EstadoTareaData.cs" />
+    <Compile Include="ClaseTareaData.cs" />
     <Compile Include="EstadoPedidoData.cs" />
+    <Compile Include="DificultadData.cs" />
     <Compile Include="TurnoData.cs" />
     <Compile Include="RecaudacionData.cs" />
     <Compile Include="PedidoDetalleData.cs" />

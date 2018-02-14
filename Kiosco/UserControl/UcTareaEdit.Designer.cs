@@ -39,7 +39,7 @@
             this.cboPrioridad = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboEstadoTarea = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboDificultadTarea = new System.Windows.Forms.ComboBox();
@@ -51,6 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.chkArchivado = new System.Windows.Forms.CheckBox();
             this.txtIdTareaPadre = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPorcentajeCompleto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(102, 212);
+            this.txtNotas.Location = new System.Drawing.Point(102, 166);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNotas.Name = "txtNotas";
             this.txtNotas.Size = new System.Drawing.Size(393, 25);
@@ -78,7 +79,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.Location = new System.Drawing.Point(48, 215);
+            this.label7.Location = new System.Drawing.Point(48, 169);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 19);
             this.label7.TabIndex = 134;
@@ -100,9 +101,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label1.Location = new System.Drawing.Point(13, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 19);
+            this.label1.Size = new System.Drawing.Size(47, 19);
             this.label1.TabIndex = 123;
-            this.label1.Text = "Fecha Inicio:";
+            this.label1.Text = "Fecha:";
             // 
             // txtDescripcion
             // 
@@ -137,7 +138,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label8.Location = new System.Drawing.Point(29, 83);
+            this.label8.Location = new System.Drawing.Point(517, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 19);
             this.label8.TabIndex = 137;
@@ -148,7 +149,7 @@
             this.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPrioridad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboPrioridad.FormattingEnabled = true;
-            this.cboPrioridad.Location = new System.Drawing.Point(102, 80);
+            this.cboPrioridad.Location = new System.Drawing.Point(590, 46);
             this.cboPrioridad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboPrioridad.Name = "cboPrioridad";
             this.cboPrioridad.Size = new System.Drawing.Size(128, 25);
@@ -158,7 +159,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(43, 116);
+            this.label3.Location = new System.Drawing.Point(531, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
             this.label3.TabIndex = 139;
@@ -169,37 +170,37 @@
             this.cboEstadoTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoTarea.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboEstadoTarea.FormattingEnabled = true;
-            this.cboEstadoTarea.Location = new System.Drawing.Point(102, 113);
+            this.cboEstadoTarea.Location = new System.Drawing.Point(590, 12);
             this.cboEstadoTarea.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboEstadoTarea.Name = "cboEstadoTarea";
             this.cboEstadoTarea.Size = new System.Drawing.Size(128, 25);
             this.cboEstadoTarea.TabIndex = 138;
             // 
-            // dateTimePicker1
+            // dtpFechaVencimiento
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(367, 48);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowCheckBox = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(128, 25);
-            this.dateTimePicker1.TabIndex = 141;
+            this.dtpFechaVencimiento.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(367, 48);
+            this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            this.dtpFechaVencimiento.ShowCheckBox = true;
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(128, 25);
+            this.dtpFechaVencimiento.TabIndex = 141;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label4.Location = new System.Drawing.Point(292, 53);
+            this.label4.Location = new System.Drawing.Point(274, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 19);
+            this.label4.Size = new System.Drawing.Size(87, 19);
             this.label4.TabIndex = 140;
-            this.label4.Text = "Fecha Fin:";
+            this.label4.Text = "Vencimiento:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label5.Location = new System.Drawing.Point(27, 149);
+            this.label5.Location = new System.Drawing.Point(515, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 19);
             this.label5.TabIndex = 143;
@@ -210,7 +211,7 @@
             this.cboDificultadTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDificultadTarea.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboDificultadTarea.FormattingEnabled = true;
-            this.cboDificultadTarea.Location = new System.Drawing.Point(102, 146);
+            this.cboDificultadTarea.Location = new System.Drawing.Point(590, 114);
             this.cboDificultadTarea.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboDificultadTarea.Name = "cboDificultadTarea";
             this.cboDificultadTarea.Size = new System.Drawing.Size(128, 25);
@@ -220,7 +221,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label6.Location = new System.Drawing.Point(52, 182);
+            this.label6.Location = new System.Drawing.Point(540, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 19);
             this.label6.TabIndex = 145;
@@ -231,7 +232,7 @@
             this.cboClaseTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClaseTarea.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboClaseTarea.FormattingEnabled = true;
-            this.cboClaseTarea.Location = new System.Drawing.Point(102, 179);
+            this.cboClaseTarea.Location = new System.Drawing.Point(590, 80);
             this.cboClaseTarea.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboClaseTarea.Name = "cboClaseTarea";
             this.cboClaseTarea.Size = new System.Drawing.Size(128, 25);
@@ -241,7 +242,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.Location = new System.Drawing.Point(289, 84);
+            this.label9.Location = new System.Drawing.Point(733, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 19);
             this.label9.TabIndex = 147;
@@ -255,7 +256,7 @@
             0,
             0,
             0});
-            this.nudPorcentajeCompleto.Location = new System.Drawing.Point(367, 82);
+            this.nudPorcentajeCompleto.Location = new System.Drawing.Point(811, 15);
             this.nudPorcentajeCompleto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudPorcentajeCompleto.Name = "nudPorcentajeCompleto";
             this.nudPorcentajeCompleto.Size = new System.Drawing.Size(47, 25);
@@ -264,17 +265,18 @@
             // txtDetalle
             // 
             this.txtDetalle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDetalle.Location = new System.Drawing.Point(367, 114);
+            this.txtDetalle.Location = new System.Drawing.Point(102, 84);
             this.txtDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDetalle.Multiline = true;
             this.txtDetalle.Name = "txtDetalle";
-            this.txtDetalle.Size = new System.Drawing.Size(128, 25);
+            this.txtDetalle.Size = new System.Drawing.Size(393, 74);
             this.txtDetalle.TabIndex = 149;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label10.Location = new System.Drawing.Point(301, 115);
+            this.label10.Location = new System.Drawing.Point(36, 87);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 19);
             this.label10.TabIndex = 150;
@@ -283,7 +285,7 @@
             // chkArchivado
             // 
             this.chkArchivado.AutoSize = true;
-            this.chkArchivado.Location = new System.Drawing.Point(367, 149);
+            this.chkArchivado.Location = new System.Drawing.Point(757, 167);
             this.chkArchivado.Name = "chkArchivado";
             this.chkArchivado.Size = new System.Drawing.Size(101, 23);
             this.chkArchivado.TabIndex = 151;
@@ -301,10 +303,21 @@
             this.txtIdTareaPadre.Text = "0";
             this.txtIdTareaPadre.Visible = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label11.Location = new System.Drawing.Point(861, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 19);
+            this.label11.TabIndex = 153;
+            this.label11.Text = "%";
+            // 
             // UcTareaEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.txtIdTareaPadre);
             this.Controls.Add(this.chkArchivado);
             this.Controls.Add(this.txtDetalle);
@@ -315,7 +328,7 @@
             this.Controls.Add(this.cboClaseTarea);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboDificultadTarea);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFechaVencimiento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cboEstadoTarea);
@@ -332,7 +345,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UcTareaEdit";
-            this.Size = new System.Drawing.Size(659, 244);
+            this.Size = new System.Drawing.Size(885, 197);
             ((System.ComponentModel.ISupportInitialize)(this.nudPorcentajeCompleto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -353,7 +366,7 @@
         private System.Windows.Forms.ComboBox cboPrioridad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboEstadoTarea;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboDificultadTarea;
@@ -365,5 +378,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chkArchivado;
         private System.Windows.Forms.TextBox txtIdTareaPadre;
+        private System.Windows.Forms.Label label11;
     }
 }
