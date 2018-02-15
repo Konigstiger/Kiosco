@@ -1,5 +1,5 @@
 ﻿
-namespace Model
+namespace Model.View
 {
     public class StockView
     {

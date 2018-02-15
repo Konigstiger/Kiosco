@@ -44,6 +44,7 @@
     <Compile Include="EstadoTarea.cs" />
     <Compile Include="ClaseUsuario.cs" />
     <Compile Include="EstadoUsuario.cs" />
+    <Compile Include="Tarea.cs" />
     <Compile Include="View\EstadoTareaView.cs" />
     <Compile Include="View\ClaseTareaView.cs" />
     <Compile Include="View\EstadoPedidoView.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="PagoEmpleado.cs" />
     <Compile Include="ClaseTarea.cs" />
     <Compile Include="View\DificultadView.cs" />
+    <Compile Include="View\TareaView.cs" />
     <Compile Include="View\TurnoView.cs" />
     <Compile Include="Turno.cs" />
     <Compile Include="View\UnidadView.cs" />

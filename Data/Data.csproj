@@ -45,6 +45,7 @@
     <Compile Include="ClaseTareaData.cs" />
     <Compile Include="EstadoPedidoData.cs" />
     <Compile Include="DificultadData.cs" />
+    <Compile Include="TareaData.cs" />
     <Compile Include="TurnoData.cs" />
     <Compile Include="RecaudacionData.cs" />
     <Compile Include="PedidoDetalleData.cs" />

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Calendar;
 using Controlador;
 using Model;
+using Model.View;
 using CalendarItem = System.Windows.Forms.Calendar;
 
 namespace Heimdall

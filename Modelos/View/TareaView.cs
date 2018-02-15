@@ -1,8 +1,8 @@
 ﻿namespace Model.View
 {
-    public class HoraEntregaView
+    public class TareaView
     {
-        public int IdHoraEntrega { get; set; }
+        public int IdTarea { get; set; }
 
         public string Descripcion { get; set; }
 

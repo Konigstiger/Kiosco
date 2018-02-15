@@ -141,6 +141,12 @@
     <Compile Include="FrmTableroPedidos.Designer.cs">
       <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTarea.Designer.cs">
+      <DependentUpon>FrmTarea.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTableroPedidos.resx">
       <DependentUpon>FrmTableroPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTarea.resx">
+      <DependentUpon>FrmTarea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTurno.resx">
       <DependentUpon>FrmTurno.cs</DependentUpon>

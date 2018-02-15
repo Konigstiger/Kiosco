@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.View;
 
 namespace Model
 {

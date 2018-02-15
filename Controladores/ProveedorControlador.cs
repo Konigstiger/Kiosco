@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Data;
 using Model;
+using Model.View;
 
 namespace Controlador
 {

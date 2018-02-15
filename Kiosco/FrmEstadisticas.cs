@@ -5,6 +5,7 @@ using Controlador;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Model;
+using Model.View;
 
 //using Brushes = System.Drawing.Brushes;
 

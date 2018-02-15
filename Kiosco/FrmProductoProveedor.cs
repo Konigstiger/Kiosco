@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
 using Model;
+using Model.View;
 
 namespace Heimdall
 {

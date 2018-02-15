@@ -27,6 +27,8 @@ namespace Heimdall.UserControl
     }
 
     public delegate void ProductoChangedEventHandler(object sender, ValueChangedEventArgs e);
+    public delegate void TareaChangedEventHandler(object sender, ValueChangedEventArgs e);
+
 
     //test
     public delegate void AddActionEventHandler(object sender, EventArgs e);

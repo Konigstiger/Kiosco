@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using Controlador;
 using Model;
+using Model.View;
 
 namespace Heimdall
 {
