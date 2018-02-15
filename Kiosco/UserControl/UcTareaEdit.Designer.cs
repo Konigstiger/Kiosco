@@ -347,6 +347,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UcTareaEdit";
             this.Size = new System.Drawing.Size(885, 197);
+            this.Load += new System.EventHandler(this.UcTareaEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPorcentajeCompleto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

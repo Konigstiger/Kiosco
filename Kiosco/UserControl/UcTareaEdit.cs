@@ -238,7 +238,7 @@ namespace Heimdall.UserControl
 
             var p = TareaControlador.GetByPrimaryKey(idTarea);
 
-            //CargarEstadoPedido();
+            CargarEstadoTarea();
             //CargarPrioridad();
             //CargarHoraEntrega();
 
@@ -257,8 +257,50 @@ namespace Heimdall.UserControl
 
         }
 
+        public void Clear()
+        {
+            //TODO
+            txtDescripcion.Clear();
+        }
+
+        private void CargarEstadoTarea()
+        {
+            //TODO
+        }
+
+        private void UcTareaEdit_Load(object sender, EventArgs e)
+        {
+            SetControles();
+            CargarControles();
+        }
+
+        private void CargarControles()
+        {
+            //TODO
+        }
 
 
+        private void SetControles()
+        {
+            txtIdTarea.Visible = false;
+            txtDescripcion.MaxLength = 100;
+
+            //Util.SetNumericBounds(nudPrecio);
+            //Util.SetNumericBounds(nudPrecioVentaPremium);
+            //Util.SetNumericBounds(nudPrecioCosto);
+            //Util.SetNumericBounds(nudStockActual);
+            //Util.SetNumericBounds(nudStockMaximo);
+            //Util.SetNumericBounds(nudStockMinimo);
+            //Util.SetNumericBounds(nudCapacidad);
+            //Util.SetNumericBounds(nudStockActual);
+            //nudStockActual.Increment = 1;
+            //nudStockMaximo.Increment = 1;
+            //nudStockMinimo.Increment = 1;
+            //nudCapacidad.Increment = 250;
+            //txtIdMarca.Visible = false;
+
+            txtNotas.MaxLength = 255;
+        }
 
     }
 }
