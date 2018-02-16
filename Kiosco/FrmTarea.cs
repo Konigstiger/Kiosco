@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controlador;
 using Model.View;
 
 namespace Heimdall
@@ -30,23 +31,78 @@ namespace Heimdall
         {
             SetControles();
             CargarControles();
-            LimpiarControles();
+            //LimpiarControles();
             _modo = ModoFormulario.Edicion;
         }
 
         public void SetControles()
         {
-            throw new NotImplementedException();
+            SetGrid(dgv);
+        }
+
+        private static void SetGrid(DataGridView dgv)
+        {
+            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
+            dgv.AutoGenerateColumns = false;
+            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
+            dgv.ColumnHeadersHeight = 20;
+            dgv.MultiSelect = false;
+            dgv.AllowUserToAddRows = false;
+
+            dgv.RowsDefaultCellStyle.BackColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
+
+            //TODO: Ver mas propiedades del DataGridView.
         }
 
         public void CargarControles()
         {
-            throw new NotImplementedException();
+            CargarGrilla(tsbSearchTextBox.Text);
         }
 
         public void CargarGrilla(string searchText)
         {
-            throw new NotImplementedException();
+            dgv.Columns.Clear();
+
+            var c = new DataGridViewColumn[colCount];
+
+            for (var i = 0; i < colCount; i++) {
+                c[i] = new DataGridViewTextBoxColumn();
+            }
+
+
+            c[(int)TareaView.GridColumn.IdTarea].Width = 0;
+            c[(int)TareaView.GridColumn.IdTarea].Visible = false; //true;
+            Util.SetColumn(c[(int)TareaView.GridColumn.IdTarea], "IdTarea", "IdTarea", 0);
+            Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
+            //Util.SetColumn(c[(int)TareaView.GridColumn.Notas], "Notas", "Notas", 2);
+            dgv.Columns.AddRange(c);
+
+
+            Util.SetColumnsReadOnly(dgv);
+
+            origenDatos = TareaControlador.GetAll();
+
+            //TODO: incluir busqueda
+            /*
+            origenDatos = searchText.Equals("") ?
+                TareaControlador.GetAll() :
+                TareaControlador.GetAll_GetByDescripcion(searchText);
+            */
+
+            var bindingList = new MySortableBindingList<TareaView>(origenDatos);
+            var source = new BindingSource(bindingList, null);
+            dgv.DataSource = source;
+
+
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
         }
 
         public void ExecuteSearch()
@@ -66,7 +122,22 @@ namespace Heimdall
 
         public void LimpiarControles()
         {
-            throw new NotImplementedException();
+            ucTareaEdit1.Clear();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //if (_modo == ModoFormulario.Nuevo) return;
+
+            if (dgv.SelectedRows.Count <= 0)
+                return;
+
+            // esto funciona, pero con el numero de celda, no con ID.
+            var id = Convert.ToInt64(dgv.SelectedRows[0].Cells[(int)TareaView.GridColumn.IdTarea].Value.ToString());
+
+            _rowIndex = dgv.SelectedRows[0].Index;
+
+            ucTareaEdit1.IdTarea = id;
         }
     }
 }

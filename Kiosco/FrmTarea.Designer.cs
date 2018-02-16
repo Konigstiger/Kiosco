@@ -137,6 +137,7 @@
             this.dgv.Size = new System.Drawing.Size(977, 476);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucTareaEdit1
             // 

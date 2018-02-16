@@ -47,6 +47,8 @@ namespace Heimdall.UserControl
             set {
                 txtIdTarea.Text = value.ToString();
                 OnTareaChanged(new ValueChangedEventArgs(value));
+                CargarTarea(value);
+
             }
         }
 
@@ -239,7 +241,7 @@ namespace Heimdall.UserControl
             var p = TareaControlador.GetByPrimaryKey(idTarea);
 
             //TODO: Ver, esto, es realmente necesario?
-            CargarControles();
+            //CargarControles();
 
             //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
 

@@ -18,11 +18,23 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new TareaView {
-                                IdTarea = (int)rdr["IdTarea"],
-                                Descripcion = (string)rdr["Descripcion"]
-                            };
-                            // Obtener los resultados de cada columna
+                            var p = new TareaView();
+                            p.IdTarea = (long) rdr["IdTarea"];
+                            p.Descripcion = (string) rdr["Descripcion"];
+                            p.IdEstadoTarea = (int) rdr["IdEstadoTarea"];
+                            p.Detalle = rdr["Detalle"] != DBNull.Value ? (string) rdr["Detalle"] : string.Empty;
+                            p.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime) rdr["Fecha"] : DateTime.Today;
+                            p.FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value
+                                ? (DateTime) rdr["FechaVencimiento"]
+                                : DateTime.Today;
+                            p.PorcentajeCompleto = (int) rdr["PorcentajeCompleto"];
+                            p.Notas = rdr["Notas"] != DBNull.Value ? (string) rdr["Notas"] : string.Empty;
+                            p.IdClaseTarea = (int) rdr["IdClaseTarea"];
+                            p.IdPrioridad = (int) rdr["IdPrioridad"];
+                            p.IdDificultad = (int) rdr["IdDificultad"];
+                            p.IdUsuario = (int) rdr["IdUsuario"];
+                            p.IdTareaPadre = (long) rdr["IdTareaPadre"];
+
                             list.Add(p);
                         }
                     }
@@ -39,7 +51,7 @@ namespace Data
                 using (var cmd = new SqlCommand("Tarea_Insert", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p0 = new SqlParameter("IdTarea", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                    var p0 = new SqlParameter("IdTarea", SqlDbType.BigInt) { Direction = ParameterDirection.Output };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = c.Descripcion };
 
                     cmd.Parameters.Add(p0);
@@ -61,15 +73,30 @@ namespace Data
                 using (var cmd = new SqlCommand("Tarea_GetByPrimaryKey", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("IdTarea", SqlDbType.Int) { Value = idTarea };
+                    var p1 = new SqlParameter("IdTarea", SqlDbType.BigInt) { Value = idTarea };
                     cmd.Parameters.Add(p1);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            c.IdTarea = (int)rdr["IdTarea"];
+                            c.IdTarea = (long)rdr["IdTarea"];
                             c.Descripcion = (string)rdr["Descripcion"];
+                            c.IdEstadoTarea = (int)rdr["IdEstadoTarea"];
+                            c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
+                            c.FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today;
+                            c.Detalle = (string)rdr["Detalle"];
+                            c.PorcentajeCompleto = (int) rdr["PorcentajeCompleto"];
                             c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.IdClaseTarea = (int)rdr["IdClaseTarea"];
+                            c.IdPrioridad= (int)rdr["IdPrioridad"];
+                            c.IdDificultad= (int)rdr["IdDificultad"];
+                            c.IdUsuario = (int)rdr["IdUsuario"];
+                            c.IdTareaPadre = (long)rdr["IdTareaPadre"];
+
+                            //TODO: importante. Agregar aqui los demas campos. Modificar sql. Y el resto.
+                            //all of them!
+
+
                         }
                     }
                 }
