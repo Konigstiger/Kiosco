@@ -7,35 +7,35 @@ using Model.View;
 
 namespace Controlador
 {
-    public class DificultadControlador
+    public class ClaseTareaControlador
     {
-        public static List<DificultadView> GetAll()
+        public static List<ClaseTareaView> GetAll()
         {
-            return DificultadData.GetAll();
+            return ClaseTareaData.GetAll();
         }
 
-        public static Dificultad GetByPrimaryKey(int idDificultad)
+        public static ClaseTarea GetByPrimaryKey(int idClaseTarea)
         {
-            return DificultadData.GetByPrimaryKey(idDificultad);
+            return ClaseTareaData.GetByPrimaryKey(idClaseTarea);
         }
 
         
-        public static int Insert(Dificultad c)
+        public static int Insert(ClaseTarea c)
         {
-            var idDificultad = DificultadData.Insert(c);
-            return idDificultad;
+            var idClaseTarea = ClaseTareaData.Insert(c);
+            return idClaseTarea;
         }
 
         /*
 
-        public static bool Delete(Dificultad c)
+        public static bool Delete(ClaseTarea c)
         {
-            return DificultadData.Delete(c);
+            return ClaseTareaData.Delete(c);
         }
 
-        public static void Update(Dificultad c)
+        public static void Update(ClaseTarea c)
         {
-            DificultadData.Update(c);
+            ClaseTareaData.Update(c);
         }
         */
 

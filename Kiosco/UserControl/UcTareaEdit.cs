@@ -238,35 +238,31 @@ namespace Heimdall.UserControl
 
             var p = TareaControlador.GetByPrimaryKey(idTarea);
 
-            CargarEstadoTarea();
-            //CargarPrioridad();
-            //CargarHoraEntrega();
+            //TODO: Ver, esto, es realmente necesario?
+            CargarControles();
 
-            //Descripcion = p.Descripcion;
-            //Util.CheckDateNullable(p.Fecha, dtpFecha);
-            //Util.CheckDateNullable(p.FechaEntrega, dtpFechaEntrega);
-            //Total = p.Total;
-            //IdProveedor = p.IdProveedor;
-            //IdEstadoPedido = p.IdEstadoPedido;
-            //Notas = p.Notas;
-            //EstaPago = p.EstaPago;
-            //Archivado = p.Archivado;
-            //Fiscal = p.Fiscal;
-            //IdPrioridad = p.IdPrioridad;
-            //IdHoraEntrega = p.IdHoraEntrega;
+            //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
 
+            Descripcion = p.Descripcion;
+            Util.CheckDateNullable(p.Fecha, dtpFecha);
+            Util.CheckDateNullable(p.FechaVencimiento, dtpFechaVencimiento);
+            Archivado = p.Archivado ?? false;
+            Detalle = p.Detalle;
+            IdClaseTarea =  p.IdClaseTarea ?? 0;
+            IdEstadoTarea = p.IdEstadoTarea;
+            IdDificultadTarea = p.IdDificultad ?? 0;
+            IdPrioridad = p.IdPrioridad ?? 0;
         }
 
         public void Clear()
         {
-            //TODO
             txtDescripcion.Clear();
+            txtDetalle.Clear();
+            nudPorcentajeCompleto.Value = 0;
+            dtpFecha.Value = DateTime.Today;
+
         }
 
-        private void CargarEstadoTarea()
-        {
-            //TODO
-        }
 
         private void UcTareaEdit_Load(object sender, EventArgs e)
         {
@@ -276,30 +272,77 @@ namespace Heimdall.UserControl
 
         private void CargarControles()
         {
-            //TODO
+            CargarEstadoTarea();
+            CargarPrioridad();
+            CargarClaseTarea();
+            CargarDificultad();
+        }
+
+
+        private void CargarEstadoTarea()
+        {
+            if (DesignMode)
+                return;
+
+            cboEstadoTarea.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = EstadoTareaControlador.GetAll();
+            cboEstadoTarea.DataSource = list;
+            cboEstadoTarea.ValueMember = "IdEstadoTarea";
+            cboEstadoTarea.DisplayMember = "Descripcion";
+        }
+
+
+        private void CargarDificultad()
+        {
+            if (DesignMode)
+                return;
+
+            cboDificultadTarea.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = DificultadControlador.GetAll();
+            cboDificultadTarea.DataSource = list;
+            cboDificultadTarea.ValueMember = "IdDificultad";
+            cboDificultadTarea.DisplayMember = "Descripcion";
+        }
+
+        private void CargarClaseTarea()
+        {
+            if (DesignMode)
+                return;
+
+            cboClaseTarea.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = ClaseTareaControlador.GetAll();
+            cboClaseTarea.DataSource = list;
+            cboClaseTarea.ValueMember = "IdClaseTarea";
+            cboClaseTarea.DisplayMember = "Descripcion";
+        }
+
+        private void CargarPrioridad()
+        {
+            if (DesignMode)
+                return;
+
+            cboPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = PrioridadControlador.GetAll();
+            cboPrioridad.DataSource = list;
+            cboPrioridad.ValueMember = "IdPrioridad";
+            cboPrioridad.DisplayMember = "Descripcion";
         }
 
 
         private void SetControles()
         {
             txtIdTarea.Visible = false;
+            txtIdUsuario.Visible = false;
+            txtIdTareaPadre.Visible = false;
             txtDescripcion.MaxLength = 100;
+            txtDetalle.MaxLength = 400;
+            txtNotas.MaxLength = 255;
+            nudPorcentajeCompleto.Maximum = 100;
+            nudPorcentajeCompleto.Minimum = 0;
+            nudPorcentajeCompleto.Increment = 25;
+            nudPorcentajeCompleto.DecimalPlaces = 0;
 
             //Util.SetNumericBounds(nudPrecio);
-            //Util.SetNumericBounds(nudPrecioVentaPremium);
-            //Util.SetNumericBounds(nudPrecioCosto);
-            //Util.SetNumericBounds(nudStockActual);
-            //Util.SetNumericBounds(nudStockMaximo);
-            //Util.SetNumericBounds(nudStockMinimo);
-            //Util.SetNumericBounds(nudCapacidad);
-            //Util.SetNumericBounds(nudStockActual);
-            //nudStockActual.Increment = 1;
-            //nudStockMaximo.Increment = 1;
-            //nudStockMinimo.Increment = 1;
-            //nudCapacidad.Increment = 250;
-            //txtIdMarca.Visible = false;
-
-            txtNotas.MaxLength = 255;
         }
 
     }

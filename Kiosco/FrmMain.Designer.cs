@@ -47,6 +47,7 @@ namespace Heimdall
             this.btnTableroDemo = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnTurno = new System.Windows.Forms.Button();
+            this.btnTareas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -269,11 +270,25 @@ namespace Heimdall
             this.btnTurno.Text = "Turnos de Trabajo";
             this.btnTurno.Click += new System.EventHandler(this.btnTurno_Click);
             // 
+            // btnTareas
+            // 
+            this.btnTareas.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnTareas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTareas.ImageIndex = 7;
+            this.btnTareas.ImageList = this.ilMain;
+            this.btnTareas.Location = new System.Drawing.Point(12, 12);
+            this.btnTareas.Name = "btnTareas";
+            this.btnTareas.Size = new System.Drawing.Size(292, 58);
+            this.btnTareas.TabIndex = 29;
+            this.btnTareas.Text = "Tareas";
+            this.btnTareas.Click += new System.EventHandler(this.btnTareas_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 1053);
+            this.Controls.Add(this.btnTareas);
             this.Controls.Add(this.btnTurno);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnTableroDemo);
@@ -319,5 +334,6 @@ namespace Heimdall
         private System.Windows.Forms.ImageList ilMain;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnTurno;
+        private System.Windows.Forms.Button btnTareas;
     }
 }
