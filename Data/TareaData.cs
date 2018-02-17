@@ -33,7 +33,7 @@ namespace Data
                             p.IdPrioridad = (int) rdr["IdPrioridad"];
                             p.IdDificultad = (int) rdr["IdDificultad"];
                             p.IdUsuario = (int) rdr["IdUsuario"];
-                            p.IdTareaPadre = (long) rdr["IdTareaPadre"];
+                            p.IdTareaPadre = rdr["IdTareaPadre"] != DBNull.Value ? (long) rdr["IdTareaPadre"]: 0;
 
                             list.Add(p);
                         }
@@ -84,14 +84,14 @@ namespace Data
                             c.IdEstadoTarea = (int)rdr["IdEstadoTarea"];
                             c.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             c.FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today;
-                            c.Detalle = (string)rdr["Detalle"];
+                            c.Detalle = rdr["Detalle"] != DBNull.Value ? (string)rdr["Detalle"]: string.Empty;
                             c.PorcentajeCompleto = (int) rdr["PorcentajeCompleto"];
-                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
+                            c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty;
                             c.IdClaseTarea = (int)rdr["IdClaseTarea"];
                             c.IdPrioridad= (int)rdr["IdPrioridad"];
                             c.IdDificultad= (int)rdr["IdDificultad"];
                             c.IdUsuario = (int)rdr["IdUsuario"];
-                            c.IdTareaPadre = (long)rdr["IdTareaPadre"];
+                            c.IdTareaPadre = rdr["IdTareaPadre"] != DBNull.Value ? (long)rdr["IdTareaPadre"] : 0;
 
                             //TODO: importante. Agregar aqui los demas campos. Modificar sql. Y el resto.
                             //all of them!

@@ -240,9 +240,6 @@ namespace Heimdall.UserControl
 
             var p = TareaControlador.GetByPrimaryKey(idTarea);
 
-            //TODO: Ver, esto, es realmente necesario?
-            //CargarControles();
-
             //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
 
             Descripcion = p.Descripcion;
@@ -254,6 +251,7 @@ namespace Heimdall.UserControl
             IdEstadoTarea = p.IdEstadoTarea;
             IdDificultadTarea = p.IdDificultad ?? 0;
             IdPrioridad = p.IdPrioridad ?? 0;
+            PorcentajeCompleto = p.PorcentajeCompleto;
         }
 
         public void Clear()

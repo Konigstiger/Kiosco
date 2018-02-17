@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+using Model;
 using Model.View;
 
 namespace Heimdall
@@ -112,13 +113,86 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            throw new NotImplementedException();
+            /*
+                         var m = new Tarea {
+                IdTarea = -1,
+                Descripcion = txtDescripcion.Text.Trim(),
+                Notas = txtNotas.Text.Trim()
+        };
+            //=====================================================================
+            if (_modo == ModoFormulario.Nuevo) {
+                m.IdTarea = TareaControlador.Insert(m);
+
+                var modelView = TareaControlador.GetByPrimaryKeyView(m.IdTarea);
+
+                //modificar el origen de datos
+                origenDatos.Add(modelView);
+
+                var bindingList = new BindingList<TareaView>(origenDatos);
+                var source = new BindingSource(bindingList, null);
+                dgv.DataSource = source;
+
+                //Calcular _rowIndex
+                _rowIndex = dgv.Rows.Count - 1;
+
+            } else {
+                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
+
+                if (m.Validate().Equals(false))
+                    throw new Exception("Errores en validacion!");
+
+                var TareaNuevo = new Tarea {
+                    IdTarea = Convert.ToInt32(txtIdTarea.Text.Trim()),
+                    Descripcion = txtDescripcion.Text.Trim(),
+                    Notas = txtNotas.Text.Trim()
+                };
+
+                m.IdTarea = TareaControlador.Update(TareaNuevo);
+
+                // pasar o mantener _modo Edicion
+                _modo = ModoFormulario.Edicion;
+
+                //********************
+                //TODO: Revisar esto!
+                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
+                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Notas].Value = m.Notas;
+                //********************
+
+                //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+                dgv.Rows[_rowIndex].Selected = true;
+            }
+
+            // pasar o mantener _modo Edicion
+            _modo = ModoFormulario.Edicion;
+
+            //********************
+            //meter en subrutina
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Notas].Value = m.Notas;
+            //********************
+
+            //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
+            dgv.Rows[_rowIndex].Selected = true;
+
+             */
         }
+
 
         public void Eliminar()
         {
-            throw new NotImplementedException();
+            if (!Util.ConfirmarEliminar())
+                return;
+
+            var m = new Tarea { IdTarea = Convert.ToInt64(ucTareaEdit1.IdTarea) };
+
+            var result = TareaControlador.Delete(m);
+
+            // Remover visualmente el registro del producto.
+            dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+
+            LimpiarControles();
         }
+
 
         public void LimpiarControles()
         {
@@ -138,6 +212,23 @@ namespace Heimdall
             _rowIndex = dgv.SelectedRows[0].Index;
 
             ucTareaEdit1.IdTarea = id;
+        }
+
+        private void tsbNew_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            _modo = ModoFormulario.Nuevo;
+            ucTareaEdit1.Focus();
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            GuardarOInsertar();
         }
     }
 }
