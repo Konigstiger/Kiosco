@@ -270,6 +270,7 @@
             this.txtDetalle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDetalle.Multiline = true;
             this.txtDetalle.Name = "txtDetalle";
+            this.txtDetalle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDetalle.Size = new System.Drawing.Size(393, 74);
             this.txtDetalle.TabIndex = 149;
             // 
