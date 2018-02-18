@@ -18,6 +18,7 @@ namespace Heimdall
         public static bool ValidarUsuario(Usuario u)
         {
             var v = UsuarioControlador.GetByUsr(u);
+            Program.UsuarioConectado = v;
             if (v.Usr == null) return false;
             return v.Usr.Equals(u.Usr) && v.Pwd.ToLower().Equals(u.Pwd.ToLower());
         }

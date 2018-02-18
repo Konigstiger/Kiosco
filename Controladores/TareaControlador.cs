@@ -36,8 +36,12 @@ namespace Controlador
         {
             TareaData.Update(c);
         }
-        
 
+
+        public static TareaView GetByPrimaryKeyView(long idTarea)
+        {
+            return TareaData.GetByPrimaryKeyView(idTarea);
+        }
     }
 }
 

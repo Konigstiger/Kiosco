@@ -220,7 +220,7 @@ namespace Heimdall.UserControl
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
-        public long IdPadre
+        public long? IdTareaPadre
         {
             get {
                 long v = long.TryParse(txtIdTareaPadre.Text.Trim(), out v) ? v : 0;
@@ -247,11 +247,13 @@ namespace Heimdall.UserControl
             Util.CheckDateNullable(p.FechaVencimiento, dtpFechaVencimiento);
             Archivado = p.Archivado ?? false;
             Detalle = p.Detalle;
-            IdClaseTarea =  p.IdClaseTarea ?? 0;
+            IdClaseTarea = p.IdClaseTarea ?? 0;
             IdEstadoTarea = p.IdEstadoTarea;
             IdDificultadTarea = p.IdDificultad ?? 0;
             IdPrioridad = p.IdPrioridad ?? 0;
             PorcentajeCompleto = p.PorcentajeCompleto;
+            IdUsuario = p.IdUsuario ?? 1;
+            Notas = p.Notas;
         }
 
         public void Clear()

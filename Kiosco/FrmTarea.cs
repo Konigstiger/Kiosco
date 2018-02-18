@@ -18,7 +18,7 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 2;
+        private const int colCount = 3;
 
         private List<TareaView> origenDatos = null;
 
@@ -39,6 +39,7 @@ namespace Heimdall
         public void SetControles()
         {
             SetGrid(dgv);
+            ucTareaEdit1.IdUsuario = Program.UsuarioConectado.IdUsuario;
         }
 
         private static void SetGrid(DataGridView dgv)
@@ -82,6 +83,11 @@ namespace Heimdall
             c[(int)TareaView.GridColumn.IdTarea].Visible = false; //true;
             Util.SetColumn(c[(int)TareaView.GridColumn.IdTarea], "IdTarea", "IdTarea", 0);
             Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
+            Util.SetColumn(c[(int)TareaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
+            //Estado (texto)
+            //Prioridad (texto)
+            //Clase
+            //Dificultad (texto, no mostrar) 
             //Util.SetColumn(c[(int)TareaView.GridColumn.Notas], "Notas", "Notas", 2);
             dgv.Columns.AddRange(c);
 
@@ -113,12 +119,24 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            /*
-                         var m = new Tarea {
+            //TODO: ES BUENA IDEA REVISAR Y REFACTOREAR ESTE CODIGO.
+            var m = new Tarea {
                 IdTarea = -1,
-                Descripcion = txtDescripcion.Text.Trim(),
-                Notas = txtNotas.Text.Trim()
-        };
+                Descripcion = ucTareaEdit1.Descripcion,
+                Fecha = ucTareaEdit1.Fecha,
+                FechaVencimiento = ucTareaEdit1.FechaVencimiento,
+                Detalle = ucTareaEdit1.Detalle,
+                PorcentajeCompleto = ucTareaEdit1.PorcentajeCompleto,
+                IdPrioridad = ucTareaEdit1.IdPrioridad,
+                IdClaseTarea = ucTareaEdit1.IdClaseTarea,
+                IdEstadoTarea = ucTareaEdit1.IdEstadoTarea,
+                IdDificultad = ucTareaEdit1.IdDificultadTarea,
+                IdUsuario = ucTareaEdit1.IdUsuario,
+                IdTareaPadre = ucTareaEdit1.IdTareaPadre,
+                Archivado = ucTareaEdit1.Archivado,
+                Notas = ucTareaEdit1.Notas
+            };
+            
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
                 m.IdTarea = TareaControlador.Insert(m);
@@ -141,13 +159,25 @@ namespace Heimdall
                 if (m.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var TareaNuevo = new Tarea {
-                    IdTarea = Convert.ToInt32(txtIdTarea.Text.Trim()),
-                    Descripcion = txtDescripcion.Text.Trim(),
-                    Notas = txtNotas.Text.Trim()
+                var tareaNuevo = new Tarea {
+                    IdTarea = ucTareaEdit1.IdTarea,
+                    Descripcion = ucTareaEdit1.Descripcion,
+                    Fecha = ucTareaEdit1.Fecha,
+                    FechaVencimiento = ucTareaEdit1.FechaVencimiento,
+                    Detalle = ucTareaEdit1.Detalle,
+                    PorcentajeCompleto = ucTareaEdit1.PorcentajeCompleto,
+                    IdPrioridad = ucTareaEdit1.IdPrioridad,
+                    IdClaseTarea = ucTareaEdit1.IdClaseTarea,
+                    IdEstadoTarea = ucTareaEdit1.IdEstadoTarea,
+                    IdDificultad = ucTareaEdit1.IdDificultadTarea,
+                    IdUsuario = ucTareaEdit1.IdUsuario,
+                    IdTareaPadre = ucTareaEdit1.IdTareaPadre,
+                    Archivado = ucTareaEdit1.Archivado,
+                    Notas = ucTareaEdit1.Notas
                 };
 
-                m.IdTarea = TareaControlador.Update(TareaNuevo);
+                //m.IdTarea = TareaControlador.Update(tareaNuevo);
+                TareaControlador.Update(tareaNuevo);
 
                 // pasar o mantener _modo Edicion
                 _modo = ModoFormulario.Edicion;
@@ -155,7 +185,16 @@ namespace Heimdall
                 //********************
                 //TODO: Revisar esto!
                 dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
-                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Notas].Value = m.Notas;
+                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = m.Fecha;
+
+                /*
+            Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
+            Util.SetColumn(c[(int)TareaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
+            //Estado (texto)
+            //Prioridad (texto)
+            //Clase
+            //Dificultad (texto, no mostrar) 
+                 */
                 //********************
 
                 //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -168,13 +207,13 @@ namespace Heimdall
             //********************
             //meter en subrutina
             dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Notas].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = m.Fecha;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
 
-             */
+            // */
         }
 
 
@@ -229,6 +268,11 @@ namespace Heimdall
         private void tsbSave_Click(object sender, EventArgs e)
         {
             GuardarOInsertar();
+        }
+
+        private void dgv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //?
         }
     }
 }

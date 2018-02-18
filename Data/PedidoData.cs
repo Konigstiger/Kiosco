@@ -32,7 +32,7 @@ namespace Data
                                 Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : true,
                                 IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3,
                                 IdHoraEntrega = rdr["IdHoraEntrega"] != DBNull.Value ? (int)rdr["IdHoraEntrega"] : 1
-                        };
+                            };
 
                             list.Add(p);
                         }
@@ -75,7 +75,7 @@ namespace Data
                                 , Fiscal = rdr["Fiscal"] != DBNull.Value ? (bool)rdr["Fiscal"] : false
                                 , IdPrioridad = rdr["IdPrioridad"] != DBNull.Value ? (int)rdr["IdPrioridad"] : 3
                                 , Prioridad = rdr["Prioridad"] != DBNull.Value ? (string)rdr["Prioridad"] : string.Empty
-                        };
+                            };
                             list.Add(p);
                         }
                     }
@@ -101,10 +101,10 @@ namespace Data
                     var p6 = new SqlParameter("IdHoraEntrega", SqlDbType.Int) { Value = m.IdHoraEntrega };
                     var p7 = new SqlParameter("Total", SqlDbType.Decimal) { Value = m.Total };
                     var p8 = new SqlParameter("EstaPago", SqlDbType.Bit) { Value = m.EstaPago };
-                    var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int ) { Value = m.IdPrioridad };
+                    var p9 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
                     var p10 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
                     var p11 = new SqlParameter("Fiscal", SqlDbType.Bit) { Value = m.Fiscal };
-                    var p12 = new SqlParameter("Notas", SqlDbType.VarChar ) { Value = m.Notas };
+                    var p12 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     //cmd.Parameters.Add(p0);
                     cmd.Parameters.Add(p1);
@@ -255,6 +255,7 @@ namespace Data
                     model.IdPedido = (int)cmd.ExecuteScalar();
                     return true;
                 }
-            }}
+            }
+        }
     }
 }

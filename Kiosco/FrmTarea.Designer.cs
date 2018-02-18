@@ -140,6 +140,7 @@
             this.dgv.Size = new System.Drawing.Size(977, 476);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
+            this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucTareaEdit1
@@ -154,9 +155,9 @@
             this.ucTareaEdit1.IdClaseTarea = 0;
             this.ucTareaEdit1.IdDificultadTarea = 0;
             this.ucTareaEdit1.IdEstadoTarea = 0;
-            this.ucTareaEdit1.IdPadre = ((long)(0));
             this.ucTareaEdit1.IdPrioridad = 0;
             this.ucTareaEdit1.IdTarea = ((long)(0));
+            this.ucTareaEdit1.IdTareaPadre = ((long)(0));
             this.ucTareaEdit1.IdUsuario = 0;
             this.ucTareaEdit1.Location = new System.Drawing.Point(7, 517);
             this.ucTareaEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

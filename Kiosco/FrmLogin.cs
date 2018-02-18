@@ -43,8 +43,9 @@ namespace Heimdall
                 Pwd = txtPwd.Text.Trim()
             };
 
+            //TODO: Revisar muy bien esto y simplificarlo. Resolverlo en papel.
+            //hacer una capa de servicio para seguridad.
             if (Security.ValidarUsuario(u)) { 
-                Program.UsuarioConectado = u;
                 Program.UsuarioConectado.EsAdmin = Security.EsAdmin(u);
                 DialogResult = DialogResult.OK;
             }
