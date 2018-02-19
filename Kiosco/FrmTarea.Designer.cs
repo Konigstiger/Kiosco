@@ -145,6 +145,7 @@
             // 
             // ucTareaEdit1
             // 
+            this.ucTareaEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucTareaEdit1.Archivado = false;
             this.ucTareaEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucTareaEdit1.Descripcion = "";
