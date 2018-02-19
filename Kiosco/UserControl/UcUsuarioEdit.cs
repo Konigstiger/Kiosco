@@ -14,6 +14,21 @@ namespace Heimdall.UserControl
         }
 
 
+        public Usuario ToModel()
+        {
+            var model = new Usuario {
+                IdUsuario = IdUsuario,
+                Descripcion = Descripcion,
+                Usr = Usr,
+                Pwd = Pwd,
+                IdClaseUsuario = IdClaseUsuario,
+                IdEstadoUsuario = IdEstadoUsuario,
+                Notas = Notas
+            };
+            return model;
+        }
+
+
         [Category("Action")]
         [Description("Es lanzado cuando el Usuario es cambiado")]
         public event ValueChangedEventHandler UsuarioChanged;

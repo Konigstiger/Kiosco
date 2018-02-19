@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+using LiveCharts.Dtos;
+using Model;
 
 namespace Heimdall.UserControl
 {
@@ -32,6 +34,30 @@ namespace Heimdall.UserControl
             }
         }
 
+        /// <summary>
+        /// Devuelve un objeto del tipo de la clase editada
+        /// </summary>
+        /// <returns></returns>
+        public Tarea ToModel()
+        {
+            var model = new Tarea {
+                IdTarea = IdTarea,
+                Descripcion = Descripcion,
+                Fecha = Fecha,
+                FechaVencimiento = FechaVencimiento,
+                Detalle = Detalle,
+                PorcentajeCompleto = PorcentajeCompleto,
+                IdPrioridad = IdPrioridad,
+                IdClaseTarea = IdClaseTarea,
+                IdEstadoTarea = IdEstadoTarea,
+                IdDificultad = IdDificultadTarea,
+                IdUsuario = IdUsuario,
+                IdTareaPadre = IdTareaPadre,
+                Archivado = Archivado,
+                Notas = Notas
+            };
+            return model;
+        }
 
         [Description("IdTarea. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]

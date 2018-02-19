@@ -39,6 +39,28 @@ namespace Heimdall.UserControl
         }
 
 
+        public Producto ToModel()
+        {
+            var model = new Producto {
+                IdProducto = IdProducto,
+                CodigoBarras = CodigoBarras,
+                Descripcion = Descripcion,
+                Capacidad = Capacidad,
+                PrecioVenta = PrecioVenta,
+                PrecioVentaPremium = PrecioVentaPremium,
+                StockMinimo = StockMinimo,
+                StockMaximo = StockMaximo,
+                SoloAdultos = SoloAdultos,
+                PrecioCostoPromedio = PrecioCosto,
+                IdMarca = IdMarca,
+                IdRubro = IdRubro,
+                IdUnidad = IdUnidad,
+                Notas = Notas
+            };
+            return model;
+        }
+
+
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
             ActualizarStock();

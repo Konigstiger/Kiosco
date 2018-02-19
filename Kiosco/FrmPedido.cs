@@ -225,29 +225,13 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
-
-            var m = new Pedido {
-                IdPedido = -1,
-                IdProveedor = ucPedido1.IdProveedor,
-                Descripcion = ucPedido1.Descripcion,
-                Total = ucPedido1.Total,
-                Fecha = ucPedido1.Fecha,
-                FechaEntrega = ucPedido1.FechaEntrega,
-                IdEstadoPedido = ucPedido1.IdEstadoPedido,
-                Notas = ucPedido1.Notas,
-                EstaPago = ucPedido1.EstaPago,
-                Archivado = ucPedido1.Archivado,
-                Fiscal = ucPedido1.Fiscal,
-                IdPrioridad = ucPedido1.IdPrioridad,
-                IdHoraEntrega = ucPedido1.IdHoraEntrega
-            };
+            var model = ucPedido1.ToModel();
 
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdPedido = PedidoControlador.Insert(m);
+                model.IdPedido = PedidoControlador.Insert(model);
 
-                var modelView = PedidoControlador.GetByPrimaryKeyView(m.IdPedido);
+                var modelView = PedidoControlador.GetByPrimaryKeyView(model.IdPedido);
 
                 //modificar el origen de datos
                 _origenDatos.Add(modelView);
@@ -260,39 +244,22 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var mNuevo = new Pedido {
-                    IdPedido = ucPedido1.IdPedido,
-                    IdProveedor = ucPedido1.IdProveedor,
-                    Descripcion = ucPedido1.Descripcion,
-                    Total = ucPedido1.Total,
-                    Fecha = ucPedido1.Fecha,
-                    FechaEntrega = ucPedido1.FechaEntrega,
-                    IdEstadoPedido = ucPedido1.IdEstadoPedido,
-                    Notas = ucPedido1.Notas,
-                    EstaPago = ucPedido1.EstaPago,
-                    IdPrioridad = ucPedido1.IdPrioridad,
-                    Archivado = ucPedido1.Archivado,
-                    Fiscal = ucPedido1.Fiscal,
-                    IdHoraEntrega = ucPedido1.IdHoraEntrega
-                };
-
-                m.IdPedido = PedidoControlador.Update(mNuevo);
+                model.IdPedido = ucPedido1.IdPedido;
+                model.IdPedido = PedidoControlador.Update(model);
             }
 
-            // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
-            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Descripcion].Value = model.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Proveedor].Value = ucPedido1.Proveedor;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Fecha].Value = m.Fecha;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.FechaEntrega].Value = m.FechaEntrega;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Fecha].Value = model.Fecha;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.FechaEntrega].Value = model.FechaEntrega;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Estado].Value = ucPedido1.Estado;
-            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Total].Value = m.Total;
+            dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Total].Value = model.Total;
             dgv.Rows[_rowIndex].Cells[(int)PedidoView.GridColumn.Prioridad].Value = ucPedido1.Prioridad;
             //TODO: VER el tema entre las entidades y sus Vistas.
             //********************

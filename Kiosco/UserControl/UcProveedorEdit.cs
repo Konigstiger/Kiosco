@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using Controlador;
+using Model;
 
 namespace Heimdall.UserControl
 {
@@ -10,6 +11,25 @@ namespace Heimdall.UserControl
         public UcProveedorEdit()
         {
             InitializeComponent();
+        }
+
+
+        public Proveedor ToModel()
+        {
+            var model = new Proveedor {
+                IdProveedor = IdProveedor,
+                RazonSocial = RazonSocial,
+                Direccion = Direccion,
+                Telefono = Telefono,
+                Notas = Notas,
+                Email = Email,
+                PersonaContacto = PersonaContacto,
+                HorarioAtencion = HorarioAtencion,
+                DiasDeVisita = DiasDeVisita,
+                IdRubro = IdRubro,
+                IdEstadoProveedor = 1       /* TODO: Refactor: Estado Activo. */
+            };
+            return model;
         }
 
 

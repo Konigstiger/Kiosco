@@ -120,30 +120,16 @@ namespace Heimdall
         public void GuardarOInsertar()
         {
             //TODO: ES BUENA IDEA REVISAR Y REFACTOREAR ESTE CODIGO.
-            var m = new Tarea {
-                IdTarea = -1,
-                Descripcion = ucTareaEdit1.Descripcion,
-                Fecha = ucTareaEdit1.Fecha,
-                FechaVencimiento = ucTareaEdit1.FechaVencimiento,
-                Detalle = ucTareaEdit1.Detalle,
-                PorcentajeCompleto = ucTareaEdit1.PorcentajeCompleto,
-                IdPrioridad = ucTareaEdit1.IdPrioridad,
-                IdClaseTarea = ucTareaEdit1.IdClaseTarea,
-                IdEstadoTarea = ucTareaEdit1.IdEstadoTarea,
-                IdDificultad = ucTareaEdit1.IdDificultadTarea,
-                IdUsuario = ucTareaEdit1.IdUsuario,
-                IdTareaPadre = ucTareaEdit1.IdTareaPadre,
-                Archivado = ucTareaEdit1.Archivado,
-                Notas = ucTareaEdit1.Notas
-            };
+            //TODO: Propagar luego los cambios.
+
+            var model = ucTareaEdit1.ToModel();
             
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdTarea = TareaControlador.Insert(m);
+                model.IdTarea = TareaControlador.Insert(model);
 
-                var modelView = TareaControlador.GetByPrimaryKeyView(m.IdTarea);
+                var modelView = TareaControlador.GetByPrimaryKeyView(model.IdTarea);
 
-                //modificar el origen de datos
                 origenDatos.Add(modelView);
 
                 var bindingList = new BindingList<TareaView>(origenDatos);
@@ -154,38 +140,21 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var tareaNuevo = new Tarea {
-                    IdTarea = ucTareaEdit1.IdTarea,
-                    Descripcion = ucTareaEdit1.Descripcion,
-                    Fecha = ucTareaEdit1.Fecha,
-                    FechaVencimiento = ucTareaEdit1.FechaVencimiento,
-                    Detalle = ucTareaEdit1.Detalle,
-                    PorcentajeCompleto = ucTareaEdit1.PorcentajeCompleto,
-                    IdPrioridad = ucTareaEdit1.IdPrioridad,
-                    IdClaseTarea = ucTareaEdit1.IdClaseTarea,
-                    IdEstadoTarea = ucTareaEdit1.IdEstadoTarea,
-                    IdDificultad = ucTareaEdit1.IdDificultadTarea,
-                    IdUsuario = ucTareaEdit1.IdUsuario,
-                    IdTareaPadre = ucTareaEdit1.IdTareaPadre,
-                    Archivado = ucTareaEdit1.Archivado,
-                    Notas = ucTareaEdit1.Notas
-                };
+                //REFACTOR: Se reusa el modelo. Modificar solo Id (PK)
+                model.IdTarea = ucTareaEdit1.IdTarea;
 
-                //m.IdTarea = TareaControlador.Update(tareaNuevo);
-                TareaControlador.Update(tareaNuevo);
+                TareaControlador.Update(model);
 
                 // pasar o mantener _modo Edicion
                 _modo = ModoFormulario.Edicion;
 
                 //********************
                 //TODO: Revisar esto!
-                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
-                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = m.Fecha;
+                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = model.Descripcion;
+                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = model.Fecha;
 
                 /*
             Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
@@ -201,19 +170,15 @@ namespace Heimdall
                 dgv.Rows[_rowIndex].Selected = true;
             }
 
-            // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
-            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = m.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = m.Fecha;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = model.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = model.Fecha;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
-
-            // */
         }
 
 

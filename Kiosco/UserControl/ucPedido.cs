@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 using Controlador;
+using Model;
 
 namespace Heimdall.UserControl
 {
@@ -269,6 +270,27 @@ namespace Heimdall.UserControl
                 return;
 
             InitializeComponent();
+        }
+
+
+        public Pedido ToModel()
+        {
+            var model = new Pedido {
+                IdPedido = IdPedido,
+                IdProveedor = IdProveedor,
+                Descripcion = Descripcion,
+                Total = Total,
+                Fecha = Fecha,
+                FechaEntrega = FechaEntrega,
+                IdEstadoPedido = IdEstadoPedido,
+                Notas = Notas,
+                EstaPago = EstaPago,
+                Archivado = Archivado,
+                Fiscal = Fiscal,
+                IdPrioridad = IdPrioridad,
+                IdHoraEntrega = IdHoraEntrega
+            };
+            return model;
         }
 
 

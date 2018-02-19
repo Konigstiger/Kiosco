@@ -45,32 +45,14 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
-
-            var m = new Proveedor
-            {
-                IdProveedor = -1,
-                RazonSocial = ucProveedorEdit1.RazonSocial,
-                Direccion = ucProveedorEdit1.Direccion,
-                Telefono = ucProveedorEdit1.Telefono,
-                Notas = ucProveedorEdit1.Notas,
-                Email = ucProveedorEdit1.Email,
-                PersonaContacto = ucProveedorEdit1.PersonaContacto,
-                HorarioAtencion = ucProveedorEdit1.HorarioAtencion,
-                DiasDeVisita = ucProveedorEdit1.DiasDeVisita,
-                IdRubro = ucProveedorEdit1.IdRubro,
-                IdEstadoProveedor = 1       /* TODO: Refactor: Estado Activo. */
-
-            };
-
+            var model = ucProveedorEdit1.ToModel();
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo)
             {
-                m.IdProveedor = ProveedorControlador.Insert(m);
+                model.IdProveedor = ProveedorControlador.Insert(model);
 
-                var modelView = ProveedorControlador.GetByPrimaryKeyView(m.IdProveedor);
+                var modelView = ProveedorControlador.GetByPrimaryKeyView(model.IdProveedor);
 
-                //modificar el origen de datos
                 _origenDatos.Add(modelView);
 
                 var bindingList = new MySortableBindingList<ProveedorView>(_origenDatos);
@@ -82,35 +64,20 @@ namespace Heimdall
             }
             else
             {
-
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                m.IdProveedor = ucProveedorEdit1.IdProveedor;
-                m.RazonSocial = ucProveedorEdit1.RazonSocial;
-                m.Direccion = ucProveedorEdit1.Direccion;
-                m.Telefono = ucProveedorEdit1.Telefono;
-                m.Notas = ucProveedorEdit1.Notas;
-                m.Email = ucProveedorEdit1.Email;
-                m.PersonaContacto = ucProveedorEdit1.PersonaContacto;
-                m.HorarioAtencion = ucProveedorEdit1.HorarioAtencion;
-                m.DiasDeVisita = ucProveedorEdit1.DiasDeVisita;
-                m.IdRubro = ucProveedorEdit1.IdRubro;
-                m.IdEstadoProveedor = ucProveedorEdit1.IdEstadoProveedor;
-
-                m.IdProveedor = ProveedorControlador.Update(m);
+                model.IdProveedor = ucProveedorEdit1.IdProveedor;
+                model.IdProveedor = ProveedorControlador.Update(model);
             }
 
-            // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
-
-            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.RazonSocial].Value = m.RazonSocial;
-            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Direccion].Value = m.Direccion;
-            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Telefono].Value = m.Telefono;
-            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Notas].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.RazonSocial].Value = model.RazonSocial;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Direccion].Value = model.Direccion;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Telefono].Value = model.Telefono;
+            dgv.Rows[_rowIndex].Cells[(int) ProveedorView.GridColumn.Notas].Value = model.Notas;
 
             //********************
 

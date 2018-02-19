@@ -41,6 +41,7 @@ namespace Heimdall
             Eliminar();
         }
 
+
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             SetControles();
@@ -49,12 +50,10 @@ namespace Heimdall
             _modo = ModoFormulario.Edicion;
         }
 
-
         public void SetControles()
         {
             SetGrid(dgv);
         }
-
 
 
         private static void SetGrid(DataGridView dgv)
@@ -126,22 +125,13 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            var m = new Usuario {
-                IdUsuario = -1,
-                Descripcion = ucUsuarioEdit1.Descripcion,
-                Usr = ucUsuarioEdit1.Usr,
-                Pwd = ucUsuarioEdit1.Pwd,
-                IdClaseUsuario = ucUsuarioEdit1.IdClaseUsuario,
-                IdEstadoUsuario = ucUsuarioEdit1.IdEstadoUsuario,
-                Notas = ucUsuarioEdit1.Notas
-            };
+            var model = ucUsuarioEdit1.ToModel();
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdUsuario = UsuarioControlador.Insert(m);
+                model.IdUsuario = UsuarioControlador.Insert(model);
 
-                var modelView = UsuarioControlador.GetByPrimaryKeyView(m);
+                var modelView = UsuarioControlador.GetByPrimaryKeyView(model);
 
-                //modificar el origen de datos
                 origenDatos.Add(modelView);
 
                 var bindingList = new BindingList<UsuarioView>(origenDatos);
@@ -152,28 +142,16 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var UsuarioNuevo = new Usuario {
-                    IdUsuario = ucUsuarioEdit1.IdUsuario,
-                    Descripcion = ucUsuarioEdit1.Descripcion,
-                    IdClaseUsuario = ucUsuarioEdit1.IdClaseUsuario,
-                    IdEstadoUsuario = ucUsuarioEdit1.IdEstadoUsuario,
-                    Notas = ucUsuarioEdit1.Notas
-                };
-
-                UsuarioControlador.Update(UsuarioNuevo);
-
+                model.IdUsuario = ucUsuarioEdit1.IdUsuario;
+                UsuarioControlador.Update(model);
             }
-
-            // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
             //********************
-            dgv.Rows[_rowIndex].Cells[(int)UsuarioView.GridColumn.Descripcion].Value = m.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)UsuarioView.GridColumn.Descripcion].Value = model.Descripcion;
 
             //TODO: Ver algo de esto, temas de alineacion y tipos de datos de las columnas. EyeCandy
             dgv.Rows[_rowIndex].Cells[(int)UsuarioView.GridColumn.ClaseUsuario].Value = ucUsuarioEdit1.ClaseUsuario;

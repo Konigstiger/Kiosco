@@ -35,12 +35,10 @@ namespace Heimdall
         }
 
 
-
         public void SetControles()
         {
             SetGrid(dgv);
         }
-
 
 
         private static void SetGrid(DataGridView dgv)
@@ -80,7 +78,6 @@ namespace Heimdall
             //tsbSearchTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tsbSearchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
             tsbSearchTextBox.AutoCompleteCustomSource = ac;
-
         }
 
 
@@ -197,40 +194,23 @@ namespace Heimdall
         public void GuardarOInsertar()
         {
             var idUsuarioActual = Program.UsuarioConectado.IdUsuario;
+            var model = ucProductoEdit1.ToModel();
 
-            var m = new Producto {
-                IdProducto = -1,
-                CodigoBarras = ucProductoEdit1.CodigoBarras,
-                Descripcion = ucProductoEdit1.Descripcion,
-                Capacidad = ucProductoEdit1.Capacidad,
-                PrecioVenta = ucProductoEdit1.PrecioVenta,
-                PrecioVentaPremium = ucProductoEdit1.PrecioVentaPremium,
-                StockMinimo = ucProductoEdit1.StockMinimo,
-                StockMaximo = ucProductoEdit1.StockMaximo,
-                SoloAdultos = ucProductoEdit1.SoloAdultos,
-                PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
-                IdMarca = ucProductoEdit1.IdMarca,
-                IdRubro = ucProductoEdit1.IdRubro,
-                IdUnidad = ucProductoEdit1.IdUnidad,
-                Notas = ucProductoEdit1.Notas
-            };
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdProducto = ProductoControlador.Insert(m);
+                model.IdProducto = ProductoControlador.Insert(model);
 
-                //Agregar su stock, aun en cero, para que aparezca en la grilla...
+                //Agregar su stock
                 var stockObj = new Stock {
                     IdStock = -1,
-                    IdProducto = m.IdProducto,
+                    IdProducto = model.IdProducto,
                     Cantidad = ucProductoEdit1.StockActual,
                     IdDeposito = 1
                 };
 
                 var idStock = StockControlador.Insert(stockObj);
+                var modelView = ProductoControlador.GetByPrimaryKeyView(model.IdProducto);
 
-                var modelView = ProductoControlador.GetByPrimaryKeyView(m.IdProducto);
-
-                //modificar el origen de datos
                 origenDatos.Add(modelView);
 
                 var bindingList = new BindingList<ProductoView>(origenDatos);
@@ -241,44 +221,23 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var productoNuevo = new Producto {
-                    IdProducto = ucProductoEdit1.IdProducto,
-                    CodigoBarras = ucProductoEdit1.CodigoBarras,
-                    Descripcion = ucProductoEdit1.Descripcion,
-                    Capacidad = ucProductoEdit1.Capacidad,
-                    PrecioVenta = ucProductoEdit1.PrecioVenta,
-                    PrecioVentaPremium = ucProductoEdit1.PrecioVentaPremium,
-                    StockMinimo = ucProductoEdit1.StockMinimo,
-                    StockMaximo = ucProductoEdit1.StockMaximo,
-                    SoloAdultos = ucProductoEdit1.SoloAdultos,
-                    PrecioCostoPromedio = ucProductoEdit1.PrecioCosto,
-                    IdMarca = ucProductoEdit1.IdMarca,
-                    IdRubro = ucProductoEdit1.IdRubro,
-                    IdUnidad = ucProductoEdit1.IdUnidad,
-                    Notas = ucProductoEdit1.Notas
-                };
-
-                m.IdProducto = ProductoControlador.Update(productoNuevo);
-
-
+                model.IdProducto = ucProductoEdit1.IdProducto;
+                model.IdProducto = ProductoControlador.Update(model);
             }
 
-            // pasar o mantener _modo Edicion
             _modo = ModoFormulario.Edicion;
 
             //********************
             //TODO: Revisar esto!
-            var cc = Math.Round((1 - (m.PrecioCostoPromedio / m.PrecioVenta)) * 100, 2);
+            var cc = Math.Round((1 - (model.PrecioCostoPromedio / model.PrecioVenta)) * 100, 2);
 
-            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = m.CodigoBarras;
-            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Descripcion].Value = m.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Capacidad].Value = m.Capacidad;
-            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Precio].Value = m.PrecioVenta.ToString("N");
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.CodigoBarras].Value = model.CodigoBarras;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Descripcion].Value = model.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Capacidad].Value = model.Capacidad;
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Precio].Value = model.PrecioVenta.ToString("N");
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Ganancia].Value = cc.ToString() + " %";
 
             //TODO: Ver algo de esto, temas de alineacion y tipos de datos de las columnas. EyeCandy

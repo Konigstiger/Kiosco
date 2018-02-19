@@ -25,7 +25,6 @@ namespace Heimdall
             InitializeComponent();
         }
 
-
         public FrmProductoProveedor(int idProveedor)
         {
             //this._idProveedor = _idProveedor;
@@ -149,9 +148,8 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            const int idUsuarioActual = Usuario.IdUsuarioPredeterminado;
 
-            var m = new ProductoProveedor {
+            var model = new ProductoProveedor {
                 IdProductoProveedor = -1,
                 IdProveedor = ucProveedorView1.IdProveedor,
                 IdProducto = ucProductoView1.IdProducto,
@@ -163,9 +161,9 @@ namespace Heimdall
 
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdProductoProveedor = ProductoProveedorControlador.Insert(m);
+                model.IdProductoProveedor = ProductoProveedorControlador.Insert(model);
 
-                var modelView = ProductoProveedorControlador.GetByPrimaryKeyView(m.IdProductoProveedor);
+                var modelView = ProductoProveedorControlador.GetByPrimaryKeyView(model.IdProductoProveedor);
 
                 origenDatos.Add(modelView);
 
@@ -176,7 +174,7 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
                 var productoProveedorNuevo = new ProductoProveedor {
@@ -193,7 +191,7 @@ namespace Heimdall
             }
 
             var mv = new ProductoProveedorView {
-                IdProductoProveedor = m.IdProductoProveedor,
+                IdProductoProveedor = model.IdProductoProveedor,
                 Proveedor = ucProveedorView1.Proveedor,
                 Producto = ucProductoView1.Descripcion,
                 IdProducto = ucProductoView1.IdProducto,
@@ -222,7 +220,6 @@ namespace Heimdall
             if (!Util.ConfirmarEliminar())
                 return;
 
-            //crear objeto cascara
             var m = new ProductoProveedor { IdProductoProveedor = Convert.ToInt64(txtIdProductoProveedor.Text.Trim()) };
 
             var result = ProductoProveedorControlador.Delete(m);
