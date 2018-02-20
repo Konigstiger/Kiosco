@@ -62,7 +62,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
             tsbSave.Enabled = false;
             txtIdProductoProveedor.Visible = false;
             Util.SetNumericBounds(nudPrecioCompra);
@@ -117,26 +117,6 @@ namespace Heimdall
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
 
-        }
-
-
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv.ColumnHeadersHeight = 20;
-
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
         }
 
 

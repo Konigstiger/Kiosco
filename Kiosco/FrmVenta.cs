@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Model;
 using Model.View;
 
 namespace Heimdall
@@ -31,26 +29,10 @@ namespace Heimdall
             _modo = ModoFormulario.Edicion;
         }
 
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv.ColumnHeadersHeight = 20;
-
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-        }
 
         public void SetControles()
         {
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
         }
 
         public void CargarControles()

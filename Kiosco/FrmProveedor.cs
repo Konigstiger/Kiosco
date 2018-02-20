@@ -33,7 +33,7 @@ namespace Heimdall
         private void SetControles()
         {
             this.KeyPreview = true;
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
         }
 
 
@@ -108,27 +108,6 @@ namespace Heimdall
             ucProveedorEdit1.Clear();
         }
 
-
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv.ColumnHeadersHeight = 20;
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
-
-            //TODO: Ver mas propiedades del DataGridView.
-        }
 
         void IAbmGeneral.SetControles()
         {

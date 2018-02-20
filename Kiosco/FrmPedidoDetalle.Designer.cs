@@ -43,8 +43,8 @@ namespace Heimdall
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ucPedido1 = new UcPedido();
-            this.ucPedidoDetalle1 = new UcPedidoDetalle();
+            this.ucPedido1 = new Heimdall.UserControl.UcPedido();
+            this.ucPedidoDetalle1 = new Heimdall.UserControl.UcPedidoDetalle();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +82,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(14, 184);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(532, 31);
+            this.tsb.Size = new System.Drawing.Size(327, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -169,14 +169,17 @@ namespace Heimdall
             // 
             // ucPedido1
             // 
+            this.ucPedido1.Archivado = false;
             this.ucPedido1.BackColor = System.Drawing.Color.White;
             this.ucPedido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPedido1.Descripcion = "";
             this.ucPedido1.EstaPago = false;
-            this.ucPedido1.Fecha = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
-            this.ucPedido1.FechaEntrega = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
+            this.ucPedido1.Fecha = new System.DateTime(2018, 2, 20, 0, 0, 0, 0);
+            this.ucPedido1.FechaEntrega = new System.DateTime(2018, 2, 20, 0, 0, 0, 0);
+            this.ucPedido1.Fiscal = false;
             this.ucPedido1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucPedido1.IdEstadoPedido = 0;
+            this.ucPedido1.IdHoraEntrega = 0;
             this.ucPedido1.IdPedido = ((long)(0));
             this.ucPedido1.IdPrioridad = 0;
             this.ucPedido1.IdProveedor = 0;
@@ -194,7 +197,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucPedido1.ProveedorChanged += new ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
+            this.ucPedido1.ProveedorChanged += new Heimdall.UserControl.ValueChangedEventHandler(this.ucPedido1_ProveedorChanged);
             // 
             // ucPedidoDetalle1
             // 
@@ -207,6 +210,7 @@ namespace Heimdall
             this.ucPedidoDetalle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucPedidoDetalle1.IdPedidoDetalle = ((long)(0));
             this.ucPedidoDetalle1.IdProducto = ((long)(0));
+            this.ucPedidoDetalle1.IdProveedor = ((long)(0));
             this.ucPedidoDetalle1.IdUnidad = 0;
             this.ucPedidoDetalle1.Importe = new decimal(new int[] {
             0,

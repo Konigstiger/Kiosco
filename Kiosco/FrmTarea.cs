@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -38,34 +33,14 @@ namespace Heimdall
 
         public void SetControles()
         {
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
             ucTareaEdit1.IdUsuario = Program.UsuarioConectado.IdUsuario;
         }
 
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-
-            dgv.ColumnHeadersHeight = 20;
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
-        }
 
         public void CargarControles()
         {
-            CargarGrilla(tsbSearchTextBox.Text);
+            CargarGrilla(ucAbmToolBar1.SearchText);
         }
 
         public void CargarGrilla(string searchText)
@@ -218,26 +193,33 @@ namespace Heimdall
             ucTareaEdit1.IdTarea = id;
         }
 
-        private void tsbNew_Click(object sender, EventArgs e)
-        {
-            LimpiarControles();
-            _modo = ModoFormulario.Nuevo;
-            ucTareaEdit1.Focus();
-        }
-
-        private void tsbDelete_Click(object sender, EventArgs e)
-        {
-            Eliminar();
-        }
-
-        private void tsbSave_Click(object sender, EventArgs e)
-        {
-            GuardarOInsertar();
-        }
 
         private void dgv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //?
+        }
+
+        private void ucAbmToolBar1_ButtonClickNew(object sender, EventArgs e)
+        {
+            BotonNuevo();
+        }
+
+        private void BotonNuevo()
+        {
+            LimpiarControles();
+            _modo = ModoFormulario.Nuevo;
+            ucTareaEdit1.Focus();
+
+        }
+
+        private void ucAbmToolBar1_ButtonClickDelete(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
+
+        private void ucAbmToolBar1_ButtonClickUpdate(object sender, EventArgs e)
+        {
+            GuardarOInsertar();
         }
     }
 }

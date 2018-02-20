@@ -6,6 +6,28 @@ namespace Heimdall
 {
     public static class Util
     {
+        public static void SetGrid(DataGridView dgv)
+        {
+            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
+            dgv.AutoGenerateColumns = false;
+            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
+            dgv.ColumnHeadersHeight = 20;
+            dgv.MultiSelect = false;
+            dgv.AllowUserToAddRows = false;
+
+            dgv.RowsDefaultCellStyle.BackColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
+
+            //TODO: Ver mas propiedades del DataGridView.
+        }
+
+
         public static void Shake(Form form)
         {
             var original = form.Location;
@@ -65,8 +87,7 @@ namespace Heimdall
 
         public static void SetColumnsReadOnly(DataGridView dgv)
         {
-            foreach (DataGridViewColumn col in dgv.Columns)
-            {
+            foreach (DataGridViewColumn col in dgv.Columns) {
                 col.ReadOnly = true;
             }
         }
@@ -84,8 +105,7 @@ namespace Heimdall
         {
             var i = 1;
 
-            foreach (DataGridViewRow item in dgv.Rows)
-            {
+            foreach (DataGridViewRow item in dgv.Rows) {
                 item.Cells[0].Value = i;
                 i++;
             }

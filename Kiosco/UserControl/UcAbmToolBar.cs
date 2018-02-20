@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Heimdall.UserControl
 {
@@ -29,5 +30,20 @@ namespace Heimdall.UserControl
         {
             this.ButtonClickDelete?.Invoke(this, e);
         }
+
+        [Description("SearchText."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string SearchText
+        {
+            get { return tsbSearchTextBox.Text.Trim(); }
+            set { tsbSearchTextBox.Text = value; }
+        }
+
+
+
+
     }
 }

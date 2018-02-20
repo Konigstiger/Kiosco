@@ -35,29 +35,9 @@ namespace Heimdall
 
         public void SetControles()
         {
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
         }
 
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-
-            dgv.ColumnHeadersHeight = 20;
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
-        }
 
         public void CargarControles()
         {
@@ -108,29 +88,13 @@ namespace Heimdall
 
         public void GuardarOInsertar()
         {
-            
-
-            //NOTA: ESTO NO ESTA LISTO EN ABSOLUTO> HAY QUE HACERLO ORDENADO Y PROLIJO.
-
-            /*
-            var m = new Turno {
-                IdTurno = -1,
-                Descripcion = ucTurnoEdit1.Descripcion,
-                Fecha = ucTurnoEdit1.Fecha,
-                HoraInicio = ucTurnoEdit1.HoraInicio,
-                HoraFin = ucTurnoEdit1.HoraFin,
-                CantidadHoras = ucTurnoEdit1.CantidadHoras,
-                IdPagoEmpleado = -1,
-                Monto = ucTurnoEdit1.Monto,
-                Notas = ucTurnoEdit1.Notas
-            };
+            var model = ucTurnoEdit1.ToModel();
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
-                m.IdTurno = TurnoControlador.Insert(m);
+                model.IdTurno = TurnoControlador.Insert(model);
 
-                var modelView = TurnoControlador.GetByPrimaryKeyView(m.IdTurno);
+                var modelView = TurnoControlador.GetByPrimaryKeyView(model.IdTurno);
 
-                //modificar el origen de datos
                 origenDatos.Add(modelView);
 
                 var bindingList = new BindingList<TurnoView>(origenDatos);
@@ -141,32 +105,17 @@ namespace Heimdall
                 _rowIndex = dgv.Rows.Count - 1;
 
             } else {
-                //TODO: Puede usarse m.Validate como validacion ya encapsulada de modelo integro.
-
-                if (m.Validate().Equals(false))
+                if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var turnoNuevo = new Turno {
-                    IdTurno = -1,
-                    Descripcion = ucTurnoEdit1.Descripcion,
-                    Fecha = ucTurnoEdit1.Fecha,
-                    HoraInicio = ucTurnoEdit1.HoraInicio,
-                    HoraFin = ucTurnoEdit1.HoraFin,
-                    CantidadHoras = ucTurnoEdit1.CantidadHoras,
-                    IdPagoEmpleado = -1,
-                    Monto = ucTurnoEdit1.Monto,
-                    Notas = ucTurnoEdit1.Notas
-                };
+                model.IdTurno = ucTurnoEdit1.IdTurno;
+                model.IdTurno = TurnoControlador.Update(model);
 
-                m.IdTurno = TurnoControlador.Update(turnoNuevo);
-
-                // pasar o mantener _modo Edicion
                 _modo = ModoFormulario.Edicion;
 
                 //********************
-                //TODO: Revisar esto!
-                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = m.Descripcion;
-                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = m.Notas;
+                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = model.Descripcion;
+                dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = model.Notas;
                 //********************
 
                 //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -177,14 +126,12 @@ namespace Heimdall
             _modo = ModoFormulario.Edicion;
 
             //********************
-            //meter en subrutina
-            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = m.Descripcion;
-            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = m.Notas;
+            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Descripcion].Value = model.Descripcion;
+            dgv.Rows[_rowIndex].Cells[(int)TurnoView.GridColumn.Notas].Value = model.Notas;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
             dgv.Rows[_rowIndex].Selected = true;
-            */
         }
 
 

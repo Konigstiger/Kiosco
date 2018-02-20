@@ -27,104 +27,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTarea));
-            this.tsb = new System.Windows.Forms.ToolStrip();
-            this.tsbNew = new System.Windows.Forms.ToolStripButton();
-            this.tsbSave = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
-            this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.ucTareaEdit1 = new Heimdall.UserControl.UcTareaEdit();
-            this.tsb.SuspendLayout();
+            this.ucAbmToolBar1 = new Heimdall.UserControl.UcAbmToolBar();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tsb
-            // 
-            this.tsb.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.tsb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNew,
-            this.tsbSave,
-            this.tsbDelete,
-            this.toolStripSeparator1,
-            this.tsbSearch,
-            this.tsbSearchTextBox,
-            this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
-            this.tsb.Location = new System.Drawing.Point(0, 0);
-            this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(989, 31);
-            this.tsb.TabIndex = 25;
-            this.tsb.Text = "toolStrip1";
-            // 
-            // tsbNew
-            // 
-            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
-            this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(70, 28);
-            this.tsbNew.Text = "Nuevo";
-            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
-            // 
-            // tsbSave
-            // 
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(77, 28);
-            this.tsbSave.Text = "Guardar";
-            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(67, 28);
-            this.tsbDelete.Text = "Borrar";
-            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // tsbSearch
-            // 
-            this.tsbSearch.CheckOnClick = true;
-            this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
-            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(79, 28);
-            this.tsbSearch.Text = "Buscar...";
-            // 
-            // tsbSearchTextBox
-            // 
-            this.tsbSearchTextBox.Name = "tsbSearchTextBox";
-            this.tsbSearchTextBox.Size = new System.Drawing.Size(116, 31);
-            this.tsbSearchTextBox.Visible = false;
-            // 
-            // tsbSearchPerform
-            // 
-            this.tsbSearchPerform.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSearchPerform.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchPerform.Image")));
-            this.tsbSearchPerform.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearchPerform.Name = "tsbSearchPerform";
-            this.tsbSearchPerform.Size = new System.Drawing.Size(28, 28);
-            this.tsbSearchPerform.Visible = false;
-            // 
-            // tsbSearchClearAndPerform
-            // 
-            this.tsbSearchClearAndPerform.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSearchClearAndPerform.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchClearAndPerform.Image")));
-            this.tsbSearchClearAndPerform.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearchClearAndPerform.Name = "tsbSearchClearAndPerform";
-            this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
-            this.tsbSearchClearAndPerform.Visible = false;
             // 
             // dgv
             // 
@@ -168,38 +75,37 @@
             this.ucTareaEdit1.Size = new System.Drawing.Size(977, 197);
             this.ucTareaEdit1.TabIndex = 0;
             // 
+            // ucAbmToolBar1
+            // 
+            this.ucAbmToolBar1.Location = new System.Drawing.Point(7, 1);
+            this.ucAbmToolBar1.Name = "ucAbmToolBar1";
+            this.ucAbmToolBar1.Size = new System.Drawing.Size(977, 32);
+            this.ucAbmToolBar1.TabIndex = 25;
+            this.ucAbmToolBar1.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar1_ButtonClickNew);
+            this.ucAbmToolBar1.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar1_ButtonClickUpdate);
+            this.ucAbmToolBar1.ButtonClickDelete += new System.EventHandler(this.ucAbmToolBar1_ButtonClickDelete);
+            // 
             // FrmTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 721);
-            this.Controls.Add(this.tsb);
+            this.Controls.Add(this.ucAbmToolBar1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucTareaEdit1);
             this.Name = "FrmTarea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tareas";
             this.Load += new System.EventHandler(this.FrmTarea_Load);
-            this.tsb.ResumeLayout(false);
-            this.tsb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private UserControl.UcTareaEdit ucTareaEdit1;
-        private System.Windows.Forms.ToolStrip tsb;
-        private System.Windows.Forms.ToolStripButton tsbNew;
-        private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.ToolStripButton tsbDelete;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbSearch;
-        private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
-        private System.Windows.Forms.ToolStripButton tsbSearchPerform;
-        private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.DataGridView dgv;
+        private UserControl.UcAbmToolBar ucAbmToolBar1;
     }
 }

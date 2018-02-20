@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
-using Model;
 using Model.View;
 
 namespace Heimdall
@@ -72,31 +70,8 @@ namespace Heimdall
         {
             this.KeyPreview = true;
             txtIdMarca.Visible = false;
-            SetGrid(dgv);
+            Util.SetGrid(dgv);
 
-        }
-
-
-        private static void SetGrid(DataGridView dgv)
-        {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
-            dgv.AutoGenerateColumns = false;
-            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgv.BorderStyle = BorderStyle.None;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgv.ColumnHeadersHeight = 20;
-            dgv.MultiSelect = false;
-            dgv.AllowUserToAddRows = false;
-
-            dgv.RowsDefaultCellStyle.BackColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
-
-            //TODO: Ver mas propiedades del DataGridView.
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Controlador;
+using Model;
 
 namespace Heimdall.UserControl
 {
@@ -10,6 +11,24 @@ namespace Heimdall.UserControl
         {
             InitializeComponent();
         }
+
+
+        public Turno ToModel()
+        {
+            var model = new Turno {
+                IdTurno = -1,
+                Descripcion = Descripcion,
+                Fecha = Fecha,
+                HoraInicio = HoraInicio,
+                HoraFin = HoraFin,
+                CantidadHoras = CantidadHoras,
+                IdPagoEmpleado = IdPagoEmpleado,
+                Monto = Monto,
+                Notas = Notas
+            };
+            return model;
+        }
+
 
         [Description("IdTurno. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
