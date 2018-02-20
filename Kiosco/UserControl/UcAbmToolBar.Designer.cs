@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcAbmToolBar));
             this.tsb = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
@@ -37,6 +38,7 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tsb.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +125,12 @@
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(24, 24);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // UcAbmToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,5 +156,6 @@
         private System.Windows.Forms.ToolStripTextBox tsbSearchTextBox;
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -54,7 +53,6 @@ namespace Heimdall
             for (var i = 0; i < ColCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
-
 
             c[(int)PedidoView.GridColumn.IdPedido].Width = 0;
             c[(int)PedidoView.GridColumn.IdPedido].Visible = false;
