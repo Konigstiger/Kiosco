@@ -50,12 +50,15 @@ namespace Heimdall
 
             //Util.CenterFormX(btnOpciones, this);
 
+            //TODO: Ver si ademas de estar deshabilitado se puede hacer que sea invisible.
             if (Program.UsuarioConectado.EsAdmin == false)
             {
                 btnAbmProveedor.Enabled = false;
                 btnProductoProveedor.Enabled = false;
                 btnEstadisticas.Enabled = false;
                 btnRecaudacion.Enabled = false;
+                btnTurno.Enabled = false;
+                btnUsuarios.Enabled = false;
                 //...
             }
 
