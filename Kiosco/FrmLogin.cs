@@ -56,5 +56,10 @@ namespace Heimdall
 
         }
 
+        private void chkToggleShowPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            chkToggleShowPwd.ImageIndex = chkToggleShowPwd.ImageIndex == 1 ? 0 : 1;
+            txtPwd.PasswordChar = chkToggleShowPwd.Checked ? '•' : '\0';
+        }
     }
 }

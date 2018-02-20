@@ -18,6 +18,7 @@ namespace Heimdall
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.labTitulo = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -26,6 +27,8 @@ namespace Heimdall
             this.labelControl2 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.ILLogin = new System.Windows.Forms.ImageList(this.components);
+            this.chkToggleShowPwd = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labTitulo
@@ -42,7 +45,7 @@ namespace Heimdall
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(191, 184);
+            this.txtPwd.Location = new System.Drawing.Point(191, 183);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '•';
             this.txtPwd.Size = new System.Drawing.Size(304, 29);
@@ -59,7 +62,7 @@ namespace Heimdall
             // 
             this.labelControl1.AutoSize = true;
             this.labelControl1.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(98, 134);
+            this.labelControl1.Location = new System.Drawing.Point(102, 138);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(83, 24);
             this.labelControl1.TabIndex = 11;
@@ -69,7 +72,7 @@ namespace Heimdall
             // 
             this.labelControl2.AutoSize = true;
             this.labelControl2.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(86, 184);
+            this.labelControl2.Location = new System.Drawing.Point(86, 185);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(99, 24);
             this.labelControl2.TabIndex = 12;
@@ -97,11 +100,35 @@ namespace Heimdall
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // ILLogin
+            // 
+            this.ILLogin.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ILLogin.ImageStream")));
+            this.ILLogin.TransparentColor = System.Drawing.Color.Transparent;
+            this.ILLogin.Images.SetKeyName(0, "turn-visibility-off-button.png");
+            this.ILLogin.Images.SetKeyName(1, "visibility-button.png");
+            // 
+            // chkToggleShowPwd
+            // 
+            this.chkToggleShowPwd.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkToggleShowPwd.Checked = true;
+            this.chkToggleShowPwd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkToggleShowPwd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.chkToggleShowPwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkToggleShowPwd.ImageIndex = 0;
+            this.chkToggleShowPwd.ImageList = this.ILLogin;
+            this.chkToggleShowPwd.Location = new System.Drawing.Point(501, 183);
+            this.chkToggleShowPwd.Name = "chkToggleShowPwd";
+            this.chkToggleShowPwd.Size = new System.Drawing.Size(30, 29);
+            this.chkToggleShowPwd.TabIndex = 14;
+            this.chkToggleShowPwd.UseVisualStyleBackColor = true;
+            this.chkToggleShowPwd.CheckedChanged += new System.EventHandler(this.chkToggleShowPwd_CheckedChanged);
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnAceptar;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(673, 329);
+            this.Controls.Add(this.chkToggleShowPwd);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.labelControl2);
@@ -133,5 +160,7 @@ namespace Heimdall
         private Label labelControl2;
         private Button btnAceptar;
         private Button btnCancelar;
+        private ImageList ILLogin;
+        private CheckBox chkToggleShowPwd;
     }
 }

@@ -38,7 +38,6 @@ namespace Heimdall
             Util.CenterFormX(btnAbmProveedor, this);
             Util.CenterFormX(btnSalir, this);
             Util.CenterFormX(btnPedido, this);
-            Util.CenterFormX(btnOpciones, this);
             Util.CenterFormX(btnEstadisticas, this);
             Util.CenterFormX(btnRecaudacion, this);
             Util.CenterFormX(btnProductoProveedor, this);
@@ -47,10 +46,9 @@ namespace Heimdall
             Util.CenterFormX(btnCerrarSesion, this);
             Util.CenterFormX(btnUsuarios, this);
             Util.CenterFormX(btnTurno, this);
-            
-            //TODO: Reactivar
-            //Util.CenterFormX(btnTareas, this);
+            Util.CenterFormX(btnTareas, this);
 
+            //Util.CenterFormX(btnOpciones, this);
 
             if (Program.UsuarioConectado.EsAdmin == false)
             {
