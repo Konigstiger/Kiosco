@@ -70,7 +70,7 @@ namespace Heimdall
         {
             this.KeyPreview = true;
             txtIdMarca.Visible = false;
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
 

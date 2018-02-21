@@ -46,7 +46,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
 

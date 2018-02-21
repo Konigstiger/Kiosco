@@ -65,7 +65,7 @@ namespace Heimdall.UserControl
         {
             if (DesignMode)
                 return;
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
 
             dgv.Columns.Clear();
 

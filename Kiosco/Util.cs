@@ -6,25 +6,23 @@ namespace Heimdall
 {
     public static class Util
     {
-        public static void SetGrid(DataGridView dgv)
+        //TODO: Se puede agregar un parametro para Fill/AllCells
+
+        public static void SetGrid(DataGridView dgv, DataGridViewAutoSizeColumnsMode autoSizeColumnsMode)
         {
-            //TODO: Ver si se puede parametrizar dentro de las opciones del programa.
             dgv.AutoGenerateColumns = false;
             dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv.BorderStyle = BorderStyle.None;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
-            dgv.ColumnHeadersHeight = 20;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgv.AutoSizeColumnsMode = autoSizeColumnsMode;
+
+            dgv.ColumnHeadersHeight = 24;
             dgv.MultiSelect = false;
             dgv.AllowUserToAddRows = false;
 
             dgv.RowsDefaultCellStyle.BackColor = Color.White;
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-
-            //TODO: Ver mas propiedades del DataGridView.
         }
 
 

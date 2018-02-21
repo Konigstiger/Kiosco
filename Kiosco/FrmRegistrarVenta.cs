@@ -62,7 +62,7 @@ namespace Heimdall
             dtpFechaActual.Value = DateTime.Today;
             txtClienteDescripcion.Enabled = false;
             txtIdCliente.Text = "1";
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
 

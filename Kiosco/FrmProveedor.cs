@@ -33,7 +33,7 @@ namespace Heimdall
         private void SetControles()
         {
             this.KeyPreview = true;
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
 

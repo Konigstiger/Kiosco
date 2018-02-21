@@ -62,7 +62,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
             tsbSave.Enabled = false;
             txtIdProductoProveedor.Visible = false;
             Util.SetNumericBounds(nudPrecioCompra);

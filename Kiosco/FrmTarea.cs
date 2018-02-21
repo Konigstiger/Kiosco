@@ -33,7 +33,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
             ucTareaEdit1.IdUsuario = Program.UsuarioConectado.IdUsuario;
         }
 

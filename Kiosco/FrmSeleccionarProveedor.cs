@@ -77,7 +77,7 @@ namespace Heimdall
         {
             this.KeyPreview = true;
             txtIdProveedor.Visible = false;
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
 

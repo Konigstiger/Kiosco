@@ -26,7 +26,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
             txtIdRecaudacion.Visible = false;
             nudTotal.Maximum = 99999;
             nudTotal.Minimum = 0;

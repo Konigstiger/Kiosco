@@ -34,7 +34,7 @@ namespace Heimdall
 
         public void SetControles()
         {
-            Util.SetGrid(dgv);
+            Util.SetGrid(dgv, DataGridViewAutoSizeColumnsMode.AllCells);
             txtIdMarca.Visible = false;
             txtDescripcion.MaxLength = 50;
             txtNotas.MaxLength = 100;
@@ -151,7 +151,7 @@ namespace Heimdall
                 IdMarca = -1,
                 Descripcion = txtDescripcion.Text.Trim(),
                 Notas = txtNotas.Text.Trim()
-        };
+            };
             //=====================================================================
             if (_modo == ModoFormulario.Nuevo) {
                 m.IdMarca = MarcaControlador.Insert(m);
