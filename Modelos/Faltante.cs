@@ -3,39 +3,26 @@ using Model.View;
 
 namespace Model
 {
-    public class Tarea : IEntidad
+    public class Faltante : IEntidad
     {
-        public Tarea()
-        {
-        }
-
-        public long IdTarea { get; set; }
+        public long IdFaltante { get; set; }
 
         public string Descripcion { get; set; }
 
-        public int? IdPrioridad { get; set; }
+        public long? IdProducto { get; set; }
+
+        public int Cantidad { get; set; }
+
+        public int IdEstadoFaltante { get; set; }
 
         public DateTime Fecha { get; set; }
 
-        public DateTime FechaVencimiento { get; set; }
-
-        public int IdEstadoTarea { get; set; }
-
-        public int? IdDificultad { get; set; }
-
-        public int? IdClaseTarea { get; set; }
-
-        public int? IdUsuario { get; set; }
-
-        public int PorcentajeCompleto { get; set; }
-
-        public string Detalle { get; set; }
+        public DateTime? FechaResuelto { get; set; }
 
         public bool? Archivado { get; set; }
 
-        public long? IdTareaPadre { get; set; }
-
         public string Notas { get; set; }
+
 
         public bool Validate()
         {
@@ -44,9 +31,7 @@ namespace Model
             //se pueden agregar muchas mas validaciones. Tambien podrian ir en el Controlador. 
             //Pero creo que me gustan aqui.
 
-            //if (IdTarea.Equals(-1)) return false;
-
-            if (Fecha > FechaVencimiento)
+            if (Fecha > FechaResuelto)
                 return false;
             //TODO: Pensar y agregar mas posibles validaciones de cosas que podrian estar mal en el modelo.           
 

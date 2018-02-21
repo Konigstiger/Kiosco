@@ -39,12 +39,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(7, 34);
+            this.dgv.Location = new System.Drawing.Point(8, 44);
+            this.dgv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(977, 476);
+            this.dgv.Size = new System.Drawing.Size(1140, 685);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
             this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
@@ -67,19 +68,21 @@
             this.ucTareaEdit1.IdTarea = ((long)(0));
             this.ucTareaEdit1.IdTareaPadre = ((long)(0));
             this.ucTareaEdit1.IdUsuario = 0;
-            this.ucTareaEdit1.Location = new System.Drawing.Point(7, 517);
-            this.ucTareaEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ucTareaEdit1.Location = new System.Drawing.Point(8, 738);
+            this.ucTareaEdit1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ucTareaEdit1.Name = "ucTareaEdit1";
             this.ucTareaEdit1.Notas = "";
             this.ucTareaEdit1.PorcentajeCompleto = 0;
-            this.ucTareaEdit1.Size = new System.Drawing.Size(977, 197);
+            this.ucTareaEdit1.Size = new System.Drawing.Size(1139, 203);
             this.ucTareaEdit1.TabIndex = 0;
             // 
             // ucAbmToolBar1
             // 
-            this.ucAbmToolBar1.Location = new System.Drawing.Point(7, 1);
+            this.ucAbmToolBar1.Location = new System.Drawing.Point(8, 1);
+            this.ucAbmToolBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucAbmToolBar1.Name = "ucAbmToolBar1";
-            this.ucAbmToolBar1.Size = new System.Drawing.Size(977, 32);
+            this.ucAbmToolBar1.SearchText = "";
+            this.ucAbmToolBar1.Size = new System.Drawing.Size(1140, 42);
             this.ucAbmToolBar1.TabIndex = 25;
             this.ucAbmToolBar1.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar1_ButtonClickNew);
             this.ucAbmToolBar1.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar1_ButtonClickUpdate);
@@ -87,12 +90,14 @@
             // 
             // FrmTarea
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 721);
+            this.ClientSize = new System.Drawing.Size(1154, 943);
             this.Controls.Add(this.ucAbmToolBar1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucTareaEdit1);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmTarea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tareas";
