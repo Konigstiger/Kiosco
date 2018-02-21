@@ -407,12 +407,12 @@ namespace Data
                 using (var cmd = new SqlCommand("Producto_Delete", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p0 = new SqlParameter("IdProducto", SqlDbType.VarChar) { Value = model.IdProducto };
+                    var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = model.IdProducto };
 
                     cmd.Parameters.Add(p0);
 
                     conn.Open();
-                    cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
                     return true;
                 }
             }

@@ -163,12 +163,12 @@ namespace Data
                 using (var cmd = new SqlCommand("Stock_Delete", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p0 = new SqlParameter("IdProducto", SqlDbType.VarChar) { Value = model.IdProducto };
+                    var p0 = new SqlParameter("IdStock", SqlDbType.BigInt) { Value = model.IdStock };
 
                     cmd.Parameters.Add(p0);
 
                     conn.Open();
-                    model.IdProducto = (long)cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
                     return true;
                 }
             }

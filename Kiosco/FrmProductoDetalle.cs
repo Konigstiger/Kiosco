@@ -398,7 +398,7 @@ namespace Heimdall
 
         private void btnMProducto_Click(object sender, EventArgs e)
         {
-            this.ucProductoEdit1.IdProducto = this.IdProducto;
+            ucProductoEdit1.IdProducto = IdProducto;
             ucProductoEdit1.Visible = true;
             btnGuardar.Visible = true;
             ucProductoEdit1.BringToFront();

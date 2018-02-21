@@ -287,7 +287,6 @@ namespace Heimdall
             // 
             // btnFaltante
             // 
-            this.btnFaltante.Enabled = false;
             this.btnFaltante.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnFaltante.Image = ((System.Drawing.Image)(resources.GetObject("btnFaltante.Image")));
             this.btnFaltante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

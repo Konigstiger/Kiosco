@@ -51,10 +51,10 @@
             // txtIdProducto
             // 
             this.txtIdProducto.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtIdProducto.Location = new System.Drawing.Point(3, 83);
+            this.txtIdProducto.Location = new System.Drawing.Point(503, 12);
             this.txtIdProducto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(16, 27);
+            this.txtIdProducto.Size = new System.Drawing.Size(26, 27);
             this.txtIdProducto.TabIndex = 177;
             this.txtIdProducto.Text = "0";
             this.txtIdProducto.Visible = false;
@@ -62,7 +62,7 @@
             // chkArchivado
             // 
             this.chkArchivado.AutoSize = true;
-            this.chkArchivado.Location = new System.Drawing.Point(617, 107);
+            this.chkArchivado.Location = new System.Drawing.Point(590, 107);
             this.chkArchivado.Name = "chkArchivado";
             this.chkArchivado.Size = new System.Drawing.Size(101, 23);
             this.chkArchivado.TabIndex = 176;
@@ -87,7 +87,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label9.Location = new System.Drawing.Point(24, 47);
+            this.label9.Location = new System.Drawing.Point(29, 49);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 19);
             this.label9.TabIndex = 172;
@@ -107,7 +107,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label4.Location = new System.Drawing.Point(274, 79);
+            this.label4.Location = new System.Drawing.Point(297, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 19);
             this.label4.TabIndex = 166;
@@ -147,7 +147,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label7.Location = new System.Drawing.Point(48, 111);
+            this.label7.Location = new System.Drawing.Point(48, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 19);
             this.label7.TabIndex = 160;
@@ -167,7 +167,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label1.Location = new System.Drawing.Point(49, 74);
+            this.label1.Location = new System.Drawing.Point(49, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 19);
             this.label1.TabIndex = 157;
@@ -176,11 +176,12 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.txtDescripcion.Location = new System.Drawing.Point(102, 14);
+            this.txtDescripcion.Location = new System.Drawing.Point(102, 13);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(324, 27);
             this.txtDescripcion.TabIndex = 155;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // label2
             // 
@@ -207,23 +208,25 @@
             // 
             this.btnAbmProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnAbmProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmProducto.Image")));
-            this.btnAbmProducto.Location = new System.Drawing.Point(467, 14);
+            this.btnAbmProducto.Location = new System.Drawing.Point(467, 11);
             this.btnAbmProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAbmProducto.Name = "btnAbmProducto";
             this.btnAbmProducto.Size = new System.Drawing.Size(30, 30);
             this.btnAbmProducto.TabIndex = 179;
             this.btnAbmProducto.UseVisualStyleBackColor = true;
+            this.btnAbmProducto.Click += new System.EventHandler(this.btnAbmProducto_Click);
             // 
             // btnSeleccionarProducto
             // 
             this.btnSeleccionarProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSeleccionarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarProducto.Image")));
-            this.btnSeleccionarProducto.Location = new System.Drawing.Point(432, 14);
+            this.btnSeleccionarProducto.Location = new System.Drawing.Point(432, 11);
             this.btnSeleccionarProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSeleccionarProducto.Name = "btnSeleccionarProducto";
             this.btnSeleccionarProducto.Size = new System.Drawing.Size(30, 30);
             this.btnSeleccionarProducto.TabIndex = 178;
             this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
             // 
             // UcFaltanteEdit
             // 

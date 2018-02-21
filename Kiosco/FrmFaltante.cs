@@ -18,7 +18,7 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 5;
+        private readonly int _colCount = 5;
 
         private List<FaltanteView> origenDatos = null;
 
@@ -42,13 +42,14 @@ namespace Heimdall
             CargarGrilla(ucAbmToolBar1.SearchText);
         }
 
+
         public void CargarGrilla(string searchText)
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[_colCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < _colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -212,5 +213,6 @@ namespace Heimdall
         {
             BotonNuevo();
         }
+
     }
 }

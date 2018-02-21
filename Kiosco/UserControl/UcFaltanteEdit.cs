@@ -6,7 +6,7 @@ using Model;
 
 namespace Heimdall.UserControl
 {
-    public partial class UcFaltanteEdit : System.Windows.Forms.UserControl
+    public partial class UcFaltanteEdit : System.Windows.Forms.UserControl, ISelectorProducto
     {
         [Category("Action")]
         [Description("Es lanzado cuando se selecciona otra Faltante.")]
@@ -80,6 +80,12 @@ namespace Heimdall.UserControl
             }
             set {
                 txtIdProducto.Text = value.ToString();
+                var p = ProductoControlador.GetByPrimaryKey(value);
+                txtDescripcion.Text = p.Descripcion;
+               // txtDescripcion.Enabled = false;
+
+                //todo: ver de levantar el estado enabled = false de este control.
+
             }
         }
 
@@ -224,12 +230,12 @@ namespace Heimdall.UserControl
         private void SetControles()
         {
             txtIdFaltante.Visible = false;
-            txtIdProducto.Visible = false;
+            txtIdProducto.Visible = !false;
             txtDescripcion.MaxLength = 100;
             txtNotas.MaxLength = 255;
             nudCantidad.Maximum = 9999;
             nudCantidad.Minimum = 0;
-            nudCantidad.Increment = 5;
+            nudCantidad.Increment = 1;
             nudCantidad.DecimalPlaces = 0;
 
             //Util.SetNumericBounds(nudPrecio);
@@ -239,7 +245,25 @@ namespace Heimdall.UserControl
         {
             SetControles();
             CargarControles();
+        }
 
+
+        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
+        {
+            var f = new FrmSeleccionarProducto(this);
+            f.Show();
+        }
+
+
+        private void btnAbmProducto_Click(object sender, EventArgs e)
+        {
+            var f = new FrmProducto();
+            f.Show();
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            //IdProducto = 0;
         }
     }
 }

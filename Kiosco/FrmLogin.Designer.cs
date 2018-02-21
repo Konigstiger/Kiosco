@@ -22,13 +22,13 @@ namespace Heimdall
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.labTitulo = new System.Windows.Forms.Label();
             this.txtPwd = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.labelControl1 = new System.Windows.Forms.Label();
             this.labelControl2 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.ILLogin = new System.Windows.Forms.ImageList(this.components);
             this.chkToggleShowPwd = new System.Windows.Forms.CheckBox();
+            this.cboUser = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labTitulo
@@ -50,13 +50,6 @@ namespace Heimdall
             this.txtPwd.PasswordChar = '•';
             this.txtPwd.Size = new System.Drawing.Size(304, 29);
             this.txtPwd.TabIndex = 2;
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(191, 133);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(304, 29);
-            this.txtUser.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -123,17 +116,28 @@ namespace Heimdall
             this.chkToggleShowPwd.UseVisualStyleBackColor = true;
             this.chkToggleShowPwd.CheckedChanged += new System.EventHandler(this.chkToggleShowPwd_CheckedChanged);
             // 
+            // cboUser
+            // 
+            this.cboUser.FormattingEnabled = true;
+            this.cboUser.Items.AddRange(new object[] {
+            "Admin",
+            "Operador"});
+            this.cboUser.Location = new System.Drawing.Point(191, 133);
+            this.cboUser.Name = "cboUser";
+            this.cboUser.Size = new System.Drawing.Size(304, 29);
+            this.cboUser.TabIndex = 15;
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnAceptar;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(673, 329);
+            this.Controls.Add(this.cboUser);
             this.Controls.Add(this.chkToggleShowPwd);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.txtUser);
             this.Controls.Add(this.labTitulo);
             this.Controls.Add(this.txtPwd);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,12 +159,12 @@ namespace Heimdall
 
         private System.Windows.Forms.Label labTitulo;
         private TextBox txtPwd;
-        private TextBox txtUser;
         private Label labelControl1;
         private Label labelControl2;
         private Button btnAceptar;
         private Button btnCancelar;
         private ImageList ILLogin;
         private CheckBox chkToggleShowPwd;
+        private ComboBox cboUser;
     }
 }

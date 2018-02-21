@@ -612,7 +612,7 @@ namespace Heimdall
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(73, 53);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(79, 96);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";

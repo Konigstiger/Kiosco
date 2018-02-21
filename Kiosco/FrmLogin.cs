@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Controlador;
 using Model;
 
 namespace Heimdall
@@ -19,14 +20,13 @@ namespace Heimdall
 
         private void SetControles()
         {
-            txtUser.Focus();
-            //txtUser.Text = @"Admin";
-            txtUser.Text = @"Operador";
+            var list = UsuarioControlador.GetAll();
+            cboUser.DataSource = list;
+            cboUser.DisplayMember = "Usr";
+            cboUser.ValueMember = "Usr";
+            cboUser.Focus();
 
             Util.CenterFormX(labTitulo, this);
-
-            //txtUser.Text = @"Admin";
-            //txtPwd.Text = @"Crazyfucker";
         }
 
 
@@ -39,7 +39,7 @@ namespace Heimdall
         {
             //Validar credenciales del usuario.
             var u = new Usuario {
-                Usr = txtUser.Text.Trim(),
+                Usr = cboUser.Text.Trim(),
                 Pwd = txtPwd.Text.Trim()
             };
 
