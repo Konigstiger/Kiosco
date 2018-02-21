@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -62,7 +57,8 @@ namespace Heimdall
             Util.SetColumn(c[(int)FaltanteView.GridColumn.IdFaltante], "IdFaltante", "IdFaltante", 0);
             Util.SetColumn(c[(int)FaltanteView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)FaltanteView.GridColumn.Fecha], "Fecha", "Fecha", 2);
-            //Estado (texto)
+            Util.SetColumn(c[(int)FaltanteView.GridColumn.EstadoFaltante], "EstadoFaltante", "Estado", 3);
+
             dgv.Columns.AddRange(c);
 
 
@@ -123,7 +119,6 @@ namespace Heimdall
 
                 FaltanteControlador.Update(model);
 
-                // pasar o mantener _modo Edicion
                 _modo = ModoFormulario.Edicion;
 
                 //********************
@@ -132,12 +127,7 @@ namespace Heimdall
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
 
                 /*
-            Util.SetColumn(c[(int)FaltanteView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
-            Util.SetColumn(c[(int)FaltanteView.GridColumn.Fecha], "Fecha", "Fecha", 2);
             //Estado (texto)
-            //Prioridad (texto)
-            //Clase
-            //Dificultad (texto, no mostrar) 
                  */
                 //********************
 
@@ -164,7 +154,7 @@ namespace Heimdall
 
             var m = new Faltante { IdFaltante = Convert.ToInt64(ucFaltanteEdit1.IdFaltante) };
 
-            var result = FaltanteControlador.Delete(m);
+            FaltanteControlador.Delete(m);
 
             // Remover visualmente el registro del producto.
             dgv.Rows.Remove(dgv.Rows[_rowIndex]);

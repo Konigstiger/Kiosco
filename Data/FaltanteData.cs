@@ -24,6 +24,7 @@ namespace Data
                             p.IdProducto = rdr["IdProducto"] != DBNull.Value ? (long)rdr["IdProducto"] : (long?)null;
                             p.Cantidad = (int)rdr["Cantidad"];
                             p.IdEstadoFaltante = (int)rdr["IdEstadoFaltante"];
+                            p.EstadoFaltante = rdr["Estado"] != DBNull.Value ? (string)rdr["Estado"] : string.Empty;
                             p.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             p.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]

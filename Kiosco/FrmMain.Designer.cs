@@ -48,6 +48,7 @@ namespace Heimdall
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnTurno = new System.Windows.Forms.Button();
             this.btnTareas = new System.Windows.Forms.Button();
+            this.btnFaltante = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVenta
@@ -284,11 +285,25 @@ namespace Heimdall
             this.btnTareas.Text = "Tareas";
             this.btnTareas.Click += new System.EventHandler(this.btnTareas_Click);
             // 
+            // btnFaltante
+            // 
+            this.btnFaltante.Enabled = false;
+            this.btnFaltante.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnFaltante.Image = ((System.Drawing.Image)(resources.GetObject("btnFaltante.Image")));
+            this.btnFaltante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFaltante.Location = new System.Drawing.Point(12, 367);
+            this.btnFaltante.Name = "btnFaltante";
+            this.btnFaltante.Size = new System.Drawing.Size(292, 58);
+            this.btnFaltante.TabIndex = 30;
+            this.btnFaltante.Text = "Faltantes de Mercadería";
+            this.btnFaltante.Click += new System.EventHandler(this.btnFaltante_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 1053);
+            this.Controls.Add(this.btnFaltante);
             this.Controls.Add(this.btnTareas);
             this.Controls.Add(this.btnTurno);
             this.Controls.Add(this.btnUsuarios);
@@ -336,5 +351,6 @@ namespace Heimdall
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnTurno;
         private System.Windows.Forms.Button btnTareas;
+        private System.Windows.Forms.Button btnFaltante;
     }
 }

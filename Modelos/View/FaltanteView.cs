@@ -30,7 +30,8 @@ namespace Model.View
             IdFaltante = 0,
             Descripcion = 1,
             Fecha = 2,
-            Notas = 3
+            EstadoFaltante = 3,
+            Notas = 4
         }
 
 

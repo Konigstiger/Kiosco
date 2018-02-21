@@ -145,5 +145,11 @@ namespace Heimdall
             var f = new FrmTarea();
             f.Show();
         }
+
+        private void btnFaltante_Click(object sender, EventArgs e)
+        {
+            var f = new FrmFaltante();
+            f.Show();
+        }
     }
 }
