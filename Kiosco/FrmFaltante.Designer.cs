@@ -74,6 +74,7 @@
             this.ucFaltanteEdit1.Fecha = new System.DateTime(2018, 2, 20, 23, 12, 16, 816);
             this.ucFaltanteEdit1.FechaResuelto = new System.DateTime(2018, 2, 20, 23, 12, 16, 809);
             this.ucFaltanteEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ucFaltanteEdit1.IdClaseFaltante = 0;
             this.ucFaltanteEdit1.IdEstadoFaltante = 0;
             this.ucFaltanteEdit1.IdFaltante = ((long)(0));
             this.ucFaltanteEdit1.IdProducto = ((long)(0));

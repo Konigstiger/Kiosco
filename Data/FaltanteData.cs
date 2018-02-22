@@ -24,6 +24,7 @@ namespace Data
                             p.IdProducto = rdr["IdProducto"] != DBNull.Value ? (long)rdr["IdProducto"] : (long?)null;
                             p.Cantidad = (int)rdr["Cantidad"];
                             p.IdEstadoFaltante = (int)rdr["IdEstadoFaltante"];
+                            p.IdClaseFaltante = (int)rdr["IdClaseFaltante"];
                             p.EstadoFaltante = rdr["Estado"] != DBNull.Value ? (string)rdr["Estado"] : string.Empty;
                             p.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             p.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
@@ -56,10 +57,11 @@ namespace Data
                     var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto > 0 && m.IdProducto!=null ? (object)m.IdProducto : DBNull.Value };
                     var p3 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = m.Cantidad };
                     var p4 = new SqlParameter("IdEstadoFaltante", SqlDbType.Int) { Value = m.IdEstadoFaltante };
-                    var p5 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
-                    var p6 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
-                    var p7 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p5 = new SqlParameter("IdClaseFaltante", SqlDbType.Int) { Value = m.IdClaseFaltante };
+                    var p6 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
+                    var p7 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
+                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -69,6 +71,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     m.IdFaltante = (long)cmd.ExecuteScalar();
@@ -96,6 +99,7 @@ namespace Data
                             model.IdProducto = rdr["IdProducto"] != DBNull.Value ? (long)rdr["IdProducto"] : (long?)null;
                             model.Cantidad = (int)rdr["Cantidad"];
                             model.IdEstadoFaltante = (int)rdr["IdEstadoFaltante"];
+                            model.IdClaseFaltante = (int)rdr["IdClaseFaltante"];
                             model.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             model.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]
@@ -128,6 +132,7 @@ namespace Data
                             model.IdProducto = rdr["IdProducto"] != DBNull.Value ? (long)rdr["IdProducto"] : (long?)null;
                             model.Cantidad = (int)rdr["Cantidad"];
                             model.IdEstadoFaltante = (int)rdr["IdEstadoFaltante"];
+                            model.IdClaseFaltante = (int)rdr["IdClaseFaltante"];
                             model.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
                             model.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]
@@ -172,10 +177,11 @@ namespace Data
                     var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto > 0 && m.IdProducto != null ? (object)m.IdProducto : DBNull.Value };
                     var p3 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = m.Cantidad };
                     var p4 = new SqlParameter("IdEstadoFaltante", SqlDbType.Int) { Value = m.IdEstadoFaltante };
-                    var p5 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
-                    var p6 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
-                    var p7 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p8 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p5 = new SqlParameter("IdClaseFaltante", SqlDbType.Int) { Value = m.IdClaseFaltante };
+                    var p6 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
+                    var p7 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
+                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
 
                     cmd.Parameters.Add(p0);
@@ -187,6 +193,7 @@ namespace Data
                     cmd.Parameters.Add(p6);
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
+                    cmd.Parameters.Add(p9);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

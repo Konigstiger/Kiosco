@@ -36,8 +36,10 @@ namespace Heimdall.UserControl
             var model = new Faltante {
                 IdFaltante = IdFaltante,
                 Descripcion = Descripcion,
+                Cantidad = Cantidad,
                 IdProducto = IdProducto==-1 ? (long?) null: IdProducto,
                 IdEstadoFaltante = IdEstadoFaltante,
+                IdClaseFaltante = IdClaseFaltante,
                 Fecha = Fecha,
                 FechaResuelto = FechaResuelto,
                 Archivado = Archivado,
@@ -81,7 +83,7 @@ namespace Heimdall.UserControl
             set {
                 txtIdProducto.Text = value.ToString();
                 var p = ProductoControlador.GetByPrimaryKey(value);
-                txtDescripcion.Text = p.Descripcion;
+                if (p.Descripcion != null) Descripcion = p.Descripcion;
             }
         }
 
@@ -184,8 +186,12 @@ namespace Heimdall.UserControl
                 int v = int.TryParse(cboClaseFaltante.SelectedValue?.ToString(), out v) ? v : 0;
                 return v;
             }
-            set { cboClaseFaltante.SelectedValue = value; }
+            set {
+                cboClaseFaltante.SelectedValue = value;
+                DefinirVisualizacionSegunClaseFaltante(value);
+            }
         }
+
 
 
         public void CargarFaltante(long idFaltante)
@@ -197,14 +203,22 @@ namespace Heimdall.UserControl
 
             //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
 
+
+            //Este orden de invocacion creo que es importante. Primero producto, y luego descripcion.
+            IdProducto = p.IdProducto ?? 0;
             Descripcion = p.Descripcion;
+
             Util.CheckDateNullable(p.Fecha, dtpFecha);
             Util.CheckDateNullable(p.FechaResuelto, dtpFechaResuelto);
             Archivado = p.Archivado ?? false;
-            IdProducto = p.IdProducto ?? 0;
+            
             IdEstadoFaltante = p.IdEstadoFaltante;
+            IdClaseFaltante = p.IdClaseFaltante;    //esto llama internamente a DefinirVis...
             Cantidad = p.Cantidad;
             Notas = p.Notas;
+
+            //mostrar segun el valor de IdClaseFaltante
+            //DefinirVisualizacionSegunClaseFaltante(IdClaseFaltante);
         }
 
         public void Clear()
@@ -253,16 +267,17 @@ namespace Heimdall.UserControl
         private void SetControles()
         {
             txtIdFaltante.Visible = false;
-            txtIdProducto.Visible = !false;
+            txtIdProducto.Visible = false;
             txtDescripcion.MaxLength = 100;
             txtNotas.MaxLength = 255;
-            nudCantidad.Maximum = 9999;
+            nudCantidad.Maximum = 999;
             nudCantidad.Minimum = 0;
             nudCantidad.Increment = 1;
             nudCantidad.DecimalPlaces = 0;
 
             //Util.SetNumericBounds(nudPrecio);
         }
+
 
         private void UcFaltanteEdit_Load(object sender, EventArgs e)
         {
@@ -284,50 +299,43 @@ namespace Heimdall.UserControl
             f.Show();
         }
 
-        private void txtDescripcion_TextChanged(object sender, EventArgs e)
-        {
-            //IdProducto = 0;
-        }
-
-        private void cboEstadoFaltante_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void cboClaseFaltante_SelectedValueChanged(object sender, EventArgs e)
         {
-            //txtDescripcion.Text = cboClaseFaltante.SelectedValue.ToString();
-            //txtDescripcion.Text = IdClaseFaltante.ToString();
+            DefinirVisualizacionSegunClaseFaltante(IdClaseFaltante);
+        }
 
-            switch (IdClaseFaltante)
-            {
+
+        private void DefinirVisualizacionSegunClaseFaltante(int idClaseFaltante)
+        {
+            //TODO: esto es sumamente refactorizable. No dejar deuda tecnica.
+            switch (idClaseFaltante) {
                 case 1:
                     //generico
+
                     btnAbmProducto.Visible = false;
                     btnSeleccionarProducto.Visible = false;
-                    txtDescripcion.Clear();
-                    txtDescripcion.ReadOnly = false;
+                    //txtDescripcion.ReadOnly = false;
                     //IdProducto = 0; // todo: deberia ser null.
-                    IdProducto = -1; // todo: deberia ser null.
+                    //IdProducto = -1; // todo: deberia ser null.
                     break;
 
                 case 2:
                     //producto especifico
                     btnAbmProducto.Visible = true;
                     btnSeleccionarProducto.Visible = true;
-                    IdProducto = -1;
-                    txtDescripcion.ReadOnly = true;
+                    //txtDescripcion.ReadOnly = true;
                     btnSeleccionarProducto.Focus();
-                    txtDescripcion.Clear();
+                    //IdProducto = -1;
 
                     break;
 
                 default:
                     break;
             }
-
-            //var p = ToModel();
-            
+            IdProducto = -1; // todo: deberia ser null.
         }
+
+
     }
 }

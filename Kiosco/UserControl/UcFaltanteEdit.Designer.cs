@@ -59,7 +59,6 @@
             this.txtIdProducto.Size = new System.Drawing.Size(26, 27);
             this.txtIdProducto.TabIndex = 177;
             this.txtIdProducto.Text = "0";
-            this.txtIdProducto.Visible = false;
             // 
             // chkArchivado
             // 
@@ -135,7 +134,6 @@
             this.cboEstadoFaltante.Name = "cboEstadoFaltante";
             this.cboEstadoFaltante.Size = new System.Drawing.Size(162, 25);
             this.cboEstadoFaltante.TabIndex = 164;
-            this.cboEstadoFaltante.SelectedValueChanged += new System.EventHandler(this.cboEstadoFaltante_SelectedValueChanged);
             // 
             // txtNotas
             // 
@@ -184,7 +182,6 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(324, 27);
             this.txtDescripcion.TabIndex = 155;
-            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // label2
             // 

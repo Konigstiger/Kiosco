@@ -23,6 +23,8 @@ namespace Model
 
         public string Notas { get; set; }
 
+        public int IdClaseFaltante { get; set; }
+
 
         public bool Validate()
         {

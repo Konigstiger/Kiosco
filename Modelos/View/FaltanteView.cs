@@ -22,6 +22,8 @@ namespace Model.View
 
         public bool? Archivado { get; set; }
 
+        public int IdClaseFaltante { get; set; }
+
         public string Notas { get; set; }
 
 
