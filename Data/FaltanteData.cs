@@ -47,9 +47,13 @@ namespace Data
                 using (var cmd = new SqlCommand("Faltante_Insert", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    //TODO: Esto aqui abajo es ideal para parametrizar en una funcion utilitaria.
+                    //Value = m.IdProducto > 0 && m.IdProducto != null ? (object)m.IdProducto : DBNull.Value
+
                     //var p0 = new SqlParameter("IdFaltante", SqlDbType.BigInt) { Value = m.IdFaltante };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
-                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
+                    //var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = (long?)(condicion ? DBNull.Value : (object)m.IdProducto) };
+                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto > 0 && m.IdProducto!=null ? (object)m.IdProducto : DBNull.Value };
                     var p3 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = m.Cantidad };
                     var p4 = new SqlParameter("IdEstadoFaltante", SqlDbType.Int) { Value = m.IdEstadoFaltante };
                     var p5 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
@@ -164,7 +168,8 @@ namespace Data
 
                     var p0 = new SqlParameter("IdFaltante", SqlDbType.BigInt) { Value = m.IdFaltante };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
-                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
+                    //var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto };
+                    var p2 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = m.IdProducto > 0 && m.IdProducto != null ? (object)m.IdProducto : DBNull.Value };
                     var p3 = new SqlParameter("Cantidad", SqlDbType.Int) { Value = m.Cantidad };
                     var p4 = new SqlParameter("IdEstadoFaltante", SqlDbType.Int) { Value = m.IdEstadoFaltante };
                     var p5 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };

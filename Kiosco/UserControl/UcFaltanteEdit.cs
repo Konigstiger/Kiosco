@@ -36,7 +36,7 @@ namespace Heimdall.UserControl
             var model = new Faltante {
                 IdFaltante = IdFaltante,
                 Descripcion = Descripcion,
-                IdProducto = IdProducto,
+                IdProducto = IdProducto==-1 ? (long?) null: IdProducto,
                 IdEstadoFaltante = IdEstadoFaltante,
                 Fecha = Fecha,
                 FechaResuelto = FechaResuelto,
@@ -82,10 +82,6 @@ namespace Heimdall.UserControl
                 txtIdProducto.Text = value.ToString();
                 var p = ProductoControlador.GetByPrimaryKey(value);
                 txtDescripcion.Text = p.Descripcion;
-               // txtDescripcion.Enabled = false;
-
-                //todo: ver de levantar el estado enabled = false de este control.
-
             }
         }
 
@@ -177,6 +173,20 @@ namespace Heimdall.UserControl
         }
 
 
+        [Description("IdClaseFaltante."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdClaseFaltante
+        {
+            get {
+                int v = int.TryParse(cboClaseFaltante.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboClaseFaltante.SelectedValue = value; }
+        }
+
 
         public void CargarFaltante(long idFaltante)
         {
@@ -211,6 +221,19 @@ namespace Heimdall.UserControl
         private void CargarControles()
         {
             CargarEstadoFaltante();
+            CargarClaseFaltante();
+        }
+
+        private void CargarClaseFaltante()
+        {
+            if (DesignMode)
+                return;
+
+            cboClaseFaltante.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = ClaseFaltanteControlador.GetAll();
+            cboClaseFaltante.DataSource = list;
+            cboClaseFaltante.ValueMember = "IdClaseFaltante";
+            cboClaseFaltante.DisplayMember = "Descripcion";
         }
 
 
@@ -264,6 +287,47 @@ namespace Heimdall.UserControl
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
             //IdProducto = 0;
+        }
+
+        private void cboEstadoFaltante_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboClaseFaltante_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //txtDescripcion.Text = cboClaseFaltante.SelectedValue.ToString();
+            //txtDescripcion.Text = IdClaseFaltante.ToString();
+
+            switch (IdClaseFaltante)
+            {
+                case 1:
+                    //generico
+                    btnAbmProducto.Visible = false;
+                    btnSeleccionarProducto.Visible = false;
+                    txtDescripcion.Clear();
+                    txtDescripcion.ReadOnly = false;
+                    //IdProducto = 0; // todo: deberia ser null.
+                    IdProducto = -1; // todo: deberia ser null.
+                    break;
+
+                case 2:
+                    //producto especifico
+                    btnAbmProducto.Visible = true;
+                    btnSeleccionarProducto.Visible = true;
+                    IdProducto = -1;
+                    txtDescripcion.ReadOnly = true;
+                    btnSeleccionarProducto.Focus();
+                    txtDescripcion.Clear();
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            //var p = ToModel();
+            
         }
     }
 }

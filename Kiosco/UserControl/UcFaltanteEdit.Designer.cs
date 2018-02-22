@@ -45,6 +45,8 @@
             this.txtIdFaltante = new System.Windows.Forms.TextBox();
             this.btnAbmProducto = new System.Windows.Forms.Button();
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboClaseFaltante = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +119,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(531, 17);
+            this.label3.Location = new System.Drawing.Point(531, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
             this.label3.TabIndex = 165;
@@ -128,11 +130,12 @@
             this.cboEstadoFaltante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoFaltante.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboEstadoFaltante.FormattingEnabled = true;
-            this.cboEstadoFaltante.Location = new System.Drawing.Point(590, 14);
+            this.cboEstadoFaltante.Location = new System.Drawing.Point(590, 49);
             this.cboEstadoFaltante.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboEstadoFaltante.Name = "cboEstadoFaltante";
             this.cboEstadoFaltante.Size = new System.Drawing.Size(162, 25);
             this.cboEstadoFaltante.TabIndex = 164;
+            this.cboEstadoFaltante.SelectedValueChanged += new System.EventHandler(this.cboEstadoFaltante_SelectedValueChanged);
             // 
             // txtNotas
             // 
@@ -228,10 +231,34 @@
             this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
             this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label5.Location = new System.Drawing.Point(540, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 19);
+            this.label5.TabIndex = 181;
+            this.label5.Text = "Clase:";
+            // 
+            // cboClaseFaltante
+            // 
+            this.cboClaseFaltante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboClaseFaltante.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboClaseFaltante.FormattingEnabled = true;
+            this.cboClaseFaltante.Location = new System.Drawing.Point(590, 13);
+            this.cboClaseFaltante.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboClaseFaltante.Name = "cboClaseFaltante";
+            this.cboClaseFaltante.Size = new System.Drawing.Size(162, 25);
+            this.cboClaseFaltante.TabIndex = 180;
+            this.cboClaseFaltante.SelectedValueChanged += new System.EventHandler(this.cboClaseFaltante_SelectedValueChanged);
+            // 
             // UcFaltanteEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cboClaseFaltante);
             this.Controls.Add(this.btnAbmProducto);
             this.Controls.Add(this.btnSeleccionarProducto);
             this.Controls.Add(this.txtIdProducto);
@@ -278,5 +305,7 @@
         private System.Windows.Forms.TextBox txtIdFaltante;
         private System.Windows.Forms.Button btnAbmProducto;
         private System.Windows.Forms.Button btnSeleccionarProducto;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboClaseFaltante;
     }
 }
