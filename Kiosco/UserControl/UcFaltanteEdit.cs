@@ -151,6 +151,23 @@ namespace Heimdall.UserControl
         }
 
 
+        [Description("EstadoFaltante."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string EstadoFaltante => cboEstadoFaltante.Text.Trim();
+
+
+        [Description("ClaseFaltante."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string ClaseFaltante => cboClaseFaltante.Text.Trim();
+
+
+
         [Description("Cantidad."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]

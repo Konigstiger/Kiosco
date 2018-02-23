@@ -65,6 +65,17 @@ namespace Heimdall
         }
 
 
+        public static void CenterFormX2(Control ctrl, Form form)
+        {
+            ctrl.Left = (form.ClientSize.Width - ctrl.Width) / 4;
+        }
+
+        public static void CenterFormX4(Control ctrl, Form form)
+        {
+            ctrl.Left = (form.ClientSize.Width - ctrl.Width) / 4 * 3;
+        }
+
+
         public static void SetNumericBounds(NumericUpDown nud)
         {
             nud.Minimum = 0;

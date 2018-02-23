@@ -18,7 +18,7 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private readonly int _colCount = 5;
+        private readonly int _colCount = 4;
 
         private List<FaltanteView> origenDatos = null;
 
@@ -126,10 +126,8 @@ namespace Heimdall
                 //TODO: Revisar esto!
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Descripcion].Value = model.Descripcion;
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
+                dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = ucFaltanteEdit1.EstadoFaltante;
 
-                /*
-            //Estado (texto)
-                 */
                 //********************
 
                 //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -141,6 +139,7 @@ namespace Heimdall
             //********************
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Descripcion].Value = model.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
+            //dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = model.EstadoFaltante;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -214,5 +213,9 @@ namespace Heimdall
             BotonNuevo();
         }
 
+        private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //?? revisar esto bien.
+        }
     }
 }

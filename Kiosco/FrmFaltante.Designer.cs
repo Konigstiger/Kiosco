@@ -63,6 +63,7 @@
             this.dgv.TabIndex = 27;
             this.dgv.TabStop = false;
             this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
+            this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucFaltanteEdit1

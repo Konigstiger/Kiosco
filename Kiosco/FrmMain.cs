@@ -32,33 +32,42 @@ namespace Heimdall
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            Util.CenterFormX(btnAbmMarca, this);
-            Util.CenterFormX(btnAbmProducto, this);
-            Util.CenterFormX(btnConsultaProducto, this);
-            Util.CenterFormX(btnAbmProveedor, this);
-            Util.CenterFormX(btnSalir, this);
-            Util.CenterFormX(btnPedido, this);
-            Util.CenterFormX(btnEstadisticas, this);
-            Util.CenterFormX(btnRecaudacion, this);
-            Util.CenterFormX(btnProductoProveedor, this);
-            Util.CenterFormX(btnVenta, this);
-            Util.CenterFormX(btnVentas, this);
-            Util.CenterFormX(btnCerrarSesion, this);
-            Util.CenterFormX(btnUsuarios, this);
-            Util.CenterFormX(btnTurno, this);
-            Util.CenterFormX(btnTareas, this);
+            Util.CenterFormX(labTitulo, this);
 
-            //Util.CenterFormX(btnOpciones, this);
+            Util.CenterFormX2(btnConsultaProducto, this);
+            Util.CenterFormX2(btnAbmProducto, this);
+            Util.CenterFormX2(btnPedido, this);
+            Util.CenterFormX2(btnTareas, this);
+            Util.CenterFormX2(btnFaltante, this);
+            Util.CenterFormX2(btnAbmProveedor, this);
+            Util.CenterFormX2(btnAbmMarca, this);
+            Util.CenterFormX2(btnCerrarSesion, this);
+
+            Util.CenterFormX4(btnVentaRegistro, this);
+            Util.CenterFormX4(btnVentasReporte, this);
+            Util.CenterFormX4(btnEstadisticas, this);
+            Util.CenterFormX4(btnRecaudacion, this);
+            Util.CenterFormX4(btnTurno, this);
+            Util.CenterFormX4(btnUsuarios, this);
+            Util.CenterFormX4(btnProductoProveedor, this);
+            Util.CenterFormX4(btnOpciones, this);
+
+            Util.CenterFormX(btnSalir, this);
+
 
             //TODO: Ver si ademas de estar deshabilitado se puede hacer que sea invisible.
+            //Esto es recodificable de varias formas distintas.
+            //TODO: Estas cosas deben estar definidas en base de datos o xml, no en codigo compilado.
             if (Program.UsuarioConectado.EsAdmin == false)
             {
-                btnAbmProveedor.Enabled = false;
+                //btnAbmProveedor.Enabled = false;
+                btnVentasReporte.Enabled = false;
                 btnProductoProveedor.Enabled = false;
                 btnEstadisticas.Enabled = false;
                 btnRecaudacion.Enabled = false;
                 btnTurno.Enabled = false;
                 btnUsuarios.Enabled = false;
+                btnOpciones.Enabled = false;
                 //...
             }
 
@@ -150,6 +159,12 @@ namespace Heimdall
         {
             var f = new FrmFaltante();
             f.Show();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            //TODO: Esto deberia llevar al login y no cerrar todo. Pero bueno.
+            Application.Exit();
         }
     }
 }
