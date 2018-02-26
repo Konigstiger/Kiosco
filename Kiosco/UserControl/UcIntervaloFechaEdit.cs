@@ -17,12 +17,12 @@ namespace Heimdall.UserControl
 
         private void btnFiltrar_MouseLeave(object sender, EventArgs e)
         {
-            btnFiltrar.Image = Properties.Resources.filter;
+            //btnFiltrar.Image = Properties.Resources.filter;
         }
 
         private void btnFiltrar_MouseEnter(object sender, EventArgs e)
         {
-            btnFiltrar.Image = Properties.Resources.filter_hot;
+            //btnFiltrar.Image = Properties.Resources.filter_hot;
         }
 
 

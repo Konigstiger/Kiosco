@@ -227,6 +227,10 @@ namespace Heimdall.UserControl
 
             Util.CheckDateNullable(p.Fecha, dtpFecha);
             Util.CheckDateNullable(p.FechaResuelto, dtpFechaResuelto);
+
+            if (dtpFechaResuelto.Checked == false)
+                p.FechaResuelto = null;
+
             Archivado = p.Archivado ?? false;
             
             IdEstadoFaltante = p.IdEstadoFaltante;
