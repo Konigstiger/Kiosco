@@ -139,7 +139,7 @@ namespace Heimdall
             //********************
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Descripcion].Value = model.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
-            //dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = model.EstadoFaltante;
+            dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = ucFaltanteEdit1.EstadoFaltante;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
