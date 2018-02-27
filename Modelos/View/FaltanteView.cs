@@ -15,10 +15,13 @@ namespace Model.View
         public int IdEstadoFaltante { get; set; }
 
         public string EstadoFaltante { get; set; }
+        public string Prioridad { get; set; }
 
         public DateTime Fecha { get; set; }
 
         public DateTime? FechaResuelto { get; set; }
+
+        public int IdPrioridad { get; set; }
 
         public bool? Archivado { get; set; }
 
@@ -26,14 +29,14 @@ namespace Model.View
 
         public string Notas { get; set; }
 
-
+        //Solo usar estas columnas para campos a mostrar en grillas. Ver bien esto.
         public enum GridColumn
         {
             IdFaltante = 0,
             Descripcion = 1,
             Fecha = 2,
             EstadoFaltante = 3,
-            Notas = 4
+            Prioridad = 4,
         }
 
 

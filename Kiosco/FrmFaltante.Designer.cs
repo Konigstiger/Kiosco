@@ -28,24 +28,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFaltante));
-            this.ucAbmToolBar1 = new Heimdall.UserControl.UcAbmToolBar();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.ucFaltanteEdit1 = new Heimdall.UserControl.UcFaltanteEdit();
+            this.ucAbmToolBar1 = new Heimdall.UserControl.UcAbmToolBar();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ucAbmToolBar1
-            // 
-            this.ucAbmToolBar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucAbmToolBar1.Location = new System.Drawing.Point(5, 1);
-            this.ucAbmToolBar1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.ucAbmToolBar1.Name = "ucAbmToolBar1";
-            this.ucAbmToolBar1.SearchText = "";
-            this.ucAbmToolBar1.Size = new System.Drawing.Size(997, 33);
-            this.ucAbmToolBar1.TabIndex = 28;
-            this.ucAbmToolBar1.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar1_ButtonClickNew);
-            this.ucAbmToolBar1.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar1_ButtonClickUpdate);
-            this.ucAbmToolBar1.ButtonClickDelete += new System.EventHandler(this.ucAbmToolBar1_ButtonClickDelete);
             // 
             // dgv
             // 
@@ -78,6 +65,7 @@
             this.ucFaltanteEdit1.IdClaseFaltante = 0;
             this.ucFaltanteEdit1.IdEstadoFaltante = 0;
             this.ucFaltanteEdit1.IdFaltante = ((long)(0));
+            this.ucFaltanteEdit1.IdPrioridad = 0;
             this.ucFaltanteEdit1.IdProducto = ((long)(0));
             this.ucFaltanteEdit1.Location = new System.Drawing.Point(4, 502);
             this.ucFaltanteEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -85,6 +73,21 @@
             this.ucFaltanteEdit1.Notas = "";
             this.ucFaltanteEdit1.Size = new System.Drawing.Size(998, 146);
             this.ucFaltanteEdit1.TabIndex = 29;
+            // 
+            // ucAbmToolBar1
+            // 
+            this.ucAbmToolBar1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ucAbmToolBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucAbmToolBar1.Location = new System.Drawing.Point(0, 0);
+            this.ucAbmToolBar1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ucAbmToolBar1.Name = "ucAbmToolBar1";
+            this.ucAbmToolBar1.SearchText = "";
+            this.ucAbmToolBar1.Size = new System.Drawing.Size(1008, 33);
+            this.ucAbmToolBar1.TabIndex = 28;
+            this.ucAbmToolBar1.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar1_ButtonClickNew);
+            this.ucAbmToolBar1.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar1_ButtonClickUpdate);
+            this.ucAbmToolBar1.ButtonClickDelete += new System.EventHandler(this.ucAbmToolBar1_ButtonClickDelete);
+            this.ucAbmToolBar1.ButtonClickExecuteSearch += new System.EventHandler(this.ucAbmToolBar1_ButtonClickExecuteSearch);
             // 
             // FrmFaltante
             // 
@@ -101,6 +104,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Faltantes  de Mercadería";
             this.Load += new System.EventHandler(this.FrmFaltante_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFaltante_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 

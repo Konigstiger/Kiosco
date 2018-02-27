@@ -24,6 +24,7 @@ namespace Heimdall
         public FrmProducto()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void frmProducto_Load(object sender, EventArgs e)

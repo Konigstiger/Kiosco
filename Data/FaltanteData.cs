@@ -30,6 +30,8 @@ namespace Data
                             p.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]
                                 : (DateTime?)null;
+                            p.IdPrioridad = (int)rdr["IdPrioridad"];
+                            p.Prioridad = (string)rdr["Prioridad"];
                             p.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
                             p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty;
 
@@ -41,6 +43,47 @@ namespace Data
             return list;
         }
 
+
+        public static List<FaltanteView> GetAll_GetByDescripcion(string descripcion)
+        {
+            var list = new List<FaltanteView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Faltante_GetByDescripcion", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
+
+                    cmd.Parameters.Add(p1);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new FaltanteView();
+                            p.IdFaltante = (long)rdr["IdFaltante"];
+                            p.Descripcion = (string)rdr["Descripcion"];
+                            p.IdProducto = rdr["IdProducto"] != DBNull.Value ? (long)rdr["IdProducto"] : (long?)null;
+                            p.Cantidad = (int)rdr["Cantidad"];
+                            p.IdEstadoFaltante = (int)rdr["IdEstadoFaltante"];
+                            p.IdClaseFaltante = (int)rdr["IdClaseFaltante"];
+                            p.EstadoFaltante = rdr["Estado"] != DBNull.Value ? (string)rdr["Estado"] : string.Empty;
+                            p.Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today;
+                            p.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
+                                ? (DateTime)rdr["FechaResuelto"]
+                                : (DateTime?)null;
+                            p.IdPrioridad = (int)rdr["IdPrioridad"];
+                            p.Prioridad = (string)rdr["Prioridad"];
+                            p.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
+                            p.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty;
+
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
 
         public static long Insert(Faltante m)
         {
@@ -60,8 +103,9 @@ namespace Data
                     var p5 = new SqlParameter("IdClaseFaltante", SqlDbType.Int) { Value = m.IdClaseFaltante };
                     var p6 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
                     var p7 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
-                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p8 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
+                    var p9 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -72,6 +116,7 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
+                    cmd.Parameters.Add(p10);
 
                     conn.Open();
                     m.IdFaltante = (long)cmd.ExecuteScalar();
@@ -104,6 +149,7 @@ namespace Data
                             model.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]
                                 : (DateTime?)null;
+                            model.IdPrioridad = (int)rdr["IdPrioridad"];
                             model.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
                             model.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty;
                         }
@@ -137,6 +183,7 @@ namespace Data
                             model.FechaResuelto = rdr["FechaResuelto"] != DBNull.Value
                                 ? (DateTime)rdr["FechaResuelto"]
                                 : (DateTime?)null;
+                            model.IdPrioridad = (int)rdr["IdPrioridad"];
                             model.Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false;
                             model.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty;
                         }
@@ -180,8 +227,9 @@ namespace Data
                     var p5 = new SqlParameter("IdClaseFaltante", SqlDbType.Int) { Value = m.IdClaseFaltante };
                     var p6 = new SqlParameter("Fecha", SqlDbType.DateTime) { Value = m.Fecha };
                     var p7 = new SqlParameter("FechaResuelto", SqlDbType.DateTime) { Value = m.FechaResuelto };
-                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p8 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
+                    var p9 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
 
                     cmd.Parameters.Add(p0);
@@ -194,6 +242,7 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
+                    cmd.Parameters.Add(p10);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

@@ -42,6 +42,11 @@ namespace Controlador
         {
             return FaltanteData.GetByPrimaryKeyView(idFaltante);
         }
+
+        public static List<FaltanteView> GetAll_GetByDescripcion(string searchText)
+        {
+            return FaltanteData.GetAll_GetByDescripcion(searchText);
+        }
     }
 }
 

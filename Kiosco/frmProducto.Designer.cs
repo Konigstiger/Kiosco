@@ -263,6 +263,7 @@ namespace Heimdall
             this.ucAbmToolBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAbmToolBar2.Location = new System.Drawing.Point(847, 637);
             this.ucAbmToolBar2.Name = "ucAbmToolBar2";
+            this.ucAbmToolBar2.SearchText = "";
             this.ucAbmToolBar2.Size = new System.Drawing.Size(803, 32);
             this.ucAbmToolBar2.TabIndex = 95;
             this.ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
@@ -282,7 +283,6 @@ namespace Heimdall
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.KeyPreview = true;
             this.Name = "FrmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";

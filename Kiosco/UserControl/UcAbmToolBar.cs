@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Heimdall.UserControl
 {
@@ -9,9 +10,10 @@ namespace Heimdall.UserControl
         {
             InitializeComponent();
             tsb.ImageList = imageList1;
-            tsb.Items[0].ImageIndex = 0;
-            tsb.Items[1].ImageIndex = 1;
-            tsb.Items[2].ImageIndex = 2;
+            tsb.Items[0].ImageKey = @"add";
+            tsb.Items[1].ImageKey = @"save";
+            tsb.Items[2].ImageKey = @"delete";
+            tsb.Items[4].ImageKey = @"search";
 
 
         }
@@ -21,17 +23,17 @@ namespace Heimdall.UserControl
         public event EventHandler ButtonClickDelete;
         public event EventHandler ButtonClickArchivo;
 
+        public event EventHandler ButtonClickExecuteSearch;
+
         private void tsbNew_Click(object sender, EventArgs e)
         {
             this.ButtonClickNew?.Invoke(this, e);
         }
 
-
         private void tsbSave_Click(object sender, EventArgs e)
         {
             this.ButtonClickUpdate?.Invoke(this, e);
         }
-
 
         private void tsbDelete_Click(object sender, EventArgs e)
         {
@@ -41,6 +43,11 @@ namespace Heimdall.UserControl
         private void tsbVerArchivo_Click(object sender, EventArgs e)
         {
             this.ButtonClickArchivo?.Invoke(this, e);
+        }
+
+        private void tsbSearchPerform_Click(object sender, EventArgs e)
+        {
+            this.ButtonClickExecuteSearch?.Invoke(this, e);
         }
 
 
@@ -61,7 +68,7 @@ namespace Heimdall.UserControl
         }
 
 
-        private void ToggleSearch()
+        public void ToggleSearch()
         {
             tsbSearchTextBox.Visible = !tsbSearchTextBox.Visible;
             tsbSearchPerform.Visible = !tsbSearchPerform.Visible;
@@ -69,7 +76,12 @@ namespace Heimdall.UserControl
             tsbSearchTextBox.Focus();
         }
 
-
-
+        private void tsbSearchTextBox_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == (Keys.Enter)) {
+                this.ButtonClickExecuteSearch?.Invoke(this, e);
+            }
+            tsbSearchTextBox.Focus();
+        }
     }
 }

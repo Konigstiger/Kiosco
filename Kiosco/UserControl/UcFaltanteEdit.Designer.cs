@@ -47,6 +47,8 @@
             this.btnSeleccionarProducto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboClaseFaltante = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cboPrioridad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // chkArchivado
             // 
             this.chkArchivado.AutoSize = true;
-            this.chkArchivado.Location = new System.Drawing.Point(590, 107);
+            this.chkArchivado.Location = new System.Drawing.Point(590, 114);
             this.chkArchivado.Name = "chkArchivado";
             this.chkArchivado.Size = new System.Drawing.Size(101, 23);
             this.chkArchivado.TabIndex = 176;
@@ -132,7 +134,7 @@
             this.cboEstadoFaltante.Location = new System.Drawing.Point(590, 49);
             this.cboEstadoFaltante.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboEstadoFaltante.Name = "cboEstadoFaltante";
-            this.cboEstadoFaltante.Size = new System.Drawing.Size(162, 25);
+            this.cboEstadoFaltante.Size = new System.Drawing.Size(166, 25);
             this.cboEstadoFaltante.TabIndex = 164;
             // 
             // txtNotas
@@ -246,14 +248,37 @@
             this.cboClaseFaltante.Location = new System.Drawing.Point(590, 13);
             this.cboClaseFaltante.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboClaseFaltante.Name = "cboClaseFaltante";
-            this.cboClaseFaltante.Size = new System.Drawing.Size(162, 25);
+            this.cboClaseFaltante.Size = new System.Drawing.Size(166, 25);
             this.cboClaseFaltante.TabIndex = 180;
             this.cboClaseFaltante.SelectedValueChanged += new System.EventHandler(this.cboClaseFaltante_SelectedValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label6.Location = new System.Drawing.Point(517, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 19);
+            this.label6.TabIndex = 183;
+            this.label6.Text = "Prioridad:";
+            // 
+            // cboPrioridad
+            // 
+            this.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrioridad.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboPrioridad.FormattingEnabled = true;
+            this.cboPrioridad.Location = new System.Drawing.Point(590, 82);
+            this.cboPrioridad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cboPrioridad.Name = "cboPrioridad";
+            this.cboPrioridad.Size = new System.Drawing.Size(166, 25);
+            this.cboPrioridad.TabIndex = 182;
             // 
             // UcFaltanteEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cboPrioridad);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboClaseFaltante);
             this.Controls.Add(this.btnAbmProducto);
@@ -304,5 +329,7 @@
         private System.Windows.Forms.Button btnSeleccionarProducto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboClaseFaltante;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboPrioridad;
     }
 }

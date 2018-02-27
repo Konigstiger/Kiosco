@@ -19,6 +19,8 @@ namespace Model
 
         public DateTime? FechaResuelto { get; set; }
 
+        public int IdPrioridad { get; set; }
+
         public bool? Archivado { get; set; }
 
         public string Notas { get; set; }

@@ -42,6 +42,7 @@ namespace Heimdall.UserControl
                 IdClaseFaltante = IdClaseFaltante,
                 Fecha = Fecha,
                 FechaResuelto = FechaResuelto,
+                IdPrioridad = IdPrioridad,
                 Archivado = Archivado,
                 Notas = Notas
             };
@@ -210,6 +211,29 @@ namespace Heimdall.UserControl
         }
 
 
+        [Description("IdPrioridad. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public int IdPrioridad
+        {
+            get {
+                int v = int.TryParse(cboPrioridad.SelectedValue?.ToString(), out v) ? v : 0;
+                return v;
+            }
+            set { cboPrioridad.SelectedValue = value; }
+        }
+
+
+        [Description("Prioridad."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Prioridad => cboPrioridad.Text.Trim();
+
+
 
         public void CargarFaltante(long idFaltante)
         {
@@ -236,6 +260,7 @@ namespace Heimdall.UserControl
             IdEstadoFaltante = p.IdEstadoFaltante;
             IdClaseFaltante = p.IdClaseFaltante;    //esto llama internamente a DefinirVis...
             Cantidad = p.Cantidad;
+            IdPrioridad = p.IdPrioridad;
             Notas = p.Notas;
 
             //mostrar segun el valor de IdClaseFaltante
@@ -257,6 +282,18 @@ namespace Heimdall.UserControl
         {
             CargarEstadoFaltante();
             CargarClaseFaltante();
+            CargarPrioridad();
+        }
+
+        private void CargarPrioridad()
+        {
+            if (DesignMode)
+                return;
+            cboPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
+                var list = PrioridadControlador.GetAll();
+                cboPrioridad.DataSource = list;
+                cboPrioridad.ValueMember = "IdPrioridad";
+                cboPrioridad.DisplayMember = "Descripcion";
         }
 
         private void CargarClaseFaltante()

@@ -38,13 +38,16 @@
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tsb.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsb
             // 
+            this.tsb.BackColor = System.Drawing.SystemColors.Control;
+            this.tsb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsb.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsb.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.tsb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNew,
@@ -58,9 +61,8 @@
             this.tsbVerArchivo});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(763, 31);
+            this.tsb.Size = new System.Drawing.Size(763, 32);
             this.tsb.TabIndex = 24;
-            this.tsb.Text = "toolStrip1";
             // 
             // tsbNew
             // 
@@ -75,7 +77,7 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(77, 28);
+            this.tsbSave.Size = new System.Drawing.Size(77, 29);
             this.tsbSave.Text = "Guardar";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -108,6 +110,7 @@
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
             this.tsbSearchTextBox.Size = new System.Drawing.Size(116, 31);
             this.tsbSearchTextBox.Visible = false;
+            this.tsbSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tsbSearchTextBox_KeyDown);
             // 
             // tsbSearchPerform
             // 
@@ -117,6 +120,7 @@
             this.tsbSearchPerform.Name = "tsbSearchPerform";
             this.tsbSearchPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchPerform.Visible = false;
+            this.tsbSearchPerform.Click += new System.EventHandler(this.tsbSearchPerform_Click);
             // 
             // tsbSearchClearAndPerform
             // 
@@ -126,14 +130,6 @@
             this.tsbSearchClearAndPerform.Name = "tsbSearchClearAndPerform";
             this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
             this.tsbSearchClearAndPerform.Visible = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add01.png");
-            this.imageList1.Images.SetKeyName(1, "Save01.png");
-            this.imageList1.Images.SetKeyName(2, "Delete01.png");
             // 
             // tsbVerArchivo
             // 
@@ -145,10 +141,21 @@
             this.tsbVerArchivo.Text = "Archivo";
             this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add");
+            this.imageList1.Images.SetKeyName(1, "save");
+            this.imageList1.Images.SetKeyName(2, "delete");
+            this.imageList1.Images.SetKeyName(3, "search");
+            this.imageList1.Images.SetKeyName(4, "refresh");
+            // 
             // UcAbmToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.tsb);
             this.Name = "UcAbmToolBar";
             this.Size = new System.Drawing.Size(763, 32);

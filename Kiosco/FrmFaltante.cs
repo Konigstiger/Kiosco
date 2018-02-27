@@ -13,12 +13,13 @@ namespace Heimdall
         public FrmFaltante()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private readonly int _colCount = 4;
+        private readonly int _colCount = 5;
 
         private List<FaltanteView> origenDatos = null;
 
@@ -59,20 +60,21 @@ namespace Heimdall
             Util.SetColumn(c[(int)FaltanteView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)FaltanteView.GridColumn.Fecha], "Fecha", "Fecha", 2);
             Util.SetColumn(c[(int)FaltanteView.GridColumn.EstadoFaltante], "EstadoFaltante", "Estado", 3);
+            Util.SetColumn(c[(int)FaltanteView.GridColumn.Prioridad], "Prioridad", "Prioridad", 4);
 
             dgv.Columns.AddRange(c);
 
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = FaltanteControlador.GetAll();
+            //origenDatos = FaltanteControlador.GetAll();
 
             //TODO: incluir busqueda
-            /*
+            
             origenDatos = searchText.Equals("") ?
                 FaltanteControlador.GetAll() :
                 FaltanteControlador.GetAll_GetByDescripcion(searchText);
-            */
+            
 
             var bindingList = new MySortableBindingList<FaltanteView>(origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -123,10 +125,12 @@ namespace Heimdall
                 _modo = ModoFormulario.Edicion;
 
                 //********************
+                //TODO: POR QUE ESTA DOS VECES ESTO????
                 //TODO: Revisar esto!
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Descripcion].Value = model.Descripcion;
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
                 dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = ucFaltanteEdit1.EstadoFaltante;
+                dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Prioridad].Value = ucFaltanteEdit1.Prioridad;
 
                 //********************
 
@@ -140,6 +144,7 @@ namespace Heimdall
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Descripcion].Value = model.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Fecha].Value = model.Fecha;
             dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.EstadoFaltante].Value = ucFaltanteEdit1.EstadoFaltante;
+            dgv.Rows[_rowIndex].Cells[(int)FaltanteView.GridColumn.Prioridad].Value = ucFaltanteEdit1.Prioridad;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -216,6 +221,21 @@ namespace Heimdall
         private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             //?? revisar esto bien.
+        }
+
+        private void ucAbmToolBar1_ButtonClickExecuteSearch(object sender, EventArgs e)
+        {
+            CargarGrilla(ucAbmToolBar1.SearchText);
+        }
+
+        private void FrmFaltante_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode) {
+                case Keys.F3:
+                    //como hago para hacer visible y tener foco en el control
+                    ucAbmToolBar1.ToggleSearch();
+                    break;
+            }
         }
     }
 }
