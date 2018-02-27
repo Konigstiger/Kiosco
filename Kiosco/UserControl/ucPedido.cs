@@ -283,12 +283,12 @@ namespace Heimdall.UserControl
                 Fecha = Fecha,
                 FechaEntrega = FechaEntrega,
                 IdEstadoPedido = IdEstadoPedido,
-                Notas = Notas,
                 EstaPago = EstaPago,
                 Archivado = Archivado,
                 Fiscal = Fiscal,
                 IdPrioridad = IdPrioridad,
-                IdHoraEntrega = IdHoraEntrega
+                IdHoraEntrega = IdHoraEntrega,
+                Notas = Notas,
             };
             return model;
         }

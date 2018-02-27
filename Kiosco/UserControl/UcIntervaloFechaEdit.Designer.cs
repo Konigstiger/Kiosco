@@ -72,7 +72,6 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Image = global::Heimdall.Properties.Resources.filter;
             this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFiltrar.Location = new System.Drawing.Point(277, 24);
             this.btnFiltrar.Name = "btnFiltrar";

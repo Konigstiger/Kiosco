@@ -152,7 +152,7 @@
             0,
             0});
             this.ucTurnoEdit1.Descripcion = "";
-            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 11, 0, 0, 0, 0);
+            this.ucTurnoEdit1.Fecha = new System.DateTime(2018, 2, 25, 0, 0, 0, 0);
             this.ucTurnoEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.ucTurnoEdit1.HoraFin = new System.DateTime(2018, 2, 9, 0, 1, 44, 923);
             this.ucTurnoEdit1.HoraInicio = new System.DateTime(2018, 2, 9, 0, 1, 44, 925);
@@ -179,6 +179,7 @@
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmTurno";
             this.Text = "Turnos de Trabajo";

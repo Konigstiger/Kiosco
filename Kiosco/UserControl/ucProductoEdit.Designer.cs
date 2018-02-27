@@ -210,8 +210,6 @@
             // btnUpdateStock
             // 
             this.btnUpdateStock.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.btnUpdateStock.Image = global::Heimdall.Properties.Resources.save16;
-            this.btnUpdateStock.Location = new System.Drawing.Point(206, 97);
             this.btnUpdateStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateStock.Name = "btnUpdateStock";
             this.btnUpdateStock.Size = new System.Drawing.Size(30, 27);

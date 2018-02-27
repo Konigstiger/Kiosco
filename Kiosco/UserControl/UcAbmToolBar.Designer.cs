@@ -39,6 +39,7 @@
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
             this.tsb.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
+            this.tsbSearchClearAndPerform,
+            this.tsbVerArchivo});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
             this.tsb.Size = new System.Drawing.Size(763, 31);
@@ -62,10 +64,9 @@
             // 
             // tsbNew
             // 
-            this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(70, 28);
+            this.tsbNew.Size = new System.Drawing.Size(46, 28);
             this.tsbNew.Text = "Nuevo";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
@@ -100,6 +101,7 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(79, 28);
             this.tsbSearch.Text = "Buscar...";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
             // tsbSearchTextBox
             // 
@@ -127,9 +129,21 @@
             // 
             // imageList1
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(24, 24);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add01.png");
+            this.imageList1.Images.SetKeyName(1, "Save01.png");
+            this.imageList1.Images.SetKeyName(2, "Delete01.png");
+            // 
+            // tsbVerArchivo
+            // 
+            this.tsbVerArchivo.CheckOnClick = true;
+            this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
+            this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVerArchivo.Name = "tsbVerArchivo";
+            this.tsbVerArchivo.Size = new System.Drawing.Size(76, 28);
+            this.tsbVerArchivo.Text = "Archivo";
+            this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
             // UcAbmToolBar
             // 
@@ -157,5 +171,6 @@
         private System.Windows.Forms.ToolStripButton tsbSearchPerform;
         private System.Windows.Forms.ToolStripButton tsbSearchClearAndPerform;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStripButton tsbVerArchivo;
     }
 }
