@@ -59,6 +59,7 @@ namespace Heimdall
             Util.SetColumn(c[(int)TareaView.GridColumn.IdTarea], "IdTarea", "IdTarea", 0);
             Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)TareaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
+            //Util.SetColumn(c[(int)TareaView.GridColumn.Estado], "Estado", "Estado", 2);
             //Estado (texto)
             //Prioridad (texto)
             //Clase

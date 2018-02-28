@@ -38,7 +38,7 @@ namespace Model.View
             IdTarea = 0,
             Descripcion = 1,
             Fecha = 2,
-            Notas = 3
+            Estado = 3
         }
     }
 

@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFaltante));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.ucFaltanteEdit1 = new Heimdall.UserControl.UcFaltanteEdit();
             this.ucAbmToolBar1 = new Heimdall.UserControl.UcAbmToolBar();
@@ -55,6 +54,7 @@
             // 
             // ucFaltanteEdit1
             // 
+            this.ucFaltanteEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucFaltanteEdit1.Archivado = false;
             this.ucFaltanteEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucFaltanteEdit1.Cantidad = 0;
@@ -98,7 +98,6 @@
             this.Controls.Add(this.ucAbmToolBar1);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmFaltante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
