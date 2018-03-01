@@ -24,7 +24,8 @@ namespace Data
                                 Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
                                 Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
                                 Estado = (string)rdr["EstadoProveedor"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                RutaCatalogo = rdr["RutaCatalogo"] != DBNull.Value ? (string)rdr["RutaCatalogo"] : "",
+                            Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
                         }
@@ -49,6 +50,7 @@ namespace Data
                                 Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
                                 Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
                                 Estado = (string)rdr["EstadoProveedor"],
+                                RutaCatalogo = rdr["RutaCatalogo"] != DBNull.Value ? (string)rdr["RutaCatalogo"] : "",
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
@@ -84,6 +86,7 @@ namespace Data
                         c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
                         c.IdRubro = rdr["IdRubro"] != DBNull.Value ? (int)rdr["IdRubro"] : 0;
                         c.IdEstadoProveedor = rdr["IdEstadoProveedor"] != DBNull.Value ? (int)rdr["IdEstadoProveedor"] : 0;
+                        c.RutaCatalogo = rdr["RutaCatalogo"] != DBNull.Value ? (string)rdr["RutaCatalogo"] : "";
                     }
                 }
             }
@@ -109,10 +112,12 @@ namespace Data
                         var p = new ProveedorView {
                             IdProveedor = (int)rdr["IdProveedor"],
                             RazonSocial = (string)rdr["RazonSocial"],
-                            Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : "",
-                            Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : "",
+                            Direccion = rdr["Direccion"] != DBNull.Value ? (string)rdr["Direccion"] : string.Empty,
+                            Telefono = rdr["Telefono"] != DBNull.Value ? (string)rdr["Telefono"] : string.Empty,
+                            PersonaContacto = rdr["PersonaContacto"] != DBNull.Value ? (string)rdr["PersonaContacto"] : string.Empty,
+                            HorarioAtencion = rdr["HorarioAtencion"] != DBNull.Value ? (string)rdr["HorarioAtencion"] : string.Empty,
                             Estado = (string)rdr["EstadoProveedor"],
-                            Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                            Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
                         };
 
                         list.Add(p);

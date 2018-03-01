@@ -18,6 +18,7 @@ namespace Model
         
 
         public string Notas { get; set; }
+        public string RutaCatalogo { get; set; }
 
         public string HorarioAtencion { get; set; }
 

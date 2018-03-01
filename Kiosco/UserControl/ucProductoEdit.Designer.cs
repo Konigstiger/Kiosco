@@ -209,18 +209,20 @@
             // 
             // btnUpdateStock
             // 
-            this.btnUpdateStock.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.btnUpdateStock.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateStock.Location = new System.Drawing.Point(192, 98);
             this.btnUpdateStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.Size = new System.Drawing.Size(30, 27);
+            this.btnUpdateStock.Size = new System.Drawing.Size(72, 27);
             this.btnUpdateStock.TabIndex = 26;
+            this.btnUpdateStock.Text = "Actualizar";
             this.btnUpdateStock.UseVisualStyleBackColor = true;
             this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
             // 
             // nudStockActual
             // 
             this.nudStockActual.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.nudStockActual.Location = new System.Drawing.Point(131, 97);
+            this.nudStockActual.Location = new System.Drawing.Point(117, 97);
             this.nudStockActual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudStockActual.Name = "nudStockActual";
             this.nudStockActual.Size = new System.Drawing.Size(69, 27);
@@ -230,7 +232,7 @@
             // 
             this.labStockActual.AutoSize = true;
             this.labStockActual.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.labStockActual.Location = new System.Drawing.Point(29, 102);
+            this.labStockActual.Location = new System.Drawing.Point(15, 102);
             this.labStockActual.Name = "labStockActual";
             this.labStockActual.Size = new System.Drawing.Size(94, 20);
             this.labStockActual.TabIndex = 25;
@@ -239,7 +241,7 @@
             // nudStockMaximo
             // 
             this.nudStockMaximo.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.nudStockMaximo.Location = new System.Drawing.Point(131, 63);
+            this.nudStockMaximo.Location = new System.Drawing.Point(117, 63);
             this.nudStockMaximo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudStockMaximo.Name = "nudStockMaximo";
             this.nudStockMaximo.Size = new System.Drawing.Size(69, 27);
@@ -248,7 +250,7 @@
             // nudStockMinimo
             // 
             this.nudStockMinimo.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.nudStockMinimo.Location = new System.Drawing.Point(131, 29);
+            this.nudStockMinimo.Location = new System.Drawing.Point(117, 29);
             this.nudStockMinimo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nudStockMinimo.Name = "nudStockMinimo";
             this.nudStockMinimo.Size = new System.Drawing.Size(69, 27);
@@ -258,7 +260,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.label9.Location = new System.Drawing.Point(57, 67);
+            this.label9.Location = new System.Drawing.Point(43, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 23;
@@ -268,7 +270,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.label8.Location = new System.Drawing.Point(60, 32);
+            this.label8.Location = new System.Drawing.Point(46, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 20);
             this.label8.TabIndex = 22;

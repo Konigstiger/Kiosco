@@ -27,10 +27,12 @@ namespace Heimdall.UserControl
                 HorarioAtencion = HorarioAtencion,
                 DiasDeVisita = DiasDeVisita,
                 IdRubro = IdRubro,
-                IdEstadoProveedor = 1       /* TODO: Refactor: Estado Activo. */
+                IdEstadoProveedor = 1,       /* TODO: Refactor: Estado Activo. */
+                RutaCatalogo = RutaCatalogo
             };
             return model;
         }
+
 
 
         [Category("Action")]
@@ -70,6 +72,17 @@ namespace Heimdall.UserControl
         {
             get { return txtRazonSocial.Text.Trim(); }
             set { txtRazonSocial.Text = value; }
+        }
+
+        [Description("RutaCatalogo."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string RutaCatalogo
+        {
+            get { return txtRutaCatalogo.Text.Trim(); }
+            set { txtRutaCatalogo.Text = value; }
         }
 
 
@@ -223,6 +236,7 @@ namespace Heimdall.UserControl
             txtHorarioAtencion.Text = c.HorarioAtencion;
             txtDiasDeVisita.Text = c.DiasDeVisita;
             txtNotas.Text = c.Notas;
+            txtRutaCatalogo.Text = c.RutaCatalogo;
 
             cboRubro.SelectedValue = c.IdRubro;
             cboEstadoProveedor.SelectedValue = c.IdEstadoProveedor;
@@ -280,6 +294,7 @@ namespace Heimdall.UserControl
             txtTelefono.MaxLength = 25;
             txtHorarioAtencion.MaxLength = 100;
             txtDiasDeVisita.MaxLength = 100;
+            txtRutaCatalogo.MaxLength = 255;
             txtNotas.MaxLength = 255;
 
         }
@@ -294,6 +309,7 @@ namespace Heimdall.UserControl
             txtHorarioAtencion.Clear();
             txtPersonaContacto.Clear();
             txtDiasDeVisita.Clear();
+            txtRutaCatalogo.Clear();
             txtNotas.Clear();
         }
 

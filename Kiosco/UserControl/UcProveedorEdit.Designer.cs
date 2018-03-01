@@ -48,6 +48,8 @@
             this.txtIdProveedor = new System.Windows.Forms.TextBox();
             this.cboEstadoProveedor = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtRutaCatalogo = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cboRubro
@@ -55,7 +57,7 @@
             this.cboRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRubro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.cboRubro.FormattingEnabled = true;
-            this.cboRubro.Location = new System.Drawing.Point(165, 148);
+            this.cboRubro.Location = new System.Drawing.Point(703, 50);
             this.cboRubro.Name = "cboRubro";
             this.cboRubro.Size = new System.Drawing.Size(355, 26);
             this.cboRubro.TabIndex = 91;
@@ -64,7 +66,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(102, 150);
+            this.label9.Location = new System.Drawing.Point(644, 52);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 18);
             this.label9.TabIndex = 103;
@@ -74,7 +76,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(593, 84);
+            this.label8.Location = new System.Drawing.Point(595, 155);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 20);
             this.label8.TabIndex = 102;
@@ -83,18 +85,18 @@
             // txtDiasDeVisita
             // 
             this.txtDiasDeVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiasDeVisita.Location = new System.Drawing.Point(705, 82);
+            this.txtDiasDeVisita.Location = new System.Drawing.Point(703, 152);
             this.txtDiasDeVisita.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtDiasDeVisita.MaxLength = 255;
             this.txtDiasDeVisita.Name = "txtDiasDeVisita";
-            this.txtDiasDeVisita.Size = new System.Drawing.Size(453, 24);
+            this.txtDiasDeVisita.Size = new System.Drawing.Size(355, 24);
             this.txtDiasDeVisita.TabIndex = 94;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 120);
+            this.label5.Location = new System.Drawing.Point(7, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 20);
             this.label5.TabIndex = 101;
@@ -113,17 +115,17 @@
             // txtPersonaContacto
             // 
             this.txtPersonaContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPersonaContacto.Location = new System.Drawing.Point(705, 47);
+            this.txtPersonaContacto.Location = new System.Drawing.Point(703, 116);
             this.txtPersonaContacto.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPersonaContacto.Name = "txtPersonaContacto";
-            this.txtPersonaContacto.Size = new System.Drawing.Size(318, 24);
+            this.txtPersonaContacto.Size = new System.Drawing.Size(355, 24);
             this.txtPersonaContacto.TabIndex = 93;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(547, 53);
+            this.label4.Location = new System.Drawing.Point(549, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 20);
             this.label4.TabIndex = 100;
@@ -142,7 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 84);
+            this.label1.Location = new System.Drawing.Point(105, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 99;
@@ -151,17 +153,17 @@
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(705, 12);
+            this.txtTelefono.Location = new System.Drawing.Point(703, 82);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(318, 24);
+            this.txtTelefono.Size = new System.Drawing.Size(355, 24);
             this.txtTelefono.TabIndex = 92;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(625, 19);
+            this.label6.Location = new System.Drawing.Point(627, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 98;
@@ -180,7 +182,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 50);
+            this.label3.Location = new System.Drawing.Point(79, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 97;
@@ -190,7 +192,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(644, 116);
+            this.label7.Location = new System.Drawing.Point(103, 181);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 20);
             this.label7.TabIndex = 96;
@@ -199,11 +201,11 @@
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotas.Location = new System.Drawing.Point(705, 117);
+            this.txtNotas.Location = new System.Drawing.Point(165, 184);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNotas.MaxLength = 255;
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(453, 24);
+            this.txtNotas.Size = new System.Drawing.Size(355, 24);
             this.txtNotas.TabIndex = 86;
             // 
             // txtRazonSocial
@@ -219,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 16);
+            this.label2.Location = new System.Drawing.Point(57, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 95;
@@ -241,7 +243,7 @@
             this.cboEstadoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.cboEstadoProveedor.FormattingEnabled = true;
-            this.cboEstadoProveedor.Location = new System.Drawing.Point(705, 150);
+            this.cboEstadoProveedor.Location = new System.Drawing.Point(703, 14);
             this.cboEstadoProveedor.Name = "cboEstadoProveedor";
             this.cboEstadoProveedor.Size = new System.Drawing.Size(355, 26);
             this.cboEstadoProveedor.TabIndex = 104;
@@ -250,16 +252,37 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(642, 152);
+            this.label10.Location = new System.Drawing.Point(638, 19);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 18);
             this.label10.TabIndex = 105;
             this.label10.Text = "Estado:";
             // 
+            // txtRutaCatalogo
+            // 
+            this.txtRutaCatalogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaCatalogo.Location = new System.Drawing.Point(165, 150);
+            this.txtRutaCatalogo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtRutaCatalogo.Name = "txtRutaCatalogo";
+            this.txtRutaCatalogo.Size = new System.Drawing.Size(355, 24);
+            this.txtRutaCatalogo.TabIndex = 106;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(47, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 20);
+            this.label11.TabIndex = 107;
+            this.label11.Text = "Ruta Catálogo:";
+            // 
             // UcProveedorEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtRutaCatalogo);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.cboEstadoProveedor);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cboRubro);
@@ -284,7 +307,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UcProveedorEdit";
-            this.Size = new System.Drawing.Size(1171, 186);
+            this.Size = new System.Drawing.Size(1071, 220);
             this.Load += new System.EventHandler(this.UcProveedorEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,5 +337,7 @@
         private System.Windows.Forms.TextBox txtIdProveedor;
         private System.Windows.Forms.ComboBox cboEstadoProveedor;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtRutaCatalogo;
+        private System.Windows.Forms.Label label11;
     }
 }

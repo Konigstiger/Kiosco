@@ -21,6 +21,7 @@
         public string Notas { get; set; }
 
         public string Estado { get; set; }
+        public string RutaCatalogo { get; set; }
 
         public bool Validate()
         {

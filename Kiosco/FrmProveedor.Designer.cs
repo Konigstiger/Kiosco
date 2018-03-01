@@ -59,7 +59,7 @@ namespace Heimdall
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1225, 559);
+            this.dgv.Size = new System.Drawing.Size(1225, 530);
             this.dgv.TabIndex = 64;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -169,13 +169,14 @@ namespace Heimdall
             this.ucProveedorEdit1.IdEstadoProveedor = 0;
             this.ucProveedorEdit1.IdProveedor = 0;
             this.ucProveedorEdit1.IdRubro = 0;
-            this.ucProveedorEdit1.Location = new System.Drawing.Point(12, 608);
+            this.ucProveedorEdit1.Location = new System.Drawing.Point(12, 576);
             this.ucProveedorEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucProveedorEdit1.Name = "ucProveedorEdit1";
             this.ucProveedorEdit1.Notas = "";
             this.ucProveedorEdit1.PersonaContacto = "";
             this.ucProveedorEdit1.RazonSocial = "";
-            this.ucProveedorEdit1.Size = new System.Drawing.Size(1171, 186);
+            this.ucProveedorEdit1.RutaCatalogo = "";
+            this.ucProveedorEdit1.Size = new System.Drawing.Size(1225, 218);
             this.ucProveedorEdit1.TabIndex = 85;
             this.ucProveedorEdit1.Telefono = "";
             // 
