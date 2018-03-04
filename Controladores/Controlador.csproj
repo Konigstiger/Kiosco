@@ -46,6 +46,7 @@
     <Compile Include="EstadoTareaControlador.cs" />
     <Compile Include="EstadoPedidoControlador.cs" />
     <Compile Include="ClaseTareaControlador.cs" />
+    <Compile Include="GastoControlador.cs" />
     <Compile Include="FaltanteControlador.cs" />
     <Compile Include="EstadoFaltanteControlador.cs" />
     <Compile Include="TareaControlador.cs" />

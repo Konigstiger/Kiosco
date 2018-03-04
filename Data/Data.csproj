@@ -46,6 +46,7 @@
     <Compile Include="ClaseTareaData.cs" />
     <Compile Include="EstadoPedidoData.cs" />
     <Compile Include="DificultadData.cs" />
+    <Compile Include="GastoData.cs" />
     <Compile Include="FaltanteData.cs" />
     <Compile Include="EstadoFaltanteData.cs" />
     <Compile Include="TareaData.cs" />

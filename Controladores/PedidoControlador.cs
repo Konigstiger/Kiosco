@@ -44,9 +44,9 @@ namespace Controlador
             return PedidoData.GetByPrimaryKeyView(idPedido);
         }
 
-        public static long Update(Pedido m)
+        public static long Update(Pedido model)
         {
-            return PedidoData.Update(m);
+            return PedidoData.Update(model);
         }
 
         public static bool Delete(Pedido m)

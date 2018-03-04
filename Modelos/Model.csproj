@@ -46,8 +46,10 @@
     <Compile Include="ClaseUsuario.cs" />
     <Compile Include="EstadoUsuario.cs" />
     <Compile Include="EstadoFaltante.cs" />
+    <Compile Include="Gasto.cs" />
     <Compile Include="View\ClaseFaltanteView.cs" />
     <Compile Include="View\EstadoFaltanteView.cs" />
+    <Compile Include="View\GastoView.cs" />
     <Compile Include="View\FaltanteView.cs" />
     <Compile Include="Faltante.cs" />
     <Compile Include="Tarea.cs" />
