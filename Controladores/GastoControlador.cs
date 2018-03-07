@@ -14,6 +14,11 @@ namespace Controlador
             return GastoData.GetAll();
         }
 
+        public static List<GastoView> GetAllView()
+        {
+            return GastoData.GetAllView();
+        }
+
         public static Gasto GetByPrimaryKey(long idGasto)
         {
             return GastoData.GetByPrimaryKey(idGasto);

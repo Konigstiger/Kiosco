@@ -55,10 +55,11 @@ namespace Data
                                 IdGasto = (long)rdr["IdGasto"],
                                 Descripcion = (string)rdr["Descripcion"],
                                 Monto = (decimal)rdr["Monto"],
+                                FechaPago = rdr["FechaPago"] != DBNull.Value ? (DateTime)rdr["FechaPago"] : DateTime.Today,
                                 FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today,
                                 Estado = (string)rdr["Estado"],
                                 Clase = (string)rdr["Clase"],
-                                Prioridad = (string)rdr["Prioridad"],
+                                Prioridad = (string)rdr["Prioridad"]
                             };
                             list.Add(p);
                         }

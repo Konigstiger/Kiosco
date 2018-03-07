@@ -289,6 +289,7 @@
             this.Controls.Add(this.txtIdGasto);
             this.Name = "UcGastoEdit";
             this.Size = new System.Drawing.Size(769, 149);
+            this.Load += new System.EventHandler(this.UcGastoEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMonto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMontoPendiente)).EndInit();
             this.ResumeLayout(false);

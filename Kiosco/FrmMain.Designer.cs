@@ -50,6 +50,7 @@ namespace Heimdall
             this.btnTareas = new System.Windows.Forms.Button();
             this.btnFaltante = new System.Windows.Forms.Button();
             this.labTitulo = new System.Windows.Forms.Label();
+            this.btnGastos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVentaRegistro
@@ -318,11 +319,24 @@ namespace Heimdall
             this.labTitulo.TabIndex = 31;
             this.labTitulo.Text = "Menú Principal";
             // 
+            // btnGastos
+            // 
+            this.btnGastos.Font = new System.Drawing.Font("Metropolis", 14.25F);
+            this.btnGastos.Image = ((System.Drawing.Image)(resources.GetObject("btnGastos.Image")));
+            this.btnGastos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGastos.Location = new System.Drawing.Point(81, 734);
+            this.btnGastos.Name = "btnGastos";
+            this.btnGastos.Size = new System.Drawing.Size(347, 63);
+            this.btnGastos.TabIndex = 32;
+            this.btnGastos.Text = "Gastos";
+            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 1045);
+            this.Controls.Add(this.btnGastos);
             this.Controls.Add(this.labTitulo);
             this.Controls.Add(this.btnFaltante);
             this.Controls.Add(this.btnTareas);
@@ -375,5 +389,6 @@ namespace Heimdall
         private System.Windows.Forms.Button btnTareas;
         private System.Windows.Forms.Button btnFaltante;
         private System.Windows.Forms.Label labTitulo;
+        private System.Windows.Forms.Button btnGastos;
     }
 }

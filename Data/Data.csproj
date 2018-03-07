@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaseGastoData.cs" />
     <Compile Include="ClaseFaltanteData.cs" />
+    <Compile Include="EstadoGastoData.cs" />
     <Compile Include="EstadoTareaData.cs" />
     <Compile Include="ClaseTareaData.cs" />
     <Compile Include="EstadoPedidoData.cs" />

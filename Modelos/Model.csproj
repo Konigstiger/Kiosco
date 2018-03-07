@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\EstadoGastoView.cs" />
+    <Compile Include="EstadoGasto.cs" />
+    <Compile Include="View\ClaseGastoView.cs" />
+    <Compile Include="ClaseGasto.cs" />
     <Compile Include="ClaseFaltante.cs" />
     <Compile Include="Dificultad.cs" />
     <Compile Include="EstadoTarea.cs" />

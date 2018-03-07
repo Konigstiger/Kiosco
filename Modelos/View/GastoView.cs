@@ -35,6 +35,7 @@ namespace Model.View
             IdGasto = 0,
             Descripcion = 1,
             Monto = 2,
+            FechaPago = 3,
             FechaVencimiento = 3,
             Estado = 4,
             Clase = 5,

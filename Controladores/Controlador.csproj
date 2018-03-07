@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaseGastoControlador.cs" />
     <Compile Include="ClaseFaltanteControlador.cs" />
     <Compile Include="CryptoUtil.cs" />
     <Compile Include="DificultadControlador.cs" />
+    <Compile Include="EstadoGastoControlador.cs" />
     <Compile Include="EstadoTareaControlador.cs" />
     <Compile Include="EstadoPedidoControlador.cs" />
     <Compile Include="ClaseTareaControlador.cs" />

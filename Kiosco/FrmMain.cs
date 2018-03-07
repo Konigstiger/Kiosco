@@ -42,6 +42,7 @@ namespace Heimdall
             Util.CenterFormX2(btnAbmProveedor, this);
             Util.CenterFormX2(btnAbmMarca, this);
             Util.CenterFormX2(btnCerrarSesion, this);
+            Util.CenterFormX2(btnGastos, this);
 
             Util.CenterFormX4(btnVentaRegistro, this);
             Util.CenterFormX4(btnVentasReporte, this);
@@ -165,6 +166,12 @@ namespace Heimdall
         {
             //TODO: Esto deberia llevar al login y no cerrar todo. Pero bueno.
             Application.Exit();
+        }
+
+        private void btnGastos_Click(object sender, EventArgs e)
+        {
+            var f = new FrmGasto();
+            f.Show();
         }
     }
 }

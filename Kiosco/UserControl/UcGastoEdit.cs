@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Model;
@@ -23,8 +17,54 @@ namespace Heimdall.UserControl
             }
         }
 
+
+        private void CargarControles()
+        {
+            CargarClase();
+            CargarEstado();
+            CargarPrioridad();
+        }
+
+        private void CargarClase()
+        {
+            if (DesignMode)
+                return;
+
+            cboClaseGasto.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = ClaseGastoControlador.GetAll();
+            cboClaseGasto.DataSource = list;
+            cboClaseGasto.ValueMember = "IdClaseGasto";
+            cboClaseGasto.DisplayMember = "Descripcion";
+        }
+
+
+        private void CargarEstado()
+        {
+            if (DesignMode)
+                return;
+
+            cboEstadoGasto.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = EstadoGastoControlador.GetAll();
+            cboEstadoGasto.DataSource = list;
+            cboEstadoGasto.ValueMember = "IdEstadoGasto";
+            cboEstadoGasto.DisplayMember = "Descripcion";
+        }
+
+
+        private void CargarPrioridad()
+        {
+            if (DesignMode)
+                return;
+            cboPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = PrioridadControlador.GetAll();
+            cboPrioridad.DataSource = list;
+            cboPrioridad.ValueMember = "IdPrioridad";
+            cboPrioridad.DisplayMember = "Descripcion";
+        }
+
+
         [Category("Action")]
-        [Description("Es lanzado cuando se selecciona otra Gasto.")]
+        [Description("Es lanzado cuando se selecciona otro Gasto.")]
         public event GastoChangedEventHandler GastoChanged;
 
         protected virtual void OnGastoChanged(ValueChangedEventArgs e)
@@ -80,8 +120,38 @@ namespace Heimdall.UserControl
 
         public void CargarGasto(long idGasto)
         {
-            //todo
+            if (DesignMode)
+                return;
+
+            var p = GastoControlador.GetByPrimaryKey(idGasto);
+
+            //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
+
+
+            //Este orden de invocacion creo que es importante. Primero producto, y luego descripcion.
+            //IdProducto = p.IdProducto ?? 0;
+            Descripcion = p.Descripcion;
+
+            Util.CheckDateNullable(p.FechaPago, dtpFechaPago);
+            Util.CheckDateNullable(p.FechaVencimiento, dtpFechaVencimiento);
+
+            if (dtpFechaPago.Checked == false)
+                p.FechaPago = null;
+
+            Archivado = p.Archivado ?? false;
+
+            IdEstadoGasto = p.IdEstadoGasto;
+            IdClaseGasto = p.IdClaseGasto;    //esto llama internamente a DefinirVis...
+            Monto = p.Monto;
+            MontoPendiente = p.MontoPendiente;
+            IdPrioridad = p.IdPrioridad;
+            Notas = p.Notas;
+
+            //mostrar segun el valor de IdClaseGasto
+            //DefinirVisualizacionSegunClaseGasto(IdClaseGasto);
+
         }
+
 
         [Description("Descripcion."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -248,39 +318,6 @@ namespace Heimdall.UserControl
         public string Prioridad => cboPrioridad.Text.Trim();
 
 
-        public void CargarFaltante(long idFaltante)
-        {
-            if (DesignMode)
-                return;
-            /*
-            var p = GastoControlador.GetByPrimaryKey(idFaltante);
-
-            //TODO: Ver los valores predeterminados, ceros. Podrian ser valores 0 -  sin especificar.
-
-
-            //Este orden de invocacion creo que es importante. Primero producto, y luego descripcion.
-            //IdProducto = p.IdProducto ?? 0;
-            Descripcion = p.Descripcion;
-
-            Util.CheckDateNullable(p.Fecha, dtpFecha);
-            Util.CheckDateNullable(p.FechaResuelto, dtpFechaResuelto);
-
-            if (dtpFechaResuelto.Checked == false)
-                p.FechaResuelto = null;
-
-            Archivado = p.Archivado ?? false;
-
-            IdEstadoFaltante = p.IdEstadoFaltante;
-            IdClaseFaltante = p.IdClaseFaltante;    //esto llama internamente a DefinirVis...
-            Cantidad = p.Cantidad;
-            IdPrioridad = p.IdPrioridad;
-            Notas = p.Notas;
-
-            //mostrar segun el valor de IdClaseFaltante
-            */
-        }
-
-
         public void Clear()
         {
             txtDescripcion.Clear();
@@ -298,7 +335,33 @@ namespace Heimdall.UserControl
              */
         }
 
+        private void UcGastoEdit_Load(object sender, EventArgs e)
+        {
+            SetControles();
+            CargarControles();
+        }
 
+        private void SetControles()
+        {
+            //todo: revisar campos
 
+            txtIdGasto.Visible = false;
+            txtDescripcion.MaxLength = 100;
+            txtNotas.MaxLength = 255;
+            nudMonto.Maximum = 99999;
+            nudMonto.Minimum = 0;
+            nudMonto.Increment = 100;
+            nudMonto.DecimalPlaces = 2;
+
+            nudMontoPendiente.Maximum = 99999;
+            nudMontoPendiente.Minimum = 0;
+            nudMontoPendiente.Increment = 100;
+            nudMontoPendiente.DecimalPlaces = 2;
+
+            dtpFechaVencimiento.Value = DateTime.Today;
+            dtpFechaPago.Value = DateTime.Today;
+
+            //Util.SetNumericBounds(nudPrecio);
+        }
     }
 }
