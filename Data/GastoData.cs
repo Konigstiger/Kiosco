@@ -22,7 +22,6 @@ namespace Data
                             p.IdGasto = (long)rdr["IdGasto"];
                             p.Descripcion = (string)rdr["Descripcion"];
                             p.Monto = (decimal)rdr["Monto"];
-                            p.MontoPendiente = (decimal)rdr["Monto"];
                             p.IdEstadoGasto = (int)rdr["IdEstadoGasto"];
                             p.IdClaseGasto = (int)rdr["IdClaseGasto"];
                             p.FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today;
@@ -83,14 +82,13 @@ namespace Data
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
                     //var p2 = new SqlParameter("IdGasto", SqlDbType.BigInt) { Value = (long?)(condicion ? DBNull.Value : (object)m.IdGasto) };
                     var p2 = new SqlParameter("Monto", SqlDbType.Decimal) { Value = m.Monto };
-                    var p3 = new SqlParameter("MontoPendiente", SqlDbType.Decimal) { Value = m.MontoPendiente };
-                    var p4 = new SqlParameter("IdEstadoGasto", SqlDbType.Int) { Value = m.IdEstadoGasto };
-                    var p5 = new SqlParameter("IdClaseGasto", SqlDbType.Int) { Value = m.IdClaseGasto };
-                    var p6 = new SqlParameter("FechaVencimiento", SqlDbType.DateTime) { Value = m.FechaVencimiento };
-                    var p7 = new SqlParameter("FechaPago", SqlDbType.DateTime) { Value = m.FechaPago };
-                    var p8 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
-                    var p9 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p3 = new SqlParameter("IdEstadoGasto", SqlDbType.Int) { Value = m.IdEstadoGasto };
+                    var p4 = new SqlParameter("IdClaseGasto", SqlDbType.Int) { Value = m.IdClaseGasto };
+                    var p5 = new SqlParameter("FechaVencimiento", SqlDbType.DateTime) { Value = m.FechaVencimiento };
+                    var p6 = new SqlParameter("FechaPago", SqlDbType.DateTime) { Value = m.FechaPago };
+                    var p7 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
+                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
                     cmd.Parameters.Add(p1);
                     cmd.Parameters.Add(p2);
@@ -101,7 +99,6 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
-                    cmd.Parameters.Add(p10);
 
                     conn.Open();
                     m.IdGasto = (long)cmd.ExecuteScalar();
@@ -127,7 +124,6 @@ namespace Data
                             model.IdGasto = (long)rdr["IdGasto"];
                             model.Descripcion = (string)rdr["Descripcion"];
                             model.Monto = (decimal)rdr["Monto"];
-                            model.MontoPendiente = (decimal)rdr["Monto"];
                             model.IdEstadoGasto = (int)rdr["IdEstadoGasto"];
                             model.IdClaseGasto = (int)rdr["IdClaseGasto"];
                             model.FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today;
@@ -200,14 +196,13 @@ namespace Data
                     var p0 = new SqlParameter("IdGasto", SqlDbType.BigInt) { Value = m.IdGasto };
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = m.Descripcion };
                     var p2 = new SqlParameter("Monto", SqlDbType.Decimal) { Value = m.Monto };
-                    var p3 = new SqlParameter("MontoPendiente", SqlDbType.Decimal) { Value = m.MontoPendiente };
-                    var p4 = new SqlParameter("IdEstadoGasto", SqlDbType.Int) { Value = m.IdEstadoGasto };
-                    var p5 = new SqlParameter("IdClaseGasto", SqlDbType.Int) { Value = m.IdClaseGasto };
-                    var p6 = new SqlParameter("FechaVencimiento", SqlDbType.DateTime) { Value = m.FechaVencimiento };
-                    var p7 = new SqlParameter("FechaPago", SqlDbType.DateTime) { Value = m.FechaPago };
-                    var p8 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
-                    var p9 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
-                    var p10 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
+                    var p3 = new SqlParameter("IdEstadoGasto", SqlDbType.Int) { Value = m.IdEstadoGasto };
+                    var p4 = new SqlParameter("IdClaseGasto", SqlDbType.Int) { Value = m.IdClaseGasto };
+                    var p5 = new SqlParameter("FechaVencimiento", SqlDbType.DateTime) { Value = m.FechaVencimiento };
+                    var p6 = new SqlParameter("FechaPago", SqlDbType.DateTime) { Value = m.FechaPago };
+                    var p7 = new SqlParameter("IdPrioridad", SqlDbType.Int) { Value = m.IdPrioridad };
+                    var p8 = new SqlParameter("Archivado", SqlDbType.Bit) { Value = m.Archivado };
+                    var p9 = new SqlParameter("Notas", SqlDbType.VarChar) { Value = m.Notas };
 
 
                     cmd.Parameters.Add(p0);
@@ -220,7 +215,6 @@ namespace Data
                     cmd.Parameters.Add(p7);
                     cmd.Parameters.Add(p8);
                     cmd.Parameters.Add(p9);
-                    cmd.Parameters.Add(p10);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

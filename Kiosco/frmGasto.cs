@@ -114,7 +114,7 @@ namespace Heimdall
 
             Util.SetColumnsReadOnly(dgv);
 
-            _origenDatos = GastoControlador.GetAll();
+            _origenDatos = GastoControlador.GetAllView();
 
             //TODO: incluir busqueda
             /*

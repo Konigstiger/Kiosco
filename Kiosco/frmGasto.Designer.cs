@@ -60,7 +60,7 @@
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(978, 464);
+            this.dgv.Size = new System.Drawing.Size(978, 446);
             this.dgv.TabIndex = 30;
             this.dgv.TabStop = false;
             this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
@@ -69,43 +69,40 @@
             // 
             // ucGastoEdit1
             // 
+            this.ucGastoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucGastoEdit1.Archivado = false;
             this.ucGastoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucGastoEdit1.Descripcion = "";
-            this.ucGastoEdit1.FechaPago = new System.DateTime(2018, 3, 6, 23, 7, 53, 10);
-            this.ucGastoEdit1.FechaVencimiento = new System.DateTime(2018, 3, 6, 23, 7, 53, 16);
+            this.ucGastoEdit1.FechaPago = new System.DateTime(2018, 3, 7, 0, 0, 0, 0);
+            this.ucGastoEdit1.FechaVencimiento = new System.DateTime(2018, 3, 7, 0, 0, 0, 0);
             this.ucGastoEdit1.IdClaseGasto = 0;
             this.ucGastoEdit1.IdEstadoGasto = 0;
             this.ucGastoEdit1.IdGasto = ((long)(0));
             this.ucGastoEdit1.IdPrioridad = 0;
-            this.ucGastoEdit1.Location = new System.Drawing.Point(5, 519);
+            this.ucGastoEdit1.Location = new System.Drawing.Point(5, 501);
             this.ucGastoEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucGastoEdit1.Monto = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.ucGastoEdit1.MontoPendiente = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.ucGastoEdit1.Name = "ucGastoEdit1";
             this.ucGastoEdit1.Notas = "";
-            this.ucGastoEdit1.Size = new System.Drawing.Size(978, 188);
+            this.ucGastoEdit1.Size = new System.Drawing.Size(978, 182);
             this.ucGastoEdit1.TabIndex = 32;
             // 
             // FrmGasto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 708);
+            this.ClientSize = new System.Drawing.Size(989, 690);
             this.Controls.Add(this.ucGastoEdit1);
             this.Controls.Add(this.ucAbmToolBar1);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmGasto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gastos";
             this.Load += new System.EventHandler(this.FrmGasto_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGasto_KeyDown);

@@ -10,8 +10,6 @@ namespace Model
 
         public decimal Monto { get; set; }
 
-        public decimal MontoPendiente { get; set; }
-
         public int IdClaseGasto { get; set; }
 
         public int IdEstadoGasto { get; set; }

@@ -84,7 +84,6 @@ namespace Heimdall.UserControl
                 IdGasto = IdGasto,
                 Descripcion = Descripcion,
                 Monto = Monto,
-                MontoPendiente = MontoPendiente,
                 //IdProducto = IdProducto == -1 ? (long?)null : IdProducto,
                 IdEstadoGasto = IdEstadoGasto,
                 IdClaseGasto = IdClaseGasto,
@@ -143,7 +142,6 @@ namespace Heimdall.UserControl
             IdEstadoGasto = p.IdEstadoGasto;
             IdClaseGasto = p.IdClaseGasto;    //esto llama internamente a DefinirVis...
             Monto = p.Monto;
-            MontoPendiente = p.MontoPendiente;
             IdPrioridad = p.IdPrioridad;
             Notas = p.Notas;
 
@@ -249,22 +247,6 @@ namespace Heimdall.UserControl
         }
 
 
-        [Description("MontoPendiente."), Category("Data")]
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [Bindable(true)]
-        public decimal MontoPendiente
-        {
-            get {
-                var v = nudMontoPendiente.Value;
-                return v;
-            }
-            set {
-                nudMontoPendiente.Value = value;
-            }
-        }
-
 
         [Description("Archivado."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -322,7 +304,6 @@ namespace Heimdall.UserControl
         {
             txtDescripcion.Clear();
             nudMonto.Value = 0;
-            nudMontoPendiente.Value = 0;
             chkArchivado.Checked = false;
             dtpFechaVencimiento.Value = DateTime.Today;
             dtpFechaPago.Value = DateTime.Today;
@@ -353,15 +334,18 @@ namespace Heimdall.UserControl
             nudMonto.Increment = 100;
             nudMonto.DecimalPlaces = 2;
 
-            nudMontoPendiente.Maximum = 99999;
-            nudMontoPendiente.Minimum = 0;
-            nudMontoPendiente.Increment = 100;
-            nudMontoPendiente.DecimalPlaces = 2;
-
             dtpFechaVencimiento.Value = DateTime.Today;
             dtpFechaPago.Value = DateTime.Today;
 
             //Util.SetNumericBounds(nudPrecio);
+        }
+
+        private void nudMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals('.') || e.KeyChar.Equals(',')) {
+                e.KeyChar = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
+                //e.Handled = true;
+            }
         }
     }
 }
