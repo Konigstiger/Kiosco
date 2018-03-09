@@ -251,6 +251,29 @@ namespace Heimdall.UserControl
             }
         }
 
+        [Description("Estado."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Estado => cboEstadoTarea.Text.Trim();
+
+
+        [Description("Prioridad."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Prioridad => cboPrioridad.Text.Trim();
+
+
+        [Description("Clase."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public string Clase => cboClaseTarea.Text.Trim();
+
 
         public void CargarTarea(long idTarea)
         {

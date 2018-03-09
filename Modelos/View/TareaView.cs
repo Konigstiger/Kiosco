@@ -31,6 +31,9 @@ namespace Model.View
         public long? IdTareaPadre { get; set; }
 
         public string Notas { get; set; }
+        public string Prioridad { get; set; }
+        public string Clase { get; set; }
+        public string Estado { get; set; }
 
 
         public enum GridColumn
@@ -38,7 +41,9 @@ namespace Model.View
             IdTarea = 0,
             Descripcion = 1,
             Fecha = 2,
-            Estado = 3
+            Estado = 3,
+            Prioridad = 4,
+            Clase = 5
         }
     }
 

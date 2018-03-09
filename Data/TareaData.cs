@@ -217,5 +217,41 @@ namespace Data
             }
             //return m.IdTarea;
         }
+
+        public static List<TareaView> GetAllView()
+        {
+            var list = new List<TareaView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Tarea_View_GetAll", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new TareaView {
+                                IdTarea = (long)rdr["IdTarea"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                IdPrioridad = (int)rdr["IdPrioridad"],
+                                Fecha = rdr["Fecha"] != DBNull.Value ? (DateTime)rdr["Fecha"] : DateTime.Today,
+                                FechaVencimiento = rdr["FechaVencimiento"] != DBNull.Value ? (DateTime)rdr["FechaVencimiento"] : DateTime.Today,
+                                IdEstadoTarea = (int)rdr["IdEstadoTarea"],
+                                IdDificultad = (int)rdr["IdDificultad"],
+                                IdClaseTarea = (int)rdr["IdClaseTarea"],
+                                IdUsuario = (int)rdr["IdUsuario"],
+                                PorcentajeCompleto = (int)rdr["PorcentajeCompleto"],
+                                Detalle = (string)rdr["Detalle"],
+                                Archivado = (bool)rdr["Archivado"],
+                                IdTareaPadre = rdr["IdTareaPadre"] != DBNull.Value ? (long)rdr["IdTareaPadre"] : 0,
+                                Notas = (string)rdr["Notas"],
+                                Prioridad = (string)rdr["Prioridad"],
+                                Estado = (string)rdr["Estado"],
+                                Clase = (string)rdr["Clase"]
+                            };
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

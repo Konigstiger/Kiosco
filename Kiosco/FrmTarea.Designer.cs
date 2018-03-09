@@ -45,10 +45,11 @@
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1140, 281);
+            this.dgv.Size = new System.Drawing.Size(1140, 460);
             this.dgv.TabIndex = 24;
             this.dgv.TabStop = false;
             this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
+            this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucTareaEdit1
@@ -68,7 +69,7 @@
             this.ucTareaEdit1.IdTarea = ((long)(0));
             this.ucTareaEdit1.IdTareaPadre = ((long)(0));
             this.ucTareaEdit1.IdUsuario = 0;
-            this.ucTareaEdit1.Location = new System.Drawing.Point(8, 334);
+            this.ucTareaEdit1.Location = new System.Drawing.Point(8, 513);
             this.ucTareaEdit1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ucTareaEdit1.Name = "ucTareaEdit1";
             this.ucTareaEdit1.Notas = "";
@@ -93,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 539);
+            this.ClientSize = new System.Drawing.Size(1154, 718);
             this.Controls.Add(this.ucAbmToolBar1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucTareaEdit1);

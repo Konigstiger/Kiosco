@@ -13,9 +13,9 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 3;
+        private readonly int _colCount = 6;
 
-        private List<TareaView> origenDatos = null;
+        private List<TareaView> _origenDatos = null;
 
 
         public FrmTarea()
@@ -47,9 +47,9 @@ namespace Heimdall
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[_colCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < _colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -59,10 +59,9 @@ namespace Heimdall
             Util.SetColumn(c[(int)TareaView.GridColumn.IdTarea], "IdTarea", "IdTarea", 0);
             Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
             Util.SetColumn(c[(int)TareaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
-            //Util.SetColumn(c[(int)TareaView.GridColumn.Estado], "Estado", "Estado", 2);
-            //Estado (texto)
-            //Prioridad (texto)
-            //Clase
+            Util.SetColumn(c[(int)TareaView.GridColumn.Estado], "Estado", "Estado", 3);
+            Util.SetColumn(c[(int)TareaView.GridColumn.Prioridad], "Prioridad", "Prioridad", 4);
+            Util.SetColumn(c[(int)TareaView.GridColumn.Clase], "Clase", "Clase", 5);
             //Dificultad (texto, no mostrar) 
             //Util.SetColumn(c[(int)TareaView.GridColumn.Notas], "Notas", "Notas", 2);
             dgv.Columns.AddRange(c);
@@ -70,16 +69,16 @@ namespace Heimdall
 
             Util.SetColumnsReadOnly(dgv);
 
-            origenDatos = TareaControlador.GetAll();
+            _origenDatos = TareaControlador.GetAllView();
 
             //TODO: incluir busqueda
             /*
-            origenDatos = searchText.Equals("") ?
+            _origenDatos = searchText.Equals("") ?
                 TareaControlador.GetAll() :
                 TareaControlador.GetAll_GetByDescripcion(searchText);
             */
 
-            var bindingList = new MySortableBindingList<TareaView>(origenDatos);
+            var bindingList = new MySortableBindingList<TareaView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
@@ -106,9 +105,9 @@ namespace Heimdall
 
                 var modelView = TareaControlador.GetByPrimaryKeyView(model.IdTarea);
 
-                origenDatos.Add(modelView);
+                _origenDatos.Add(modelView);
 
-                var bindingList = new BindingList<TareaView>(origenDatos);
+                var bindingList = new BindingList<TareaView>(_origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -127,21 +126,6 @@ namespace Heimdall
                 // pasar o mantener _modo Edicion
                 _modo = ModoFormulario.Edicion;
 
-                //********************
-                //TODO: Revisar esto!
-                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = model.Descripcion;
-                dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = model.Fecha;
-
-                /*
-            Util.SetColumn(c[(int)TareaView.GridColumn.Descripcion], "Descripcion", "Descripción", 1);
-            Util.SetColumn(c[(int)TareaView.GridColumn.Fecha], "Fecha", "Fecha", 2);
-            //Estado (texto)
-            //Prioridad (texto)
-            //Clase
-            //Dificultad (texto, no mostrar) 
-                 */
-                //********************
-
                 //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
                 dgv.Rows[_rowIndex].Selected = true;
             }
@@ -149,8 +133,12 @@ namespace Heimdall
             _modo = ModoFormulario.Edicion;
 
             //********************
+            //TODO: Revisar esto!
             dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Descripcion].Value = model.Descripcion;
             dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Fecha].Value = model.Fecha;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Estado].Value = ucTareaEdit1.Estado;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Prioridad].Value = ucTareaEdit1.Prioridad;
+            dgv.Rows[_rowIndex].Cells[(int)TareaView.GridColumn.Clase].Value = ucTareaEdit1.Clase;
             //********************
 
             //TODO: Ver esto, antes sin esto editaba ok. Tengo duda con el agregar uno nuevo.
@@ -221,6 +209,11 @@ namespace Heimdall
         private void ucAbmToolBar1_ButtonClickUpdate(object sender, EventArgs e)
         {
             GuardarOInsertar();
+        }
+
+        private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            //foo.
         }
     }
 }

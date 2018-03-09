@@ -42,6 +42,11 @@ namespace Controlador
         {
             return TareaData.GetByPrimaryKeyView(idTarea);
         }
+
+        public static List<TareaView> GetAllView()
+        {
+            return TareaData.GetAllView();
+        }
     }
 }
 
