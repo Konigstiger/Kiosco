@@ -62,7 +62,7 @@ namespace Heimdall
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1650, 598);
+            this.dgv.Size = new System.Drawing.Size(1884, 598);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -83,7 +83,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1662, 31);
+            this.tsb.Size = new System.Drawing.Size(1896, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -233,7 +233,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(803, 139);
+            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(1037, 139);
             this.ucProductoProveedorEdit1.TabIndex = 93;
             // 
             // _ucProductoProveedorList1
@@ -252,7 +252,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(803, 106);
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(1037, 106);
             this._ucProductoProveedorList1.TabIndex = 91;
             this._ucProductoProveedorList1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoChanged);
             this._ucProductoProveedorList1.ProductoProveedorChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoProveedorChanged);
@@ -260,11 +260,12 @@ namespace Heimdall
             // ucAbmToolBar2
             // 
             this.ucAbmToolBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ucAbmToolBar2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ucAbmToolBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAbmToolBar2.Location = new System.Drawing.Point(847, 637);
             this.ucAbmToolBar2.Name = "ucAbmToolBar2";
             this.ucAbmToolBar2.SearchText = "";
-            this.ucAbmToolBar2.Size = new System.Drawing.Size(803, 32);
+            this.ucAbmToolBar2.Size = new System.Drawing.Size(1037, 32);
             this.ucAbmToolBar2.TabIndex = 95;
             this.ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
             this.ucAbmToolBar2.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar2_ButtonClickUpdate);
@@ -274,7 +275,7 @@ namespace Heimdall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1662, 929);
+            this.ClientSize = new System.Drawing.Size(1896, 929);
             this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.ucProductoProveedorEdit1);
             this.Controls.Add(this._ucProductoProveedorList1);

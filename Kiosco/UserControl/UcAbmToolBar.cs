@@ -62,6 +62,10 @@ namespace Heimdall.UserControl
             set { tsbSearchTextBox.Text = value; }
         }
 
+        //showshit ctrl v
+
+
+
         private void tsbSearch_Click(object sender, EventArgs e)
         {
             ToggleSearch();
