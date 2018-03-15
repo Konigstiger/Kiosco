@@ -163,10 +163,26 @@ namespace Heimdall
                     tsbSearch.Checked = !tsbSearch.Checked;
                     ToggleSearch();
                     break;
+                case Keys.F4:
+                    SeleccionarElemento();
+                    break;
+
                 case Keys.Escape:
                     CerrarVentana();
                     break;
             }
+        }
+
+        private void SeleccionarElemento()
+        {
+            //todo: mucho foo aqui.
+
+            var IdMarca = Convert.ToInt32(dgv.Rows[dgv.SelectedRows[0].Index].Cells[0].Value);
+
+            //Comunicar las ventanas entre si...
+            CallerForm.IdMarca = IdMarca;
+
+            CerrarVentana();
         }
 
         private void tsbNew_Click(object sender, EventArgs e)
