@@ -224,6 +224,9 @@ namespace Heimdall
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Ganancia].Value = cc.ToString() + " %";
 
             //TODO: Ver algo de esto, temas de alineacion y tipos de datos de las columnas. EyeCandy
+
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = ucProductoEdit1.StockActual;
+
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Marca].Value = ucProductoEdit1.Marca;
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Rubro].Value = ucProductoEdit1.Rubro;
             //********************
@@ -464,6 +467,11 @@ namespace Heimdall
 
             // esto deberia ocasionar un refresh limpio.
             _ucProductoProveedorList1.CargarProductoProveedorList(ucProductoProveedorEdit1.IdProducto);
+        }
+
+        private void ucProductoEdit1_StockChanged_1(object sender, ValueChangedEventArgs e)
+        {
+            dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = ucProductoEdit1.StockActual;
         }
     }
 }

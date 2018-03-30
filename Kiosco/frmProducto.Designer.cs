@@ -213,6 +213,7 @@ namespace Heimdall
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 96;
+            this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged_1);
             // 
             // ucProductoProveedorEdit1
             // 
