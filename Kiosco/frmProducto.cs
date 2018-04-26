@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,10 +9,56 @@ using Heimdall.UserControl;
 using Model;
 using Model.View;
 
+using System.Runtime.Caching;
+
+
+
 namespace Heimdall
 {
     public partial class FrmProducto : Form, IAbmGeneral
     {
+        /*
+          private void buttonLoad_Click(object sender, EventArgs e)
+    {
+        progressBar.Visible = true;
+        progressBar.Style = ProgressBarStyle.Marquee;
+        System.Threading.Thread thread = 
+          new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
+        thread.Start();
+    }
+
+    private void loadTable()
+    {
+        // Load your Table...
+        DataTable list = new DataTable();
+        SqlDataAdapter SDA = new SqlDataAdapter();
+        SDA.Fill(list);
+        setDataSource(list);
+    }
+
+    internal delegate void SetDataSourceDelegate(DataTable list);
+    private void setDataSource(DataTable list)
+    {
+        // Invoke method if required:
+        if (this.InvokeRequired)
+        {
+            this.Invoke(new SetDataSourceDelegate(setDataSource), list);
+        }
+        else
+        {
+            dataGridView.DataSource = list;
+            progressBar.Visible = false;
+        }
+    }
+             
+             
+             
+             */
+
+
+
+
+
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
@@ -97,16 +144,62 @@ namespace Heimdall
 
             var idDeposito = 1; //Deposito en negocio
 
-            origenDatos = searchText.Equals("") ?
-                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
-                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+
+            //esto fue movido de Foo()
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+
+
+            /*
+             //insertion point
+             */
+            progressBar.Visible = true;
+            progressBar.Style = ProgressBarStyle.Marquee;
+            System.Threading.Thread thread =
+              new System.Threading.Thread(Foo);
+            thread.Start();
+
+        }
+
+
+
+
+
+        private void Foo()
+        {
+            loadTable("", 1);
 
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
             var source = new BindingSource(bindingList, null);
-            dgv.DataSource = source;
+            //dgv.DataSource = source;
 
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
+
+            setDataSource(bindingList);
+        }
+
+
+        private void loadTable(string searchText, int idDeposito)
+        {
+            origenDatos = CacheProducto.GetAvailableStocks();
+            /*
+            origenDatos = searchText.Equals("") ?
+                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
+                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+            */
+        }
+
+
+
+        internal delegate void SetDataSourceDelegate(MySortableBindingList<ProductoView> table);
+        private void setDataSource(MySortableBindingList<ProductoView> list)
+        {
+            // Invoke method if required:
+            if (this.InvokeRequired) {
+                this.Invoke(new SetDataSourceDelegate(setDataSource), list);
+            } else {
+                dgv.DataSource = list;
+                progressBar.Visible = false;
+            }
         }
 
 
@@ -381,7 +474,7 @@ namespace Heimdall
         {
             //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
             var idproductoproveedor = _ucProductoProveedorList1.IdProductoProveedor;
-            ucProductoProveedorEdit1.IdProductoProveedor = (long) idproductoproveedor;
+            ucProductoProveedorEdit1.IdProductoProveedor = (long)idproductoproveedor;
             ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
         }
 
@@ -473,5 +566,46 @@ namespace Heimdall
         {
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = ucProductoEdit1.StockActual;
         }
+
+
+        //DEUDA TECNICA DETECTED
+        private static class CacheProducto
+        {
+            private const string CacheKey = "KeyListaProductos";
+
+            public static List<ProductoView> GetAvailableStocks()
+            {
+                ObjectCache cache = MemoryCache.Default;
+
+                if (cache.Contains(CacheKey)) {
+                    return (List<ProductoView>)cache.Get(CacheKey);
+                } else {
+                    List<ProductoView> altosProductos = GetAltosProductos();
+
+                    // Store data in the cache    
+                    CacheItemPolicy cacheItemPolicy = new CacheItemPolicy {
+                        AbsoluteExpiration = DateTime.Now.AddMinutes(1.0)
+                    };
+                    cache.Add(CacheKey, altosProductos, cacheItemPolicy);
+
+                    return altosProductos;
+                }
+            }
+
+            private static List<ProductoView> GetAltosProductos()
+            {
+                string searchText = "";
+                int idDeposito = 1;
+
+                var origenDatos = searchText.Equals("") ?
+                    ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
+                    ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+                return origenDatos;
+            }
+        }
+
+
+
+
     }
 }
