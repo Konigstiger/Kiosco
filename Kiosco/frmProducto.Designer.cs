@@ -34,6 +34,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             this.ucProductoProveedorEdit1 = new Heimdall.UserControl.UcProductoProveedorEdit();
             this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
@@ -56,13 +57,13 @@ namespace Heimdall
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv.Location = new System.Drawing.Point(0, 33);
+            this.dgv.Location = new System.Drawing.Point(0, 37);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1884, 598);
+            this.dgv.Size = new System.Drawing.Size(1884, 594);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
@@ -177,6 +178,13 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "trolley.png");
             this.imageList1.Images.SetKeyName(5, "package.png");
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(505, 349);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(375, 26);
+            this.progressBar.TabIndex = 97;
+            // 
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -277,6 +285,7 @@ namespace Heimdall
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1896, 929);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.ucProductoProveedorEdit1);
             this.Controls.Add(this._ucProductoProveedorList1);
@@ -318,6 +327,7 @@ namespace Heimdall
         private UcProductoProveedorEdit ucProductoProveedorEdit1;
         private UcAbmToolBar ucAbmToolBar2;
         private UcProductoEdit ucProductoEdit1;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

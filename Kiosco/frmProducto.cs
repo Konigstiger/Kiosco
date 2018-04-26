@@ -12,6 +12,48 @@ namespace Heimdall
 {
     public partial class FrmProducto : Form, IAbmGeneral
     {
+        /*
+          private void buttonLoad_Click(object sender, EventArgs e)
+    {
+        progressBar.Visible = true;
+        progressBar.Style = ProgressBarStyle.Marquee;
+        System.Threading.Thread thread = 
+          new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
+        thread.Start();
+    }
+
+    private void loadTable()
+    {
+        // Load your Table...
+        DataTable list = new DataTable();
+        SqlDataAdapter SDA = new SqlDataAdapter();
+        SDA.Fill(list);
+        setDataSource(list);
+    }
+
+    internal delegate void SetDataSourceDelegate(DataTable list);
+    private void setDataSource(DataTable list)
+    {
+        // Invoke method if required:
+        if (this.InvokeRequired)
+        {
+            this.Invoke(new SetDataSourceDelegate(setDataSource), list);
+        }
+        else
+        {
+            dataGridView.DataSource = list;
+            progressBar.Visible = false;
+        }
+    }
+             
+             
+             
+             */
+
+
+
+
+
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
@@ -97,16 +139,59 @@ namespace Heimdall
 
             var idDeposito = 1; //Deposito en negocio
 
-            origenDatos = searchText.Equals("") ?
-                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
-                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+
+            //esto fue movido de Foo()
+            dgv.AllowUserToResizeRows = false;
+            dgv.RowHeadersVisible = false;
+
+
+            /*
+             //insertion point
+             */
+            progressBar.Visible = true;
+            progressBar.Style = ProgressBarStyle.Marquee;
+            System.Threading.Thread thread =
+              new System.Threading.Thread(Foo);
+            thread.Start();
+
+        }
+
+
+
+
+
+        private void Foo()
+        {
+            loadTable("", 1);
 
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
             var source = new BindingSource(bindingList, null);
-            dgv.DataSource = source;
+            //dgv.DataSource = source;
 
-            dgv.AllowUserToResizeRows = false;
-            dgv.RowHeadersVisible = false;
+
+            setDataSource(bindingList);
+        }
+
+
+        private void loadTable(string searchText, int idDeposito)
+        {
+            origenDatos = searchText.Equals("") ?
+                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
+                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+        }
+
+
+
+        internal delegate void SetDataSourceDelegate(MySortableBindingList<ProductoView> table);
+        private void setDataSource(MySortableBindingList<ProductoView> list)
+        {
+            // Invoke method if required:
+            if (this.InvokeRequired) {
+                this.Invoke(new SetDataSourceDelegate(setDataSource), list);
+            } else {
+                dgv.DataSource = list;
+                progressBar.Visible = false;
+            }
         }
 
 
