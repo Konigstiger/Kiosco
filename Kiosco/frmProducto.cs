@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,6 +8,10 @@ using Controlador;
 using Heimdall.UserControl;
 using Model;
 using Model.View;
+
+using System.Runtime.Caching;
+
+
 
 namespace Heimdall
 {
@@ -175,9 +180,12 @@ namespace Heimdall
 
         private void loadTable(string searchText, int idDeposito)
         {
+            origenDatos = CacheProducto.GetAvailableStocks();
+            /*
             origenDatos = searchText.Equals("") ?
                 ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
                 ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+            */
         }
 
 
@@ -466,7 +474,7 @@ namespace Heimdall
         {
             //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
             var idproductoproveedor = _ucProductoProveedorList1.IdProductoProveedor;
-            ucProductoProveedorEdit1.IdProductoProveedor = (long) idproductoproveedor;
+            ucProductoProveedorEdit1.IdProductoProveedor = (long)idproductoproveedor;
             ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
         }
 
@@ -558,5 +566,46 @@ namespace Heimdall
         {
             dgv.Rows[_rowIndex].Cells[(int)ProductoView.GridColumn.Stock].Value = ucProductoEdit1.StockActual;
         }
+
+
+        //DEUDA TECNICA DETECTED
+        private static class CacheProducto
+        {
+            private const string CacheKey = "KeyListaProductos";
+
+            public static List<ProductoView> GetAvailableStocks()
+            {
+                ObjectCache cache = MemoryCache.Default;
+
+                if (cache.Contains(CacheKey)) {
+                    return (List<ProductoView>)cache.Get(CacheKey);
+                } else {
+                    List<ProductoView> altosProductos = GetAltosProductos();
+
+                    // Store data in the cache    
+                    CacheItemPolicy cacheItemPolicy = new CacheItemPolicy {
+                        AbsoluteExpiration = DateTime.Now.AddMinutes(1.0)
+                    };
+                    cache.Add(CacheKey, altosProductos, cacheItemPolicy);
+
+                    return altosProductos;
+                }
+            }
+
+            private static List<ProductoView> GetAltosProductos()
+            {
+                string searchText = "";
+                int idDeposito = 1;
+
+                var origenDatos = searchText.Equals("") ?
+                    ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
+                    ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+                return origenDatos;
+            }
+        }
+
+
+
+
     }
 }
