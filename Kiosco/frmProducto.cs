@@ -23,6 +23,8 @@ namespace Heimdall
 
         private List<ProductoView> origenDatos = null;
 
+        public string _ultimaBusqueda { get; set; }
+
 
         public FrmProducto()
         {
@@ -114,7 +116,10 @@ namespace Heimdall
 
         private void Foo(string searchText, int idDeposito)
         {
-            origenDatos = CacheProducto.GetAvailableStocks(searchText, idDeposito);
+            var cp = new CacheProducto();
+            cp.UltimaBusqueda = searchText;
+
+            origenDatos = cp.GetAvailableStocks(searchText, idDeposito);
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
             SetDataSource(bindingList);
         }
@@ -481,6 +486,7 @@ namespace Heimdall
             EliminarProductoProveedor();
         }
 
+
         private void EliminarProductoProveedor()
         {
             if (!Util.ConfirmarEliminar())
@@ -501,21 +507,34 @@ namespace Heimdall
 
 
         //DEUDA TECNICA DETECTED
-        private static class CacheProducto
+        private class CacheProducto
         {
             private const string CacheKey = "KeyListaProductos";
+            public string UltimaBusqueda { get; set; }
 
-            public static List<ProductoView> GetAvailableStocks(string searchText, int idDeposito)
+            public List<ProductoView> GetAvailableStocks(string searchText, int idDeposito)
             {
+                //TODO: Pendiente de incluir y tal vez anidar esto
                 ObjectCache cache = MemoryCache.Default;
 
-                if (cache.Contains(CacheKey)) {
-                    //TODO: Importante, cambio funcional.
-                    //Esto es correcto, pero solo si los valores de searchText, idDeposito no han cambiado.
-                    //Si cambiaron, se debe filtrar de nuevo, ya sea en base de datos,
-                    //o usando Linq sobre la memoria. Mas eficiente.
-                    return (List<ProductoView>)cache.Get(CacheKey);
-                } else {
+                if (UltimaBusqueda == searchText) {
+                    //la ultima busqueda es la misma que esta.
+                    if (cache.Contains(CacheKey)) {
+                        //ademas de ser la misma busqueda, hay cache
+                        return (List<ProductoView>)cache.Get(CacheKey);
+                    } else {
+                        //es la misma busqueda, pero el cache expiro.
+                        var altosProductos = GetAltosProductos(searchText, idDeposito);
+                        var cacheItemPolicy = new CacheItemPolicy {
+                            AbsoluteExpiration = DateTime.Now.AddMinutes(5.0)
+                        };
+                        cache.Add(CacheKey, altosProductos, cacheItemPolicy);
+
+                        return altosProductos;
+                    }
+                }
+                else {
+                    //la ultima busqueda es diferente que la actual.
                     var altosProductos = GetAltosProductos(searchText, idDeposito);
                     var cacheItemPolicy = new CacheItemPolicy {
                         AbsoluteExpiration = DateTime.Now.AddMinutes(5.0)
@@ -523,13 +542,15 @@ namespace Heimdall
                     cache.Add(CacheKey, altosProductos, cacheItemPolicy);
 
                     return altosProductos;
+
                 }
+
             }
 
 
-            private static List<ProductoView> GetAltosProductos(string searchText, int idDeposito)
+            private List<ProductoView> GetAltosProductos(string searchText, int idDeposito)
             {
-                var origenDatos = searchText.Equals("") ?
+                var origenDatos = searchText.Equals(string.Empty) ?
                     ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
                     ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
                 return origenDatos;
