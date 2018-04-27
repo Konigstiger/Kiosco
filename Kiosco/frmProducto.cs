@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
@@ -10,60 +8,18 @@ using Model;
 using Model.View;
 
 using System.Runtime.Caching;
-
+using System.Threading;
 
 
 namespace Heimdall
 {
     public partial class FrmProducto : Form, IAbmGeneral
     {
-        /*
-          private void buttonLoad_Click(object sender, EventArgs e)
-    {
-        progressBar.Visible = true;
-        progressBar.Style = ProgressBarStyle.Marquee;
-        System.Threading.Thread thread = 
-          new System.Threading.Thread(new System.Threading.ThreadStart(loadTable));
-        thread.Start();
-    }
-
-    private void loadTable()
-    {
-        // Load your Table...
-        DataTable list = new DataTable();
-        SqlDataAdapter SDA = new SqlDataAdapter();
-        SDA.Fill(list);
-        setDataSource(list);
-    }
-
-    internal delegate void SetDataSourceDelegate(DataTable list);
-    private void setDataSource(DataTable list)
-    {
-        // Invoke method if required:
-        if (this.InvokeRequired)
-        {
-            this.Invoke(new SetDataSourceDelegate(setDataSource), list);
-        }
-        else
-        {
-            dataGridView.DataSource = list;
-            progressBar.Visible = false;
-        }
-    }
-             
-             
-             
-             */
-
-
-
-
-
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 9;
-        private bool busquedaActiva = false;
+        private readonly int _colCount = 9;
+        private bool _busquedaActiva = false;
 
         private List<ProductoView> origenDatos = null;
 
@@ -115,9 +71,9 @@ namespace Heimdall
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[_colCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < _colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -144,58 +100,31 @@ namespace Heimdall
 
             var idDeposito = 1; //Deposito en negocio
 
-
             //esto fue movido de Foo()
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
 
 
-            /*
-             //insertion point
-             */
             progressBar.Visible = true;
             progressBar.Style = ProgressBarStyle.Marquee;
-            System.Threading.Thread thread =
-              new System.Threading.Thread(Foo);
+            var thread = new Thread(() => Foo(searchText, idDeposito));
             thread.Start();
-
         }
 
 
-
-
-
-        private void Foo()
+        private void Foo(string searchText, int idDeposito)
         {
-            loadTable("", 1);
-
+            origenDatos = CacheProducto.GetAvailableStocks(searchText, idDeposito);
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
-            var source = new BindingSource(bindingList, null);
-            //dgv.DataSource = source;
-
-
-            setDataSource(bindingList);
+            SetDataSource(bindingList);
         }
-
-
-        private void loadTable(string searchText, int idDeposito)
-        {
-            origenDatos = CacheProducto.GetAvailableStocks();
-            /*
-            origenDatos = searchText.Equals("") ?
-                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
-                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
-            */
-        }
-
 
 
         internal delegate void SetDataSourceDelegate(MySortableBindingList<ProductoView> table);
-        private void setDataSource(MySortableBindingList<ProductoView> list)
+        private void SetDataSource(MySortableBindingList<ProductoView> list)
         {
-            // Invoke method if required:
             if (this.InvokeRequired) {
-                this.Invoke(new SetDataSourceDelegate(setDataSource), list);
+                this.Invoke(new SetDataSourceDelegate(SetDataSource), list);
             } else {
                 dgv.DataSource = list;
                 progressBar.Visible = false;
@@ -254,7 +183,7 @@ namespace Heimdall
                     ToggleSearch();
                     break;
                 case (Keys.Enter):
-                    if (busquedaActiva)
+                    if (_busquedaActiva)
                         ExecuteSearch();
                     break;
 
@@ -410,7 +339,7 @@ namespace Heimdall
 
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
-            busquedaActiva = false;
+            _busquedaActiva = false;
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -467,14 +396,14 @@ namespace Heimdall
 
         private void tsbSearchTextBox_Enter(object sender, EventArgs e)
         {
-            busquedaActiva = true;
+            _busquedaActiva = true;
         }
 
         private void _ucProductoProveedorList1_ProductoProveedorChanged(object sender, ValueChangedEventArgs e)
         {
             //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
             var idproductoproveedor = _ucProductoProveedorList1.IdProductoProveedor;
-            ucProductoProveedorEdit1.IdProductoProveedor = (long)idproductoproveedor;
+            ucProductoProveedorEdit1.IdProductoProveedor = idproductoproveedor;
             ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
         }
 
@@ -489,21 +418,22 @@ namespace Heimdall
             GuardarOInsertarProductoProveedor();
             //recargar list
             _ucProductoProveedorList1.IdProducto = ucProductoProveedorEdit1.IdProducto;
-
-
         }
+
 
         private void GuardarOInsertarProductoProveedor()
         {
             // todo lo que esta aqui debajo es para tomar de referencia.
-            var xx = new ProductoProveedor();
-            xx.IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor;
-            xx.IdProducto = ucProductoProveedorEdit1.IdProducto;
-            xx.IdProveedor = ucProductoProveedorEdit1.IdProveedor;
-            xx.FechaModificacion = ucProductoProveedorEdit1.Fecha;
-            xx.Notas = ucProductoProveedorEdit1.Notas;
-            xx.PrecioProveedor = ucProductoProveedorEdit1.Precio;
-            xx.IdUnidad = 1;    //pendiente
+            var xx = new ProductoProveedor {
+                IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor,
+                IdProducto = ucProductoProveedorEdit1.IdProducto,
+                IdProveedor = ucProductoProveedorEdit1.IdProveedor,
+                FechaModificacion = ucProductoProveedorEdit1.Fecha,
+                Notas = ucProductoProveedorEdit1.Notas,
+                PrecioProveedor = ucProductoProveedorEdit1.Precio,
+                IdUnidad = 1
+            };
+            //pendiente
 
             //=====================================================================
             if (ucProductoProveedorEdit1.Modo == ModoFormulario.Nuevo) {
@@ -517,14 +447,16 @@ namespace Heimdall
                 if (xx.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
 
-                var productoProveedorNuevo = new ProductoProveedor();
-                productoProveedorNuevo.IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor;
-                productoProveedorNuevo.IdProducto = ucProductoProveedorEdit1.IdProducto;
-                productoProveedorNuevo.IdProveedor = ucProductoProveedorEdit1.IdProveedor;
-                productoProveedorNuevo.FechaModificacion = ucProductoProveedorEdit1.Fecha;
-                productoProveedorNuevo.Notas = ucProductoProveedorEdit1.Notas;
-                productoProveedorNuevo.PrecioProveedor = ucProductoProveedorEdit1.Precio;
-                productoProveedorNuevo.IdUnidad = 1; //pendiente
+                var productoProveedorNuevo = new ProductoProveedor {
+                    IdProductoProveedor = ucProductoProveedorEdit1.IdProductoProveedor,
+                    IdProducto = ucProductoProveedorEdit1.IdProducto,
+                    IdProveedor = ucProductoProveedorEdit1.IdProveedor,
+                    FechaModificacion = ucProductoProveedorEdit1.Fecha,
+                    Notas = ucProductoProveedorEdit1.Notas,
+                    PrecioProveedor = ucProductoProveedorEdit1.Precio,
+                    IdUnidad = 1
+                };
+                //pendiente
 
 
                 xx.IdProducto = ProductoProveedorControlador.Update(productoProveedorNuevo);
@@ -573,18 +505,20 @@ namespace Heimdall
         {
             private const string CacheKey = "KeyListaProductos";
 
-            public static List<ProductoView> GetAvailableStocks()
+            public static List<ProductoView> GetAvailableStocks(string searchText, int idDeposito)
             {
                 ObjectCache cache = MemoryCache.Default;
 
                 if (cache.Contains(CacheKey)) {
+                    //TODO: Importante, cambio funcional.
+                    //Esto es correcto, pero solo si los valores de searchText, idDeposito no han cambiado.
+                    //Si cambiaron, se debe filtrar de nuevo, ya sea en base de datos,
+                    //o usando Linq sobre la memoria. Mas eficiente.
                     return (List<ProductoView>)cache.Get(CacheKey);
                 } else {
-                    List<ProductoView> altosProductos = GetAltosProductos();
-
-                    // Store data in the cache    
-                    CacheItemPolicy cacheItemPolicy = new CacheItemPolicy {
-                        AbsoluteExpiration = DateTime.Now.AddMinutes(1.0)
+                    var altosProductos = GetAltosProductos(searchText, idDeposito);
+                    var cacheItemPolicy = new CacheItemPolicy {
+                        AbsoluteExpiration = DateTime.Now.AddMinutes(5.0)
                     };
                     cache.Add(CacheKey, altosProductos, cacheItemPolicy);
 
@@ -592,11 +526,9 @@ namespace Heimdall
                 }
             }
 
-            private static List<ProductoView> GetAltosProductos()
-            {
-                string searchText = "";
-                int idDeposito = 1;
 
+            private static List<ProductoView> GetAltosProductos(string searchText, int idDeposito)
+            {
                 var origenDatos = searchText.Equals("") ?
                     ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
                     ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
