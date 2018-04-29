@@ -465,5 +465,10 @@ namespace Heimdall
             // esto deberia ocasionar un refresh limpio.
             _ucProductoProveedorList1.CargarProductoProveedorList(ucProductoProveedorEdit1.IdProducto);
         }
+
+        private void ucProductoEdit1_StockChanged_1(object sender, ValueChangedEventArgs e)
+        {
+
+        }
     }
 }

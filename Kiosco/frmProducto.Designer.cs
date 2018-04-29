@@ -185,6 +185,7 @@ namespace Heimdall
             this.progressBar.Size = new System.Drawing.Size(375, 26);
             this.progressBar.Step = 5;
             this.progressBar.TabIndex = 97;
+            this.progressBar.Visible = false;
             // 
             // ucProductoEdit1
             // 
