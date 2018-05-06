@@ -320,7 +320,8 @@ namespace Data
                 using (var cmd = new SqlCommand("Producto_Insert", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
+                    //var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
+                    var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras != string.Empty ? (object)model.CodigoBarras : DBNull.Value };
                     var p2 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
                     var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad };
                     var p4 = new SqlParameter("PrecioVenta", SqlDbType.Decimal) { Value = model.PrecioVenta };
@@ -363,7 +364,9 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p0 = new SqlParameter("IdProducto", SqlDbType.VarChar) { Value = model.IdProducto };
-                    var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
+                    //var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras };
+                    var p1 = new SqlParameter("CodigoBarras", SqlDbType.VarChar) { Value = model.CodigoBarras != string.Empty ? (object)model.CodigoBarras : DBNull.Value };
+                    
                     var p2 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = model.Descripcion };
                     var p3 = new SqlParameter("Capacidad", SqlDbType.Int) { Value = model.Capacidad };
 
