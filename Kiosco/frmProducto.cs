@@ -470,5 +470,10 @@ namespace Heimdall
         {
 
         }
+
+        private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
 }

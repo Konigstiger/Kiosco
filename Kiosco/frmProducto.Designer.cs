@@ -66,6 +66,7 @@ namespace Heimdall
             this.dgv.Size = new System.Drawing.Size(1884, 594);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
+            this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
             this.dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgv_MouseDown);

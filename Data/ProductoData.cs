@@ -21,7 +21,7 @@ namespace Data
                         while (rdr.Read()) {
                             var p = new Producto();
                             p.IdProducto = (long)rdr["IdProducto"];
-                            p.CodigoBarras = (string)rdr["CodigoBarras"];
+                            p.CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "";
                             p.Descripcion = (string)rdr["Descripcion"];
                             p.PrecioVenta = rdr["PrecioVenta"] != DBNull.Value ? (decimal)rdr["PrecioVenta"] : 0;
                             p.PrecioVentaPremium = rdr["PrecioVentaPremium"] != DBNull.Value ? (decimal)rdr["PrecioVentaPremium"] : 0;
@@ -54,7 +54,7 @@ namespace Data
                         while (rdr.Read()) {
                             var p = new ProductoView {
                                 IdProducto = (long)rdr["IdProducto"],
-                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "",
                                 Descripcion = (string)rdr["Descripcion"],
                                 Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Marca = (string)rdr["Marca"],
@@ -84,7 +84,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             c.IdProducto = (long)rdr["IdProducto"];
-                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "";
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             //c.Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "";
@@ -111,7 +111,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             c.IdProducto = (long)rdr["IdProducto"];
-                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "";
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.PrecioVenta = (decimal)rdr["PrecioVenta"];
@@ -152,7 +152,7 @@ namespace Data
                         while (rdr.Read()) {
                             var p = new ProductoView {
                                 IdProducto = (long)rdr["IdProducto"],
-                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "",
                                 Descripcion = (string)rdr["Descripcion"],
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
                                 Ganancia = (string)rdr["Ganancia"],
@@ -188,7 +188,7 @@ namespace Data
                         while (rdr.Read()) {
                             var p = new ProductoView {
                                 IdProducto = (long)rdr["IdProducto"],
-                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "",
                                 Descripcion = (string)rdr["Descripcion"],
                                 Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
@@ -223,7 +223,7 @@ namespace Data
                         while (rdr.Read()) {
                             var p = new ProductoView {
                                 IdProducto = (long)rdr["IdProducto"],
-                                CodigoBarras = (string)rdr["CodigoBarras"],
+                                CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "",
                                 Descripcion = (string)rdr["Descripcion"],
                                 Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0,
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
@@ -258,7 +258,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             c.IdProducto = (long)rdr["IdProducto"];
-                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "";
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.Precio = (decimal)rdr["Precio"];
@@ -292,7 +292,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             c.IdProducto = (long)rdr["IdProducto"];
-                            c.CodigoBarras = (string)rdr["CodigoBarras"];
+                            c.CodigoBarras = rdr["CodigoBarras"] != DBNull.Value ? (string)rdr["CodigoBarras"] : "";
                             c.Descripcion = (string)rdr["Descripcion"];
                             c.Capacidad = rdr["Capacidad"] != DBNull.Value ? (int)rdr["Capacidad"] : 0;
                             c.PrecioVenta = (decimal)rdr["PrecioVenta"];
