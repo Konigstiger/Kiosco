@@ -15,10 +15,10 @@ namespace Heimdall
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private const int colCount = 9;
-        private bool busquedaActiva = false;
+        private readonly int _colCount = 9;
+        private bool _busquedaActiva = false;
 
-        private List<ProductoView> origenDatos = null;
+        private List<ProductoView> _origenDatos = null;
 
 
         public FrmProducto()
@@ -33,6 +33,17 @@ namespace Heimdall
             CargarControles();
             LimpiarControles();
             _modo = ModoFormulario.Edicion;
+
+            if (Program.UsuarioConectado.EsAdmin == false) {
+                ucAbmToolBar2.Visible = false;
+                _ucProductoProveedorList1.Visible = false;
+                ucProductoProveedorEdit1.Visible = false;
+
+                tsbNew.Enabled = false;
+                tsbSave.Enabled = false;
+                tsbDelete.Enabled = false;
+            }
+
         }
 
 
@@ -68,9 +79,9 @@ namespace Heimdall
         {
             dgv.Columns.Clear();
 
-            var c = new DataGridViewColumn[colCount];
+            var c = new DataGridViewColumn[_colCount];
 
-            for (var i = 0; i < colCount; i++) {
+            for (var i = 0; i < _colCount; i++) {
                 c[i] = new DataGridViewTextBoxColumn();
             }
 
@@ -97,11 +108,11 @@ namespace Heimdall
 
             var idDeposito = 1; //Deposito en negocio
 
-            origenDatos = searchText.Equals("") ?
+            _origenDatos = searchText.Equals("") ?
                 ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
                 ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
 
-            var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
+            var bindingList = new MySortableBindingList<ProductoView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
@@ -161,7 +172,7 @@ namespace Heimdall
                     ToggleSearch();
                     break;
                 case (Keys.Enter):
-                    if (busquedaActiva)
+                    if (_busquedaActiva)
                         ExecuteSearch();
                     break;
 
@@ -194,9 +205,9 @@ namespace Heimdall
                 var idStock = StockControlador.Insert(stockObj);
                 var modelView = ProductoControlador.GetByPrimaryKeyView(model.IdProducto);
 
-                origenDatos.Add(modelView);
+                _origenDatos.Add(modelView);
 
-                var bindingList = new BindingList<ProductoView>(origenDatos);
+                var bindingList = new BindingList<ProductoView>(_origenDatos);
                 var source = new BindingSource(bindingList, null);
                 dgv.DataSource = source;
 
@@ -314,7 +325,7 @@ namespace Heimdall
 
         private void tsbSearchTextBox_Leave(object sender, EventArgs e)
         {
-            busquedaActiva = false;
+            _busquedaActiva = false;
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -371,14 +382,14 @@ namespace Heimdall
 
         private void tsbSearchTextBox_Enter(object sender, EventArgs e)
         {
-            busquedaActiva = true;
+            _busquedaActiva = true;
         }
 
         private void _ucProductoProveedorList1_ProductoProveedorChanged(object sender, ValueChangedEventArgs e)
         {
             //? si entra aqui, deberia hacer bind debajo, o bien, tomar todas las propiedades del control, mas eficiente, y copiarlas.
             var idproductoproveedor = _ucProductoProveedorList1.IdProductoProveedor;
-            ucProductoProveedorEdit1.IdProductoProveedor = (long) idproductoproveedor;
+            ucProductoProveedorEdit1.IdProductoProveedor = (long)idproductoproveedor;
             ucProductoProveedorEdit1.Modo = ModoFormulario.Edicion;
         }
 
@@ -466,10 +477,6 @@ namespace Heimdall
             _ucProductoProveedorList1.CargarProductoProveedorList(ucProductoProveedorEdit1.IdProducto);
         }
 
-        private void ucProductoEdit1_StockChanged_1(object sender, ValueChangedEventArgs e)
-        {
-
-        }
 
         private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
