@@ -61,6 +61,7 @@
             this.btnSeleccionarMarca = new System.Windows.Forms.Button();
             this.nudPrecioVentaPremium = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
+            this.chkArchivado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.gbStock.SuspendLayout();
@@ -443,11 +444,23 @@
             this.label6.TabIndex = 81;
             this.label6.Text = "Premium:";
             // 
+            // chkArchivado
+            // 
+            this.chkArchivado.AutoSize = true;
+            this.chkArchivado.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.chkArchivado.Location = new System.Drawing.Point(501, 156);
+            this.chkArchivado.Name = "chkArchivado";
+            this.chkArchivado.Size = new System.Drawing.Size(109, 24);
+            this.chkArchivado.TabIndex = 127;
+            this.chkArchivado.Text = "¿Archivado?";
+            this.chkArchivado.UseVisualStyleBackColor = true;
+            // 
             // UcProductoEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.chkArchivado);
             this.Controls.Add(this.nudPrecioVentaPremium);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nudCapacidad);
@@ -527,5 +540,6 @@
         private System.Windows.Forms.NumericUpDown nudCapacidad;
         private System.Windows.Forms.NumericUpDown nudPrecioVentaPremium;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkArchivado;
     }
 }

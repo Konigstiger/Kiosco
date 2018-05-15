@@ -170,7 +170,7 @@ namespace Data
         }
 
 
-        public static List<ProductoView> GetAllByDeposito(int idDeposito)
+        public static List<ProductoView> GetAllByDeposito(int idDeposito, bool modoArchivo)
         {
             var productoViews = new List<ProductoView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
@@ -179,8 +179,10 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p1 = new SqlParameter("IdDeposito", SqlDbType.Int) { Value = idDeposito };
+                    var p2 = new SqlParameter("ModoArchivo", SqlDbType.Bit) { Value = modoArchivo };
 
                     cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
@@ -196,7 +198,8 @@ namespace Data
                                 Marca = (string)rdr["Marca"],
                                 Stock = (int)rdr["Stock"],
                                 Rubro = (string)rdr["Rubro"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
+                                Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false
                             };
                             productoViews.Add(p);
                         }
@@ -207,7 +210,7 @@ namespace Data
         }
 
 
-        public static List<ProductoView> GetAllByDeposito_GetByDescripcion(int idDeposito, string descripcion)
+        public static List<ProductoView> GetAllByDeposito_GetByDescripcion(int idDeposito, string descripcion, bool modoArchivo)
         {
             var list = new List<ProductoView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
@@ -215,8 +218,10 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p1 = new SqlParameter("Descripcion", SqlDbType.VarChar) { Value = descripcion };
+                    var p2 = new SqlParameter("ModoArchivo", SqlDbType.Bit) { Value = modoArchivo };
 
                     cmd.Parameters.Add(p1);
+                    cmd.Parameters.Add(p2);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
@@ -232,7 +237,8 @@ namespace Data
                                 Marca = (string)rdr["Marca"],
                                 Stock = rdr["Stock"] != DBNull.Value ? (int)rdr["Stock"] : 0,
                                 Rubro = (string)rdr["Rubro"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
+                                Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false
                             };
                             list.Add(p);
                         }
@@ -461,6 +467,24 @@ namespace Data
                     cantidad = (int)cmd.ExecuteScalar();
 
                     return cantidad;
+                }
+            }
+        }
+
+        public static bool CambiarEstadoArchivo(long idProducto, bool archivar)
+        {
+            //TODO: Probar esto
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Producto_CambiarEstadoArchivo", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
+                    var p1 = new SqlParameter("Archivo", SqlDbType.Bit) { Value = archivar };
+
+                    cmd.Parameters.Add(p0);
+                    conn.Open();
+                    var cantidad = (int)cmd.ExecuteScalar();
+                    return cantidad > 0;
                 }
             }
         }

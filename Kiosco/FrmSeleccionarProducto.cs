@@ -82,10 +82,12 @@ namespace Heimdall
         private void SetDataSource(string searchText)
         {
             var idDeposito = 1; //Deposito en negocio
+            //TODO: Revisar que esta logica este bien... y no sea exactamente al reves!
+            bool modoArchivo = false;
 
             origenDatos = searchText.Equals("")
-                ? ProductoControlador.GetAllByDeposito_GetAll(idDeposito)
-                : ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+                ? ProductoControlador.GetAllByDeposito_GetAll(idDeposito, modoArchivo)
+                : ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText, modoArchivo);
 
             var bindingList = new MySortableBindingList<ProductoView>(origenDatos);
             var source = new BindingSource(bindingList, null);

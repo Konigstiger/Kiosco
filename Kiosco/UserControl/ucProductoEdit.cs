@@ -27,6 +27,19 @@ namespace Heimdall.UserControl
         }
 
 
+        [Description("Archivado."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool Archivado
+        {
+            get { return chkArchivado.Checked; }
+            set { chkArchivado.Checked = value; }
+        }
+
+
+
 
         public UcProductoEdit()
         {

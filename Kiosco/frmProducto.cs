@@ -108,9 +108,11 @@ namespace Heimdall
 
             var idDeposito = 1; //Deposito en negocio
 
+            bool modoArchivo = tsbVerArchivo.Checked;
+
             _origenDatos = searchText.Equals("") ?
-                ProductoControlador.GetAllByDeposito_GetAll(idDeposito) :
-                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText);
+                ProductoControlador.GetAllByDeposito_GetAll(idDeposito, modoArchivo) :
+                ProductoControlador.GetAllByDeposito_GetByDescripcion(idDeposito, searchText, modoArchivo);
 
             var bindingList = new MySortableBindingList<ProductoView>(_origenDatos);
             var source = new BindingSource(bindingList, null);
@@ -300,8 +302,8 @@ namespace Heimdall
                     case DataGridViewHitTestType.Cell:
                         //cms.Items[0].Visible = false;
                         //cms.Items[1].Visible = true;
-                        cms.Items.Add("Ver Proveedores..."); // esto puede abrir una pantalla pasando el IdProducto.
-                        cms.Items.Add("Ver Detalles...");
+                        cms.Items.Add("Archivar"); // esto puede abrir una pantalla pasando el IdProducto.
+                        //cms.Items.Add("Ver Detalles...");
                         break;
 
                 }
@@ -481,6 +483,20 @@ namespace Heimdall
         private void dgv_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
+        }
+
+        private void tsbVerArchivo_Click(object sender, EventArgs e)
+        {
+            ExecuteSearch();
+        }
+
+        private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            {
+                //TODO: Mandar el registro elegido al Archivo
+                //IDEA: Creo que se puede sacar el ID de producto del control de edicion. Ver prioridad de eventos.
+                //no sea cosa que tenga el Id anterior, o vacio.
+            }
         }
     }
 }

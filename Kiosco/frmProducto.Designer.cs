@@ -32,6 +32,7 @@ namespace Heimdall
             this.tsbSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
+            this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -82,7 +83,8 @@ namespace Heimdall
             this.tsbSearch,
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
-            this.tsbSearchClearAndPerform});
+            this.tsbSearchClearAndPerform,
+            this.tsbVerArchivo});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
             this.tsb.Size = new System.Drawing.Size(1896, 31);
@@ -163,10 +165,21 @@ namespace Heimdall
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
+            // tsbVerArchivo
+            // 
+            this.tsbVerArchivo.CheckOnClick = true;
+            this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
+            this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVerArchivo.Name = "tsbVerArchivo";
+            this.tsbVerArchivo.Size = new System.Drawing.Size(76, 28);
+            this.tsbVerArchivo.Text = "Archivo";
+            this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
+            // 
             // cms
             // 
             this.cms.Name = "cms";
             this.cms.Size = new System.Drawing.Size(61, 4);
+            this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
             // 
             // imageList1
             // 
@@ -191,6 +204,7 @@ namespace Heimdall
             // ucProductoEdit1
             // 
             this.ucProductoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ucProductoEdit1.Archivado = false;
             this.ucProductoEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucProductoEdit1.Capacidad = 1;
             this.ucProductoEdit1.CodigoBarras = "";
@@ -330,6 +344,7 @@ namespace Heimdall
         private UcAbmToolBar ucAbmToolBar2;
         private UcProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.ToolStripButton tsbVerArchivo;
     }
 }
 

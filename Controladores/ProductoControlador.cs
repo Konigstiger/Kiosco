@@ -57,15 +57,15 @@ namespace Controlador
         }
 
 
-        public static List<ProductoView> GetAllByDeposito_GetAll(int idDeposito)
+        public static List<ProductoView> GetAllByDeposito_GetAll(int idDeposito, bool modoArchivo)
         {
-            return ProductoData.GetAllByDeposito(idDeposito);
+            return ProductoData.GetAllByDeposito(idDeposito, modoArchivo);
         }
 
 
-        public static List<ProductoView> GetAllByDeposito_GetByDescripcion(int idDeposito, string descripcion)
+        public static List<ProductoView> GetAllByDeposito_GetByDescripcion(int idDeposito, string descripcion, bool modoArchivo)
         {
-            return ProductoData.GetAllByDeposito_GetByDescripcion(idDeposito, descripcion);
+            return ProductoData.GetAllByDeposito_GetByDescripcion(idDeposito, descripcion, modoArchivo);
         }
 
 
@@ -91,6 +91,11 @@ namespace Controlador
         public static long Update(Producto p)
         {
             return ProductoData.Update(p);
+        }
+
+        public static bool CambiarEstadoArchivo(long idProducto, bool archivar)
+        {
+            return ProductoData.CambiarEstadoArchivo(idProducto, archivar);
         }
     }
 }

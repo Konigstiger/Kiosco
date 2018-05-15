@@ -51,6 +51,8 @@ namespace Model
         public string Notas { get; set; }
         public decimal PrecioVentaPremium { get; set; }
 
+        public bool Archivado { get; set; }
+
 
         public bool Validate()
         {
