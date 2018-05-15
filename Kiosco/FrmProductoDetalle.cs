@@ -29,6 +29,7 @@ namespace Heimdall
             if (Program.UsuarioConectado.EsAdmin == false) {
                 labPrecioCosto.Visible = false;
                 txtPrecioCosto.Visible = false;
+                tabControl1.Visible = false;
             }
         }
 
