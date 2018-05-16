@@ -302,9 +302,10 @@ namespace Heimdall
                     case DataGridViewHitTestType.Cell:
                         //cms.Items[0].Visible = false;
                         //cms.Items[1].Visible = true;
-                        cms.Items.Add("Archivar"); // esto puede abrir una pantalla pasando el IdProducto.
-                        //cms.Items.Add("Ver Detalles...");
+                        var item = cms.Items.Add("Archivar / Restaurar");
+                        item.Image = imageList1.Images[0];
                         break;
+                        
 
                 }
                 cms.Show(MousePosition);
@@ -492,11 +493,21 @@ namespace Heimdall
 
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            {
-                //TODO: Mandar el registro elegido al Archivo
-                //IDEA: Creo que se puede sacar el ID de producto del control de edicion. Ver prioridad de eventos.
-                //no sea cosa que tenga el Id anterior, o vacio.
-            }
+            //TODO: Mandar el registro elegido al Archivo
+            //IDEA: Creo que se puede sacar el ID de producto del control de edicion. Ver prioridad de eventos.
+            //no sea cosa que tenga el Id anterior, o vacio.
+            var idProducto = ucProductoEdit1.IdProducto;
+
+            var item = ProductoControlador.GetByPrimaryKeyView(idProducto);
+
+            var res = ProductoControlador.CambiarEstadoArchivo(idProducto, !tsbVerArchivo.Checked);
+
+            _origenDatos.Remove(item);
+
+            // Remover visualmente el registro del producto (operativo)
+            dgv.Rows.Remove(dgv.Rows[_rowIndex]);
+            dgv.Invalidate();
+
         }
     }
 }

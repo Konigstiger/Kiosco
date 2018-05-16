@@ -479,12 +479,14 @@ namespace Data
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
-                    var p1 = new SqlParameter("Archivo", SqlDbType.Bit) { Value = archivar };
+                    var p1 = new SqlParameter("Archivar", SqlDbType.Bit) { Value = archivar };
 
                     cmd.Parameters.Add(p0);
+                    cmd.Parameters.Add(p1);
                     conn.Open();
-                    var cantidad = (int)cmd.ExecuteScalar();
-                    return cantidad > 0;
+                    cmd.ExecuteScalar();
+                    //TODO: ver si es adecuada esta devolucion tautologica teutonica tectonica.
+                    return true;
                 }
             }
         }

@@ -185,12 +185,13 @@ namespace Heimdall
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "users.png");
-            this.imageList1.Images.SetKeyName(1, "trucking.png");
-            this.imageList1.Images.SetKeyName(2, "dollar32.png");
-            this.imageList1.Images.SetKeyName(3, "shopping-cart.png");
-            this.imageList1.Images.SetKeyName(4, "trolley.png");
-            this.imageList1.Images.SetKeyName(5, "package.png");
+            this.imageList1.Images.SetKeyName(0, "archive3.png");
+            this.imageList1.Images.SetKeyName(1, "users.png");
+            this.imageList1.Images.SetKeyName(2, "trucking.png");
+            this.imageList1.Images.SetKeyName(3, "dollar32.png");
+            this.imageList1.Images.SetKeyName(4, "shopping-cart.png");
+            this.imageList1.Images.SetKeyName(5, "trolley.png");
+            this.imageList1.Images.SetKeyName(6, "package.png");
             // 
             // progressBar
             // 
