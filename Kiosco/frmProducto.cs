@@ -293,19 +293,17 @@ namespace Heimdall
                         // This positions the menu at the mouse's location.
                         cms.Items.Add("Ordenar Ascendente");
                         cms.Items.Add("Ordenar Descendente");
-
-                        //cms.Items[0].Visible = true;
-                        //cms.Items[1].Visible = false;
                         break;
+
                     // See if the user right-clicked over the header of the last column.
                     // (ht.ColumnIndex == dgv.Columns.Count - 1)
                     case DataGridViewHitTestType.Cell:
-                        //cms.Items[0].Visible = false;
-                        //cms.Items[1].Visible = true;
-                        var item = cms.Items.Add("Archivar / Restaurar");
-                        item.Image = imageList1.Images[0];
+                        if (Program.UsuarioConectado.EsAdmin) {
+                            var item = cms.Items.Add("Archivar / Restaurar");
+                            item.Image = imageList1.Images[0];
+                        }
                         break;
-                        
+
 
                 }
                 cms.Show(MousePosition);
