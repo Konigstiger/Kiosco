@@ -1,11 +1,9 @@
 ﻿using System;
-using Model.View;
 
-namespace Model
+namespace Model.View
 {
-    public class Promocion : IEntidad
+    public class PromocionView : IEntidad
     {
-
         /*
 	[IdPromocion] [int] NOT NULL,
 	[Descripcion] [varchar](50) NOT NULL,

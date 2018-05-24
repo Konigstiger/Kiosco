@@ -51,6 +51,8 @@
     <Compile Include="GastoData.cs" />
     <Compile Include="FaltanteData.cs" />
     <Compile Include="EstadoFaltanteData.cs" />
+    <Compile Include="PromocionData.cs" />
+    <Compile Include="ProductoPromocionData.cs" />
     <Compile Include="TareaData.cs" />
     <Compile Include="TurnoData.cs" />
     <Compile Include="RecaudacionData.cs" />

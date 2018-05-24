@@ -51,6 +51,8 @@
     <Compile Include="GastoControlador.cs" />
     <Compile Include="FaltanteControlador.cs" />
     <Compile Include="EstadoFaltanteControlador.cs" />
+    <Compile Include="PromocionControlador.cs" />
+    <Compile Include="ProductoPromocionControlador.cs" />
     <Compile Include="TareaControlador.cs" />
     <Compile Include="TurnoControlador.cs" />
     <Compile Include="RecaudacionControlador.cs" />

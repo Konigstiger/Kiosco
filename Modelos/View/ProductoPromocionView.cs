@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Model
+﻿namespace Model.View
 {
-    public class ProductoPromocion: IEntidad
+    public class ProductoPromocionView: IEntidad
     {
         /*
          	[IdProductoPromocion] [int] NOT NULL,
@@ -17,11 +15,13 @@ namespace Model
         public long IdProductoPromocion { get; set; }
         public int IdPromocion { get; set; }
         public long IdProducto { get; set; }
+        public string Producto { get; set; }
+        public string Promocion { get; set; }
+        public int Cantidad { get; set; }
         public decimal PrecioPromocion { get; set; }
         public decimal PorcentajeDescuento { get; set; }
 
         public string Notas { get; set; }
-        public int Cantidad { get; set; }
 
         public bool Validate()
         {
