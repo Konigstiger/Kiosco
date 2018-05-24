@@ -33,6 +33,7 @@ namespace Heimdall
             this.tsbSearchPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbSearchClearAndPerform = new System.Windows.Forms.ToolStripButton();
             this.tsbVerArchivo = new System.Windows.Forms.ToolStripButton();
+            this.tsbExportarTxt = new System.Windows.Forms.ToolStripButton();
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -84,10 +85,11 @@ namespace Heimdall
             this.tsbSearchTextBox,
             this.tsbSearchPerform,
             this.tsbSearchClearAndPerform,
-            this.tsbVerArchivo});
+            this.tsbVerArchivo,
+            this.tsbExportarTxt});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1896, 31);
+            this.tsb.Size = new System.Drawing.Size(1896, 32);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -96,7 +98,7 @@ namespace Heimdall
             this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(70, 28);
+            this.tsbNew.Size = new System.Drawing.Size(80, 29);
             this.tsbNew.Text = "Nuevo";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
@@ -105,7 +107,7 @@ namespace Heimdall
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(77, 28);
+            this.tsbSave.Size = new System.Drawing.Size(90, 29);
             this.tsbSave.Text = "Guardar";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -114,14 +116,14 @@ namespace Heimdall
             this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(67, 28);
+            this.tsbDelete.Size = new System.Drawing.Size(78, 29);
             this.tsbDelete.Text = "Borrar";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
             // 
             // tsbSearch
             // 
@@ -129,7 +131,7 @@ namespace Heimdall
             this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
             this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(79, 28);
+            this.tsbSearch.Size = new System.Drawing.Size(89, 29);
             this.tsbSearch.Text = "Buscar...";
             this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
@@ -139,7 +141,7 @@ namespace Heimdall
             this.tsbSearchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tsbSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
-            this.tsbSearchTextBox.Size = new System.Drawing.Size(200, 31);
+            this.tsbSearchTextBox.Size = new System.Drawing.Size(200, 32);
             this.tsbSearchTextBox.Visible = false;
             this.tsbSearchTextBox.Enter += new System.EventHandler(this.tsbSearchTextBox_Enter);
             this.tsbSearchTextBox.Leave += new System.EventHandler(this.tsbSearchTextBox_Leave);
@@ -151,7 +153,7 @@ namespace Heimdall
             this.tsbSearchPerform.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchPerform.Image")));
             this.tsbSearchPerform.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearchPerform.Name = "tsbSearchPerform";
-            this.tsbSearchPerform.Size = new System.Drawing.Size(28, 28);
+            this.tsbSearchPerform.Size = new System.Drawing.Size(28, 29);
             this.tsbSearchPerform.Visible = false;
             this.tsbSearchPerform.Click += new System.EventHandler(this.tsbSearchPerform_Click);
             // 
@@ -161,7 +163,7 @@ namespace Heimdall
             this.tsbSearchClearAndPerform.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchClearAndPerform.Image")));
             this.tsbSearchClearAndPerform.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearchClearAndPerform.Name = "tsbSearchClearAndPerform";
-            this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 28);
+            this.tsbSearchClearAndPerform.Size = new System.Drawing.Size(28, 29);
             this.tsbSearchClearAndPerform.Visible = false;
             this.tsbSearchClearAndPerform.Click += new System.EventHandler(this.tsbSearchClearAndPerform_Click);
             // 
@@ -171,12 +173,22 @@ namespace Heimdall
             this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
             this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVerArchivo.Name = "tsbVerArchivo";
-            this.tsbVerArchivo.Size = new System.Drawing.Size(76, 28);
+            this.tsbVerArchivo.Size = new System.Drawing.Size(87, 29);
             this.tsbVerArchivo.Text = "Archivo";
             this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
+            // tsbExportarTxt
+            // 
+            this.tsbExportarTxt.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportarTxt.Image")));
+            this.tsbExportarTxt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExportarTxt.Name = "tsbExportarTxt";
+            this.tsbExportarTxt.Size = new System.Drawing.Size(93, 29);
+            this.tsbExportarTxt.Text = "Exportar";
+            this.tsbExportarTxt.Click += new System.EventHandler(this.tsbExportarTxt_Click);
+            // 
             // cms
             // 
+            this.cms.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cms.Name = "cms";
             this.cms.Size = new System.Drawing.Size(61, 4);
             this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
@@ -192,6 +204,7 @@ namespace Heimdall
             this.imageList1.Images.SetKeyName(4, "shopping-cart.png");
             this.imageList1.Images.SetKeyName(5, "trolley.png");
             this.imageList1.Images.SetKeyName(6, "package.png");
+            this.imageList1.Images.SetKeyName(7, "export.png");
             // 
             // progressBar
             // 
@@ -289,6 +302,7 @@ namespace Heimdall
             this.ucAbmToolBar2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ucAbmToolBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAbmToolBar2.Location = new System.Drawing.Point(847, 637);
+            this.ucAbmToolBar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucAbmToolBar2.Name = "ucAbmToolBar2";
             this.ucAbmToolBar2.SearchText = "";
             this.ucAbmToolBar2.Size = new System.Drawing.Size(1037, 32);
@@ -299,7 +313,7 @@ namespace Heimdall
             // 
             // FrmProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1896, 929);
             this.Controls.Add(this.progressBar);
@@ -346,6 +360,7 @@ namespace Heimdall
         private UcProductoEdit ucProductoEdit1;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.ToolStripButton tsbVerArchivo;
+        private System.Windows.Forms.ToolStripButton tsbExportarTxt;
     }
 }
 

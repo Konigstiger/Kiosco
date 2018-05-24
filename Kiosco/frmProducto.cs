@@ -507,5 +507,12 @@ namespace Heimdall
             dgv.Invalidate();
 
         }
+
+        private void tsbExportarTxt_Click(object sender, EventArgs e)
+        {
+            string text = ProductoControlador.GetText(_origenDatos);
+            Clipboard.SetText(text);
+
+        }
     }
 }

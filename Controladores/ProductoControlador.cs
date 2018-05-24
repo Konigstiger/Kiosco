@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Data;
 using Model;
 using Model.View;
@@ -8,6 +9,29 @@ namespace Controlador
 {
     public class ProductoControlador
     {
+        public static string GetText(List<Producto> list)
+        {
+            var sb = new StringBuilder();
+            foreach (var s in list) {
+                sb.Append(s.Descripcion);
+                sb.Append("\n");
+            }
+
+            return sb.ToString();
+        }
+
+
+        public static string GetText(List<ProductoView> list)
+        {
+            var sb = new StringBuilder();
+            foreach (var s in list) {
+                sb.Append(s.Descripcion);
+                sb.Append("\n");
+            }
+
+            return sb.ToString();
+        }
+
         public static List<ProductoView> GetAllView()
         {
             return ProductoData.GetAllView();
@@ -97,5 +121,7 @@ namespace Controlador
         {
             return ProductoData.CambiarEstadoArchivo(idProducto, archivar);
         }
+
+
     }
 }
