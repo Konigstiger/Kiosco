@@ -73,6 +73,39 @@ namespace Data
             return list;
         }
 
+        public static List<PromocionView> GetGrid_GetByIdProducto(long idProducto)
+        {
+            var list = new List<PromocionView>();
+            using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
+                using (var cmd = new SqlCommand("Promocion_GetAll_GetByIdProducto", conn)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
+
+                    cmd.Parameters.Add(p0);
+
+                    conn.Open();
+                    using (var rdr = cmd.ExecuteReader()) {
+                        while (rdr.Read()) {
+                            var p = new PromocionView {
+                                IdPromocion = (int)rdr["IdPromocion"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                Importe = (decimal)rdr["Importe"],
+                                FechaInicio =
+                                    rdr["FechaInicio"] != DBNull.Value
+                                        ? (DateTime)rdr["FechaInicio"]
+                                        : DateTime.MinValue,
+                                FechaFin =
+                                    rdr["FechaFin"] != DBNull.Value ? (DateTime)rdr["FechaFin"] : DateTime.MinValue,
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
+                            };
+                            list.Add(p);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
 
         public static PromocionView GetByPrimaryKeyView(long idPromocion)
         {

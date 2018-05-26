@@ -64,5 +64,10 @@ namespace Controlador
         {
             return PromocionData.CambiarEstadoArchivo(idPromocion, archivar);
         }
+
+        public static List<PromocionView> GetGrid_GetByIdProducto(long idProducto)
+        {
+            return PromocionData.GetGrid_GetByIdProducto(idProducto);
+        }
     }
 }

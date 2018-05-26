@@ -4,15 +4,6 @@ namespace Model.View
 {
     public class PromocionView : IEntidad
     {
-        /*
-	[IdPromocion] [int] NOT NULL,
-	[Descripcion] [varchar](50) NOT NULL,
-	[Importe] [decimal](8, 2) NOT NULL,
-	[FechaInicio] [date] NOT NULL,
-	[FechaFin] [date] NOT NULL,
-	[Notas] [varchar](255) NULL,
-        */
-
         public int IdPromocion { get; set; }
 
         public string Descripcion { get; set; }
@@ -63,5 +54,16 @@ namespace Model.View
             
         }
         */
+
+
+        public enum GridColumn
+        {
+            IdPromocion = 0,
+            Descripcion = 1,
+            Importe = 2,
+            FechaInicio = 3,
+            FechaFin = 4,
+            Notas = 5
+        }
     }
 }

@@ -30,35 +30,7 @@ namespace Heimdall.UserControl
         private List<ProductoProveedorView> _origenDatos = null;
 
 
-        [Category("Action")]
-        [Description("Es lanzado cuando se selecciona otro producto.")]
-        public event ProductoChangedEventHandler ProductoChanged;
 
-        protected virtual void OnProductoChanged(ValueChangedEventArgs e)
-        {
-            ProductoChanged?.Invoke(this, e);
-        }
-
-
-        [Description("IdProducto. Su evento de cambio genera DataBinding."), Category("Data")]
-        [EditorBrowsable(EditorBrowsableState.Always)]
-        [Browsable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        [Bindable(true)]
-        public long IdProducto
-        {
-            get {
-                long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
-                return v;
-            }
-            set {
-                txtIdProducto.Text = value.ToString();
-                OnProductoChanged(new ValueChangedEventArgs(value));
-
-                //TODO: Ver. Tal vez conviene invocar este metodo desde afuera, o sea en el evento OnProductoChanged.
-                CargarProductoProveedorList(value);
-            }
-        }
 
 
         public void CargarProductoProveedorList(long idProducto)
@@ -123,10 +95,9 @@ namespace Heimdall.UserControl
             IdProductoProveedor = idProductoProveedor;
         }
 
+        #region Propiedades
         public decimal Precio { get; set; }
-
         public DateTime? Fecha { get; set; }
-
 
         [Description("IdProductoProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -150,7 +121,6 @@ namespace Heimdall.UserControl
         }
         public int IdProveedor { get; set; }
 
-
         [Category("Action")]
         [Description("Es lanzado cuando se selecciona otro ProductoProveedor.")]
         public event ProductoChangedEventHandler ProductoProveedorChanged;
@@ -159,6 +129,41 @@ namespace Heimdall.UserControl
         {
             ProductoProveedorChanged?.Invoke(this, e);
         }
+
+        [Category("Action")]
+        [Description("Es lanzado cuando se selecciona otro producto.")]
+        public event ProductoChangedEventHandler ProductoChanged;
+
+        protected virtual void OnProductoChanged(ValueChangedEventArgs e)
+        {
+            ProductoChanged?.Invoke(this, e);
+        }
+
+
+        [Description("IdProducto. Su evento de cambio genera DataBinding."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public long IdProducto
+        {
+            get {
+                long v = long.TryParse(txtIdProducto.Text.Trim(), out v) ? v : 0;
+                return v;
+            }
+            set {
+                txtIdProducto.Text = value.ToString();
+                OnProductoChanged(new ValueChangedEventArgs(value));
+
+                //TODO: Ver. Tal vez conviene invocar este metodo desde afuera, o sea en el evento OnProductoChanged.
+                CargarProductoProveedorList(value);
+            }
+        }
+        #endregion
+
+
+
+
 
 
 

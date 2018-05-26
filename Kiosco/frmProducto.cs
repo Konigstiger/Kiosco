@@ -138,6 +138,8 @@ namespace Heimdall
 
             ucProductoEdit1.IdProducto = id;
             _ucProductoProveedorList1.IdProducto = id;
+
+            ucPromocionList1.IdProducto = id;
         }
 
 
