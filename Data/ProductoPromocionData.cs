@@ -47,12 +47,13 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new ProductoPromocionView {
-                                IdProductoPromocion = (long)rdr["IdProductoPromocion"],
-                                Promocion = (string)rdr["Promocion"],
-                                Producto = (string)rdr["Producto"],
+                                IdProductoPromocion = (int)rdr["IdProductoPromocion"],
+                                IdPromocion = (int)rdr["IdPromocion"],
+                                IdProducto = (long)rdr["IdProducto"],
                                 Cantidad = (int)rdr["Cantidad"],
                                 PrecioPromocion = (decimal)rdr["PrecioPromocion"],
-                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
+                                PorcentajeDescuento = (decimal)rdr["PorcentajeDescuento"],
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
                             };
                             list.Add(p);
                         }
@@ -77,7 +78,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new ProductoPromocion {
-                                IdProductoPromocion = (long)rdr["IdProductoPromocion"],
+                                IdProductoPromocion = (int)rdr["IdProductoPromocion"],
                                 IdPromocion = (int)rdr["IdPromocion"],
                                 IdProducto = (long)rdr["IdProducto"],
                                 Cantidad = (int)rdr["Cantidad"],
@@ -140,7 +141,7 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
 
                         while (rdr.Read()) {
-                            c.IdProductoPromocion = (long)rdr["IdProductoPromocion"];
+                            c.IdProductoPromocion = (int)rdr["IdProductoPromocion"];
                             c.IdPromocion = (int)rdr["IdPromocion"];
                             c.IdProducto = (long)rdr["IdProducto"];
                             c.Cantidad = (int)rdr["Cantidad"];
@@ -168,9 +169,9 @@ namespace Data
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            c.IdProductoPromocion = (long)rdr["IdProductoPromocion"];
-                            c.Promocion = (string)rdr["Promocion"];
-                            c.Producto = (string)rdr["Producto"];
+                            c.IdProductoPromocion = (int)rdr["IdProductoPromocion"];
+                            c.IdPromocion = (int)rdr["IdPromocion"];
+                            c.IdProducto = (long)rdr["IdProducto"];
                             c.Cantidad = (int)rdr["Cantidad"];
                             c.PrecioPromocion = (decimal)rdr["PrecioPromocion"];
                             c.PorcentajeDescuento = (decimal)rdr["PorcentajeDescuento"];
@@ -250,13 +251,13 @@ namespace Data
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
                             var p = new ProductoPromocionView {
-                                IdProductoPromocion = (long)rdr["IdProductoPromocion"],
+                                IdProductoPromocion = (int)rdr["IdProductoPromocion"],
+                                IdPromocion = (int)rdr["IdPromocion"],
                                 IdProducto = (long)rdr["IdProducto"],
-                                Producto = (string)rdr["Producto"],
-                                Promocion = (string)rdr["Promocion"],
+                                Cantidad = (int)rdr["Cantidad"],
                                 PrecioPromocion = (decimal)rdr["PrecioPromocion"],
                                 PorcentajeDescuento = (decimal)rdr["PorcentajeDescuento"],
-                                Notas = (string)rdr["Notas"]
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : ""
                             };
                             list.Add(p);
                         }
@@ -268,30 +269,37 @@ namespace Data
 
 
 
-        public static List<ProductoPromocionView> GetGrid_GetByIdProducto(long idProducto)
+        public static List<ProductoPromocionView> GetGrid_GetByIdPromocion(long idProducto)
         {
             var list = new List<ProductoPromocionView>();
             using (var conn = new SqlConnection(GeneralData.CadenaConexion)) {
-                using (var cmd = new SqlCommand("ProductoPromocion_GetAll_GetByIdProducto", conn)) {
+                using (var cmd = new SqlCommand("ProductoPromocion_GetBy_IdPromocion", conn)) {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    var p0 = new SqlParameter("IdProducto", SqlDbType.BigInt) { Value = idProducto };
+                    var p0 = new SqlParameter("IdPromocion", SqlDbType.BigInt) { Value = idProducto };
 
                     cmd.Parameters.Add(p0);
 
                     conn.Open();
                     using (var rdr = cmd.ExecuteReader()) {
                         while (rdr.Read()) {
-                            var p = new ProductoPromocionView
-                            {
-                                IdProductoPromocion = (long) rdr["IdProductoPromocion"],
-                                IdProducto = (long) rdr["IdProducto"],
-                                IdPromocion = rdr["IdPromocion"] != DBNull.Value ? (int) rdr["IdPromocion"] : 0,
-                                Producto = (string) rdr["Producto"],
-                                Promocion = (string) rdr["Promocion"],
-                                PrecioPromocion = (decimal) rdr["PrecioPromocion"],
-                                PorcentajeDescuento = (decimal)rdr["PorcentajeDescuento"],
-                                Notas = (string)rdr["Notas"]
+                            var p = new ProductoPromocionView {
+                                /*
+                                ProductoPromocion.IdProductoPromocion
+                                ,ProductoPromocion.IdProducto
+                                ,ProductoPromocion.Cantidad
+                                ,Producto.Descripcion
+                                ,ProductoPromocion.PrecioPromocion
+                                --,ProductoPromocion.PorcentajeDescuento
+                                ,ProductoPromocion.Notas
+                                 */
+                                IdProductoPromocion = (int)rdr["IdProductoPromocion"],
+                                IdProducto = (long)rdr["IdProducto"],
+                                Cantidad = (int)rdr["Cantidad"],
+                                Descripcion = (string)rdr["Descripcion"],
+                                PrecioPromocion = (decimal)rdr["PrecioPromocion"],
+                                //PorcentajeDescuento = rdr["PorcentajeDescuento"] != DBNull.Value ? (decimal)rdr["PorcentajeDescuento"] : 0,
+                                Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : string.Empty
 
                             };
                             list.Add(p);

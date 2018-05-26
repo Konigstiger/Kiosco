@@ -68,10 +68,10 @@ namespace Heimdall.UserControl
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
-        public long IdPromocion
+        public int IdPromocion
         {
             get {
-                long v = long.TryParse(txtIdPromocion.Text.Trim(), out v) ? v : 0;
+                int v = int.TryParse(txtIdPromocion.Text.Trim(), out v) ? v : 0;
                 return v;
             }
             set {
@@ -132,7 +132,7 @@ namespace Heimdall.UserControl
             if (dgv.SelectedRows.Count <= 0)
                 return;
 
-            long idPromocion = 0;
+            int idPromocion = 0;
 
             foreach (DataGridViewRow item in dgv.SelectedRows) {
                 idPromocion = (int)item.Cells[(int)PromocionView.GridColumn.IdPromocion].Value;

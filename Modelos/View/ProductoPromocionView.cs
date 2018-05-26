@@ -1,6 +1,6 @@
 ﻿namespace Model.View
 {
-    public class ProductoPromocionView: IEntidad
+    public class ProductoPromocionView : IEntidad
     {
         /*
          	[IdProductoPromocion] [int] NOT NULL,
@@ -15,17 +15,36 @@
         public long IdProductoPromocion { get; set; }
         public int IdPromocion { get; set; }
         public long IdProducto { get; set; }
-        public string Producto { get; set; }
-        public string Promocion { get; set; }
         public int Cantidad { get; set; }
         public decimal PrecioPromocion { get; set; }
         public decimal PorcentajeDescuento { get; set; }
 
         public string Notas { get; set; }
+        public string Descripcion { get; set; }
 
         public bool Validate()
         {
             return true;
+        }
+
+        /*
+         	 IdProductoPromocion
+	,IdProducto
+	,Cantidad
+	,Producto.Descripcion
+	,PrecioPromocion
+	--,PorcentajeDescuento
+	,ProductoPromocion.Notas
+             */
+
+        public enum GridColumn
+        {
+            IdProductoPromocion = 0,
+            IdProducto = 1,
+            Cantidad = 2,
+            Descripcion = 3,
+            PrecioPromocion = 4,
+            Notas = 5
         }
     }
 }

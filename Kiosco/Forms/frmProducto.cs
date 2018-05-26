@@ -516,5 +516,11 @@ namespace Heimdall
             Clipboard.SetText(text);
 
         }
+
+        private void ucPromocionList1_PromocionChanged(object sender, ValueChangedEventArgs e)
+        {
+
+           // ucProductoPromocionList1.IdPromocion = ucPromocionList1.IdPromocion;
+        }
     }
 }

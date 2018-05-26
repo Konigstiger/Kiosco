@@ -19,9 +19,9 @@ namespace Controlador
             return ProductoPromocionData.GetGrid_GetByIdPromocion(idPromocion, descripcion);
         }
 
-        public static List<ProductoPromocionView> GetGrid_GetByIdProducto(long idProducto)
+        public static List<ProductoPromocionView> GetGrid_GetByIdPromocion(long idProducto)
         {
-            return ProductoPromocionData.GetGrid_GetByIdProducto(idProducto);
+            return ProductoPromocionData.GetGrid_GetByIdPromocion(idProducto);
         }
 
         public static ProductoPromocion GetByPrimaryKey(long idProductoPromocion)
