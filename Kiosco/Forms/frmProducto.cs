@@ -35,7 +35,7 @@ namespace Heimdall
             _modo = ModoFormulario.Edicion;
 
             if (Program.UsuarioConectado.EsAdmin == false) {
-                ucAbmToolBar2.Visible = false;
+                _ucAbmToolBar2.Visible = false;
                 _ucProductoProveedorList1.Visible = false;
                 ucProductoProveedorEdit1.Visible = false;
 
@@ -520,7 +520,7 @@ namespace Heimdall
         private void ucPromocionList1_PromocionChanged(object sender, ValueChangedEventArgs e)
         {
 
-           // ucProductoPromocionList1.IdPromocion = ucPromocionList1.IdPromocion;
+            ucProductoPromocionList1.IdPromocion = ucPromocionList1.IdPromocion;
         }
     }
 }

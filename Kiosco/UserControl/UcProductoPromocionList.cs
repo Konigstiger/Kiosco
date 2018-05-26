@@ -169,10 +169,11 @@ namespace Heimdall.UserControl
             if (dgv.SelectedRows.Count <= 0)
                 return;
 
-            var idProductoPromocion = 0;
+            int idProductoPromocion = 0;
 
             foreach (DataGridViewRow item in dgv.SelectedRows) {
-                idProductoPromocion = (int)item.Cells[(int)ProductoPromocionView.GridColumn.IdProductoPromocion].Value;
+                //idProductoPromocion = (int)item.Cells[(int)ProductoPromocionView.GridColumn.IdProductoPromocion].Value;
+                idProductoPromocion = Int32.Parse(item.Cells[0].Value.ToString());
             }
 
             IdProductoPromocion = idProductoPromocion;
