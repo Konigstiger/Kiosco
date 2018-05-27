@@ -31,6 +31,7 @@ namespace Heimdall
                 txtPrecioCosto.Visible = false;
                 tabControl1.Visible = false;
             }
+            Util.CenterFormX(labTitulo, this);
         }
 
 
@@ -70,12 +71,6 @@ namespace Heimdall
             var codigo = Convert.ToInt32(txtIdRubro.Text.Trim());
             var c = RubroControlador.GetByPrimaryKey(codigo);
             txtRubroDescripcion.Text = c.Descripcion;
-        }
-
-        private void tsbNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarControles();
-            _list.Clear();
         }
 
 
@@ -400,11 +395,12 @@ namespace Heimdall
         private void btnMProducto_Click(object sender, EventArgs e)
         {
             ucProductoEdit1.IdProducto = IdProducto;
-            ucProductoEdit1.Visible = true;
-            btnGuardar.Visible = true;
-            ucProductoEdit1.BringToFront();
-            btnGuardar.BringToFront();
+            panel1.Visible = true;
 
+            //ucProductoEdit1.Visible = true;
+            //btnGuardar.Visible = true;
+            //ucProductoEdit1.BringToFront();
+            //btnGuardar.BringToFront();
         }
 
 

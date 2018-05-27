@@ -117,23 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tsb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tsbNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGMSURBVEhLrdbPKwRhHMfxSZTy40ByUC6bSA64unCTHNxt
-        bk4ouZCrkxz8C1LOUg7KBZEDS0quHITk50F+/3h/2n1qmp15nmd3fepVs3P4fqZ5npnZIJRB/OC3QJuo
-        gTMz2EOnpyGo4BQHqIc1KtjIHnqlDSpoxDbO0ITEFFtQmbOGc6QQm1IKlHIs4RotOhFNoQXN+MJTyDNU
-        Oo28JBVUQ1cXl270RxxCs/KSVHCFieyhVzTDq6AK43jDDvrgE6+CUTxA9zPsGBWwxVmgbfYOLeAYbrGI
-        fahkGLY4C0agQbtQbjAJLeAFVmCLs0C3RwUnUEyBb5wFrfiAShZwj38tUNLQ9lSJXGIKeiZc8SpQ9Aow
-        29QUPWIAtngXmGgN5qHFVck6bHEWdKAXdVDMIjfgG9rCtUiKs2AZulLtfSVcYL54JRWY50CL3A4VaIHn
-        oPMZ2OIsKMMWNEzb9RMvud+v6IEtzgJF75tZHEG3Re/6VXTBFWtB3Ef/DnrgoueTaEZsQbF/W6I0Q7NI
-        EPwBxBGtDHYAfGEAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -275,14 +259,14 @@
 </value>
   </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>85, 17</value>
+    <value>90, 15</value>
   </metadata>
   <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAy
-        CwAAAk1TRnQBSQFMAgEBBQEAAUgBAQFIAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CwAAAk1TRnQBSQFMAgEBBQEAAXABAQFwAQEBEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAASADAAEBAQABCAYAAQgYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -366,6 +350,21 @@
         RK5CYII=
 </value>
   </data>
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAG
+        xwAABscBBW4wqQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEmSURBVEhL7dax
+        TsJQFMbxJkDi5GB4AAYEn8B01AU2dDEyMuJmfAQmFxOfgDCyscJGwgswsmpifARFouV/zDnJhSDee2Uy
+        nOSX9Lan50ubtmlCjTHHu/rAp7P2If0LvKCaZVlipCQgdXY00XOb1lF5HKgcemjhCs+oOL1RAfd4g1x5
+        G98BeuwaTzjWdXTALR6xEqDHZYaElGWx8wDtucFINmIDOujip4AUMjsq4A4zJfc8OGCAkwDS7x1QxzRC
+        wytgV2Smzv5PAVQRZ39w+lvAJV4xjDDBzCegb00hKHlc/QMoeVvdx/DcTt6ECg44gvsy5e3kTbQnKOAB
+        9jkwfVygZoMMFRxwiNIauaoCcjbIUGEBoah9wHbU1gD7bYn5ZTEy42t1nYyXwCzC3VhzOMoAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>63</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAA
