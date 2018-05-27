@@ -42,6 +42,13 @@ namespace Heimdall
                 tsbNew.Enabled = false;
                 tsbSave.Enabled = false;
                 tsbDelete.Enabled = false;
+
+                //no mostrar los datos de proveedores si no es admin
+                //Esto no sirve. 
+                //this.tabControl2.TabPages[0].Visible = false;
+
+                this.tabControl.TabPages.Remove(tabControl.TabPages[0]);
+
             }
 
         }

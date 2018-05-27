@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcProductoProveedorEdit));
             this.dtpFechaModificacion = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSetPrecioCosto = new System.Windows.Forms.Button();
@@ -44,66 +45,68 @@
             // 
             this.dtpFechaModificacion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpFechaModificacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaModificacion.Location = new System.Drawing.Point(103, 74);
+            this.dtpFechaModificacion.Location = new System.Drawing.Point(103, 64);
             this.dtpFechaModificacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaModificacion.Name = "dtpFechaModificacion";
             this.dtpFechaModificacion.ShowCheckBox = true;
-            this.dtpFechaModificacion.Size = new System.Drawing.Size(140, 30);
+            this.dtpFechaModificacion.Size = new System.Drawing.Size(140, 25);
             this.dtpFechaModificacion.TabIndex = 126;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 79);
+            this.label1.Location = new System.Drawing.Point(44, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 125;
             this.label1.Text = "Fecha:";
             // 
             // btnSetPrecioCosto
             // 
-            this.btnSetPrecioCosto.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSetPrecioCosto.Location = new System.Drawing.Point(297, 46);
+            this.btnSetPrecioCosto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnSetPrecioCosto.Image = ((System.Drawing.Image)(resources.GetObject("btnSetPrecioCosto.Image")));
+            this.btnSetPrecioCosto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetPrecioCosto.Location = new System.Drawing.Point(249, 36);
             this.btnSetPrecioCosto.Name = "btnSetPrecioCosto";
-            this.btnSetPrecioCosto.Size = new System.Drawing.Size(176, 24);
+            this.btnSetPrecioCosto.Size = new System.Drawing.Size(224, 25);
             this.btnSetPrecioCosto.TabIndex = 124;
-            this.btnSetPrecioCosto.Text = "Definir como Precio de Costo";
+            this.btnSetPrecioCosto.Text = "Hacer Precio de Costo";
             this.btnSetPrecioCosto.UseVisualStyleBackColor = true;
-            this.btnSetPrecioCosto.Visible = false;
             this.btnSetPrecioCosto.Click += new System.EventHandler(this.btnSetPrecioCosto_Click);
             // 
             // txtNotas
             // 
             this.txtNotas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNotas.Location = new System.Drawing.Point(103, 103);
+            this.txtNotas.Location = new System.Drawing.Point(103, 92);
             this.txtNotas.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(370, 30);
+            this.txtNotas.Size = new System.Drawing.Size(370, 25);
             this.txtNotas.TabIndex = 122;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(46, 107);
+            this.label7.Location = new System.Drawing.Point(46, 97);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 20);
+            this.label7.Size = new System.Drawing.Size(47, 16);
             this.label7.TabIndex = 123;
             this.label7.Text = "Notas:";
             // 
             // nudPrecioCompra
             // 
+            this.nudPrecioCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudPrecioCompra.DecimalPlaces = 2;
             this.nudPrecioCompra.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudPrecioCompra.Location = new System.Drawing.Point(103, 46);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(103, 36);
             this.nudPrecioCompra.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudPrecioCompra.Name = "nudPrecioCompra";
-            this.nudPrecioCompra.Size = new System.Drawing.Size(140, 30);
+            this.nudPrecioCompra.Size = new System.Drawing.Size(140, 25);
             this.nudPrecioCompra.TabIndex = 120;
             this.nudPrecioCompra.Value = new decimal(new int[] {
             1,
@@ -116,9 +119,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 48);
+            this.label3.Location = new System.Drawing.Point(43, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.Size = new System.Drawing.Size(50, 16);
             this.label3.TabIndex = 121;
             this.label3.Text = "Precio:";
             // 
@@ -128,7 +131,7 @@
             this.txtIdProductoProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProductoProveedor.Location = new System.Drawing.Point(3, 3);
             this.txtIdProductoProveedor.Name = "txtIdProductoProveedor";
-            this.txtIdProductoProveedor.Size = new System.Drawing.Size(38, 29);
+            this.txtIdProductoProveedor.Size = new System.Drawing.Size(38, 24);
             this.txtIdProductoProveedor.TabIndex = 127;
             this.txtIdProductoProveedor.Visible = false;
             this.txtIdProductoProveedor.TextChanged += new System.EventHandler(this.txtIdProductoProveedor_TextChanged);
@@ -137,9 +140,9 @@
             // 
             this.txtIdProducto.BackColor = System.Drawing.SystemColors.Info;
             this.txtIdProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProducto.Location = new System.Drawing.Point(16, 40);
+            this.txtIdProducto.Location = new System.Drawing.Point(16, 30);
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Size = new System.Drawing.Size(18, 29);
+            this.txtIdProducto.Size = new System.Drawing.Size(18, 24);
             this.txtIdProducto.TabIndex = 129;
             this.txtIdProducto.Visible = false;
             // 
@@ -147,9 +150,9 @@
             // 
             this.ucProveedorView1.IdProveedor = 0;
             this.ucProveedorView1.Location = new System.Drawing.Point(0, 0);
-            this.ucProveedorView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucProveedorView1.Margin = new System.Windows.Forms.Padding(4);
             this.ucProveedorView1.Name = "ucProveedorView1";
-            this.ucProveedorView1.Size = new System.Drawing.Size(683, 40);
+            this.ucProveedorView1.Size = new System.Drawing.Size(546, 40);
             this.ucProveedorView1.TabIndex = 128;
             // 
             // UcProductoProveedorEdit
@@ -168,7 +171,7 @@
             this.Controls.Add(this.ucProveedorView1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcProductoProveedorEdit";
-            this.Size = new System.Drawing.Size(687, 134);
+            this.Size = new System.Drawing.Size(546, 123);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

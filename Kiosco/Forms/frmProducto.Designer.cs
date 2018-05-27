@@ -19,8 +19,8 @@ namespace Heimdall
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -38,18 +38,18 @@ namespace Heimdall
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabProveedores = new System.Windows.Forms.TabPage();
+            this.tabPromociones = new System.Windows.Forms.TabPage();
             this._ucAbmToolBar2 = new Heimdall.UserControl.UcAbmToolBar();
             this.ucProductoProveedorEdit1 = new Heimdall.UserControl.UcProductoProveedorEdit();
             this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
-            this.tabPromociones = new System.Windows.Forms.TabPage();
             this.ucProductoPromocionList1 = new Heimdall.UserControl.UcProductoPromocionList();
             this.ucPromocionList1 = new Heimdall.UserControl.UcPromocionList();
             this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tsb.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabProveedores.SuspendLayout();
             this.tabPromociones.SuspendLayout();
             this.SuspendLayout();
@@ -60,21 +60,22 @@ namespace Heimdall
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv.Location = new System.Drawing.Point(0, 37);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv.Location = new System.Drawing.Point(0, 30);
+            this.dgv.Margin = new System.Windows.Forms.Padding(2);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1884, 720);
+            this.dgv.Size = new System.Drawing.Size(1507, 484);
             this.dgv.TabIndex = 9;
             this.dgv.TabStop = false;
             this.dgv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_DataError);
@@ -99,7 +100,7 @@ namespace Heimdall
             this.tsbExportarTxt});
             this.tsb.Location = new System.Drawing.Point(0, 0);
             this.tsb.Name = "tsb";
-            this.tsb.Size = new System.Drawing.Size(1896, 31);
+            this.tsb.Size = new System.Drawing.Size(1517, 31);
             this.tsb.TabIndex = 23;
             this.tsb.Text = "toolStrip1";
             // 
@@ -108,7 +109,7 @@ namespace Heimdall
             this.tsbNew.Image = ((System.Drawing.Image)(resources.GetObject("tsbNew.Image")));
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNew.Name = "tsbNew";
-            this.tsbNew.Size = new System.Drawing.Size(80, 28);
+            this.tsbNew.Size = new System.Drawing.Size(70, 28);
             this.tsbNew.Text = "Nuevo";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
@@ -117,7 +118,7 @@ namespace Heimdall
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(90, 28);
+            this.tsbSave.Size = new System.Drawing.Size(77, 28);
             this.tsbSave.Text = "Guardar";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -126,7 +127,7 @@ namespace Heimdall
             this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(78, 28);
+            this.tsbDelete.Size = new System.Drawing.Size(67, 28);
             this.tsbDelete.Text = "Borrar";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
@@ -141,7 +142,7 @@ namespace Heimdall
             this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
             this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(89, 28);
+            this.tsbSearch.Size = new System.Drawing.Size(79, 28);
             this.tsbSearch.Text = "Buscar...";
             this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
@@ -151,7 +152,7 @@ namespace Heimdall
             this.tsbSearchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tsbSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsbSearchTextBox.Name = "tsbSearchTextBox";
-            this.tsbSearchTextBox.Size = new System.Drawing.Size(200, 32);
+            this.tsbSearchTextBox.Size = new System.Drawing.Size(161, 31);
             this.tsbSearchTextBox.Visible = false;
             this.tsbSearchTextBox.Enter += new System.EventHandler(this.tsbSearchTextBox_Enter);
             this.tsbSearchTextBox.Leave += new System.EventHandler(this.tsbSearchTextBox_Leave);
@@ -183,7 +184,7 @@ namespace Heimdall
             this.tsbVerArchivo.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerArchivo.Image")));
             this.tsbVerArchivo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVerArchivo.Name = "tsbVerArchivo";
-            this.tsbVerArchivo.Size = new System.Drawing.Size(87, 28);
+            this.tsbVerArchivo.Size = new System.Drawing.Size(76, 28);
             this.tsbVerArchivo.Text = "Archivo";
             this.tsbVerArchivo.Click += new System.EventHandler(this.tsbVerArchivo_Click);
             // 
@@ -197,7 +198,7 @@ namespace Heimdall
             this.tsbExportarTxt.Image = ((System.Drawing.Image)(resources.GetObject("tsbExportarTxt.Image")));
             this.tsbExportarTxt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExportarTxt.Name = "tsbExportarTxt";
-            this.tsbExportarTxt.Size = new System.Drawing.Size(93, 28);
+            this.tsbExportarTxt.Size = new System.Drawing.Size(78, 28);
             this.tsbExportarTxt.Text = "Exportar";
             this.tsbExportarTxt.Click += new System.EventHandler(this.tsbExportarTxt_Click);
             // 
@@ -223,47 +224,65 @@ namespace Heimdall
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(505, 349);
+            this.progressBar.Location = new System.Drawing.Point(404, 279);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(375, 26);
+            this.progressBar.Size = new System.Drawing.Size(300, 21);
             this.progressBar.Step = 5;
             this.progressBar.TabIndex = 97;
             this.progressBar.Visible = false;
             // 
-            // tabControl2
+            // tabControl
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tabControl2.Controls.Add(this.tabProveedores);
-            this.tabControl2.Controls.Add(this.tabPromociones);
-            this.tabControl2.Location = new System.Drawing.Point(847, 763);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1037, 284);
-            this.tabControl2.TabIndex = 102;
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControl.Controls.Add(this.tabProveedores);
+            this.tabControl.Controls.Add(this.tabPromociones);
+            this.tabControl.ImageList = this.imageList1;
+            this.tabControl.Location = new System.Drawing.Point(781, 519);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(726, 314);
+            this.tabControl.TabIndex = 102;
             // 
             // tabProveedores
             // 
             this.tabProveedores.Controls.Add(this._ucAbmToolBar2);
             this.tabProveedores.Controls.Add(this.ucProductoProveedorEdit1);
             this.tabProveedores.Controls.Add(this._ucProductoProveedorList1);
-            this.tabProveedores.Location = new System.Drawing.Point(4, 29);
+            this.tabProveedores.ImageIndex = 1;
+            this.tabProveedores.Location = new System.Drawing.Point(4, 24);
+            this.tabProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.tabProveedores.Name = "tabProveedores";
-            this.tabProveedores.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProveedores.Size = new System.Drawing.Size(1029, 251);
+            this.tabProveedores.Padding = new System.Windows.Forms.Padding(2);
+            this.tabProveedores.Size = new System.Drawing.Size(718, 286);
             this.tabProveedores.TabIndex = 0;
             this.tabProveedores.Text = "Proveedores";
             this.tabProveedores.UseVisualStyleBackColor = true;
             // 
+            // tabPromociones
+            // 
+            this.tabPromociones.Controls.Add(this.ucProductoPromocionList1);
+            this.tabPromociones.Controls.Add(this.ucPromocionList1);
+            this.tabPromociones.ImageIndex = 3;
+            this.tabPromociones.Location = new System.Drawing.Point(4, 24);
+            this.tabPromociones.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPromociones.Name = "tabPromociones";
+            this.tabPromociones.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPromociones.Size = new System.Drawing.Size(718, 286);
+            this.tabPromociones.TabIndex = 1;
+            this.tabPromociones.Text = "Promociones";
+            this.tabPromociones.UseVisualStyleBackColor = true;
+            // 
             // _ucAbmToolBar2
             // 
             this._ucAbmToolBar2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this._ucAbmToolBar2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._ucAbmToolBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this._ucAbmToolBar2.Location = new System.Drawing.Point(3, 3);
-            this._ucAbmToolBar2.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this._ucAbmToolBar2.Location = new System.Drawing.Point(2, 2);
+            this._ucAbmToolBar2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this._ucAbmToolBar2.Name = "_ucAbmToolBar2";
             this._ucAbmToolBar2.SearchText = "";
-            this._ucAbmToolBar2.Size = new System.Drawing.Size(1023, 42);
+            this._ucAbmToolBar2.Size = new System.Drawing.Size(714, 34);
             this._ucAbmToolBar2.TabIndex = 96;
             // 
             // ucProductoProveedorEdit1
@@ -276,7 +295,8 @@ namespace Heimdall
             this.ucProductoProveedorEdit1.IdProducto = ((long)(0));
             this.ucProductoProveedorEdit1.IdProductoProveedor = ((long)(0));
             this.ucProductoProveedorEdit1.IdProveedor = 0;
-            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(6, 138);
+            this.ucProductoProveedorEdit1.Location = new System.Drawing.Point(5, 158);
+            this.ucProductoProveedorEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.ucProductoProveedorEdit1.Modo = Heimdall.ModoFormulario.Nuevo;
             this.ucProductoProveedorEdit1.Name = "ucProductoProveedorEdit1";
             this.ucProductoProveedorEdit1.Notas = "";
@@ -285,7 +305,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(1016, 140);
+            this.ucProductoProveedorEdit1.Size = new System.Drawing.Size(710, 124);
             this.ucProductoProveedorEdit1.TabIndex = 94;
             // 
             // _ucProductoProveedorList1
@@ -295,28 +315,16 @@ namespace Heimdall
             this._ucProductoProveedorList1.IdProducto = ((long)(0));
             this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
             this._ucProductoProveedorList1.IdProveedor = 0;
-            this._ucProductoProveedorList1.Location = new System.Drawing.Point(6, 44);
-            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(8, 30, 8, 30);
+            this._ucProductoProveedorList1.Location = new System.Drawing.Point(5, 41);
+            this._ucProductoProveedorList1.Margin = new System.Windows.Forms.Padding(6, 24, 6, 24);
             this._ucProductoProveedorList1.Name = "_ucProductoProveedorList1";
             this._ucProductoProveedorList1.Precio = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this._ucProductoProveedorList1.Size = new System.Drawing.Size(1016, 92);
+            this._ucProductoProveedorList1.Size = new System.Drawing.Size(710, 114);
             this._ucProductoProveedorList1.TabIndex = 92;
-            // 
-            // tabPromociones
-            // 
-            this.tabPromociones.Controls.Add(this.ucProductoPromocionList1);
-            this.tabPromociones.Controls.Add(this.ucPromocionList1);
-            this.tabPromociones.Location = new System.Drawing.Point(4, 29);
-            this.tabPromociones.Name = "tabPromociones";
-            this.tabPromociones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPromociones.Size = new System.Drawing.Size(1029, 251);
-            this.tabPromociones.TabIndex = 1;
-            this.tabPromociones.Text = "Promociones";
-            this.tabPromociones.UseVisualStyleBackColor = true;
             // 
             // ucProductoPromocionList1
             // 
@@ -324,10 +332,10 @@ namespace Heimdall
             this.ucProductoPromocionList1.IdProducto = ((long)(0));
             this.ucProductoPromocionList1.IdProductoPromocion = 0;
             this.ucProductoPromocionList1.IdPromocion = 0;
-            this.ucProductoPromocionList1.Location = new System.Drawing.Point(7, 133);
-            this.ucProductoPromocionList1.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
+            this.ucProductoPromocionList1.Location = new System.Drawing.Point(5, 154);
+            this.ucProductoPromocionList1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.ucProductoPromocionList1.Name = "ucProductoPromocionList1";
-            this.ucProductoPromocionList1.Size = new System.Drawing.Size(541, 122);
+            this.ucProductoPromocionList1.Size = new System.Drawing.Size(708, 122);
             this.ucProductoPromocionList1.TabIndex = 100;
             // 
             // ucPromocionList1
@@ -335,10 +343,10 @@ namespace Heimdall
             this.ucPromocionList1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ucPromocionList1.IdProducto = ((long)(0));
             this.ucPromocionList1.IdPromocion = 0;
-            this.ucPromocionList1.Location = new System.Drawing.Point(6, 12);
-            this.ucPromocionList1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.ucPromocionList1.Location = new System.Drawing.Point(5, 10);
+            this.ucPromocionList1.Margin = new System.Windows.Forms.Padding(2, 10, 2, 10);
             this.ucPromocionList1.Name = "ucPromocionList1";
-            this.ucPromocionList1.Size = new System.Drawing.Size(542, 114);
+            this.ucPromocionList1.Size = new System.Drawing.Size(709, 139);
             this.ucPromocionList1.TabIndex = 99;
             this.ucPromocionList1.PromocionChanged += new Heimdall.UserControl.PromocionChangedEventHandler(this.ucPromocionList1_PromocionChanged);
             // 
@@ -355,7 +363,8 @@ namespace Heimdall
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
-            this.ucProductoEdit1.Location = new System.Drawing.Point(1, 763);
+            this.ucProductoEdit1.Location = new System.Drawing.Point(1, 519);
+            this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
             this.ucProductoEdit1.Notas = "";
             this.ucProductoEdit1.PrecioCosto = new decimal(new int[] {
@@ -373,7 +382,7 @@ namespace Heimdall
             0,
             0,
             0});
-            this.ucProductoEdit1.Size = new System.Drawing.Size(840, 286);
+            this.ucProductoEdit1.Size = new System.Drawing.Size(775, 314);
             this.ucProductoEdit1.SoloAdultos = false;
             this.ucProductoEdit1.StockActual = 0;
             this.ucProductoEdit1.StockMaximo = 0;
@@ -382,16 +391,17 @@ namespace Heimdall
             // 
             // FrmProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1896, 1055);
-            this.Controls.Add(this.tabControl2);
+            this.ClientSize = new System.Drawing.Size(1517, 836);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.ucProductoEdit1);
             this.Controls.Add(this.tsb);
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
@@ -402,7 +412,7 @@ namespace Heimdall
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tsb.ResumeLayout(false);
             this.tsb.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabProveedores.ResumeLayout(false);
             this.tabPromociones.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -428,7 +438,7 @@ namespace Heimdall
         private System.Windows.Forms.ToolStripButton tsbVerArchivo;
         private System.Windows.Forms.ToolStripButton tsbExportarTxt;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabProveedores;
         private UcAbmToolBar _ucAbmToolBar2;
         private UcProductoProveedorEdit ucProductoProveedorEdit1;
