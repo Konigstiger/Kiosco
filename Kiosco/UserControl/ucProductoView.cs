@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Controlador;
+using Heimdall.Forms;
 
 namespace Heimdall.UserControl
 {

@@ -1,6 +1,6 @@
 ﻿using Heimdall.UserControl;
 
-namespace Heimdall
+namespace Heimdall.Forms
 {
     partial class FrmProducto
     {
@@ -19,8 +19,8 @@ namespace Heimdall
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -40,10 +40,10 @@ namespace Heimdall
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabProveedores = new System.Windows.Forms.TabPage();
-            this.tabPromociones = new System.Windows.Forms.TabPage();
             this._ucAbmToolBar2 = new Heimdall.UserControl.UcAbmToolBar();
             this.ucProductoProveedorEdit1 = new Heimdall.UserControl.UcProductoProveedorEdit();
             this._ucProductoProveedorList1 = new Heimdall.UserControl.UcProductoProveedorList();
+            this.tabPromociones = new System.Windows.Forms.TabPage();
             this.ucProductoPromocionList1 = new Heimdall.UserControl.UcProductoPromocionList();
             this.ucPromocionList1 = new Heimdall.UserControl.UcPromocionList();
             this.ucProductoEdit1 = new Heimdall.UserControl.UcProductoEdit();
@@ -60,20 +60,20 @@ namespace Heimdall
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv.Location = new System.Drawing.Point(0, 30);
             this.dgv.Margin = new System.Windows.Forms.Padding(2);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(1507, 484);
             this.dgv.TabIndex = 9;
@@ -260,20 +260,6 @@ namespace Heimdall
             this.tabProveedores.Text = "Proveedores";
             this.tabProveedores.UseVisualStyleBackColor = true;
             // 
-            // tabPromociones
-            // 
-            this.tabPromociones.Controls.Add(this.ucProductoPromocionList1);
-            this.tabPromociones.Controls.Add(this.ucPromocionList1);
-            this.tabPromociones.ImageIndex = 3;
-            this.tabPromociones.Location = new System.Drawing.Point(4, 24);
-            this.tabPromociones.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPromociones.Name = "tabPromociones";
-            this.tabPromociones.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPromociones.Size = new System.Drawing.Size(718, 286);
-            this.tabPromociones.TabIndex = 1;
-            this.tabPromociones.Text = "Promociones";
-            this.tabPromociones.UseVisualStyleBackColor = true;
-            // 
             // _ucAbmToolBar2
             // 
             this._ucAbmToolBar2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -284,6 +270,9 @@ namespace Heimdall
             this._ucAbmToolBar2.SearchText = "";
             this._ucAbmToolBar2.Size = new System.Drawing.Size(714, 34);
             this._ucAbmToolBar2.TabIndex = 96;
+            this._ucAbmToolBar2.ButtonClickNew += new System.EventHandler(this.ucAbmToolBar2_ButtonClickNew);
+            this._ucAbmToolBar2.ButtonClickUpdate += new System.EventHandler(this.ucAbmToolBar2_ButtonClickUpdate);
+            this._ucAbmToolBar2.ButtonClickDelete += new System.EventHandler(this.ucAbmToolBar2_ButtonClickDelete);
             // 
             // ucProductoProveedorEdit1
             // 
@@ -325,6 +314,22 @@ namespace Heimdall
             0});
             this._ucProductoProveedorList1.Size = new System.Drawing.Size(710, 114);
             this._ucProductoProveedorList1.TabIndex = 92;
+            this._ucProductoProveedorList1.ProductoProveedorChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoProveedorChanged);
+            this._ucProductoProveedorList1.ProductoChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this._ucProductoProveedorList1_ProductoChanged);
+            // 
+            // tabPromociones
+            // 
+            this.tabPromociones.Controls.Add(this.ucProductoPromocionList1);
+            this.tabPromociones.Controls.Add(this.ucPromocionList1);
+            this.tabPromociones.ImageIndex = 3;
+            this.tabPromociones.Location = new System.Drawing.Point(4, 24);
+            this.tabPromociones.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPromociones.Name = "tabPromociones";
+            this.tabPromociones.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPromociones.Size = new System.Drawing.Size(718, 286);
+            this.tabPromociones.TabIndex = 1;
+            this.tabPromociones.Text = "Promociones";
+            this.tabPromociones.UseVisualStyleBackColor = true;
             // 
             // ucProductoPromocionList1
             // 
@@ -388,6 +393,7 @@ namespace Heimdall
             this.ucProductoEdit1.StockMaximo = 0;
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 96;
+            this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
             // 
             // FrmProducto
             // 

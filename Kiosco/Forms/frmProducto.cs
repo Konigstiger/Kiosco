@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using Controlador;
 using Heimdall.UserControl;
 using Model;
 using Model.View;
 
-namespace Heimdall
+namespace Heimdall.Forms
 {
     public partial class FrmProducto : Form, IAbmGeneral
     {
