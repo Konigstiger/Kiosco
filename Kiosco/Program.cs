@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Model;
+using NLog;
 
 namespace Heimdall
 {
@@ -8,6 +9,8 @@ namespace Heimdall
     {
         public static Usuario UsuarioConectado { get; set; } = new Usuario();
 
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// Punto de entrada de la aplicacion.
@@ -24,10 +27,13 @@ namespace Heimdall
                 result = loginForm.ShowDialog();
 
             if (result == DialogResult.OK) {
+                logger.Debug("Hello World!");
                 Application.Run(new FrmMain());
             }
             else
             {
+                logger.Debug("Adios!");
+
                 Application.Exit();
             }
             
