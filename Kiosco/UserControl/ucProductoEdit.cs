@@ -357,6 +357,7 @@ namespace Heimdall.UserControl
 
             txtCodigoBarras.Text = c.CodigoBarras;
             txtDescripcion.Text = c.Descripcion;
+            //BUG: tamaño pequeño
             nudCapacidad.Value = c.Capacidad;
             nudPrecio.Value = c.PrecioVenta;
             nudPrecioVentaPremium.Value = c.PrecioVentaPremium;
@@ -466,6 +467,7 @@ namespace Heimdall.UserControl
             nudStockActual.Increment = 1;
             nudStockMaximo.Increment = 1;
             nudStockMinimo.Increment = 1;
+            nudCapacidad.Maximum = 9999;
             nudCapacidad.Increment = 250;
             txtIdMarca.Visible = false;
 
