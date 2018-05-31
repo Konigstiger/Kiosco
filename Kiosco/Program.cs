@@ -27,7 +27,7 @@ namespace Heimdall
                 result = loginForm.ShowDialog();
 
             if (result == DialogResult.OK) {
-                logger.Debug("Hello World!");
+                logger.Debug(String.Format("Usuario conectado: {0}", Program.UsuarioConectado.Descripcion));
                 Application.Run(new FrmMain());
             }
             else
