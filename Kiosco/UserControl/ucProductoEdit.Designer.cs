@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcProductoEdit));
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtIdMarca = new System.Windows.Forms.TextBox();
@@ -62,6 +63,7 @@
             this.nudPrecioVentaPremium = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.chkArchivado = new System.Windows.Forms.CheckBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.gbStock.SuspendLayout();
@@ -70,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVentaPremium)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMarca
@@ -196,6 +199,7 @@
             0,
             0,
             0});
+            this.nudPrecio.ValueChanged += new System.EventHandler(this.nudPrecio_ValueChanged);
             this.nudPrecio.Enter += new System.EventHandler(this.nudPrecio_Enter);
             this.nudPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecio_KeyPress);
             // 
@@ -451,6 +455,7 @@
             0,
             0,
             0});
+            this.nudPrecioVentaPremium.ValueChanged += new System.EventHandler(this.nudPrecioVentaPremium_ValueChanged);
             this.nudPrecioVentaPremium.Enter += new System.EventHandler(this.nudPrecioVentaPremium_Enter);
             this.nudPrecioVentaPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudPrecioVentaPremium_KeyPress);
             // 
@@ -474,6 +479,10 @@
             this.chkArchivado.TabIndex = 127;
             this.chkArchivado.Text = "¿Archivado?";
             this.chkArchivado.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // UcProductoEdit
             // 
@@ -519,6 +528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStockMinimo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVentaPremium)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +570,6 @@
         private System.Windows.Forms.NumericUpDown nudPrecioVentaPremium;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkArchivado;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

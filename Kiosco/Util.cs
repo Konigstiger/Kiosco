@@ -80,7 +80,7 @@ namespace Heimdall
         {
             nud.Minimum = 0;
             nud.Maximum = 9999;
-            nud.Increment = Convert.ToDecimal("0,25");
+            nud.Increment = Convert.ToDecimal("0.25");
         }
 
 

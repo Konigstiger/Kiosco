@@ -19,8 +19,8 @@ namespace Heimdall.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.tsb = new System.Windows.Forms.ToolStrip();
@@ -60,20 +60,20 @@ namespace Heimdall.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.Location = new System.Drawing.Point(0, 30);
             this.dgv.Margin = new System.Windows.Forms.Padding(2);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(1507, 484);
             this.dgv.TabIndex = 9;
@@ -262,6 +262,9 @@ namespace Heimdall.Forms
             // 
             // _ucAbmToolBar2
             // 
+            this._ucAbmToolBar2.AllowDelete = true;
+            this._ucAbmToolBar2.AllowNew = true;
+            this._ucAbmToolBar2.AllowSave = true;
             this._ucAbmToolBar2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this._ucAbmToolBar2.Dock = System.Windows.Forms.DockStyle.Top;
             this._ucAbmToolBar2.Location = new System.Drawing.Point(2, 2);
@@ -300,6 +303,7 @@ namespace Heimdall.Forms
             // _ucProductoProveedorList1
             // 
             this._ucProductoProveedorList1.BackColor = System.Drawing.Color.White;
+            this._ucProductoProveedorList1.Count = 0;
             this._ucProductoProveedorList1.Fecha = null;
             this._ucProductoProveedorList1.IdProducto = ((long)(0));
             this._ucProductoProveedorList1.IdProductoProveedor = ((long)(0));
@@ -368,6 +372,7 @@ namespace Heimdall.Forms
             this.ucProductoEdit1.IdProducto = ((long)(0));
             this.ucProductoEdit1.IdRubro = 0;
             this.ucProductoEdit1.IdUnidad = 0;
+            this.ucProductoEdit1.IsValid = false;
             this.ucProductoEdit1.Location = new System.Drawing.Point(1, 519);
             this.ucProductoEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.ucProductoEdit1.Name = "ucProductoEdit1";
@@ -394,6 +399,7 @@ namespace Heimdall.Forms
             this.ucProductoEdit1.StockMinimo = 0;
             this.ucProductoEdit1.TabIndex = 96;
             this.ucProductoEdit1.StockChanged += new Heimdall.UserControl.ProductoChangedEventHandler(this.ucProductoEdit1_StockChanged);
+            this.ucProductoEdit1.ModelStateChanged += new Heimdall.UserControl.ModelStateChangedEventHandler(this.ucProductoEdit1_ModelStateChanged);
             // 
             // FrmProducto
             // 

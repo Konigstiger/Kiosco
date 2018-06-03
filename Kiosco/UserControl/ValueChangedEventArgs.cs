@@ -33,6 +33,9 @@ namespace Heimdall.UserControl
     public delegate void FaltanteChangedEventHandler(object sender, ValueChangedEventArgs e);
     public delegate void GastoChangedEventHandler(object sender, ValueChangedEventArgs e);
 
+    //evento para notificar el cambio de validez del estado de un modelo
+    public delegate void ModelStateChangedEventHandler(object sender, ValueChangedEventArgs e);
+
 
     //test
     public delegate void AddActionEventHandler(object sender, EventArgs e);

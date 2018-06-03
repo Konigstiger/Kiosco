@@ -32,7 +32,7 @@ namespace Heimdall
             }
             else
             {
-                logger.Debug("Adios!");
+                logger.Debug("Cierre de Aplicacion.");
 
                 Application.Exit();
             }

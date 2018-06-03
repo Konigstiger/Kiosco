@@ -12,6 +12,16 @@ namespace Heimdall.UserControl
         [Description("Es lanzado cuando el Stock es cambiado")]
         public event ProductoChangedEventHandler StockChanged;
 
+
+        //ModelStateChangedEventHandler
+        [Category("Action")]
+        [Description("Es lanzado cuando cambia de estado la validez del modelo asociado")]
+        public event ModelStateChangedEventHandler ModelStateChanged;
+        protected virtual void OnModelStateChanged(ValueChangedEventArgs e)
+        {
+            ModelStateChanged?.Invoke(this, e);
+        }
+
         protected virtual void OnStockChanged(ValueChangedEventArgs e)
         {
             StockChanged?.Invoke(this, e);
@@ -26,6 +36,7 @@ namespace Heimdall.UserControl
             ProductoChanged?.Invoke(this, e);
         }
 
+        public bool IsValid { get; set; }
 
         [Description("Archivado."), Category("Data")]
         [EditorBrowsable(EditorBrowsableState.Always)]
@@ -44,8 +55,7 @@ namespace Heimdall.UserControl
         public UcProductoEdit()
         {
             InitializeComponent();
-            if (Program.UsuarioConectado.EsAdmin == false)
-            {
+            if (Program.UsuarioConectado.EsAdmin == false) {
                 labPrecioCosto.Visible = false;
                 nudPrecioCosto.Visible = false;
             }
@@ -499,5 +509,32 @@ namespace Heimdall.UserControl
                 e.KeyChar = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()[0];
             }
         }
+
+        private void nudPrecio_ValueChanged(object sender, EventArgs e)
+        {
+            CheckError_Precio_PrecioPremium();
+        }
+
+        private void nudPrecioVentaPremium_ValueChanged(object sender, EventArgs e)
+        {
+            CheckError_Precio_PrecioPremium();
+        }
+
+        private void CheckError_Precio_PrecioPremium()
+        {
+            if (nudPrecioVentaPremium.Value < nudPrecio.Value) {
+                errorProvider1.SetError(nudPrecioVentaPremium, "El precio Premium debe ser mayor o igual al regular!");
+
+                IsValid = false;
+                //TODO: Hacer algo para que deshabilite el poder guardar.
+                //un ejemplo seria cambiar una propiedad, que defina si es valido el modelo
+                //otra posibilidad es que tambien se pueda manejar asi IsDirty, cuando hay cambios sin guardar.
+            } else {
+                errorProvider1.Clear();
+                IsValid = true;
+            }
+        }
+
+
     }
 }

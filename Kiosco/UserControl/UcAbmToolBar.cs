@@ -14,8 +14,6 @@ namespace Heimdall.UserControl
             tsb.Items[1].ImageKey = @"save";
             tsb.Items[2].ImageKey = @"delete";
             tsb.Items[4].ImageKey = @"search";
-
-
         }
 
         public event EventHandler ButtonClickNew;
@@ -24,6 +22,42 @@ namespace Heimdall.UserControl
         public event EventHandler ButtonClickArchivo;
 
         public event EventHandler ButtonClickExecuteSearch;
+
+        [Description("AllowNew."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool AllowNew
+        {
+            get { return tsbNew.Enabled; }
+            set { tsbNew.Enabled = value; }
+        }
+
+
+        [Description("AllowSave."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool AllowSave
+        {
+            get { return tsbSave.Enabled; }
+            set { tsbSave.Enabled = value; }
+        }
+
+
+        [Description("AllowDelete."), Category("Data")]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Bindable(true)]
+        public bool AllowDelete
+        {
+            get { return tsbDelete.Enabled; }
+            set { tsbDelete.Enabled = value; }
+        }
+
 
         private void tsbNew_Click(object sender, EventArgs e)
         {

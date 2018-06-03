@@ -145,6 +145,20 @@ namespace Heimdall.Forms
             ucProductoEdit1.IdProducto = id;
             _ucProductoProveedorList1.IdProducto = id;
 
+            //[HACK]
+            if (_ucProductoProveedorList1.Count > 0) {
+                //tiene elementos
+                _ucAbmToolBar2.AllowNew = true;
+                _ucAbmToolBar2.AllowSave = true;
+                _ucAbmToolBar2.AllowDelete = true;
+            } else {
+                //no tiene elementos
+                _ucAbmToolBar2.AllowNew = true;
+                _ucAbmToolBar2.AllowSave = false;
+                _ucAbmToolBar2.AllowDelete = false;
+                
+
+            }
             ucPromocionList1.IdProducto = id;
         }
 
@@ -527,6 +541,20 @@ namespace Heimdall.Forms
         {
 
             ucProductoPromocionList1.IdPromocion = ucPromocionList1.IdPromocion;
+        }
+
+        private void ucProductoEdit1_ModelStateChanged(object sender, ValueChangedEventArgs e)
+        {
+            //[NEW]
+            if (ucProductoEdit1.IsValid)
+            {
+                //TODO: Continuar aqui
+                tsbSave.Enabled = true;
+            }
+            else
+            {
+                tsbSave.Enabled = false;
+            }
         }
     }
 }

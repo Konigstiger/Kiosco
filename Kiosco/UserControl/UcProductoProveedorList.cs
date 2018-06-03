@@ -75,6 +75,9 @@ namespace Heimdall.UserControl
             var source = new BindingSource(bindingList, null);
             dgv.DataSource = source;
 
+            //[NEW] Nueva propiedad para ver la cantidad de elementos
+            Count = dgv.RowCount;
+
             dgv.AllowUserToResizeRows = false;
             dgv.RowHeadersVisible = false;
         }
@@ -97,6 +100,9 @@ namespace Heimdall.UserControl
 
         #region Propiedades
         public decimal Precio { get; set; }
+
+        public int Count { get; set; }
+
         public DateTime? Fecha { get; set; }
 
         [Description("IdProductoProveedor. Su evento de cambio genera DataBinding."), Category("Data")]
@@ -159,6 +165,10 @@ namespace Heimdall.UserControl
                 CargarProductoProveedorList(value);
             }
         }
+
+
+
+
         #endregion
 
 
