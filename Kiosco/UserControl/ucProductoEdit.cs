@@ -513,11 +513,13 @@ namespace Heimdall.UserControl
         private void nudPrecio_ValueChanged(object sender, EventArgs e)
         {
             CheckError_Precio_PrecioPremium();
+            OnModelStateChanged(new ValueChangedEventArgs(1));
         }
 
         private void nudPrecioVentaPremium_ValueChanged(object sender, EventArgs e)
         {
             CheckError_Precio_PrecioPremium();
+            OnModelStateChanged(new ValueChangedEventArgs(1));
         }
 
         private void CheckError_Precio_PrecioPremium()

@@ -156,7 +156,7 @@ namespace Heimdall.Forms
                 _ucAbmToolBar2.AllowNew = true;
                 _ucAbmToolBar2.AllowSave = false;
                 _ucAbmToolBar2.AllowDelete = false;
-                
+
 
             }
             ucPromocionList1.IdProducto = id;
@@ -389,13 +389,16 @@ namespace Heimdall.Forms
             //TODO: Aqui puedo incluir el F3 y el Enter?
             switch (keyData) {
                 case (Keys.Control | Keys.G):
-                    GuardarOInsertar();
+                    if (tsbSave.Enabled)
+                        GuardarOInsertar();
                     break;
                 case (Keys.Control | Keys.N):
-                    BotonNuevo();
+                    if (tsbNew.Enabled)
+                        BotonNuevo();
                     break;
                 case (Keys.Control | Keys.D):
-                    Eliminar();
+                    if (tsbDelete.Enabled)
+                        Eliminar();
                     break;
                 default:
                     break;
@@ -546,13 +549,10 @@ namespace Heimdall.Forms
         private void ucProductoEdit1_ModelStateChanged(object sender, ValueChangedEventArgs e)
         {
             //[NEW]
-            if (ucProductoEdit1.IsValid)
-            {
+            if (ucProductoEdit1.IsValid) {
                 //TODO: Continuar aqui
                 tsbSave.Enabled = true;
-            }
-            else
-            {
+            } else {
                 tsbSave.Enabled = false;
             }
         }
