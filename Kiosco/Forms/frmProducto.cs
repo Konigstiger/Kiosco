@@ -483,6 +483,8 @@ namespace Heimdall.Forms
             //test: esto es para que tenga el codigo de producto que realmente va,
             // y no uno de un producto interior. Es un bug.
             ucProductoProveedorEdit1.IdProducto = ucProductoEdit1.IdProducto;
+            //ESTO ES UNA NEGRADA
+            _ucAbmToolBar2.tsbSave.Enabled = true;
         }
 
         private void ucAbmToolBar2_ButtonClickDelete(object sender, EventArgs e)
@@ -548,13 +550,16 @@ namespace Heimdall.Forms
 
         private void ucProductoEdit1_ModelStateChanged(object sender, ValueChangedEventArgs e)
         {
+            //Si es un modelo valido, o es un registro nuevo
             //[NEW]
             if (ucProductoEdit1.IsValid) {
-                //TODO: Continuar aqui
+                //TODO: Continuar 
                 tsbSave.Enabled = true;
             } else {
                 tsbSave.Enabled = false;
             }
+            
+
         }
     }
 }
