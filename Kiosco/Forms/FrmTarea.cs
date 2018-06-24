@@ -117,7 +117,7 @@ namespace Heimdall
             } else {
                 if (model.Validate().Equals(false))
                     throw new Exception("Errores en validacion!");
-
+                //TODO: Modificar esto, para que no lance una excepcion!!
                 //REFACTOR: Se reusa el modelo. Modificar solo Id (PK)
                 model.IdTarea = ucTareaEdit1.IdTarea;
 

@@ -196,7 +196,7 @@ namespace Data
                                 Precio = rdr["Precio"] != DBNull.Value ? (decimal)rdr["Precio"] : 0,
                                 Ganancia = (string)rdr["Ganancia"],
                                 Marca = (string)rdr["Marca"],
-                                Stock = (int)rdr["Stock"],
+                                //Stock = (int)rdr["Stock"],
                                 Rubro = (string)rdr["Rubro"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
                                 Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false
@@ -235,7 +235,7 @@ namespace Data
                                 PrecioVentaPremium = rdr["Premium"] != DBNull.Value ? (decimal)rdr["Premium"] : 0,
                                 Ganancia = (string)rdr["Ganancia"],
                                 Marca = (string)rdr["Marca"],
-                                Stock = rdr["Stock"] != DBNull.Value ? (int)rdr["Stock"] : 0,
+                                //Stock = rdr["Stock"] != DBNull.Value ? (int)rdr["Stock"] : 0,
                                 Rubro = (string)rdr["Rubro"],
                                 Notas = rdr["Notas"] != DBNull.Value ? (string)rdr["Notas"] : "",
                                 Archivado = rdr["Archivado"] != DBNull.Value ? (bool)rdr["Archivado"] : false

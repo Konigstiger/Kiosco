@@ -54,20 +54,20 @@ namespace Heimdall
             // labelControl1
             // 
             this.labelControl1.AutoSize = true;
-            this.labelControl1.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(102, 138);
+            this.labelControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(93, 138);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(83, 24);
+            this.labelControl1.Size = new System.Drawing.Size(87, 24);
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Usuario:";
             // 
             // labelControl2
             // 
             this.labelControl2.AutoSize = true;
-            this.labelControl2.Font = new System.Drawing.Font("Caviar Dreams", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(86, 185);
+            this.labelControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(77, 185);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(99, 24);
+            this.labelControl2.Size = new System.Drawing.Size(106, 24);
             this.labelControl2.TabIndex = 12;
             this.labelControl2.Text = "Password:";
             // 

@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTarea));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.ucTareaEdit1 = new Heimdall.UserControl.UcTareaEdit();
             this.ucAbmToolBar1 = new Heimdall.UserControl.UcAbmToolBar();
@@ -79,6 +80,9 @@
             // 
             // ucAbmToolBar1
             // 
+            this.ucAbmToolBar1.AllowDelete = true;
+            this.ucAbmToolBar1.AllowNew = true;
+            this.ucAbmToolBar1.AllowSave = true;
             this.ucAbmToolBar1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ucAbmToolBar1.Location = new System.Drawing.Point(8, 1);
             this.ucAbmToolBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -99,6 +103,7 @@
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.ucTareaEdit1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmTarea";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

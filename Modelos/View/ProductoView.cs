@@ -47,8 +47,9 @@ namespace Model.View
             Precio = 4,
             Ganancia = 5,
             Marca = 6,
-            Stock = 7,
-            Rubro = 8
+            Rubro = 7,
+            Stock = 8
+
         }
 
     }

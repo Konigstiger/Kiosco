@@ -14,7 +14,7 @@ namespace Heimdall.Forms
         private ModoFormulario _modo = ModoFormulario.Nuevo;
 
         private int _rowIndex = 0;
-        private readonly int _colCount = 9;
+        private readonly int _colCount = 8;
         private bool _busquedaActiva = false;
 
         private List<ProductoView> _origenDatos = null;
@@ -101,8 +101,8 @@ namespace Heimdall.Forms
             Util.SetColumn(c[(int)ProductoView.GridColumn.Precio], "Precio", "Precio", 4);
             Util.SetColumn(c[(int)ProductoView.GridColumn.Ganancia], "Ganancia", "Ganancia", 5);
             Util.SetColumn(c[(int)ProductoView.GridColumn.Marca], "Marca", "Marca", 6);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 7);
-            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 8);
+            //Util.SetColumn(c[(int)ProductoView.GridColumn.Stock], "Stock", "Stock", 7);
+            Util.SetColumn(c[(int)ProductoView.GridColumn.Rubro], "Rubro", "Rubro", 7);
             dgv.Columns.AddRange(c);
 
 
